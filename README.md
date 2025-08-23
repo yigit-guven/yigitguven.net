@@ -1,8 +1,9 @@
 # Yiğit Güven - Personal Website
 
-![GitHub](https://img.shields.io/github/license/yigit-guven/yigitguven.net?color=blue)
+![GitHub](https://img.shields.io/badge/license-CC_BY_NC_4.0-red)
 ![GitHub last commit](https://img.shields.io/github/last-commit/yigit-guven/yigitguven.net)
 ![GitHub repo size](https://img.shields.io/github/repo-size/yigit-guven/yigitguven.net)
+
 
 Personal portfolio website of Harun Yiğit Güven. Built with pure HTML, CSS, and JavaScript.
 
@@ -57,12 +58,12 @@ To run this website locally:
 
 ## 📞 Contact
 
-- Email: [mailto:contact@yigitguven.net](contact@yigitguven.net)
-- GitHub: [https://github.com/yigit-guven]yigit-guven
-- Google Play: [https://play.google.com/store/apps/dev?id=7128980680944660685]Yiğit Güven
+- Email: [contact@yigitguven.net](mailto:contact@yigitguven.net)
+- GitHub: [yigit-guven](https://github.com/yigit-guven)
+- Google Play: [Yiğit Güven](https://play.google.com/store/apps/dev?id=7128980680944660685)
 
 ## 🙏 Acknowledgments
 
-- Icons by [https://fontawesome.com/](Font Awesome)
-- Fonts by [https://github.com/rsms/inter](Inter) licensed under the [http://scripts.sil.org/OFL](SIL Open Font License), Version 1.1
-- Hosting by [https://pages.github.com/](GitHub Pages)
+- Icons by [Font Awesome](https://fontawesome.com/)
+- Fonts by [Inter](https://github.com/rsms/inter) licensed under the [SIL Open Font License](http://scripts.sil.org/OFL), Version 1.1
+- Hosting by [GitHub Pages](https://pages.github.com/)
