@@ -1,104 +1,675 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Yiğit Güven</title>
-  <style>
-    body {
-      margin: 0;
-      font-family: Arial, sans-serif;
-      line-height: 1.6;
-      color: #333;
-    }
-    header {
-      background: #2c3e50;
-      color: #fff;
-      padding: 1rem;
-    }
-    header nav {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      max-width: 1000px;
-      margin: auto;
-    }
-    header a {
-      color: #fff;
-      text-decoration: none;
-      margin: 0 0.5rem;
-      font-weight: bold;
-    }
-    header a:hover {
-      text-decoration: underline;
-    }
-    .hero {
-      background: #f4f4f4;
-      text-align: center;
-      padding: 4rem 2rem;
-    }
-    .hero h1 {
-      margin: 0;
-      font-size: 2.5rem;
-    }
-    .hero p {
-      font-size: 1.2rem;
-      color: #555;
-    }
-    .container {
-      max-width: 1000px;
-      margin: auto;
-      padding: 2rem;
-    }
-    footer {
-      background: #2c3e50;
-      color: #fff;
-      text-align: center;
-      padding: 1rem;
-      margin-top: 2rem;
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Harun Yiğit Güven | Developer & Gamer</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary: #6366f1;
+            --primary-light: #818cf8;
+            --primary-dark: #4f46e5;
+            --bg: #0f172a;
+            --bg-secondary: #1e293b;
+            --text: #f1f5f9;
+            --text-secondary: #cbd5e1;
+            --card-bg: #1e293b;
+            --card-border: #334155;
+            --shadow: rgba(0, 0, 0, 0.25);
+            --transition: all 0.3s ease;
+            --gradient: linear-gradient(135deg, var(--primary), var(--primary-light));
+        }
+
+        .light-theme {
+            --bg: #f8fafc;
+            --bg-secondary: #e2e8f0;
+            --text: #0f172a;
+            --text-secondary: #475569;
+            --card-bg: #ffffff;
+            --card-border: #e2e8f0;
+            --shadow: rgba(0, 0, 0, 0.05);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg);
+            color: var(--text);
+            line-height: 1.6;
+            transition: var(--transition);
+            min-height: 100vh;
+            padding-bottom: 2rem;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1.5rem;
+        }
+
+        header {
+            padding: 2rem 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .logo-img {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 3px solid var(--primary);
+            box-shadow: 0 0 15px rgba(99, 102, 241, 0.4);
+        }
+
+        .logo-text h1 {
+            font-size: 1.8rem;
+            font-weight: 700;
+            background: var(--gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .logo-text p {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+        }
+
+        .theme-switcher {
+            background: var(--card-bg);
+            border: 1px solid var(--card-border);
+            border-radius: 50px;
+            padding: 0.5rem;
+            display: flex;
+            align-items: center;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .theme-switcher:hover {
+            box-shadow: 0 0 10px rgba(99, 102, 241, 0.3);
+        }
+
+        .theme-icon {
+            padding: 0.5rem;
+            border-radius: 50%;
+            background: var(--gradient);
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .hero {
+            text-align: center;
+            padding: 3rem 0;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .hero h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            background: var(--gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .hero p {
+            color: var(--text-secondary);
+            font-size: 1.1rem;
+            margin-bottom: 2rem;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            padding: 0.8rem 1.5rem;
+            border-radius: 50px;
+            font-weight: 500;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            transition: var(--transition);
+            text-decoration: none;
+        }
+
+        .btn-primary {
+            background: var(--gradient);
+            color: white;
+            box-shadow: 0 4px 6px rgba(99, 102, 241, 0.3);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 12px rgba(99, 102, 241, 0.4);
+        }
+
+        .btn-secondary {
+            background: var(--card-bg);
+            color: var(--text);
+            border: 1px solid var(--card-border);
+        }
+
+        .btn-secondary:hover {
+            border-color: var(--primary);
+            color: var(--primary);
+        }
+
+        .section {
+            margin: 4rem 0;
+        }
+
+        .section-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 2rem;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        .section-title {
+            font-size: 1.8rem;
+            font-weight: 600;
+            position: relative;
+            padding-bottom: 0.5rem;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 50px;
+            height: 3px;
+            background: var(--gradient);
+            border-radius: 3px;
+        }
+
+        .view-all {
+            color: var(--primary);
+            text-decoration: none;
+            font-weight: 500;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            transition: var(--transition);
+        }
+
+        .view-all:hover {
+            gap: 0.8rem;
+        }
+
+        .card-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .card {
+            background: var(--card-bg);
+            border: 1px solid var(--card-border);
+            border-radius: 12px;
+            padding: 1.5rem;
+            transition: var(--transition);
+            box-shadow: 0 4px 6px var(--shadow);
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px var(--shadow);
+            border-color: var(--primary);
+        }
+
+        .card-icon {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+            color: var(--primary);
+        }
+
+        .card-title {
+            font-size: 1.2rem;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+        }
+
+        .card-desc {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+            margin-bottom: 1.5rem;
+            flex-grow: 1;
+        }
+
+        .card-links {
+            display: flex;
+            gap: 0.8rem;
+        }
+
+        .card-link {
+            color: var(--primary);
+            text-decoration: none;
+            font-size: 0.9rem;
+            font-weight: 500;
+            display: flex;
+            align-items: center;
+            gap: 0.3rem;
+            transition: var(--transition);
+        }
+
+        .card-link:hover {
+            color: var(--primary-light);
+            gap: 0.5rem;
+        }
+
+        .mod-badges {
+            display: flex;
+            gap: 0.5rem;
+            margin-top: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .mod-badge {
+            background: var(--bg-secondary);
+            color: var(--text);
+            padding: 0.3rem 0.6rem;
+            border-radius: 4px;
+            font-size: 0.7rem;
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        .mod-badge:hover {
+            background: var(--primary);
+            color: white;
+        }
+
+        footer {
+            margin-top: 6rem;
+            padding-top: 2rem;
+            border-top: 1px solid var(--card-border);
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+
+        .footer-col h3 {
+            font-size: 1.2rem;
+            margin-bottom: 1.2rem;
+            position: relative;
+            padding-bottom: 0.5rem;
+        }
+
+        .footer-col h3::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 30px;
+            height: 2px;
+            background: var(--gradient);
+        }
+
+        .footer-links {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 0.8rem;
+        }
+
+        .footer-links a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            transition: var(--transition);
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .footer-links a:hover {
+            color: var(--primary);
+            gap: 0.7rem;
+        }
+
+        .copyright {
+            text-align: center;
+            margin-top: 3rem;
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+            padding-top: 1.5rem;
+            border-top: 1px solid var(--card-border);
+        }
+
+        @media (max-width: 768px) {
+            .hero h2 {
+                font-size: 2rem;
+            }
+            
+            .section-header {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+            
+            .card-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
 </head>
 <body>
-  <header>
-    <nav>
-      <div class="logo"><a href="#">Home</a></div>
-      <div class="links">
-        <a href="#about">About</a>
-        <a href="#services">Services</a>
-        <a href="#contact">Contact</a>
-      </div>
-    </nav>
-  </header>
+    <div class="container">
+        <header>
+            <div class="logo">
+                <img src="https://www.dropbox.com/scl/fi/2iz26i4x40q21j677xmka/183934967.png?rlkey=wrawdg30n5erfhfpiepllulp8&st=02ljymoj&dl=1" alt="Yiğit Güven" class="logo-img">
+                <div class="logo-text">
+                    <h1>Yiğit Güven</h1>
+                    <p>Developer | Gamer</p>
+                </div>
+            </div>
+            <div class="theme-switcher" id="themeSwitcher">
+                <div class="theme-icon">
+                    <i class="fas fa-moon"></i>
+                </div>
+            </div>
+        </header>
 
-  <section class="hero">
-    <h1>Welcome to yigitguven.net</h1>
-    <p>-.</p>
-  </section>
+        <section class="hero">
+            <h2>Creating Digital Experiences</h2>
+            <p>I'm a developer and gamer passionate about creating useful applications, games, and Minecraft mods. I enjoy solving problems and building things that people find helpful and enjoyable.</p>
+            <div class="cta-buttons">
+                <a href="#projects" class="btn btn-primary">
+                    <i class="fas fa-code"></i> View My Work
+                </a>
+                <a href="mailto:contact@yigitguven.net" class="btn btn-secondary">
+                    <i class="fas fa-envelope"></i> Contact Me
+                </a>
+            </div>
+        </section>
 
-  <section id="about" class="container">
-    <h2>About</h2>
-    <p>
-      -
-    </p>
-  </section>
+        <section class="section" id="projects">
+            <div class="section-header">
+                <h3 class="section-title">Mobile App & Game Projects</h3>
+                <a href="https://play.google.com/store/apps/dev?id=7128980680944660685" class="view-all">
+                    View All <i class="fas fa-arrow-right"></i>
+                </a>
+            </div>
+            <div class="card-grid">
+                <div class="card">
+                    <div class="card-icon">
+                        <i class="fas fa-file-export"></i>
+                    </div>
+                    <h4 class="card-title">Simple File Converter</h4>
+                    <p class="card-desc">A privacy-focused offline file conversion tool supporting multiple formats with no ads or tracking.</p>
+                    <div class="card-links">
+                        <a href="https://github.com/yigit-guven/Simple-File-Converter" class="card-link" target="_blank">
+                            <i class="fab fa-github"></i> Source
+                        </a>
+                        <a href="https://play.google.com/store/apps/details?id=com.YigitGuven.SimpleFileConverter" class="card-link" target="_blank">
+                            <i class="fab fa-google-play"></i> Play Store
+                        </a>
+                        <a href="/simplefileconverter" class="card-link">
+                            <i class="fas fa-link"></i> Project Page
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="card">
+                    <div class="card-icon">
+                        <i class="fas fa-chess-knight"></i>
+                    </div>
+                    <h4 class="card-title">Sudosei</h4>
+                    <p class="card-desc">A strategic puzzle game combining Sudoku mechanics with Japanese Go aesthetics. (Coming Soon)</p>
+                    <div class="card-links">
+                        <a href="#" class="card-link">
+                            <i class="fab fa-google-play"></i> Coming Soon
+                        </a>
+                        <a href="/sudosei" class="card-link">
+                            <i class="fas fa-link"></i> Project Page
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="card">
+                    <div class="card-icon">
+                        <i class="fas fa-industry"></i>
+                    </div>
+                    <h4 class="card-title">Idle Factories</h4>
+                    <p class="card-desc">An incremental game where you build and optimize production lines. (In Development)</p>
+                    <div class="card-links">
+						<a href="#" class="card-link">
+                            <i class="fab fa-google-play"></i> Coming Soon
+                        </a>
+                        <a href="/idlefactories" class="card-link">
+                            <i class="fas fa-link"></i> Project Page
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
 
-  <section id="services" class="container">
-    <h2>Services</h2>
-    <p>
-      -
-    </p>
-  </section>
+        <section class="section">
+            <div class="section-header">
+                <h3 class="section-title">Minecraft Mod Projects</h3>
+                <a href="https://www.anchorstudios.site" class="view-all" target="_blank">
+                    Visit Anchor Studios <i class="fas fa-arrow-right"></i>
+                </a>
+            </div>
+            <div class="card-grid">
+                <div class="card">
+                    <div class="card-icon">
+                        <i class="fas fa-suitcase-rolling"></i>
+                    </div>
+                    <h4 class="card-title">RPG Backpacks</h4>
+                    <p class="card-desc">Adds a variety of backpacks in Minecraft, each with different storage capacities, allowing players to carry more items on their adventures.</p>
+                    <div class="card-links">
+                        <a href="https://github.com/Anchor-Studios/RPG-Backpacks" class="card-link" target="_blank">
+                            <i class="fab fa-github"></i> Source
+                        </a>
+                        <div class="mod-badges">
+                            <a href="https://www.curseforge.com/minecraft/mc-mods/rpg-backpacks" class="mod-badge" target="_blank">CurseForge</a>
+                            <a href="https://modrinth.com/mod/rpg-backpacks" class="mod-badge" target="_blank">Modrinth</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="card">
+                    <div class="card-icon">
+                        <i class="fas fa-user"></i>
+                    </div>
+                    <h4 class="card-title">Player Stand</h4>
+                    <p class="card-desc">Display players as armor stands with customizable poses and equipment.</p>
+                    <div class="card-links">
+                        <a href="https://github.com/Anchor-Studios/Player-Stand" class="card-link" target="_blank">
+                            <i class="fab fa-github"></i> Source
+                        </a>
+                        <div class="mod-badges">
+                            <a href="https://www.curseforge.com/minecraft/mc-mods/playerstand" class="mod-badge" target="_blank">CurseForge</a>
+                            <a href="https://modrinth.com/mod/playerstand" class="mod-badge" target="_blank">Modrinth</a>
+                            <a href="https://www.anchorstudios.site/wiki/playerstand" class="mod-badge" target="_blank">Wiki</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="card">
+                    <div class="card-icon">
+                        <i class="fas fa-paw"></i>
+                    </div>
+                    <h4 class="card-title">Petting</h4>
+                    <p class="card-desc">Tame mobs by petting them, turning them into loyal companions that follow and protect you.</p>
+                    <div class="card-links">
+                        <a href="https://github.com/Anchor-Studios/Petting" class="card-link" target="_blank">
+                            <i class="fab fa-github"></i> Source
+                        </a>
+                        <div class="mod-badges">
+                            <a href="https://www.curseforge.com/minecraft/mc-mods/petting" class="mod-badge" target="_blank">CurseForge</a>
+                            <a href="https://modrinth.com/mod/petting" class="mod-badge" target="_blank">Modrinth</a>
+                            <a href="https://www.anchorstudios.site/wiki/petting" class="mod-badge" target="_blank">Wiki</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="card">
+                    <div class="card-icon">
+                        <i class="fas fa-scroll"></i>
+                    </div>
+                    <h4 class="card-title">Leather Craft</h4>
+                    <p class="card-desc">Create leather by smelting rotten flesh.</p>
+                    <div class="card-links">
+                        <a href="https://github.com/Anchor-Studios/Leather-Craft" class="card-link" target="_blank">
+                            <i class="fab fa-github"></i> Source
+                        </a>
+                        <div class="mod-badges">
+                            <a href="https://www.curseforge.com/minecraft/mc-mods/leather-craft" class="mod-badge" target="_blank">CurseForge</a>
+                            <a href="https://modrinth.com/mod/leather-craft" class="mod-badge" target="_blank">Modrinth</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
 
-  <section id="contact" class="container">
-    <h2>Contact</h2>
-    <p>
-      -
-    </p>
-  </section>
+        <section class="section">
+            <div class="section-header">
+                <h3 class="section-title">Other Open Source Projects</h3>
+                <a href="https://github.com/yigit-guven" class="view-all" target="_blank">
+                    View GitHub <i class="fas fa-arrow-right"></i>
+                </a>
+            </div>
+            <div class="card-grid">
+                <div class="card">
+                    <div class="card-icon">
+                        <i class="fas fa-font"></i>
+                    </div>
+                    <h4 class="card-title">Hush Word</h4>
+                    <p class="card-desc">A minimalist, level-based word puzzle game with a clean GUI built using Python and Tkinter.</p>
+                    <div class="card-links">
+                        <a href="https://github.com/yigit-guven/Hush-Word" class="card-link" target="_blank">
+                            <i class="fab fa-github"></i> Source Code
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="card">
+                    <div class="card-icon">
+                        <i class="fas fa-globe"></i>
+                    </div>
+                    <h4 class="card-title">Personal Website</h4>
+                    <p class="card-desc">The source code for this website.</p>
+                    <div class="card-links">
+                        <a href="https://github.com/yigit-guven/yigitguven.net" class="card-link" target="_blank">
+                            <i class="fab fa-github"></i> Source Code
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
 
-  <footer>
-    <p>&copy; 2025 Yiğit Güven. All rights reserved.</p>
-  </footer>
+        <footer>
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <h3>Navigation</h3>
+                    <ul class="footer-links">
+                        <li><a href="/"><i class="fas fa-home"></i> Home</a></li>
+                        <li><a href="#projects"><i class="fas fa-code"></i> Projects</a></li>
+                        <li><a href="mailto:contact@yigitguven.net"><i class="fas fa-envelope"></i> Contact</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-col">
+                    <h3>Legal</h3>
+                    <ul class="footer-links">
+                        <li><a href="/privacy"><i class="fas fa-shield-alt"></i> Privacy Policy</a></li>
+                        <li><a href="/terms"><i class="fas fa-file-contract"></i> Terms of Service</a></li>
+                        <li><a href="https://github.com/yigit-guven/yigitguven.net" target="_blank"><i class="fas fa-code-branch"></i> Source Code</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-col">
+                    <h3>Connect</h3>
+                    <ul class="footer-links">
+                        <li><a href="https://github.com/yigit-guven" target="_blank"><i class="fab fa-github"></i> GitHub</a></li>
+                        <li><a href="https://play.google.com/store/apps/dev?id=7128980680944660685" target="_blank"><i class="fab fa-google-play"></i> Google Play</a></li>
+                        <li><a href="https://www.anchorstudios.site" target="_blank"><i class="fas fa-anchor"></i> Anchor Studios</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="copyright">
+                <p>&copy; 2025 Yiğit Güven. Code: <a href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank">CC BY-NC 4.0</a>; media/assets: all rights reserved.</p>
+            </div>
+        </footer>
+    </div>
+
+    <script>
+        // Theme switching functionality
+        const themeSwitcher = document.getElementById('themeSwitcher');
+        const themeIcon = themeSwitcher.querySelector('i');
+        
+        // Check for saved theme preference or respect OS preference
+        if (localStorage.getItem('theme') === 'light' || 
+            (window.matchMedia('(prefers-color-scheme: light)').matches && !localStorage.getItem('theme'))) {
+            document.body.classList.add('light-theme');
+            themeIcon.classList.remove('fa-moon');
+            themeIcon.classList.add('fa-sun');
+        }
+        
+        themeSwitcher.addEventListener('click', () => {
+            document.body.classList.toggle('light-theme');
+            
+            if (document.body.classList.contains('light-theme')) {
+                localStorage.setItem('theme', 'light');
+                themeIcon.classList.remove('fa-moon');
+                themeIcon.classList.add('fa-sun');
+            } else {
+                localStorage.setItem('theme', 'dark');
+                themeIcon.classList.remove('fa-sun');
+                themeIcon.classList.add('fa-moon');
+            }
+        });
+        
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 20,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+    </script>
 </body>
 </html>

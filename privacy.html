@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Privacy Policy | Yiğit Güven</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary: #6366f1;
+            --primary-light: #818cf8;
+            --primary-dark: #4f46e5;
+            --bg: #0f172a;
+            --bg-secondary: #1e293b;
+            --text: #f1f5f9;
+            --text-secondary: #cbd5e1;
+            --card-bg: #1e293b;
+            --card-border: #334155;
+            --shadow: rgba(0, 0, 0, 0.25);
+            --transition: all 0.3s ease;
+            --gradient: linear-gradient(135deg, var(--primary), var(--primary-light));
+        }
+
+        .light-theme {
+            --bg: #f8fafc;
+            --bg-secondary: #e2e8f0;
+            --text: #0f172a;
+            --text-secondary: #475569;
+            --card-bg: #ffffff;
+            --card-border: #e2e8f0;
+            --shadow: rgba(0, 0, 0, 0.05);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg);
+            color: var(--text);
+            line-height: 1.6;
+            transition: var(--transition);
+            min-height: 100vh;
+            padding-bottom: 2rem;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 0 1.5rem;
+        }
+
+        header {
+            padding: 2rem 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .logo-img {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 3px solid var(--primary);
+            box-shadow: 0 0 15px rgba(99, 102, 241, 0.4);
+        }
+
+        .logo-text h1 {
+            font-size: 1.5rem;
+            font-weight: 700;
+        }
+
+        .theme-switcher {
+            background: var(--card-bg);
+            border: 1px solid var(--card-border);
+            border-radius: 50px;
+            padding: 0.5rem;
+            display: flex;
+            align-items: center;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .theme-switcher:hover {
+            box-shadow: 0 0 10px rgba(99, 102, 241, 0.3);
+        }
+
+        .theme-icon {
+            padding: 0.5rem;
+            border-radius: 50%;
+            background: var(--gradient);
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .content {
+            background: var(--card-bg);
+            border-radius: 12px;
+            padding: 2rem;
+            margin: 2rem 0;
+            border: 1px solid var(--card-border);
+        }
+
+        h2 {
+            margin: 1.5rem 0 1rem;
+            color: var(--primary-light);
+        }
+
+        h2:first-child {
+            margin-top: 0;
+        }
+
+        p, ul {
+            margin-bottom: 1rem;
+            color: var(--text-secondary);
+        }
+
+        ul {
+            padding-left: 1.5rem;
+        }
+
+        a {
+            color: var(--primary);
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        a:hover {
+            color: var(--primary-light);
+        }
+
+        .back-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            margin-top: 1rem;
+            color: var(--primary);
+        }
+
+        footer {
+            margin-top: 3rem;
+            padding-top: 2rem;
+            border-top: 1px solid var(--card-border);
+            text-align: center;
+            color: var(--text-secondary);
+        }
+
+        .no-data {
+            background: rgba(99, 102, 241, 0.1);
+            border-left: 4px solid var(--primary);
+            padding: 1rem;
+            margin: 1.5rem 0;
+            border-radius: 4px;
+        }
+
+        @media (max-width: 768px) {
+            .content {
+                padding: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="logo">
+                <img src="https://www.dropbox.com/scl/fi/2iz26i4x40q21j677xmka/183934967.png?rlkey=wrawdg30n5erfhfpiepllulp8&st=02ljymoj&dl=1" alt="Yiğit Güven" class="logo-img">
+                <div class="logo-text">
+                    <h1>Privacy Policy</h1>
+                </div>
+            </div>
+            <div class="theme-switcher" id="themeSwitcher">
+                <div class="theme-icon">
+                    <i class="fas fa-moon"></i>
+                </div>
+            </div>
+        </header>
+
+        <div class="content">
+            <p><strong>Last Updated:</strong> August 23, 2025</p>
+            
+            <div class="no-data">
+                <p><strong>Important:</strong> This website is hosted on GitHub Pages and collects absolutely no personal data from visitors.</p>
+            </div>
+            
+            <h2>Introduction</h2>
+            <p>This Privacy Policy explains the privacy practices for yigitguven.net, a static website hosted on GitHub Pages.</p>
+            <p>This policy applies only to this website and does not cover my applications, games, or other projects which have their own separate privacy policies.</p>
+            
+            <h2>No Data Collection</h2>
+            <p>This website is a static site hosted on GitHub Pages, which means:</p>
+            <ul>
+                <li>No tracking scripts are used (Google Analytics, Facebook Pixel, etc.)</li>
+                <li>No cookies are set for tracking purposes</li>
+                <li>No personal information is collected</li>
+                <li>No form data is submitted or stored</li>
+                <li>No user accounts or registration systems exist</li>
+            </ul>
+            
+            <h2>GitHub Pages Logging</h2>
+            <p>As GitHub Pages is the hosting provider, GitHub may collect certain information automatically:</p>
+            <ul>
+                <li>Visitor IP addresses for security and maintenance purposes</li>
+                <li>Pages visited and referring sites</li>
+                <li>Browser type and device information</li>
+            </ul>
+            <p>This data is collected by GitHub, not by me, and is subject to <a href="https://docs.github.com/en/site-policy/privacy-policies/github-general-privacy-statement" target="_blank">GitHub's Privacy Policy</a>.</p>
+            
+            <h2>Third-Party Links</h2>
+            <p>This website may contain links to external sites that are not operated by me. If you click on a third-party link, you will be directed to that third party's site. I strongly advise you to review the Privacy Policy of every site you visit.</p>
+            <p>I have no control over and assume no responsibility for the content, privacy policies, or practices of any third-party sites or services.</p>
+            
+            <h2>Theme Preference</h2>
+            <p>The only "data" stored by this website is your theme preference (light or dark mode) in your browser's local storage. This information never leaves your device and is not transmitted to any server.</p>
+            
+            <h2>Changes to This Policy</h2>
+            <p>I may update this Privacy Policy from time to time. I will notify you of any changes by posting the new Privacy Policy on this page and updating the "Last Updated" date.</p>
+            
+            <h2>Contact</h2>
+            <p>If you have any questions about this Privacy Policy, please contact me at <a href="mailto:contact@yigitguven.net">contact@yigitguven.net</a>.</p>
+            
+            <a href="/" class="back-link">
+                <i class="fas fa-arrow-left"></i> Back to Home
+            </a>
+        </div>
+
+        <footer>
+            <p>&copy; 2025 Yiğit Güven. Code: <a href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank">CC BY-NC 4.0</a>; media/assets: all rights reserved.</p>
+        </footer>
+    </div>
+
+    <script>
+        // Theme switching functionality
+        const themeSwitcher = document.getElementById('themeSwitcher');
+        const themeIcon = themeSwitcher.querySelector('i');
+        
+        if (localStorage.getItem('theme') === 'light' || 
+            (window.matchMedia('(prefers-color-scheme: light)').matches && !localStorage.getItem('theme'))) {
+            document.body.classList.add('light-theme');
+            themeIcon.classList.remove('fa-moon');
+            themeIcon.classList.add('fa-sun');
+        }
+        
+        themeSwitcher.addEventListener('click', () => {
+            document.body.classList.toggle('light-theme');
+            
+            if (document.body.classList.contains('light-theme')) {
+                localStorage.setItem('theme', 'light');
+                themeIcon.classList.remove('fa-moon');
+                themeIcon.classList.add('fa-sun');
+            } else {
+                localStorage.setItem('theme', 'dark');
+                themeIcon.classList.remove('fa-sun');
+                themeIcon.classList.add('fa-moon');
+            }
+        });
+    </script>
+</body>
+</html>
