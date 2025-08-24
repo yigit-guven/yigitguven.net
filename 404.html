@@ -7,106 +7,6 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="style.css">
-    <style>
-        /* Additional styles for the 404 page */
-        .giant-404 {
-            font-size: 20vw;
-            font-weight: 800;
-            text-align: center;
-            margin: 2rem 0;
-            background: var(--gradient);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            position: relative;
-            line-height: 1;
-            text-shadow: 0 5px 15px rgba(99, 102, 241, 0.2);
-            user-select: none;
-        }
-        
-        .floating {
-            animation: floating 3s ease-in-out infinite;
-        }
-        
-        @keyframes floating {
-            0%, 100% { transform: translateY(0); }
-            50% { transform: translateY(-15px); }
-        }
-        
-        .error-message {
-            text-align: center;
-            margin-bottom: 2rem;
-            font-size: 1.2rem;
-            color: var(--text-secondary);
-            max-width: 600px;
-            margin-left: auto;
-            margin-right: auto;
-        }
-        
-        .cta-buttons {
-            display: flex;
-            gap: 1rem;
-            justify-content: center;
-            flex-wrap: wrap;
-            margin-bottom: 3rem;
-        }
-        
-        .interactive-element {
-            background: var(--card-bg);
-            border: 1px solid var(--card-border);
-            border-radius: 12px;
-            padding: 1.5rem;
-            margin: 2rem auto;
-            max-width: 600px;
-            text-align: center;
-            box-shadow: 0 4px 6px var(--shadow);
-        }
-        
-        .interactive-element p {
-            margin-bottom: 1rem;
-            color: var(--text-secondary);
-        }
-        
-        #fun-button {
-            background: var(--gradient);
-            color: white;
-            border: none;
-            padding: 0.8rem 1.5rem;
-            border-radius: 50px;
-            font-weight: 500;
-            cursor: pointer;
-            transition: var(--transition);
-            box-shadow: 0 4px 6px rgba(99, 102, 241, 0.3);
-        }
-        
-        #fun-button:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 6px 12px rgba(99, 102, 241, 0.4);
-        }
-        
-        #joke-container {
-            margin-top: 1rem;
-            padding: 1rem;
-            background: var(--bg-secondary);
-            border-radius: 8px;
-            display: none;
-        }
-        
-        .search-suggestion {
-            margin-top: 2rem;
-            text-align: center;
-            color: var(--text-secondary);
-        }
-        
-        @media (max-width: 768px) {
-            .giant-404 {
-                font-size: 25vw;
-            }
-            
-            .error-message {
-                font-size: 1rem;
-            }
-        }
-    </style>
 </head>
 <body>
     <div class="container">
@@ -152,7 +52,7 @@
                     <h3>Navigation</h3>
                     <ul class="footer-links">
                         <li><a href="/"><i class="fas fa-home"></i> Home</a></li>
-                        <li><a href="#projects"><i class="fas fa-code"></i> Projects</a></li>
+                        <li><a href="/#projects"><i class="fas fa-code"></i> Projects</a></li>
                         <li><a href="mailto:contact@yigitguven.net"><i class="fas fa-envelope"></i> Contact</a></li>
                     </ul>
                 </div>
@@ -183,46 +83,5 @@
     </div>
 
     <script src="script.js"></script>
-    <script>
-        // Additional JavaScript for the interactive element
-        document.addEventListener('DOMContentLoaded', function() {
-            const funButton = document.getElementById('fun-button');
-            const jokeContainer = document.getElementById('joke-container');
-            
-            // Array of developer jokes
-            const jokes = [
-                "Why do programmers prefer dark mode? Because light attracts bugs!",
-                "Why do Java developers wear glasses? Because they can't C#!",
-                "A SQL query goes into a bar, walks up to two tables and asks: 'Can I join you?'",
-                "Why was the JavaScript developer sad? Because he didn't Node how to Express himself!",
-                "How many programmers does it take to change a light bulb? None, that's a hardware problem!",
-                "Why do programmers always mix up Halloween and Christmas? Because Oct 31 == Dec 25!",
-                "There are only 10 types of people in the world: those who understand binary and those who don't.",
-                "Why did the developer go broke? Because he used up all his cache!",
-                "What do you call a programmer from Finland? Nerdic.",
-                "How do you comfort a JavaScript bug? You console it!",
-                "Why did the programmer quit his job? Because he didn't get arrays!",
-                "What do cats and programmers have in common? When they're happy, they push things off tables."
-            ];
-            
-            funButton.addEventListener('click', function() {
-                // Select a random joke
-                const randomJoke = jokes[Math.floor(Math.random() * jokes.length)];
-                
-                // Display the joke
-                jokeContainer.innerHTML = `<p>${randomJoke}</p>`;
-                jokeContainer.style.display = 'block';
-                
-                // Change button text
-                funButton.textContent = 'Another Joke!';
-            });
-            
-            // Add floating animation to the 404 text with slight variations
-            const giant404 = document.querySelector('.giant-404');
-            setInterval(() => {
-                giant404.classList.toggle('floating');
-            }, 6000);
-        });
-    </script>
 </body>
 </html>

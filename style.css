@@ -412,6 +412,87 @@ footer {
     border-radius: 4px;
 }
 
+/* Additional styles for the 404 page */
+.giant-404 {
+    font-size: 20vw;
+    font-weight: 800;
+    text-align: center;
+    margin: 2rem 0;
+    background: var(--gradient);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    position: relative;
+    line-height: 1;
+    text-shadow: 0 5px 15px rgba(99, 102, 241, 0.2);
+    user-select: none;
+}
+
+.floating {
+    animation: floating 3s ease-in-out infinite;
+}
+
+@keyframes floating {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-15px); }
+}
+
+.error-message {
+    text-align: center;
+    margin-bottom: 2rem;
+    font-size: 1.2rem;
+    color: var(--text-secondary);
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.interactive-element {
+    background: var(--card-bg);
+    border: 1px solid var(--card-border);
+    border-radius: 12px;
+    padding: 1.5rem;
+    margin: 2rem auto;
+    max-width: 600px;
+    text-align: center;
+    box-shadow: 0 4px 6px var(--shadow);
+}
+
+.interactive-element p {
+    margin-bottom: 1rem;
+    color: var(--text-secondary);
+}
+
+#fun-button {
+    background: var(--gradient);
+    color: white;
+    border: none;
+    padding: 0.8rem 1.5rem;
+    border-radius: 50px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: var(--transition);
+    box-shadow: 0 4px 6px rgba(99, 102, 241, 0.3);
+}
+
+#fun-button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 12px rgba(99, 102, 241, 0.4);
+}
+
+#joke-container {
+    margin-top: 1rem;
+    padding: 1rem;
+    background: var(--bg-secondary);
+    border-radius: 8px;
+    display: none;
+}
+
+.search-suggestion {
+    margin-top: 2rem;
+    text-align: center;
+    color: var(--text-secondary);
+}
+
 /* Responsive styles */
 @media (max-width: 768px) {
     .hero h2 {
@@ -438,6 +519,14 @@ footer {
     
     .logo-text h1 {
         font-size: 1.5rem;
+    }
+    
+    .giant-404 {
+        font-size: 25vw;
+    }
+    
+    .error-message {
+        font-size: 1rem;
     }
 }
 
