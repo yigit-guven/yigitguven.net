@@ -1,79 +1,100 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Privacy Policy - Simple File Converter</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Privacy Policy • Simple File Converter</title>
+  <meta name="description" content="Privacy Policy for Simple File Converter — your files stay private and local." />
+  <meta name="theme-color" content="#111827" />
   <style>
+    :root {
+      --bg: #0b1220;
+      --bg-alt: #0f172a;
+      --card: #111827;
+      --muted: #9ca3af;
+      --text: #e5e7eb;
+      --brand: #7c3aed;
+      --brand-2: #22d3ee;
+      --shadow: 0 10px 30px rgba(0,0,0,0.35);
+    }
+    * { box-sizing: border-box }
+    html, body { height: 100% }
     body {
-      font-family: Arial, sans-serif;
-      line-height: 1.6;
-      margin: 2rem auto;
-      max-width: 800px;
-      padding: 0 1rem;
-      color: #333;
-      background: #fafafa;
+      margin: 0;
+      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, Noto Sans, "Helvetica Neue", Arial;
+      color: var(--text);
+      background: linear-gradient(180deg, var(--bg) 0%, var(--bg-alt) 100%);
     }
-    h1, h2 {
-      color: #2c3e50;
+    a { color: #a5b4fc; text-decoration: none }
+    a:hover { text-decoration: underline }
+    .container { max-width: 800px; margin: 0 auto; padding: 40px 20px }
+    header {
+      position: sticky; top: 0; z-index: 50;
+      backdrop-filter: blur(10px);
+      background: rgba(11,18,32,0.55);
+      border-bottom: 1px solid rgba(255,255,255,0.06);
     }
-    h1 {
-      border-bottom: 2px solid #ddd;
-      padding-bottom: 0.5rem;
-    }
-    p {
-      margin-bottom: 1rem;
-    }
-    ul {
-      margin: 0.5rem 0 1.5rem 1.2rem;
-    }
-    footer {
-      margin-top: 2rem;
-      font-size: 0.9rem;
-      color: #666;
-      text-align: center;
-    }
-    a {
-      color: #2980b9;
-      text-decoration: none;
-    }
-    a:hover {
-      text-decoration: underline;
-    }
+    .nav { display:flex; align-items:center; justify-content:space-between; height:64px; max-width:1120px; margin:0 auto; padding:0 20px }
+    .logo { display:flex; align-items:center; gap:12px; font-weight:700 }
+    .logo-mark { width:32px; height:32px; border-radius:12px; background: conic-gradient(from 180deg at 50% 50%, var(--brand), var(--brand-2), var(--brand)); box-shadow: var(--shadow) }
+    h1, h2 { color:white; }
+    h1 { font-size:2rem; margin-bottom:1rem; border-bottom:1px solid rgba(255,255,255,0.1); padding-bottom:.5rem }
+    h2 { margin-top:2rem; font-size:1.25rem }
+    p, ul { color: var(--muted); line-height:1.6 }
+    ul { margin: .5rem 0 1.5rem 1.2rem }
+    li { margin-top:.4rem }
+    .card { background: linear-gradient(180deg, rgba(255,255,255,0.06), rgba(255,255,255,0.02)); border:1px solid rgba(255,255,255,0.08); border-radius:18px; padding:20px; box-shadow: var(--shadow) }
+    footer { padding: 36px 0; border-top: 1px solid rgba(255,255,255,0.06); margin-top: 56px; color:#cbd5e1; text-align:center; font-size:.9rem }
   </style>
 </head>
 <body>
-  <h1>Simple File Converter Privacy Policy</h1>
-  <p><strong>Effective Date:</strong> 23 August 2025</p>
-  <p>Simple File Converter ("we", "our", or "the App") values your privacy. This Privacy Policy explains how we handle information when you use our app.</p>
+  <header>
+    <div class="nav">
+      <a class="logo" href="/simplefileconverter" aria-label="Back to Simple File Converter home">
+        <span class="logo-mark" aria-hidden="true"></span>
+        <span>Simple File Converter</span>
+      </a>
+    </div>
+  </header>
 
-  <h2>1. Information We Collect</h2>
-  <p>Simple File Converter does not collect any personal data from users. All file operations remain entirely on your device.</p>
+  <main class="container">
+    <div class="card">
+      <h1>Privacy Policy</h1>
+      <p><strong>Effective Date:</strong> 23 August 2025</p>
+      <p>Simple File Converter ("we", "our", or "the App") values your privacy. This Privacy Policy explains how we handle information when you use our app.</p>
 
-  <h2>2. File Processing</h2>
-  <p>Simple File Converter processes files locally on your device:</p>
-  <ul>
-    <li>All file operations are performed locally on your device</li>
-    <li>No file data is transmitted to any servers</li>
-    <li>The app does not require an internet connection to function</li>
-    <li>No file metadata is collected or stored</li>
-  </ul>
+      <h2>1. Information We Collect</h2>
+      <p>We do not collect any personal data from users. All file operations remain entirely on your device.</p>
 
-  <h2>3. Permissions</h2>
-  <p>The app may request storage access permissions solely for reading files to convert and saving converted files. These permissions are not used to collect or transmit any data.</p>
+      <h2>2. File Processing</h2>
+      <p>Simple File Converter processes files locally on your device:</p>
+      <ul>
+        <li>All file operations are performed locally</li>
+        <li>No file data is transmitted to any servers</li>
+        <li>The app does not require an internet connection to function</li>
+        <li>No file metadata is collected or stored</li>
+      </ul>
 
-  <h2>4. Third-Party Services</h2>
-  <p>Simple File Converter does not use any analytics, advertising, or third-party tracking tools. Your file operations are private and local to your device.</p>
+      <h2>3. Permissions</h2>
+      <p>The app may request storage access permissions solely for reading and saving files. These permissions are not used to collect or transmit any data.</p>
 
-  <h2>5. Data Security</h2>
-  <p>Because Simple File Converter does not collect personal data, there is no stored data to secure on our servers. All file processing happens locally on your device.</p>
+      <h2>4. Third-Party Services</h2>
+      <p>The app does not use analytics, advertising, or third‑party tracking tools. Your file operations are private and local to your device.</p>
 
-  <h2>6. Contact</h2>
-  <p>If you have any questions about this Privacy Policy, please contact us at:</p>
-  <p>Email: <a href="mailto:contact@yigitguven.net">contact@yigitguven.net</a></p>
+      <h2>5. Data Security</h2>
+      <p>Because we do not collect personal data, there is no stored data to secure on our servers. All file processing happens locally on your device.</p>
+
+      <h2>6. Contact</h2>
+      <p>If you have any questions about this Privacy Policy, please contact us at: <a href="mailto:contact@yigitguven.net">contact@yigitguven.net</a></p>
+    </div>
+  </main>
 
   <footer>
-    <p>&copy; 2025 <a href="https://yigitguven.net/">Yiğit Güven</a>. All rights reserved.</p>
+    <p>© <span id="year"></span> <a href="https://yigitguven.net/">Yiğit Güven</a>. All rights reserved.</p>
   </footer>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
 </body>
 </html>

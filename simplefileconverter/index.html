@@ -1,0 +1,458 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Simple File Converter • Fast, Private, Lightweight</title>
+  <meta name="description" content="Simple File Converter — a fast, lightweight, privacy‑first tool with smart conversion suggestions, themes, and localization." />
+  <meta name="theme-color" content="#111827" />
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Simple File Converter" />
+  <meta property="og:description" content="Fast, private, lightweight file conversions with a clean UI." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://yigitguven.net/simplefileconverter" />
+  <meta property="og:image" content="https://yigitguven.net/simplefileconverter/og-image.png" />
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Simple File Converter" />
+  <meta name="twitter:description" content="Fast, private, lightweight file conversions with a clean UI." />
+  <meta name="twitter:image" content="https://yigitguven.net/simplefileconverter/og-image.png" />
+
+  <!-- Structured Data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "Simple File Converter",
+    "operatingSystem": "Android, Windows, macOS, Linux",
+    "applicationCategory": "UtilityApplication",
+    "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+    "description": "A fast, lightweight, privacy‑first tool for converting files with smart suggestions.",
+    "url": "https://yigitguven.net/simplefileconverter",
+    "author": {"@type":"Person","name":"Yiğit Güven"},
+    "publisher": {"@type":"Person","name":"Yiğit Güven"}
+  }
+  </script>
+
+  <!-- Font Awesome for theme switcher icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+  <style>
+    :root {
+      --bg: #0b1220;
+      --bg-alt: #0f172a;
+      --card: #111827;
+      --muted: #9ca3af;
+      --text: #e5e7eb;
+      --brand: #7c3aed; /* violet-600 */
+      --brand-2: #22d3ee; /* cyan-400 */
+      --ring: rgba(124, 58, 237, 0.4);
+      --shadow: 0 10px 30px rgba(0,0,0,0.35);
+    }
+
+    /* Light theme variables */
+    .light-theme {
+      --bg: #f9fafb;
+      --bg-alt: #f3f4f6;
+      --card: #ffffff;
+      --muted: #6b7280;
+      --text: #111827;
+      --ring: rgba(124, 58, 237, 0.2);
+      --shadow: 0 10px 30px rgba(0,0,0,0.1);
+    }
+
+    * { box-sizing: border-box }
+    html, body { height: 100% }
+    body {
+      margin: 0;
+      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, Noto Sans, "Helvetica Neue", Arial, "Apple Color Emoji", "Segoe UI Emoji";
+      color: var(--text);
+      background: linear-gradient(180deg, var(--bg) 0%, var(--bg-alt) 100%);
+      letter-spacing: 0.1px;
+      transition: background 0.3s ease, color 0.3s ease;
+    }
+    a { color: inherit; text-decoration: none }
+    .container { max-width: 1120px; margin: 0 auto; padding: 0 20px }
+
+    /* Header */
+    header {
+      position: sticky; top: 0; z-index: 50;
+      backdrop-filter: saturate(1.1) blur(10px);
+      background: rgba(11,18,32,0.55);
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+    }
+    .light-theme header {
+      background: rgba(249,250,251,0.85);
+      border-bottom: 1px solid rgba(0,0,0,0.06);
+    }
+    .nav { display:flex; align-items:center; justify-content:space-between; height:64px }
+    .logo { display:flex; align-items:center; gap:12px; font-weight:700 }
+    .logo img { width:32px; height:32px; border-radius:12px; box-shadow: var(--shadow) }
+    .nav a.link { padding:10px 14px; border-radius:12px; color:#d1d5db }
+    .light-theme .nav a.link { color: #4b5563; }
+    .nav a.link:hover { background: rgba(255,255,255,0.06); color:white }
+    .light-theme .nav a.link:hover { background: rgba(0,0,0,0.04); color: #111827; }
+    .btn {
+      display:inline-flex; align-items:center; gap:10px; padding:12px 16px; border-radius:14px; border:1px solid rgba(255,255,255,0.08);
+      background: linear-gradient(180deg, rgba(255,255,255,0.06), rgba(255,255,255,0.02));
+      box-shadow: var(--shadow);
+      color:white; font-weight:600; transition: transform .08s ease, box-shadow .2s ease, border-color .2s ease;
+    }
+    .light-theme .btn {
+      border: 1px solid rgba(0,0,0,0.08);
+      background: linear-gradient(180deg, rgba(0,0,0,0.02), rgba(0,0,0,0.01));
+      color: #111827;
+    }
+    .btn:hover { transform: translateY(-1px); border-color: rgba(124,58,237,0.35) }
+    .btn.primary { background: linear-gradient(180deg, rgba(124,58,237,0.9), rgba(124,58,237,0.75)); border-color: transparent }
+
+    /* Hero */
+    .hero { position: relative; padding: 72px 0 56px }
+    .hero h1 { font-size: clamp(32px, 5vw, 56px); line-height: 1.05; margin: 0 0 16px; letter-spacing: -0.02em }
+    .sub { color: var(--muted); font-size: clamp(16px, 2.3vw, 18px); max-width: 800px }
+    .cta-row { display:flex; flex-wrap: wrap; gap:12px; margin-top: 24px }
+    .pill { display:inline-flex; align-items:center; gap:8px; padding:6px 10px; border-radius:999px; font-size:12px; color:#c7d2fe; border: 1px solid rgba(99,102,241,0.35); background: rgba(99,102,241,0.1) }
+    .light-theme .pill { color: #4338ca; border: 1px solid rgba(99,102,241,0.4); background: rgba(99,102,241,0.15); }
+
+    /* Large Logo */
+    .large-logo {
+      width: 120px;
+      height: 120px;
+      border-radius: 24px;
+      margin-bottom: 24px;
+      box-shadow: var(--shadow);
+    }
+
+    /* Theme Switcher */
+    .theme-switcher {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: var(--card);
+      border: 1px solid rgba(255,255,255,0.08);
+      box-shadow: var(--shadow);
+      cursor: pointer;
+      z-index: 100;
+      transition: all 0.3s ease;
+    }
+    .light-theme .theme-switcher {
+      border: 1px solid rgba(0,0,0,0.08);
+    }
+    .theme-switcher:hover {
+      transform: translateY(-2px);
+    }
+    .theme-switcher i {
+      font-size: 20px;
+      color: var(--text);
+    }
+
+    /* Grid */
+    .grid { display:grid; gap:20px }
+    .grid.cols-3 { grid-template-columns: repeat(3, minmax(0,1fr)) }
+    .grid.cols-2 { grid-template-columns: repeat(2, minmax(0,1fr)) }
+    @media (max-width: 900px){ .grid.cols-3, .grid.cols-2 { grid-template-columns: 1fr } }
+
+    /* Cards */
+    .card { background: linear-gradient(180deg, rgba(255,255,255,0.06), rgba(255,255,255,0.02)); border:1px solid rgba(255,255,255,0.08); border-radius:18px; padding:20px; box-shadow: var(--shadow) }
+    .light-theme .card { background: linear-gradient(180deg, rgba(0,0,0,0.02), rgba(0,0,0,0.01)); border:1px solid rgba(0,0,0,0.08); }
+    .card:hover { border-color: rgba(124,58,237,0.35) }
+    .card h3 { margin: 10px 0 6px }
+    .muted { color: var(--muted) }
+
+    /* Conversions table */
+    .table { width:100%; border-collapse: collapse; overflow:hidden; border-radius:14px; border:1px solid rgba(255,255,255,0.08) }
+    .light-theme .table { border:1px solid rgba(0,0,0,0.08) }
+    .table th, .table td { padding:14px 16px; text-align:left; border-bottom:1px solid rgba(255,255,255,0.06) }
+    .light-theme .table th, .light-theme .table td { border-bottom:1px solid rgba(0,0,0,0.06) }
+    .table th { font-size:12px; text-transform: uppercase; letter-spacing: .12em; color:#a5b4fc }
+    .light-theme .table th { color: #6366f1 }
+    .badge { display:inline-flex; align-items:center; padding:6px 10px; border-radius:999px; background: rgba(124,58,237,.15); border:1px solid rgba(124,58,237,.35); font-size:12px }
+    .light-theme .badge { background: rgba(124,58,237,.1); border:1px solid rgba(124,58,237,.3); }
+    .row:hover { background: rgba(255,255,255,0.04) }
+    .light-theme .row:hover { background: rgba(0,0,0,0.02) }
+
+    /* Footer */
+    footer { padding: 36px 0; border-top: 1px solid rgba(255,255,255,0.06); margin-top: 56px; color:#cbd5e1 }
+    .light-theme footer { border-top: 1px solid rgba(0,0,0,0.06); color: #4b5563; }
+    .footer-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 30px; }
+    .footer-col h3 { margin-top: 0; margin-bottom: 16px; font-size: 18px; }
+    .footer-links { list-style: none; padding: 0; margin: 0; }
+    .footer-links li { margin-bottom: 12px; }
+    .footer-links a { display: flex; align-items: center; gap: 10px; transition: opacity 0.2s; }
+    .footer-links a:hover { opacity: 0.8; }
+    .copyright { margin-top: 40px; text-align: center; font-size: 14px; opacity: 0.7; }
+    @media (max-width: 768px) {
+      .footer-grid { grid-template-columns: 1fr; }
+    }
+
+    /* Accents */
+    .glow {
+      position:absolute; inset: -80px -60px auto auto; width: 420px; height: 420px; filter: blur(70px);
+      background: radial-gradient(closest-side, rgba(124,58,237,.35), transparent 70%);
+      pointer-events: none; z-index: -1;
+    }
+    .light-theme .glow { opacity: 0.2; }
+    .glow2 { position:absolute; left:-120px; bottom:-80px; width: 360px; height:360px; filter: blur(80px); background: radial-gradient(closest-side, rgba(34,211,238,.28), transparent 70%); pointer-events:none; z-index:-1 }
+    .light-theme .glow2 { opacity: 0.15; }
+
+    .icon { width:22px; height:22px; opacity:.95 }
+    .check { color:#22c55e }
+    .sep { opacity:.25; margin: 0 10px }
+
+    /* Utilities */
+    .center { text-align:center }
+    .mt-2{margin-top:8px} .mt-3{margin-top:12px} .mt-4{margin-top:16px} .mt-6{margin-top:24px} .mt-8{margin-top:32px}
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container nav">
+      <a class="logo" href="#top" aria-label="Simple File Converter home">
+        <img src="images/simplefileconverterlogo.webp" alt="Simple File Converter Logo" class="logo-mark">
+        <span>Simple File Converter</span>
+      </a>
+      <nav>
+        <a class="link" href="#features">Features</a>
+        <a class="link" href="#conversions">Conversions</a>
+        <a class="link" href="#how">How it works</a>
+        <a class="link" href="#privacy">Privacy</a>
+        <a class="link" href="https://github.com/yigit-guven/Simple-File-Converter" target="_blank" rel="noopener">GitHub</a>
+        <a class="btn" href="#download" style="margin-left:12px">Download</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="top">
+    <section class="hero container">
+      <div class="glow"></div>
+      <div class="glow2"></div>
+      
+      <!-- Large Logo -->
+      <img src="images/simplefileconverterlogo.webp" alt="Simple File Converter Logo" class="large-logo">
+      
+      <span class="pill" aria-label="Privacy first">No accounts • No tracking • Offline‑friendly</span>
+      <h1>Convert files the <span style="background:linear-gradient(90deg,var(--brand),var(--brand-2)); -webkit-background-clip:text; background-clip:text; color:transparent">simple</span> way.</h1>
+      <p class="sub">Simple File Converter is a fast, lightweight and privacy‑first tool. It suggests the right output types for your input, supports multiple languages & themes, and keeps your files on your device.</p>
+      <div class="cta-row">
+        <a class="btn primary" href="#download" aria-label="Go to downloads">
+          <!-- download icon -->
+          <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+          Download
+        </a>
+        <a class="btn" href="https://github.com/yigit-guven/Simple-File-Converter" target="_blank" rel="noopener" aria-label="View GitHub repository">
+          <!-- github icon -->
+          <svg class="icon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 .5a12 12 0 0 0-3.79 23.4c.6.11.82-.26.82-.57v-2c-3.34.73-4.04-1.6-4.04-1.6-.55-1.39-1.34-1.76-1.34-1.76-1.09-.75.08-.74.08-.74 1.2.09 1.84 1.23 1.84 1.23 1.07 1.83 2.8 1.3 3.49.99.11-.78.42-1.3.76-1.6-2.66-.3-5.46-1.33-5.46-5.92 0-1.31.47-2.38 1.24-3.22-.12-.3-.54-1.52.12-3.17 0 0 1.01-.32 3.3 1.23a11.5 11.5 0 0 1 6 0c2.29-1.55 3.3-1.23 3.3-1.23.66 1.65.24 2.87.12 3.17.77.84 1.24 1.91 1.24 3.22 0 4.6-2.8 5.62-5.47 5.92.43.37.81 1.1.81 2.22v3.29c0 .31.21.69.82.57A12 12 0 0 0 12 .5Z"/></svg>
+          GitHub
+        </a>
+      </div>
+    </section>
+
+    <section id="features" class="container mt-8">
+      <div class="grid cols-3">
+        <article class="card">
+          <h3>⚡ Fast & Lightweight</h3>
+          <p class="muted">Tiny footprint with snappy performance and a crisp, modern UI.</p>
+        </article>
+        <article class="card">
+          <h3>🔒 Privacy‑First</h3>
+          <p class="muted">No analytics, no accounts, and your files remain on your device.</p>
+        </article>
+        <article class="card">
+          <h3>🧠 Smart Selection</h3>
+          <p class="muted">Automatically suggests compatible output types for the file you pick.</p>
+        </article>
+        <article class="card">
+          <h3>🌍 Localization</h3>
+          <p class="muted">Built‑in multilingual support so users feel right at home.</p>
+        </article>
+        <article class="card">
+          <h3>🎨 Themes</h3>
+          <p class="muted">Multiple color themes with a persistent selection for a comfy workflow.</p>
+        </article>
+        <article class="card">
+          <h3>📂 Replace & Auto‑Download</h3>
+          <p class="muted">Optional settings to overwrite the original or auto‑download results.</p>
+        </article>
+      </div>
+    </section>
+
+    <section id="conversions" class="container mt-8">
+      <h2 style="margin:0 0 10px">Popular conversions</h2>
+      <p class="muted mt-2">This is a sample list. Actual support may vary by platform/version.</p>
+      <div class="card mt-4">
+        <table class="table" role="table" aria-label="Supported conversions">
+          <thead>
+            <tr><th>From</th><th>To</th></tr>
+          </thead>
+          <tbody>
+            <tr class="row"><td>.txt</td><td><span class="badge">.pdf</span> <span class="sep">•</span> <span class="badge">.md</span> <span class="sep">•</span> <span class="badge">.html</span></td></tr>
+            <tr class="row"><td>.pdf</td><td><span class="badge">.txt</span> <span class="sep">•</span> <span class="badge">.png</span> <span class="sep">•</span> <span class="badge">.jpg</span></td></tr>
+            <tr class="row"><td>.md</td><td><span class="badge">.pdf</span> <span class="sep">•</span> <span class="badge">.html</span></td></tr>
+            <tr class="row"><td>.png</td><td><span class="badge">.jpg</span> <span class="sep">•</span> <span class="badge">.webp</span></td></tr>
+            <tr class="row"><td>.jpg</td><td><span class="badge">.png</span> <span class="sep">•</span> <span class="badge">.webp</span></td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <section id="how" class="container mt-8">
+      <div class="grid cols-2">
+        <div class="card">
+          <h3>How it works</h3>
+          <ol class="mt-3">
+            <li class="mt-2">Pick a file — the app detects its type.</li>
+            <li class="mt-2">Choose a suggested output or browse all supported formats.</li>
+            <li class="mt-2">Convert with one tap — optionally auto‑download or replace the original.</li>
+          </ol>
+          <p class="muted mt-4">Advanced: The app can remember your theme per session and respects language preferences.</p>
+        </div>
+        <div class="card">
+          <h3>Why users love it</h3>
+          <ul class="mt-3">
+            <li class="mt-2">✔️ No sign‑in, no data collection</li>
+            <li class="mt-2">✔️ Clean UI that gets out of your way</li>
+            <li class="mt-2">✔️ Thoughtful defaults, powerful options</li>
+          </ul>
+          <p class="muted mt-4">Open‑source on GitHub with issue tracking and community contributions.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="privacy" class="container mt-8">
+      <div class="card">
+        <h3>Privacy Policy</h3>
+        <p class="muted mt-2">Simple File Converter does not collect personal data. For the full policy, visit <a href="https://yigitguven.net/simplefileconverter/privacy">Privacy Policy</a>.</p>
+      </div>
+    </section>
+
+    <section id="download" class="container mt-8">
+      <div class="card center">
+        <h3>Get Simple File Converter</h3>
+        <p class="muted mt-2">Choose your platform. If you prefer source, head to GitHub.</p>
+        <div class="cta-row center" style="justify-content:center">
+          <a class="btn primary" href="https://play.google.com/store/apps/details?id=com.YigitGuven.SimpleFileConverter&pcampaignid=web_share" target="_blank" rel="noopener" aria-label="Download from Google Play">
+            <!-- Google Play icon -->
+            <svg class="icon" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M3.609 1.814L13.792 12 3.61 22.186a.996.996 0 0 1-.61-.92V2.734a1 1 0 0 1 .609-.92zm10.781 9.186l-2.857 2.857l-5.214 5.214l-1.18 1.18L12 14.208l2.39 2.39zM14.208 12l4.597 4.597a1 1 0 0 1 0 1.414l-1.586 1.586a1 1 0 0 1-1.414 0L12 14.208z"/>
+            </svg>
+            Google Play
+          </a>
+          <a class="btn" href="https://github.com/yigit-guven/Simple-File-Converter" target="_blank" rel="noopener">
+            <svg class="icon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 .5a12 12 0 0 0-3.79 23.4c.6.11.82-.26.82-.57v-2c-3.34.73-4.04-1.6-4.04-1.6-.55-1.39-1.34-1.76-1.34-1.76-1.09-.75.08-.74.08-.74 1.2.09 1.84 1.23 1.84 1.23 1.07 1.83 2.8 1.3 3.49.99.11-.78.42-1.3.76-1.6-2.66-.3-5.46-1.33-5.46-5.92 0-1.31.47-2.38 1.24-3.22-.12-.3-.54-1.52.12-3.17 0 0 1.01-.32 3.3 1.23a11.5 11.5 0 0 1 6 0c2.29-1.55 3.3-1.23 3.3-1.23.66 1.65.24 2.87.12 3.17.77.84 1.24 1.91 1.24 3.22 0 4.6-2.8 5.62-5.47 5.92.43.37.81 1.1.81 2.22v3.29c0 .31.21.69.82.57A12 12 0 0 0 12 .5Z"/></svg>
+            Get from Source
+          </a>
+        </div>
+        <p class="muted mt-3">Coming to more platforms soon.</p>
+      </div>
+    </section>
+  </main>
+
+  <!-- Theme Switcher Button -->
+  <div class="theme-switcher" id="themeSwitcher" aria-label="Toggle dark/light mode">
+    <i class="fas fa-moon"></i>
+  </div>
+
+  <footer>
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-col">
+          <h3>Navigation</h3>
+          <ul class="footer-links">
+            <li><a href="/"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path><polyline points="9 22 9 12 15 12 15 22"></polyline></svg> Home</a></li>
+            <li><a href="/#projects"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 2 7 12 12 22 7 12 2"></polygon><polyline points="2 17 12 22 22 17"></polyline><polyline points="2 12 12 17 22 12"></polyline></svg> Projects</a></li>
+            <li><a href="mailto:contact@yigitguven.net"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg> Contact</a></li>
+          </ul>
+        </div>
+        
+        <div class="footer-col">
+          <h3>Legal</h3>
+          <ul class="footer-links">
+            <li><a href="/privacy"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><circle cx="12" cy="12" r="3"></circle></svg> Privacy Policy</a></li>
+            <li><a href="/terms"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg> Terms of Service</a></li>
+            <li><a href="https://github.com/yigit-guven/yigitguven.net" target="_blank"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg> Source Code</a></li>
+          </ul>
+        </div>
+        
+        <div class="footer-col">
+          <h3>Connect</h3>
+          <ul class="footer-links">
+            <li><a href="https://github.com/yigit-guven" target="_blank"><svg class="icon" viewBox="0 0 24 24" fill="currentColor"><path d="M12 .5a12 12 0 0 0-3.79 23.4c.6.11.82-.26.82-.57v-2c-3.34.73-4.04-1.6-4.04-1.6-.55-1.39-1.34-1.76-1.34-1.76-1.09-.75.08-.74.08-.74 1.2.09 1.84 1.23 1.84 1.23 1.07 1.83 2.8 1.3 3.49.99.11-.78.42-1.3.76-1.6-2.66-.3-5.46-1.33-5.46-5.92 0-1.31.47-2.38 1.24-3.22-.12-.3-.54-1.52.12-3.17 0 0 1.01-.32 3.3 1.23a11.5 11.5 0 0 1 6 0c2.29-1.55 3.3-1.23 3.3-1.23.66 1.65.24 2.87.12 3.17.77.84 1.24 1.91 1.24 3.22 0 4.6-2.8 5.62-5.47 5.92.43.37.81 1.1.81 2.22v3.29c0 .31.21.69.82.57A12 12 0 0 0 12 .5Z"/></svg> GitHub</a></li>
+            <li><a href="https://play.google.com/store/apps/dev?id=7128980680944660685" target="_blank"><svg class="icon" viewBox="0 0 24 24" fill="currentColor"><path d="M3.609 1.814L13.792 12 3.61 22.186a.996.996 0 0 1-.61-.92V2.734a1 1 0 0 1 .609-.92zm10.781 9.186l-2.857 2.857l-5.214 5.214l-1.18 1.18L12 14.208l2.39 2.39zM14.208 12l4.597 4.597a1 1 0 0 1 0 1.414l-1.586 1.586a1 1 0 0 1-1.414 0L12 14.208z"/></svg> Google Play</a></li>
+            <li><a href="https://www.anchorstudios.site" target="_blank"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20h16a2 2 0 0 0 2-2V8a2 2 0 0 0-2-2h-7.93a2 2 0 0 1-1.66-.9l-.82-1.2A2 2 0 0 0 7.93 3H4a2 2 0 0 0-2 2v13c0 1.1.9 2 2 2Z"></path></svg> Anchor Studios</a></li>
+          </ul>
+        </div>
+      </div>
+      
+      <div class="copyright">
+        <p>&copy; <span id="year">2025</span> Yiğit Güven. Code: <a href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank">CC BY-NC 4.0</a>; media/assets: all rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Theme switching functionality
+    document.addEventListener('DOMContentLoaded', function() {
+        const themeSwitcher = document.getElementById('themeSwitcher');
+        if (themeSwitcher) {
+            const themeIcon = themeSwitcher.querySelector('i');
+            
+            // Check for saved theme preference or respect OS preference
+            if (localStorage.getItem('theme') === 'light' || 
+                (window.matchMedia('(prefers-color-scheme: light)').matches && !localStorage.getItem('theme'))) {
+                document.body.classList.add('light-theme');
+                if (themeIcon) {
+                    themeIcon.classList.remove('fa-moon');
+                    themeIcon.classList.add('fa-sun');
+                }
+            }
+            
+            themeSwitcher.addEventListener('click', () => {
+                document.body.classList.toggle('light-theme');
+                
+                if (document.body.classList.contains('light-theme')) {
+                    localStorage.setItem('theme', 'light');
+                    if (themeIcon) {
+                        themeIcon.classList.remove('fa-moon');
+                        themeIcon.classList.add('fa-sun');
+                    }
+                } else {
+                    localStorage.setItem('theme', 'dark');
+                    if (themeIcon) {
+                        themeIcon.classList.remove('fa-sun');
+                        themeIcon.classList.add('fa-moon');
+                    }
+                }
+            });
+        }
+        
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                const targetId = this.getAttribute('href');
+                if (targetId === '#' || targetId === '#!') return;
+                
+                e.preventDefault();
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 20,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+        
+        // Set year
+        document.getElementById('year').textContent = new Date().getFullYear();
+    });
+  </script>
+</body>
+</html>

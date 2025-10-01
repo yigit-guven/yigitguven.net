@@ -1,240 +1,1043 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Home | Yiğit Güven</title>
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link rel="stylesheet" href="style.css">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>yigitguven.net — Portfolio</title>
+  <style>
+    /* All existing CSS remains the same */
+    :root{
+      --bg: #0b0f0b;
+      --accent: #00ca6d;
+      --muted: #8b949e;
+      --glass: rgba(255,255,255,0.03);
+      --prediction-color: rgba(0, 202, 109, 0.3);
+      font-family: "Fira Code", ui-monospace, SFMono-Regular, Menlo, Monaco, monospace;
+    }
+    [data-theme="light"]{
+      --bg: #ffffff;
+      --accent: #006644;
+      --muted: #555;
+      --glass: rgba(0,0,0,0.05);
+      --prediction-color: rgba(0, 102, 68, 0.3);
+      color-scheme: light;
+    }
+    html,body{
+      margin:0;
+      height:100%;
+      background:var(--bg);
+      color:var(--accent);
+      overflow:hidden;
+    }
+    #matrix{
+      position:fixed;
+      inset:0;
+      width:100%;
+      height:100%;
+      z-index:0;
+      background:transparent;
+    }
+    .center-wrap{
+      position:relative;
+      z-index:2;
+      min-height:100%;
+      display:flex;
+      flex-direction:column;
+      align-items:center;
+      justify-content:flex-start;
+      padding-top:4vh;
+      gap:20px;
+    }
+    .brand{
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-size:2rem;
+      font-weight:700;
+      color:var(--accent);
+      text-shadow:0 6px 18px rgba(0,150,80,0.05);
+      letter-spacing:1px;
+    }
+    .logo {
+      width: 40px;
+      height: 40px;
+      /* Will be set by JavaScript based on theme */
+    }
+    .terminal-card{
+      width:min(980px,94%);
+      background:linear-gradient(180deg, rgba(10,12,10,0.65), rgba(6,8,6,0.6));
+      border:1px solid rgba(0,200,110,0.06);
+      box-shadow:0 10px 40px rgba(0,0,0,0.6);
+      border-radius:12px;
+      padding:18px;
+      margin-top:6px;
+      flex-shrink:0;
+      position:relative;
+    }
+    [data-theme="light"] .terminal-card{
+      background:#fff;
+      border:1px solid #ddd;
+      color:#222;
+    }
+    .output-area{
+      min-height:220px;
+      max-height:420px;
+      overflow:auto;
+      padding:12px;
+      border-radius:8px;
+      background:rgba(0,0,0,0.2);
+      border:1px solid rgba(255,255,255,0.02);
+      color:#cfeee0;
+      font-size:0.95rem;
+      line-height:1.45;
+    }
+    [data-theme="light"] .output-area{
+      background:#f1f1f1;
+      color:#222;
+      border:1px solid #ddd;
+    }
+    .user-input{
+      display:flex;
+      gap:10px;
+      align-items:center;
+      margin-top:12px;
+      position:relative;
+    }
+    .input-box{
+      flex:1;
+      display:flex;
+      align-items:center;
+      background:var(--glass);
+      padding:12px;
+      border-radius:999px;
+      border:1px solid rgba(255,255,255,0.03);
+      position:relative;
+    }
+    .input-box input{
+      background:transparent;
+      border:none;
+      outline:none;
+      color:inherit;
+      font-size:1rem;
+      width:100%;
+      font-family:inherit;
+      position:relative;
+      z-index:2;
+    }
+    .prediction-shadow{
+      position:absolute;
+      top:12px;
+      left:12px;
+      color:var(--prediction-color);
+      z-index:1;
+      pointer-events:none;
+      white-space:pre;
+    }
+    .send-btn{
+      background:transparent;
+      border:none;
+      padding:10px 14px;
+      border-radius:8px;
+      color:var(--accent);
+      cursor:pointer;
+      font-weight:600;
+    }
+    .hint{
+      color:var(--muted);
+      font-size:0.85rem;
+      margin-top:8px;
+    }
+    footer{
+      position:fixed;
+      bottom:20px;
+      left:50%;
+      transform:translateX(-50%);
+      z-index:2;
+      background:rgba(0,0,0,0.5);
+      color:var(--muted);
+      font-size:0.85rem;
+      display:flex;
+      flex-direction:column;
+      align-items:center;
+      padding:10px 20px;
+      border-radius:8px;
+    }
+    [data-theme="light"] footer{
+      background:#f1f1f1;
+      color:#666;
+    }
+    footer nav{
+      margin-top:6px;
+    }
+    footer a{
+      color:var(--accent);
+      margin:0 10px;
+      text-decoration:none;
+      font-weight:500;
+    }
+    footer a:hover{
+      text-decoration:underline;
+    }
+    
+    /* Contact Buttons Styles */
+    .contact-buttons {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      margin-top: 12px;
+    }
+    
+    .contact-btn {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 10px 16px;
+      background: rgba(0, 202, 109, 0.1);
+      border: 1px solid rgba(0, 202, 109, 0.3);
+      border-radius: 8px;
+      color: var(--accent);
+      text-decoration: none;
+      font-family: inherit;
+      font-size: 0.9rem;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      text-align: left;
+    }
+    
+    .contact-btn:hover {
+      background: rgba(0, 202, 109, 0.2);
+      transform: translateY(-1px);
+    }
+    
+    .contact-btn:active {
+      background: rgba(0, 202, 109, 0.3);
+      transform: translateY(0);
+    }
+    
+    .contact-icon {
+      width: 20px;
+      height: 20px;
+      flex-shrink: 0;
+    }
+    
+    .contact-text {
+      flex: 1;
+    }
+    
+    [data-theme="light"] .contact-btn {
+      background: rgba(0, 102, 68, 0.1);
+      border: 1px solid rgba(0, 102, 68, 0.3);
+    }
+    
+    [data-theme="light"] .contact-btn:hover {
+      background: rgba(0, 102, 68, 0.2);
+    }
+    
+    [data-theme="light"] .contact-btn:active {
+      background: rgba(0, 102, 68, 0.3);
+    }
+    
+    /* Mobile Auto-completion Styles */
+    .suggestions-bar {
+      display: none;
+      position: absolute;
+      bottom: 100%;
+      left: 0;
+      right: 0;
+      background: var(--glass);
+      backdrop-filter: blur(10px);
+      border-radius: 8px 8px 0 0;
+      padding: 8px;
+      border: 1px solid rgba(255,255,255,0.1);
+      border-bottom: none;
+      z-index: 10;
+      max-height: 120px;
+      overflow-y: auto;
+    }
+    
+    .suggestion-chip {
+      display: inline-block;
+      background: rgba(0, 202, 109, 0.1);
+      border: 1px solid rgba(0, 202, 109, 0.3);
+      color: var(--accent);
+      padding: 6px 12px;
+      margin: 2px;
+      border-radius: 16px;
+      font-size: 0.85rem;
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+    
+    .suggestion-chip:hover {
+      background: rgba(0, 202, 109, 0.2);
+      transform: translateY(-1px);
+    }
+    
+    .suggestion-chip:active {
+      background: rgba(0, 202, 109, 0.3);
+      transform: translateY(0);
+    }
+    
+    [data-theme="light"] .suggestion-chip {
+      background: rgba(0, 102, 68, 0.1);
+      border: 1px solid rgba(0, 102, 68, 0.3);
+    }
+    
+    [data-theme="light"] .suggestion-chip:hover {
+      background: rgba(0, 102, 68, 0.2);
+    }
+    
+    [data-theme="light"] .suggestion-chip:active {
+      background: rgba(0, 102, 68, 0.3);
+    }
+    
+    .mobile-hint {
+      display: none;
+      color: var(--muted);
+      font-size: 0.8rem;
+      margin-top: 4px;
+      text-align: center;
+    }
+    
+    @media (max-width: 768px) {
+      .mobile-hint {
+        display: block;
+      }
+      
+      .contact-buttons {
+        gap: 6px;
+      }
+      
+      .contact-btn {
+        padding: 8px 12px;
+        font-size: 0.85rem;
+      }
+      
+      .contact-icon {
+        width: 18px;
+        height: 18px;
+      }
+    }
+    
+    @media (max-width:600px){
+      .brand{font-size:1.4rem;}
+      .logo {
+        width: 32px;
+        height: 32px;
+      }
+      .terminal-card{padding:12px;}
+      .output-area{min-height:160px;}
+      footer{font-size:0.75rem;}
+      
+      .suggestions-bar {
+        max-height: 100px;
+      }
+      
+      .suggestion-chip {
+        padding: 4px 8px;
+        font-size: 0.8rem;
+        margin: 1px;
+      }
+    }
+  </style>
 </head>
 <body>
-    <div class="container">
-        <header>
-            <div class="logo">
-                <img src="images/logo.webp" alt="Yiğit Güven" class="logo-img">
-                <div class="logo-text">
-                    <h1>Yiğit Güven</h1>
-                    <p>Developer | Gamer</p>
-                </div>
-            </div>
-            <div class="theme-switcher" id="themeSwitcher">
-                <div class="theme-icon">
-                    <i class="fas fa-moon"></i>
-                </div>
-            </div>
-        </header>
-
-        <section class="hero">
-            <h2>Creating Digital Experiences</h2>
-            <p>I'm a developer and gamer passionate about creating useful applications, games, and Minecraft mods. I enjoy solving problems and building things that people find helpful and enjoyable.</p>
-            <div class="cta-buttons">
-                <a href="#projects" class="btn btn-primary">
-                    <i class="fas fa-code"></i> View My Work
-                </a>
-                <a href="mailto:contact@yigitguven.net" class="btn btn-secondary">
-                    <i class="fas fa-envelope"></i> Contact Me
-                </a>
-            </div>
-        </section>
-
-        <section class="section" id="projects">
-            <div class="section-header">
-                <h3 class="section-title">Mobile App & Game Projects</h3>
-                <a href="https://play.google.com/store/apps/dev?id=7128980680944660685" class="view-all" target="_blank">
-                    View All <i class="fas fa-arrow-right"></i>
-                </a>
-            </div>
-            <div class="card-grid">
-                <div class="card">
-                    <div class="card-icon">
-                        <i class="fas fa-file-export"></i>
-                    </div>
-                    <h4 class="card-title">Simple File Converter</h4>
-                    <p class="card-desc">A privacy-focused offline file conversion tool supporting multiple formats with no ads or tracking.</p>
-                    <div class="card-links">
-                        <a href="https://github.com/yigit-guven/Simple-File-Converter" class="card-link" target="_blank">
-                            <i class="fab fa-github"></i> Source
-                        </a>
-                        <a href="https://play.google.com/store/apps/details?id=com.YigitGuven.SimpleFileConverter" class="card-link" target="_blank">
-                            <i class="fab fa-google-play"></i> Play Store
-                        </a>
-                        <a href="/simplefileconverter" class="card-link">
-                            <i class="fas fa-link"></i> Project Page
-                        </a>
-                    </div>
-                </div>
-                
-                <div class="card">
-                    <div class="card-icon">
-                        <i class="fas fa-chess-knight"></i>
-                    </div>
-                    <h4 class="card-title">Sudosei</h4>
-                    <p class="card-desc">A strategic puzzle game combining Sudoku mechanics with Japanese Go aesthetics. (Coming Soon)</p>
-                    <div class="card-links">
-                        <a href="#!" class="card-link">
-                            <i class="fab fa-google-play"></i> Coming Soon
-                        </a>
-                        <a href="/sudosei" class="card-link">
-                            <i class="fas fa-link"></i> Project Page
-                        </a>
-                    </div>
-                </div>
-                
-                <div class="card">
-                    <div class="card-icon">
-                        <i class="fas fa-industry"></i>
-                    </div>
-                    <h4 class="card-title">Idle Factories</h4>
-                    <p class="card-desc">An incremental game where you build and optimize production lines. (In Development)</p>
-                    <div class="card-links">
-                        <a href="#!" class="card-link">
-                            <i class="fab fa-google-play"></i> Coming Soon
-                        </a>
-                        <a href="/idlefactories" class="card-link">
-                            <i class="fas fa-link"></i> Project Page
-                        </a>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section class="section">
-            <div class="section-header">
-                <h3 class="section-title">Minecraft Mod Projects</h3>
-                <a href="https://www.anchorstudios.site" class="view-all" target="_blank">
-                    Visit Anchor Studios <i class="fas fa-arrow-right"></i>
-                </a>
-            </div>
-            <div class="card-grid">
-                <div class="card">
-                    <div class="card-icon">
-                        <i class="fas fa-suitcase-rolling"></i>
-                    </div>
-                    <h4 class="card-title">RPG Backpacks</h4>
-                    <p class="card-desc">Adds a variety of backpacks in Minecraft, each with different storage capacities, allowing players to carry more items on their adventures.</p>
-                    <div class="card-links">
-                        <a href="https://github.com/Anchor-Studios/RPG-Backpacks" class="card-link" target="_blank">
-                            <i class="fab fa-github"></i> Source
-                        </a>
-                        <div class="mod-badges">
-                            <a href="https://www.curseforge.com/minecraft/mc-mods/rpg-backpacks" class="mod-badge" target="_blank">CurseForge</a>
-                            <a href="https://modrinth.com/mod/rpg-backpacks" class="mod-badge" target="_blank">Modrinth</a>
-							<a href="https://www.anchorstudios.site/wiki/rpg-backpacks" class="mod-badge" target="_blank">Wiki</a>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="card">
-                    <div class="card-icon">
-                        <i class="fas fa-user"></i>
-                    </div>
-                    <h4 class="card-title">Player Stand</h4>
-                    <p class="card-desc">Display players as armor stands with customizable poses and equipment.</p>
-                    <div class="card-links">
-                        <a href="https://github.com/Anchor-Studios/Player-Stand" class="card-link" target="_blank">
-                            <i class="fab fa-github"></i> Source
-                        </a>
-                        <div class="mod-badges">
-                            <a href="https://www.curseforge.com/minecraft/mc-mods/playerstand" class="mod-badge" target="_blank">CurseForge</a>
-                            <a href="https://modrinth.com/mod/playerstand" class="mod-badge" target="_blank">Modrinth</a>
-                            <a href="https://www.anchorstudios.site/wiki/playerstand" class="mod-badge" target="_blank">Wiki</a>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="card">
-                    <div class="card-icon">
-                        <i class="fas fa-paw"></i>
-                    </div>
-                    <h4 class="card-title">Petting</h4>
-                    <p class="card-desc">Tame mobs by petting them, turning them into loyal companions that follow and protect you.</p>
-                    <div class="card-links">
-                        <a href="https://github.com/Anchor-Studios/Petting" class="card-link" target="_blank">
-                            <i class="fab fa-github"></i> Source
-                        </a>
-                        <div class="mod-badges">
-                            <a href="https://www.curseforge.com/minecraft/mc-mods/petting" class="mod-badge" target="_blank">CurseForge</a>
-                            <a href="https://modrinth.com/mod/petting" class="mod-badge" target="_blank">Modrinth</a>
-                            <a href="https://www.anchorstudios.site/wiki/petting" class="mod-badge" target="_blank">Wiki</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section class="section">
-            <div class="section-header">
-                <h3 class="section-title">Other Open Source Projects</h3>
-                <a href="https://github.com/yigit-guven" class="view-all" target="_blank">
-                    View GitHub <i class="fas fa-arrow-right"></i>
-                </a>
-            </div>
-            <div class="card-grid">
-                <div class="card">
-                    <div class="card-icon">
-                        <i class="fas fa-font"></i>
-                    </div>
-                    <h4 class="card-title">Hush Word</h4>
-                    <p class="card-desc">A minimalist, level-based word puzzle game with a clean GUI built using Python and Tkinter.</p>
-                    <div class="card-links">
-                        <a href="https://github.com/yigit-guven/Hush-Word" class="card-link" target="_blank">
-                            <i class="fab fa-github"></i> Source Code
-                        </a>
-                    </div>
-                </div>
-                
-                <div class="card">
-                    <div class="card-icon">
-                        <i class="fas fa-globe"></i>
-                    </div>
-                    <h4 class="card-title">Personal Website</h4>
-                    <p class="card-desc">The source code for this website.</p>
-                    <div class="card-links">
-                        <a href="https://github.com/yigit-guven/yigitguven.net" class="card-link" target="_blank">
-                            <i class="fab fa-github"></i> Source Code
-                        </a>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <footer>
-            <div class="footer-grid">
-                <div class="footer-col">
-                    <h3>Navigation</h3>
-                    <ul class="footer-links">
-                        <li><a href="/"><i class="fas fa-home"></i> Home</a></li>
-                        <li><a href="#projects"><i class="fas fa-code"></i> Projects</a></li>
-                        <li><a href="mailto:contact@yigitguven.net"><i class="fas fa-envelope"></i> Contact</a></li>
-                    </ul>
-                </div>
-                
-                <div class="footer-col">
-                    <h3>Legal</h3>
-                    <ul class="footer-links">
-                        <li><a href="/privacy"><i class="fas fa-shield-alt"></i> Privacy Policy</a></li>
-                        <li><a href="/terms"><i class="fas fa-file-contract"></i> Terms of Service</a></li>
-                        <li><a href="https://github.com/yigit-guven/yigitguven.net" target="_blank"><i class="fas fa-code-branch"></i> Source Code</a></li>
-                    </ul>
-                </div>
-                
-                <div class="footer-col">
-                    <h3>Connect</h3>
-                    <ul class="footer-links">
-                        <li><a href="https://github.com/yigit-guven" target="_blank"><i class="fab fa-github"></i> GitHub</a></li>
-                        <li><a href="https://play.google.com/store/apps/dev?id=7128980680944660685" target="_blank"><i class="fab fa-google-play"></i> Google Play</a></li>
-                        <li><a href="https://www.anchorstudios.site" target="_blank"><i class="fas fa-anchor"></i> Anchor Studios</a></li>
-                    </ul>
-                </div>
-            </div>
-            
-            <div class="copyright">
-                <p>&copy; 2025 Yiğit Güven. Code: <a href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank">CC BY-NC 4.0</a>; media/assets: all rights reserved.</p>
-            </div>
-        </footer>
+  <canvas id="matrix"></canvas>
+  <div class="center-wrap">
+    <div class="brand">
+      <img id="logo" class="logo" alt="Yiğit Güven Logo" />
+      yigitguven.net
     </div>
+    <div class="terminal-card" role="region" aria-label="Terminal">
+      <div class="output-area" id="output">
+        <div style="color:var(--muted);">Welcome — type `help` and press Enter to begin.</div>
+      </div>
+      <div class="user-input">
+        <div class="input-box">
+          <input id="cmd" placeholder="Enter a command... (help, about, projects, contact...)" autocomplete="off" />
+          <div id="prediction" class="prediction-shadow"></div>
+          <div id="suggestions" class="suggestions-bar"></div>
+        </div>
+        <button id="send" class="send-btn">Send</button>
+      </div>
+      <div class="hint">Terminal mode: real CLI feel for developers — simple commands for everyone. Press TAB for auto-completion.</div>
+      <div class="mobile-hint">Tap on suggestions above the keyboard for quick auto-completion</div>
+    </div>
+  </div>
+  <footer>
+    <div>© Yiğit Güven — All rights reserved</div>
+    <nav>
+      <a href="#terms">Terms of Use</a>
+      <a href="#privacy">Privacy Policy</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </footer>
+  <script>
+    // ===============================
+    // COMMAND MANAGEMENT SYSTEM
+    // ===============================
+    
+    // SVG Icons for contact buttons
+    const contactIcons = {
+      email: `
+        <svg class="contact-icon" viewBox="0 0 24 24" fill="currentColor">
+          <path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/>
+        </svg>
+      `,
+      linkedin: `
+        <svg class="contact-icon" viewBox="0 0 24 24" fill="currentColor">
+          <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+        </svg>
+      `,
+      github: `
+        <svg class="contact-icon" viewBox="0 0 24 24" fill="currentColor">
+          <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+        </svg>
+      `,
+      playstore: `
+        <svg class="contact-icon" viewBox="0 0 24 24" fill="currentColor">
+          <path d="M3.609 1.814L13.792 12 3.61 22.186a.996.996 0 0 1-.61-.92V2.734a1 1 0 0 1 .609-.92zm10.89 10.893l2.302 2.302-10.937 6.333 8.635-8.635zm3.199-3.198l2.807 1.626a1 1 0 0 1 0 1.73l-2.808 1.626L15.206 12l2.492-2.491zM3.063 2.533l10.937 6.333-2.301 2.301-8.636-8.634z"/>
+        </svg>
+      `,
+      curseforge: `
+        <svg class="contact-icon" viewBox="0 0 24 24" fill="currentColor">
+          <path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76 0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71 0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71 0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76 0 5-2.24 5-5s-2.24-5-5-5z"/>
+        </svg>
+      `,
+      modrinth: `
+        <svg class="contact-icon" viewBox="0 0 24 24" fill="currentColor">
+          <path d="M13.06 8.11l1.415 1.415a7 7 0 0 1 0 9.9l-.354.353a7 7 0 0 1-9.9-9.9l1.415 1.415a5 5 0 1 0 7.071 7.071l.354-.354a5 5 0 0 0 0-7.07l-1.415-1.415 1.415-1.414zm6.718 6.011l-1.414-1.414a5 5 0 1 0-7.071-7.071l-.354.354a5 5 0 0 0 0 7.07l1.415 1.415-1.415 1.414-1.414-1.414a7 7 0 0 1 0-9.9l.354-.353a7 7 0 0 1 9.9 9.9z"/>
+        </svg>
+      `
+    };
 
-    <script src="script.js"></script>
+    // Contact information
+    const contactInfo = [
+      {
+        platform: "Email",
+        url: "mailto:contact@yigitguven.net",
+        icon: contactIcons.email,
+        text: "contact@yigitguven.net"
+      },
+      {
+        platform: "LinkedIn",
+        url: "https://www.linkedin.com/in/harun-guven-887899360?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app",
+        icon: contactIcons.linkedin,
+        text: "Harun (Yiğit) Güven"
+      },
+      {
+        platform: "GitHub",
+        url: "https://github.com/yigit-guven",
+        icon: contactIcons.github,
+        text: "yigit-guven"
+      },
+      {
+        platform: "Google Play",
+        url: "https://play.google.com/store/apps/dev?id=7128980680944660685",
+        icon: contactIcons.playstore,
+        text: "Yiğit Güven"
+      },
+      {
+        platform: "CurseForge",
+        url: "https://www.curseforge.com/members/vuserr/projects",
+        icon: contactIcons.curseforge,
+        text: "Vuserr"
+      },
+      {
+        platform: "Modrinth",
+        url: "https://modrinth.com/user/1k3cxMc0",
+        icon: contactIcons.modrinth,
+        text: "Vuserr"
+      }
+    ];
+
+    // Command definitions - easy to add, remove, or modify
+    const CommandRegistry = {
+      // Simple commands with static responses
+      help: {
+        description: "Show all available commands",
+        execute: () => {
+          let helpText = "Available commands:\n";
+          for (const [cmd, config] of Object.entries(CommandRegistry)) {
+            if (config.description) {
+              helpText += `- ${cmd}: ${config.description}\n`;
+            }
+          }
+          return helpText;
+        }
+      },
+      
+      about: {
+        description: "Information about me",
+        execute: () => "Yiğit Güven — Software developer. Passionate about clean code, good architecture and learning."
+      },
+      
+      projects: {
+        description: "List of my projects",
+        execute: () => "Projects:\n- Simple File Converter\n- Tree of Life (game)\n- Card Strategy Prototype (solo)"
+      },
+      
+      contact: {
+        description: "Contact information with direct links",
+        execute: () => {
+          // Create contact buttons HTML
+          let contactHTML = `
+            <div style="color:inherit; margin-bottom: 12px;">
+              Get in touch with me through these platforms:
+            </div>
+            <div class="contact-buttons">
+          `;
+          
+          contactInfo.forEach(contact => {
+            contactHTML += `
+              <a href="${contact.url}" target="_blank" class="contact-btn">
+                ${contact.icon}
+                <span class="contact-text">
+                  <strong>${contact.platform}:</strong> ${contact.text}
+                </span>
+              </a>
+            `;
+          });
+          
+          contactHTML += `</div>`;
+          
+          // Return HTML that will be rendered
+          return {
+            type: 'html',
+            content: contactHTML
+          };
+        }
+      },
+      
+      clear: {
+        description: "Clear the terminal",
+        execute: () => {
+          out.innerHTML = '';
+          return null; // No output needed
+        }
+      },
+      
+      // Commands with parameters
+      theme: {
+        description: "Switch between light and dark themes",
+        execute: (args) => {
+          if (args.length === 1) {
+            const theme = args[0].toLowerCase();
+            if (theme === 'light' || theme === 'dark') {
+              setTheme(theme);
+              return `Theme switched to ${theme}`;
+            }
+          }
+          return "Usage: theme [light|dark]";
+        }
+      }
+    };
+    
+    // ===============================
+    // THEME MANAGEMENT
+    // ===============================
+    
+    const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+    const savedTheme = localStorage.getItem('theme');
+    const initialTheme = savedTheme || (prefersDark ? 'dark' : 'light');
+    document.documentElement.setAttribute('data-theme', initialTheme);
+
+    // LOGO HANDLING - Load appropriate logo based on theme
+    const logo = document.getElementById('logo');
+    function updateLogo() {
+      const theme = document.documentElement.getAttribute('data-theme');
+      // Use a white logo for dark theme, dark logo for light theme
+      if (theme === 'light') {
+        logo.src = './images/logo.svg'; // Original white logo
+        logo.style.filter = 'invert(19%) sepia(58%) saturate(1118%) hue-rotate(130deg) brightness(93%) contrast(104%)';
+      } else {
+        logo.src = './images/logo.svg'; // Same logo file
+        logo.style.filter = 'invert(48%) sepia(93%) saturate(1325%) hue-rotate(110deg) brightness(95%) contrast(101%)';
+      }
+    }
+    
+    // Set initial logo
+    updateLogo();
+
+    function setTheme(next){
+      document.documentElement.setAttribute('data-theme', next);
+      localStorage.setItem('theme', next);
+      // Update matrix colors and logo when theme changes
+      updateMatrixColors();
+      updateLogo();
+    }
+
+    // ===============================
+    // OPTIMIZED MATRIX BACKGROUND WITH PROPER INITIAL START
+    // ===============================
+    
+    const canvas = document.getElementById('matrix');
+    const ctx = canvas.getContext('2d');
+    
+    // Matrix configuration
+    const FONT_SIZE = 14;
+    const COLUMN_SPACING = 14;
+    let cols;
+    let drops = [];
+    const chars = 'abcdefghijklmnopqrstuvwxyz0123456789@#$%&*()<>/[]{}—=+;:';
+    
+    // Animation control
+    let matrixInterval = null;
+    let isMatrixRunning = false;
+    let lastResumeTime = 0;
+    const RESUME_COOLDOWN = 1000; // 1 second cooldown between resumes
+    
+    function resizeMatrix() {
+      canvas.width = window.innerWidth;
+      canvas.height = window.innerHeight;
+      
+      cols = Math.floor(canvas.width / COLUMN_SPACING);
+      
+      // Initialize drops
+      drops = [];
+      for (let i = 0; i < cols; i++) {
+        drops[i] = Math.floor(Math.random() * -canvas.height);
+      }
+    }
+    
+    // Initial resize
+    resizeMatrix();
+    
+    // Handle window resize
+    window.addEventListener('resize', resizeMatrix);
+    
+    function getMatrixColor() {
+      const theme = document.documentElement.getAttribute('data-theme');
+      return theme === 'light' ? 'rgba(0, 102, 68, 0.7)' : 'rgba(0, 202, 109, 0.7)';
+    }
+    
+    function getMatrixBackground() {
+      const theme = document.documentElement.getAttribute('data-theme');
+      return theme === 'light' ? 'rgba(255,255,255,0.03)' : 'rgba(0,0,0,0.03)';
+    }
+    
+    function updateMatrixColors() {
+      // Colors will be used in the draw function
+    }
+    
+    function drawMatrix() {
+      // Fill with semi-transparent background for trail effect
+      ctx.fillStyle = getMatrixBackground();
+      ctx.fillRect(0, 0, canvas.width, canvas.height);
+      
+      // Set text color and font
+      ctx.fillStyle = getMatrixColor();
+      ctx.font = FONT_SIZE + 'px monospace';
+      
+      // Draw the characters
+      for (let i = 0; i < drops.length; i++) {
+        // Random character
+        const text = chars[Math.floor(Math.random() * chars.length)];
+        
+        // x position
+        const x = i * COLUMN_SPACING;
+        
+        // y position
+        const y = drops[i] * FONT_SIZE;
+        
+        // Draw the character
+        ctx.fillText(text, x, y);
+        
+        // Move drop down
+        drops[i]++;
+        
+        // Reset drop if it's beyond the bottom with some randomness
+        if (drops[i] * FONT_SIZE > canvas.height && Math.random() > 0.975) {
+          drops[i] = 0;
+        }
+      }
+    }
+    
+    function startMatrixAnimation() {
+      if (!isMatrixRunning) {
+        isMatrixRunning = true;
+        const currentTime = Date.now();
+        
+        // Prevent rapid resume attempts
+        if (currentTime - lastResumeTime < RESUME_COOLDOWN) {
+          return;
+        }
+        lastResumeTime = currentTime;
+        
+        // Clear any existing interval
+        if (matrixInterval) {
+          clearInterval(matrixInterval);
+        }
+        
+        // Start new animation
+        matrixInterval = setInterval(drawMatrix, 50);
+        console.log('Matrix animation started');
+      }
+    }
+    
+    function stopMatrixAnimation() {
+      if (isMatrixRunning) {
+        isMatrixRunning = false;
+        if (matrixInterval) {
+          clearInterval(matrixInterval);
+          matrixInterval = null;
+        }
+        console.log('Matrix animation stopped');
+      }
+    }
+    
+    // ===============================
+    // TERMINAL FUNCTIONALITY
+    // ===============================
+    
+    const out = document.getElementById('output');
+    const input = document.getElementById('cmd');
+    const send = document.getElementById('send');
+    const prediction = document.getElementById('prediction');
+    const suggestionsBar = document.getElementById('suggestions');
+    
+    // Get available commands for auto-completion
+    const availableCommands = Object.keys(CommandRegistry);
+    const subCommands = {
+      theme: ['light', 'dark']
+    };
+    
+    // Create a comprehensive list of all commands including subcommands
+    const allCommands = [...availableCommands];
+    for (const [cmd, subs] of Object.entries(subCommands)) {
+      for (const sub of subs) {
+        allCommands.push(`${cmd} ${sub}`);
+      }
+    }
+    
+    function appendLine(html) {
+      const p = document.createElement('div');
+      p.style.marginBottom = '8px';
+      p.innerHTML = html;
+      out.appendChild(p);
+      // Auto-scroll to bottom after adding content
+      out.scrollTop = out.scrollHeight;
+    }
+    
+    function escapeHtml(s) {
+      const div = document.createElement('div');
+      div.textContent = s;
+      return div.innerHTML;
+    }
+    
+    // Improved command prediction and auto-completion
+    function getCommandSuggestions(inputText) {
+      const text = inputText.trim();
+      if (!text) return [];
+      
+      // Check if we're dealing with a partial multi-word command
+      const parts = text.split(/\s+/);
+      const currentWord = parts[parts.length - 1].toLowerCase();
+      
+      // If we're on the first word, suggest commands
+      if (parts.length === 1) {
+        return availableCommands.filter(cmd => 
+          cmd.toLowerCase().startsWith(currentWord)
+        );
+      }
+      
+      // If we're on a subsequent word, check if it's a command with subcommands
+      const command = parts[0].toLowerCase();
+      if (subCommands[command] && parts.length === 2) {
+        return subCommands[command].filter(sub => 
+          sub.toLowerCase().startsWith(currentWord)
+        );
+      }
+      
+      return [];
+    }
+    
+    // Find the best matching command for auto-correction
+    function findBestMatch(inputText) {
+      const text = inputText.trim().toLowerCase();
+      if (!text) return null;
+      
+      // First try exact matches
+      if (availableCommands.includes(text)) return text;
+      
+      // Try to find the closest match
+      let bestMatch = null;
+      let bestScore = 0;
+      
+      for (const cmd of availableCommands) {
+        // Calculate similarity score
+        let score = 0;
+        const minLength = Math.min(text.length, cmd.length);
+        
+        for (let i = 0; i < minLength; i++) {
+          if (text[i] === cmd[i]) score++;
+          else break;
+        }
+        
+        // Prefer longer matches
+        score = score / Math.max(text.length, cmd.length);
+        
+        if (score > bestScore) {
+          bestScore = score;
+          bestMatch = cmd;
+        }
+      }
+      
+      // Only return if we have a reasonably good match
+      return bestScore > 0.5 ? bestMatch : null;
+    }
+    
+    // Update mobile suggestions bar
+    function updateMobileSuggestions() {
+      const text = input.value;
+      suggestionsBar.innerHTML = '';
+      
+      if (!text.trim()) {
+        suggestionsBar.style.display = 'none';
+        return;
+      }
+      
+      const suggestions = getCommandSuggestions(text);
+      
+      if (suggestions.length > 0) {
+        suggestionsBar.style.display = 'flex';
+        suggestionsBar.style.flexWrap = 'wrap';
+        
+        // Show up to 5 suggestions
+        const maxSuggestions = Math.min(suggestions.length, 5);
+        for (let i = 0; i < maxSuggestions; i++) {
+          const chip = document.createElement('div');
+          chip.className = 'suggestion-chip';
+          chip.textContent = suggestions[i];
+          chip.addEventListener('click', () => {
+            applySuggestion(suggestions[i]);
+          });
+          suggestionsBar.appendChild(chip);
+        }
+      } else {
+        suggestionsBar.style.display = 'none';
+      }
+    }
+    
+    // Apply suggestion from mobile UI
+    function applySuggestion(suggestion) {
+      const text = input.value;
+      const parts = text.trim().split(/\s+/);
+      
+      if (parts.length === 1) {
+        input.value = suggestion;
+      } else {
+        // For subcommands, replace just the last part
+        const baseCommand = parts.slice(0, -1).join(' ');
+        input.value = baseCommand + ' ' + suggestion;
+      }
+      
+      // Update prediction and suggestions
+      updatePrediction();
+      updateMobileSuggestions();
+      input.focus();
+    }
+    
+    function updatePrediction() {
+      const text = input.value;
+      prediction.textContent = '';
+      
+      if (!text.trim()) return;
+      
+      const suggestions = getCommandSuggestions(text);
+      
+      if (suggestions.length > 0) {
+        const parts = text.trim().split(/\s+/);
+        const currentWord = parts[parts.length - 1].toLowerCase();
+        const suggestion = suggestions[0];
+        
+        // Build the prediction text
+        if (parts.length === 1) {
+          prediction.textContent = suggestion;
+        } else {
+          // For subcommands, show the full command with the suggested subcommand
+          const baseCommand = parts.slice(0, -1).join(' ');
+          prediction.textContent = baseCommand + ' ' + suggestion;
+        }
+      }
+    }
+    
+    function autoComplete() {
+      const text = input.value;
+      if (!text.trim()) return;
+      
+      const suggestions = getCommandSuggestions(text);
+      
+      if (suggestions.length > 0) {
+        const parts = text.trim().split(/\s+/);
+        const currentWord = parts[parts.length - 1].toLowerCase();
+        const suggestion = suggestions[0];
+        
+        if (parts.length === 1) {
+          input.value = suggestion;
+        } else {
+          // For subcommands, replace just the last part
+          const baseCommand = parts.slice(0, -1).join(' ');
+          input.value = baseCommand + ' ' + suggestion;
+        }
+        
+        // Update prediction after auto-completion
+        updatePrediction();
+        updateMobileSuggestions();
+      } else {
+        // Try to auto-correct if no direct suggestions
+        const bestMatch = findBestMatch(text);
+        if (bestMatch) {
+          input.value = bestMatch;
+          updatePrediction();
+          updateMobileSuggestions();
+        }
+      }
+    }
+    
+    function handle(cmdRaw) {
+      const parts = cmdRaw.trim().split(/\s+/);
+      const cmd = parts[0].toLowerCase();
+      const args = parts.slice(1);
+      
+      if (!cmd) return;
+      
+      appendLine(`<span style="color:var(--accent);">&gt; ${escapeHtml(cmdRaw)}</span>`);
+      
+      // Check if command exists in registry
+      if (CommandRegistry.hasOwnProperty(cmd)) {
+        const command = CommandRegistry[cmd];
+        const result = command.execute(args);
+        
+        // Only append output if there is any (clear command returns null)
+        if (result !== null) {
+          if (result.type === 'html') {
+            // For HTML content (like contact buttons)
+            const p = document.createElement('div');
+            p.style.marginBottom = '8px';
+            p.innerHTML = result.content;
+            out.appendChild(p);
+            // Auto-scroll to bottom after adding HTML content
+            out.scrollTop = out.scrollHeight;
+          } else {
+            // For regular text content
+            appendLine(`<pre style="white-space:pre-wrap;color:inherit;margin:0">${escapeHtml(result)}</pre>`);
+          }
+        }
+      } else {
+        // Try to suggest similar commands
+        const bestMatch = findBestMatch(cmd);
+        if (bestMatch) {
+          appendLine(`<span style="color:#f08b3e">Command not found. Did you mean '${bestMatch}'?</span>`);
+        } else {
+          appendLine(`<span style="color:#f08b3e">Command not found: ${escapeHtml(cmd)} — type 'help' for available commands</span>`);
+        }
+      }
+    }
+    
+    // ===============================
+    // URL HASH COMMAND SYSTEM
+    // ===============================
+    
+    function processHashCommand() {
+      const hash = window.location.hash;
+      
+      // Check if we have a hash command
+      if (hash && hash.startsWith('#/')) {
+        // Extract the command from the hash (remove the #/ prefix)
+        const command = hash.substring(2);
+        
+        // Check if this is a valid command
+        const parts = command.trim().split(/\s+/);
+        const cmd = parts[0].toLowerCase();
+        
+        if (CommandRegistry.hasOwnProperty(cmd)) {
+          // Execute the command
+          handle(command);
+          
+          // Clear the hash from the URL without adding to browser history
+          history.replaceState(null, null, ' ');
+        }
+        
+        // Always clear the hash, even if command is invalid
+        window.location.hash = '';
+      }
+    }
+    
+    // Event listeners
+    send.addEventListener('click', () => {
+      handle(input.value);
+      input.value = '';
+      prediction.textContent = '';
+      suggestionsBar.style.display = 'none';
+      input.focus();
+    });
+    
+    input.addEventListener('keydown', (e) => {
+      if (e.key === 'Enter') {
+        handle(input.value);
+        input.value = '';
+        prediction.textContent = '';
+        suggestionsBar.style.display = 'none';
+      } else if (e.key === 'Tab') {
+        e.preventDefault();
+        autoComplete();
+      }
+    });
+    
+    input.addEventListener('input', () => {
+      updatePrediction();
+      updateMobileSuggestions();
+    });
+    
+    document.querySelector('.terminal-card').addEventListener('click', () => input.focus());
+    
+    // Improved page visibility handling
+    document.addEventListener('visibilitychange', () => {
+      if (document.hidden) {
+        // Page is hidden - stop animation to save resources
+        stopMatrixAnimation();
+      } else {
+        // Page is visible - resume animation with a small delay
+        setTimeout(() => {
+          startMatrixAnimation();
+        }, 100);
+      }
+    });
+
+    // Additional event listeners to catch focus returns
+    window.addEventListener('focus', () => {
+      setTimeout(() => {
+        startMatrixAnimation();
+      }, 100);
+    });
+    
+    window.addEventListener('pageshow', () => {
+      setTimeout(() => {
+        startMatrixAnimation();
+      }, 100);
+    });
+
+    // Initialize matrix animation on page load
+    window.addEventListener('load', () => {
+      setTimeout(() => {
+        startMatrixAnimation();
+      }, 100);
+    });
+
+    // Start matrix animation immediately (fallback)
+    setTimeout(() => {
+      startMatrixAnimation();
+    }, 200);
+
+    // Initialize with focus on input
+    input.focus();
+    
+    // Process hash command when page loads
+    window.addEventListener('load', processHashCommand);
+    
+    // Also process hash command if it changes while page is already loaded
+    window.addEventListener('hashchange', processHashCommand);
+  </script>
 </body>
 </html>
