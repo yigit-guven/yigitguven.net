@@ -160,6 +160,7 @@
       align-items:center;
       padding:10px 20px;
       border-radius:8px;
+      white-space: nowrap;
     }
     [data-theme="light"] footer{
       background:#f1f1f1;
@@ -167,12 +168,16 @@
     }
     footer nav{
       margin-top:6px;
+      display: flex;
+      flex-wrap: nowrap;
+      justify-content: center;
     }
     footer a{
       color:var(--accent);
       margin:0 10px;
       text-decoration:none;
       font-weight:500;
+      white-space: nowrap;
     }
     footer a:hover{
       text-decoration:underline;
@@ -344,6 +349,27 @@
       text-align: center;
     }
 
+    /* Tablet specific styles */
+    @media (min-width: 769px) and (max-width: 1024px) {
+      .brand {
+        font-size: 1.8rem;
+      }
+      
+      .terminal-card {
+        width: min(90%, 800px);
+      }
+      
+      .output-area {
+        min-height: 280px;
+        max-height: 400px;
+      }
+      
+      footer {
+        font-size: 0.9rem;
+        padding: 12px 24px;
+      }
+    }
+
     @media (max-width: 768px) {
       .mobile-hint {
         display: block;
@@ -362,6 +388,40 @@
         width: 18px;
         height: 18px;
       }
+      
+      .brand {
+        font-size: 1.6rem;
+      }
+      
+      .terminal-card {
+        width: 92%;
+        padding: 14px;
+      }
+      
+      .output-area {
+        min-height: 200px;
+        max-height: 350px;
+        font-size: 0.9rem;
+      }
+      
+      footer {
+        position: relative;
+        bottom: auto;
+        margin-top: 20px;
+        margin-bottom: 20px;
+        width: 90%;
+        white-space: normal;
+        text-align: center;
+      }
+      
+      footer nav {
+        flex-wrap: wrap;
+        gap: 8px;
+      }
+      
+      footer a {
+        margin: 0 6px;
+      }
     }
 
     @media (max-width:600px){
@@ -370,9 +430,35 @@
         width: 32px;
         height: 32px;
       }
-      .terminal-card{padding:12px;}
-      .output-area{min-height:160px;}
-      footer{font-size:0.75rem;}
+      .terminal-card{
+        padding:12px;
+        width: 90%;
+      }
+      .output-area{
+        min-height:160px;
+        max-height: 300px;
+        font-size: 0.85rem;
+        padding: 10px;
+      }
+      footer{
+        font-size:0.75rem;
+        padding: 8px 16px;
+        width: 88%;
+      }
+      
+      .user-input {
+        flex-direction: column;
+        gap: 8px;
+      }
+      
+      .input-box {
+        width: 100%;
+      }
+      
+      .send-btn {
+        align-self: flex-end;
+        padding: 8px 16px;
+      }
 
       .suggestions-bar {
         max-height: 100px;
@@ -382,6 +468,36 @@
         padding: 4px 8px;
         font-size: 0.8rem;
         margin: 1px;
+      }
+      
+      .hint, .mobile-hint {
+        font-size: 0.75rem;
+      }
+    }
+    
+    /* Small mobile devices */
+    @media (max-width: 380px) {
+      .brand {
+        font-size: 1.2rem;
+        gap: 8px;
+      }
+      
+      .logo {
+        width: 28px;
+        height: 28px;
+      }
+      
+      .terminal-card {
+        padding: 10px;
+      }
+      
+      footer {
+        font-size: 0.7rem;
+      }
+      
+      footer nav {
+        flex-direction: column;
+        gap: 4px;
       }
     }
   </style>
@@ -406,7 +522,7 @@
         <button id="send" class="send-btn">Send</button>
       </div>
       <div class="hint" id="hint-text">Terminal mode: real CLI feel for developers — simple commands for everyone. Press TAB for auto-completion.</div>
-      <div class="mobile-hint">Tap on suggestions above the keyboard for quick auto-completion</div>
+      <div class="mobile-hint" id="mobile-hint-text">Tap on suggestions above the keyboard for quick auto-completion</div>
     </div>
   </div>
   <footer>
@@ -572,13 +688,13 @@
         execute: (args) => {
           const baseUrl = "https://yigitguven.net";
           let shareUrl = baseUrl;
-          
+
           // If arguments are provided, create a command-specific URL
           if (args.length > 0) {
             const command = args.join('-'); // Join multi-word commands with hyphens
             shareUrl = `${baseUrl}/#/${command}`;
           }
-          
+
           // Create share button HTML
           const shareHTML = `
             <div style="color:inherit; margin-bottom: 8px;">
@@ -660,7 +776,7 @@
         box-shadow: 0 4px 12px rgba(0,0,0,0.3);
         animation: fadeInOut 3s ease-in-out;
       `;
-      
+
       // Add CSS animation
       const style = document.createElement('style');
       style.textContent = `
@@ -672,9 +788,9 @@
         }
       `;
       document.head.appendChild(style);
-      
+
       document.body.appendChild(notification);
-      
+
       // Remove after animation completes
       setTimeout(() => {
         if (notification.parentNode) {
@@ -849,6 +965,7 @@
     const prediction = document.getElementById('prediction');
     const suggestionsBar = document.getElementById('suggestions');
     const hintText = document.getElementById('hint-text');
+    const mobileHintText = document.getElementById('mobile-hint-text');
 
     // Detect if device has a physical keyboard (for TAB key hint)
     function hasPhysicalKeyboard() {
@@ -856,30 +973,37 @@
       if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
         return false;
       }
-      
+
       // Additional check for touch devices
       if (navigator.maxTouchPoints && navigator.maxTouchPoints > 0) {
         return false;
       }
-      
+
       return true;
     }
 
     // Update hint text based on device
     function updateHintText() {
-      if (hasPhysicalKeyboard()) {
+      const hasKeyboard = hasPhysicalKeyboard();
+      
+      if (hasKeyboard) {
         hintText.textContent = "Terminal mode: real CLI feel for developers — simple commands for everyone. Press TAB for auto-completion.";
         hintText.style.display = 'block';
+        mobileHintText.style.display = 'none';
       } else {
-        hintText.textContent = "Terminal mode: real CLI feel for developers — simple commands for everyone. Tap on suggestions above the keyboard for quick auto-completion.";
-        hintText.style.display = 'block';
+        hintText.style.display = 'none';
+        mobileHintText.textContent = "Tap on suggestions above the keyboard for quick auto-completion";
+        mobileHintText.style.display = 'block';
       }
     }
 
     // Get available commands for auto-completion
     const availableCommands = Object.keys(CommandRegistry);
+    
+    // Enhanced subCommands with more comprehensive suggestions
     const subCommands = {
-      theme: ['light', 'dark']
+      theme: ['light', 'dark'],
+      share: ['help', 'about', 'projects', 'contact', 'theme', 'clear']
     };
 
     // Create a comprehensive list of all commands including subcommands
@@ -905,7 +1029,7 @@
       return div.innerHTML;
     }
 
-    // Improved command prediction and auto-completion
+    // Enhanced command prediction and auto-completion
     function getCommandSuggestions(inputText) {
       const text = inputText.trim();
       if (!text) return [];
@@ -923,6 +1047,15 @@
 
       // If we're on a subsequent word, check if it's a command with subcommands
       const command = parts[0].toLowerCase();
+      
+      // Special handling for share command - suggest other commands
+      if (command === 'share' && parts.length === 2) {
+        return availableCommands.filter(cmd => 
+          cmd.toLowerCase().startsWith(currentWord) && cmd !== 'share'
+        );
+      }
+      
+      // Handle other commands with subcommands
       if (subCommands[command] && parts.length === 2) {
         return subCommands[command].filter(sub => 
           sub.toLowerCase().startsWith(currentWord)
