@@ -5,7 +5,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Yiğit Güven</title>
   <style>
-    /* All existing CSS remains the same */
     :root{
       --bg: #0b0f0b;
       --accent: #00ca6d;
@@ -178,7 +177,7 @@
     footer a:hover{
       text-decoration:underline;
     }
-    
+
     /* Contact Buttons Styles */
     .contact-buttons {
       display: flex;
@@ -186,7 +185,7 @@
       gap: 8px;
       margin-top: 12px;
     }
-    
+
     .contact-btn {
       display: flex;
       align-items: center;
@@ -203,40 +202,86 @@
       transition: all 0.2s ease;
       text-align: left;
     }
-    
+
     .contact-btn:hover {
       background: rgba(0, 202, 109, 0.2);
       transform: translateY(-1px);
     }
-    
+
     .contact-btn:active {
       background: rgba(0, 202, 109, 0.3);
       transform: translateY(0);
     }
-    
+
     .contact-icon {
       width: 20px;
       height: 20px;
       flex-shrink: 0;
     }
-    
+
     .contact-text {
       flex: 1;
     }
-    
+
     [data-theme="light"] .contact-btn {
       background: rgba(0, 102, 68, 0.1);
       border: 1px solid rgba(0, 102, 68, 0.3);
     }
-    
+
     [data-theme="light"] .contact-btn:hover {
       background: rgba(0, 102, 68, 0.2);
     }
-    
+
     [data-theme="light"] .contact-btn:active {
       background: rgba(0, 102, 68, 0.3);
     }
-    
+
+    /* Share Button Styles */
+    .share-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 10px 16px;
+      background: rgba(0, 202, 109, 0.2);
+      border: 1px solid rgba(0, 202, 109, 0.4);
+      border-radius: 8px;
+      color: var(--accent);
+      text-decoration: none;
+      font-family: inherit;
+      font-size: 0.9rem;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      margin-top: 10px;
+    }
+
+    .share-btn:hover {
+      background: rgba(0, 202, 109, 0.3);
+      transform: translateY(-1px);
+    }
+
+    .share-btn:active {
+      background: rgba(0, 202, 109, 0.4);
+      transform: translateY(0);
+    }
+
+    .share-icon {
+      width: 18px;
+      height: 18px;
+    }
+
+    [data-theme="light"] .share-btn {
+      background: rgba(0, 102, 68, 0.2);
+      border: 1px solid rgba(0, 102, 68, 0.4);
+    }
+
+    [data-theme="light"] .share-btn:hover {
+      background: rgba(0, 102, 68, 0.3);
+    }
+
+    [data-theme="light"] .share-btn:active {
+      background: rgba(0, 102, 68, 0.4);
+    }
+
     /* Mobile Auto-completion Styles */
     .suggestions-bar {
       display: none;
@@ -254,7 +299,7 @@
       max-height: 120px;
       overflow-y: auto;
     }
-    
+
     .suggestion-chip {
       display: inline-block;
       background: rgba(0, 202, 109, 0.1);
@@ -267,30 +312,30 @@
       cursor: pointer;
       transition: all 0.2s ease;
     }
-    
+
     .suggestion-chip:hover {
       background: rgba(0, 202, 109, 0.2);
       transform: translateY(-1px);
     }
-    
+
     .suggestion-chip:active {
       background: rgba(0, 202, 109, 0.3);
       transform: translateY(0);
     }
-    
+
     [data-theme="light"] .suggestion-chip {
       background: rgba(0, 102, 68, 0.1);
       border: 1px solid rgba(0, 102, 68, 0.3);
     }
-    
+
     [data-theme="light"] .suggestion-chip:hover {
       background: rgba(0, 102, 68, 0.2);
     }
-    
+
     [data-theme="light"] .suggestion-chip:active {
       background: rgba(0, 102, 68, 0.3);
     }
-    
+
     .mobile-hint {
       display: none;
       color: var(--muted);
@@ -298,27 +343,27 @@
       margin-top: 4px;
       text-align: center;
     }
-    
+
     @media (max-width: 768px) {
       .mobile-hint {
         display: block;
       }
-      
+
       .contact-buttons {
         gap: 6px;
       }
-      
+
       .contact-btn {
         padding: 8px 12px;
         font-size: 0.85rem;
       }
-      
+
       .contact-icon {
         width: 18px;
         height: 18px;
       }
     }
-    
+
     @media (max-width:600px){
       .brand{font-size:1.4rem;}
       .logo {
@@ -328,11 +373,11 @@
       .terminal-card{padding:12px;}
       .output-area{min-height:160px;}
       footer{font-size:0.75rem;}
-      
+
       .suggestions-bar {
         max-height: 100px;
       }
-      
+
       .suggestion-chip {
         padding: 4px 8px;
         font-size: 0.8rem;
@@ -360,7 +405,7 @@
         </div>
         <button id="send" class="send-btn">Send</button>
       </div>
-      <div class="hint">Terminal mode: real CLI feel for developers — simple commands for everyone. Press TAB for auto-completion.</div>
+      <div class="hint" id="hint-text">Terminal mode: real CLI feel for developers — simple commands for everyone. Press TAB for auto-completion.</div>
       <div class="mobile-hint">Tap on suggestions above the keyboard for quick auto-completion</div>
     </div>
   </div>
@@ -376,7 +421,7 @@
     // ===============================
     // COMMAND MANAGEMENT SYSTEM
     // ===============================
-    
+
     // SVG Icons for contact buttons
     const contactIcons = {
       email: `
@@ -407,6 +452,11 @@
       modrinth: `
         <svg class="contact-icon" viewBox="0 0 24 24" fill="currentColor">
           <path d="M13.06 8.11l1.415 1.415a7 7 0 0 1 0 9.9l-.354.353a7 7 0 0 1-9.9-9.9l1.415 1.415a5 5 0 1 0 7.071 7.071l.354-.354a5 5 0 0 0 0-7.07l-1.415-1.415 1.415-1.414zm6.718 6.011l-1.414-1.414a5 5 0 1 0-7.071-7.071l-.354.354a5 5 0 0 0 0 7.07l1.415 1.415-1.415 1.414-1.414-1.414a7 7 0 0 1 0-9.9l.354-.353a7 7 0 0 1 9.9 9.9z"/>
+        </svg>
+      `,
+      share: `
+        <svg class="share-icon" viewBox="0 0 24 24" fill="currentColor">
+          <path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7s-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81 1.66 0 3-1.34 3-3s-1.34-3-3-3-3 1.34-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9c-1.66 0-3 1.34-3 3s1.34 3 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.16c-.05.21-.08.43-.08.65 0 1.61 1.31 2.92 2.92 2.92 1.61 0 2.92-1.31 2.92-2.92s-1.31-2.92-2.92-2.92z"/>
         </svg>
       `
     };
@@ -466,17 +516,17 @@
           return helpText;
         }
       },
-      
+
       about: {
         description: "Information about me",
         execute: () => "Yiğit Güven — Software developer. Passionate about clean code, good architecture and learning."
       },
-      
+
       projects: {
         description: "List of my projects",
         execute: () => "Projects:\n- Simple File Converter\n- Tree of Life (game)\n- Card Strategy Prototype (solo)"
       },
-      
+
       contact: {
         description: "Contact information with direct links",
         execute: () => {
@@ -487,7 +537,7 @@
             </div>
             <div class="contact-buttons">
           `;
-          
+
           contactInfo.forEach(contact => {
             contactHTML += `
               <a href="${contact.url}" target="_blank" class="contact-btn">
@@ -498,9 +548,9 @@
               </a>
             `;
           });
-          
+
           contactHTML += `</div>`;
-          
+
           // Return HTML that will be rendered
           return {
             type: 'html',
@@ -508,7 +558,7 @@
           };
         }
       },
-      
+
       clear: {
         description: "Clear the terminal",
         execute: () => {
@@ -516,7 +566,37 @@
           return null; // No output needed
         }
       },
-      
+
+      share: {
+        description: "Generate a shareable link for this website or specific commands",
+        execute: (args) => {
+          const baseUrl = "https://yigitguven.net";
+          let shareUrl = baseUrl;
+          
+          // If arguments are provided, create a command-specific URL
+          if (args.length > 0) {
+            const command = args.join('-'); // Join multi-word commands with hyphens
+            shareUrl = `${baseUrl}/#/${command}`;
+          }
+          
+          // Create share button HTML
+          const shareHTML = `
+            <div style="color:inherit; margin-bottom: 8px;">
+              Share URL: <code style="background:var(--glass); padding:4px 8px; border-radius:4px;">${shareUrl}</code>
+            </div>
+            <button class="share-btn" onclick="shareUrl('${shareUrl}')">
+              ${contactIcons.share}
+              Share this page
+            </button>
+          `;
+
+          return {
+            type: 'html',
+            content: shareHTML
+          };
+        }
+      },
+
       // Commands with parameters
       theme: {
         description: "Switch between light and dark themes",
@@ -532,11 +612,44 @@
         }
       }
     };
-    
+
+    // ===============================
+    // SHARE FUNCTIONALITY
+    // ===============================
+
+    // Share URL function
+    function shareUrl(url) {
+      if (navigator.share) {
+        // Use Web Share API if available (mobile devices)
+        navigator.share({
+          title: 'Yiğit Güven',
+          text: 'Check out this website!',
+          url: url
+        })
+        .catch(err => {
+          console.log('Error sharing:', err);
+          fallbackShare(url);
+        });
+      } else {
+        // Fallback for desktop browsers
+        fallbackShare(url);
+      }
+    }
+
+    function fallbackShare(url) {
+      // Copy to clipboard as fallback
+      navigator.clipboard.writeText(url).then(() => {
+        alert('URL copied to clipboard: ' + url);
+      }).catch(err => {
+        // Final fallback - show URL in alert
+        alert('Share this URL: ' + url);
+      });
+    }
+
     // ===============================
     // THEME MANAGEMENT
     // ===============================
-    
+
     const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
     const savedTheme = localStorage.getItem('theme');
     const initialTheme = savedTheme || (prefersDark ? 'dark' : 'light');
@@ -555,7 +668,7 @@
         logo.style.filter = 'invert(48%) sepia(93%) saturate(1325%) hue-rotate(110deg) brightness(95%) contrast(101%)';
       }
     }
-    
+
     // Set initial logo
     updateLogo();
 
@@ -570,111 +683,111 @@
     // ===============================
     // OPTIMIZED MATRIX BACKGROUND WITH PROPER INITIAL START
     // ===============================
-    
+
     const canvas = document.getElementById('matrix');
     const ctx = canvas.getContext('2d');
-    
+
     // Matrix configuration
     const FONT_SIZE = 14;
     const COLUMN_SPACING = 14;
     let cols;
     let drops = [];
     const chars = 'abcdefghijklmnopqrstuvwxyz0123456789@#$%&*()<>/[]{}—=+;:';
-    
+
     // Animation control
     let matrixInterval = null;
     let isMatrixRunning = false;
     let lastResumeTime = 0;
     const RESUME_COOLDOWN = 1000; // 1 second cooldown between resumes
-    
+
     function resizeMatrix() {
       canvas.width = window.innerWidth;
       canvas.height = window.innerHeight;
-      
+
       cols = Math.floor(canvas.width / COLUMN_SPACING);
-      
+
       // Initialize drops
       drops = [];
       for (let i = 0; i < cols; i++) {
         drops[i] = Math.floor(Math.random() * -canvas.height);
       }
     }
-    
+
     // Initial resize
     resizeMatrix();
-    
+
     // Handle window resize
     window.addEventListener('resize', resizeMatrix);
-    
+
     function getMatrixColor() {
       const theme = document.documentElement.getAttribute('data-theme');
       return theme === 'light' ? 'rgba(0, 102, 68, 0.7)' : 'rgba(0, 202, 109, 0.7)';
     }
-    
+
     function getMatrixBackground() {
       const theme = document.documentElement.getAttribute('data-theme');
       return theme === 'light' ? 'rgba(255,255,255,0.03)' : 'rgba(0,0,0,0.03)';
     }
-    
+
     function updateMatrixColors() {
       // Colors will be used in the draw function
     }
-    
+
     function drawMatrix() {
       // Fill with semi-transparent background for trail effect
       ctx.fillStyle = getMatrixBackground();
       ctx.fillRect(0, 0, canvas.width, canvas.height);
-      
+
       // Set text color and font
       ctx.fillStyle = getMatrixColor();
       ctx.font = FONT_SIZE + 'px monospace';
-      
+
       // Draw the characters
       for (let i = 0; i < drops.length; i++) {
         // Random character
         const text = chars[Math.floor(Math.random() * chars.length)];
-        
+
         // x position
         const x = i * COLUMN_SPACING;
-        
+
         // y position
         const y = drops[i] * FONT_SIZE;
-        
+
         // Draw the character
         ctx.fillText(text, x, y);
-        
+
         // Move drop down
         drops[i]++;
-        
+
         // Reset drop if it's beyond the bottom with some randomness
         if (drops[i] * FONT_SIZE > canvas.height && Math.random() > 0.975) {
           drops[i] = 0;
         }
       }
     }
-    
+
     function startMatrixAnimation() {
       if (!isMatrixRunning) {
         isMatrixRunning = true;
         const currentTime = Date.now();
-        
+
         // Prevent rapid resume attempts
         if (currentTime - lastResumeTime < RESUME_COOLDOWN) {
           return;
         }
         lastResumeTime = currentTime;
-        
+
         // Clear any existing interval
         if (matrixInterval) {
           clearInterval(matrixInterval);
         }
-        
+
         // Start new animation
         matrixInterval = setInterval(drawMatrix, 50);
         console.log('Matrix animation started');
       }
     }
-    
+
     function stopMatrixAnimation() {
       if (isMatrixRunning) {
         isMatrixRunning = false;
@@ -685,23 +798,48 @@
         console.log('Matrix animation stopped');
       }
     }
-    
+
     // ===============================
     // TERMINAL FUNCTIONALITY
     // ===============================
-    
+
     const out = document.getElementById('output');
     const input = document.getElementById('cmd');
     const send = document.getElementById('send');
     const prediction = document.getElementById('prediction');
     const suggestionsBar = document.getElementById('suggestions');
-    
+    const hintText = document.getElementById('hint-text');
+
+    // Detect if device has a physical keyboard (for TAB key hint)
+    function hasPhysicalKeyboard() {
+      // Check if device is mobile/tablet
+      if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
+        return false;
+      }
+      
+      // Additional check for touch devices
+      if (navigator.maxTouchPoints && navigator.maxTouchPoints > 0) {
+        return false;
+      }
+      
+      return true;
+    }
+
+    // Update hint text based on device
+    function updateHintText() {
+      if (hasPhysicalKeyboard()) {
+        hintText.textContent = "Terminal mode: real CLI feel for developers — simple commands for everyone. Press TAB for auto-completion.";
+      } else {
+        hintText.textContent = "Terminal mode: real CLI feel for developers — simple commands for everyone. Tap on suggestions above the keyboard for quick auto-completion.";
+      }
+    }
+
     // Get available commands for auto-completion
     const availableCommands = Object.keys(CommandRegistry);
     const subCommands = {
       theme: ['light', 'dark']
     };
-    
+
     // Create a comprehensive list of all commands including subcommands
     const allCommands = [...availableCommands];
     for (const [cmd, subs] of Object.entries(subCommands)) {
@@ -709,7 +847,7 @@
         allCommands.push(`${cmd} ${sub}`);
       }
     }
-    
+
     function appendLine(html) {
       const p = document.createElement('div');
       p.style.marginBottom = '8px';
@@ -718,29 +856,29 @@
       // Auto-scroll to bottom after adding content
       out.scrollTop = out.scrollHeight;
     }
-    
+
     function escapeHtml(s) {
       const div = document.createElement('div');
       div.textContent = s;
       return div.innerHTML;
     }
-    
+
     // Improved command prediction and auto-completion
     function getCommandSuggestions(inputText) {
       const text = inputText.trim();
       if (!text) return [];
-      
+
       // Check if we're dealing with a partial multi-word command
       const parts = text.split(/\s+/);
       const currentWord = parts[parts.length - 1].toLowerCase();
-      
+
       // If we're on the first word, suggest commands
       if (parts.length === 1) {
         return availableCommands.filter(cmd => 
           cmd.toLowerCase().startsWith(currentWord)
         );
       }
-      
+
       // If we're on a subsequent word, check if it's a command with subcommands
       const command = parts[0].toLowerCase();
       if (subCommands[command] && parts.length === 2) {
@@ -748,61 +886,61 @@
           sub.toLowerCase().startsWith(currentWord)
         );
       }
-      
+
       return [];
     }
-    
+
     // Find the best matching command for auto-correction
     function findBestMatch(inputText) {
       const text = inputText.trim().toLowerCase();
       if (!text) return null;
-      
+
       // First try exact matches
       if (availableCommands.includes(text)) return text;
-      
+
       // Try to find the closest match
       let bestMatch = null;
       let bestScore = 0;
-      
+
       for (const cmd of availableCommands) {
         // Calculate similarity score
         let score = 0;
         const minLength = Math.min(text.length, cmd.length);
-        
+
         for (let i = 0; i < minLength; i++) {
           if (text[i] === cmd[i]) score++;
           else break;
         }
-        
+
         // Prefer longer matches
         score = score / Math.max(text.length, cmd.length);
-        
+
         if (score > bestScore) {
           bestScore = score;
           bestMatch = cmd;
         }
       }
-      
+
       // Only return if we have a reasonably good match
       return bestScore > 0.5 ? bestMatch : null;
     }
-    
+
     // Update mobile suggestions bar
     function updateMobileSuggestions() {
       const text = input.value;
       suggestionsBar.innerHTML = '';
-      
+
       if (!text.trim()) {
         suggestionsBar.style.display = 'none';
         return;
       }
-      
+
       const suggestions = getCommandSuggestions(text);
-      
+
       if (suggestions.length > 0) {
         suggestionsBar.style.display = 'flex';
         suggestionsBar.style.flexWrap = 'wrap';
-        
+
         // Show up to 5 suggestions
         const maxSuggestions = Math.min(suggestions.length, 5);
         for (let i = 0; i < maxSuggestions; i++) {
@@ -818,12 +956,12 @@
         suggestionsBar.style.display = 'none';
       }
     }
-    
+
     // Apply suggestion from mobile UI
     function applySuggestion(suggestion) {
       const text = input.value;
       const parts = text.trim().split(/\s+/);
-      
+
       if (parts.length === 1) {
         input.value = suggestion;
       } else {
@@ -831,26 +969,26 @@
         const baseCommand = parts.slice(0, -1).join(' ');
         input.value = baseCommand + ' ' + suggestion;
       }
-      
+
       // Update prediction and suggestions
       updatePrediction();
       updateMobileSuggestions();
       input.focus();
     }
-    
+
     function updatePrediction() {
       const text = input.value;
       prediction.textContent = '';
-      
+
       if (!text.trim()) return;
-      
+
       const suggestions = getCommandSuggestions(text);
-      
+
       if (suggestions.length > 0) {
         const parts = text.trim().split(/\s+/);
         const currentWord = parts[parts.length - 1].toLowerCase();
         const suggestion = suggestions[0];
-        
+
         // Build the prediction text
         if (parts.length === 1) {
           prediction.textContent = suggestion;
@@ -861,18 +999,18 @@
         }
       }
     }
-    
+
     function autoComplete() {
       const text = input.value;
       if (!text.trim()) return;
-      
+
       const suggestions = getCommandSuggestions(text);
-      
+
       if (suggestions.length > 0) {
         const parts = text.trim().split(/\s+/);
         const currentWord = parts[parts.length - 1].toLowerCase();
         const suggestion = suggestions[0];
-        
+
         if (parts.length === 1) {
           input.value = suggestion;
         } else {
@@ -880,7 +1018,7 @@
           const baseCommand = parts.slice(0, -1).join(' ');
           input.value = baseCommand + ' ' + suggestion;
         }
-        
+
         // Update prediction after auto-completion
         updatePrediction();
         updateMobileSuggestions();
@@ -894,21 +1032,21 @@
         }
       }
     }
-    
+
     function handle(cmdRaw) {
       const parts = cmdRaw.trim().split(/\s+/);
       const cmd = parts[0].toLowerCase();
       const args = parts.slice(1);
-      
+
       if (!cmd) return;
-      
+
       appendLine(`<span style="color:var(--accent);">&gt; ${escapeHtml(cmdRaw)}</span>`);
-      
+
       // Check if command exists in registry
       if (CommandRegistry.hasOwnProperty(cmd)) {
         const command = CommandRegistry[cmd];
         const result = command.execute(args);
-        
+
         // Only append output if there is any (clear command returns null)
         if (result !== null) {
           if (result.type === 'html') {
@@ -934,36 +1072,47 @@
         }
       }
     }
-    
+
     // ===============================
     // URL HASH COMMAND SYSTEM
     // ===============================
-    
+
     function processHashCommand() {
       const hash = window.location.hash;
-      
+
       // Check if we have a hash command
       if (hash && hash.startsWith('#/')) {
         // Extract the command from the hash (remove the #/ prefix)
         const command = hash.substring(2);
-        
+
+        // Handle multi-word commands by replacing hyphens with spaces
+        const normalizedCommand = command.replace(/-/g, ' ');
+
         // Check if this is a valid command
-        const parts = command.trim().split(/\s+/);
+        const parts = normalizedCommand.trim().split(/\s+/);
         const cmd = parts[0].toLowerCase();
-        
+
         if (CommandRegistry.hasOwnProperty(cmd)) {
           // Execute the command
-          handle(command);
-          
+          handle(normalizedCommand);
+
           // Clear the hash from the URL without adding to browser history
           history.replaceState(null, null, ' ');
+        } else {
+          // Try to suggest similar commands
+          const bestMatch = findBestMatch(cmd);
+          if (bestMatch) {
+            appendLine(`<span style="color:#f08b3e">Command not found. Did you mean '${bestMatch}'?</span>`);
+          } else {
+            appendLine(`<span style="color:#f08b3e">Command not found: ${escapeHtml(cmd)} — type 'help' for available commands</span>`);
+          }
         }
-        
+
         // Always clear the hash, even if command is invalid
         window.location.hash = '';
       }
     }
-    
+
     // Event listeners
     send.addEventListener('click', () => {
       handle(input.value);
@@ -972,7 +1121,7 @@
       suggestionsBar.style.display = 'none';
       input.focus();
     });
-    
+
     input.addEventListener('keydown', (e) => {
       if (e.key === 'Enter') {
         handle(input.value);
@@ -984,14 +1133,14 @@
         autoComplete();
       }
     });
-    
+
     input.addEventListener('input', () => {
       updatePrediction();
       updateMobileSuggestions();
     });
-    
+
     document.querySelector('.terminal-card').addEventListener('click', () => input.focus());
-    
+
     // Improved page visibility handling
     document.addEventListener('visibilitychange', () => {
       if (document.hidden) {
@@ -1011,7 +1160,7 @@
         startMatrixAnimation();
       }, 100);
     });
-    
+
     window.addEventListener('pageshow', () => {
       setTimeout(() => {
         startMatrixAnimation();
@@ -1030,12 +1179,13 @@
       startMatrixAnimation();
     }, 200);
 
-    // Initialize with focus on input
+    // Initialize with focus on input and update hint text
     input.focus();
-    
+    updateHintText();
+
     // Process hash command when page loads
     window.addEventListener('load', processHashCommand);
-    
+
     // Also process hash command if it changes while page is already loaded
     window.addEventListener('hashchange', processHashCommand);
   </script>
