@@ -584,7 +584,7 @@
             <div style="color:inherit; margin-bottom: 8px;">
               Share URL: <code style="background:var(--glass); padding:4px 8px; border-radius:4px;">${shareUrl}</code>
             </div>
-            <button class="share-btn" onclick="shareUrl('${shareUrl}')">
+            <button class="share-btn" onclick="handleShare('${shareUrl}')">
               ${contactIcons.share}
               Share this page
             </button>
@@ -618,7 +618,7 @@
     // ===============================
 
     // Share URL function
-    function shareUrl(url) {
+    function handleShare(url) {
       if (navigator.share) {
         // Use Web Share API if available (mobile devices)
         navigator.share({
@@ -628,22 +628,62 @@
         })
         .catch(err => {
           console.log('Error sharing:', err);
-          fallbackShare(url);
+          // Don't show any alert if user cancels the share
         });
       } else {
-        // Fallback for desktop browsers
-        fallbackShare(url);
+        // Fallback for desktop browsers - copy to clipboard silently
+        navigator.clipboard.writeText(url).then(() => {
+          // Show a subtle notification instead of alert
+          showTemporaryMessage('URL copied to clipboard!');
+        }).catch(err => {
+          // Final fallback - show URL in a subtle notification
+          showTemporaryMessage('Share URL: ' + url);
+        });
       }
     }
 
-    function fallbackShare(url) {
-      // Copy to clipboard as fallback
-      navigator.clipboard.writeText(url).then(() => {
-        alert('URL copied to clipboard: ' + url);
-      }).catch(err => {
-        // Final fallback - show URL in alert
-        alert('Share this URL: ' + url);
-      });
+    function showTemporaryMessage(message) {
+      // Create a temporary notification element
+      const notification = document.createElement('div');
+      notification.textContent = message;
+      notification.style.cssText = `
+        position: fixed;
+        top: 20px;
+        right: 20px;
+        background: var(--accent);
+        color: var(--bg);
+        padding: 12px 16px;
+        border-radius: 8px;
+        font-family: inherit;
+        font-size: 0.9rem;
+        z-index: 1000;
+        box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+        animation: fadeInOut 3s ease-in-out;
+      `;
+      
+      // Add CSS animation
+      const style = document.createElement('style');
+      style.textContent = `
+        @keyframes fadeInOut {
+          0% { opacity: 0; transform: translateY(-10px); }
+          10% { opacity: 1; transform: translateY(0); }
+          90% { opacity: 1; transform: translateY(0); }
+          100% { opacity: 0; transform: translateY(-10px); }
+        }
+      `;
+      document.head.appendChild(style);
+      
+      document.body.appendChild(notification);
+      
+      // Remove after animation completes
+      setTimeout(() => {
+        if (notification.parentNode) {
+          notification.parentNode.removeChild(notification);
+        }
+        if (style.parentNode) {
+          style.parentNode.removeChild(style);
+        }
+      }, 3000);
     }
 
     // ===============================
@@ -829,8 +869,10 @@
     function updateHintText() {
       if (hasPhysicalKeyboard()) {
         hintText.textContent = "Terminal mode: real CLI feel for developers — simple commands for everyone. Press TAB for auto-completion.";
+        hintText.style.display = 'block';
       } else {
         hintText.textContent = "Terminal mode: real CLI feel for developers — simple commands for everyone. Tap on suggestions above the keyboard for quick auto-completion.";
+        hintText.style.display = 'block';
       }
     }
 
