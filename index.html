@@ -396,6 +396,7 @@
       .terminal-card {
         width: 92%;
         padding: 14px;
+        margin-bottom: 80px; /* Space for footer on mobile */
       }
       
       .output-area {
@@ -405,13 +406,16 @@
       }
       
       footer {
-        position: relative;
-        bottom: auto;
-        margin-top: 20px;
-        margin-bottom: 20px;
+        position: fixed;
+        bottom: 10px;
+        left: 50%;
+        transform: translateX(-50%);
         width: 90%;
         white-space: normal;
         text-align: center;
+        background: rgba(0,0,0,0.8);
+        backdrop-filter: blur(10px);
+        z-index: 3;
       }
       
       footer nav {
@@ -433,6 +437,7 @@
       .terminal-card{
         padding:12px;
         width: 90%;
+        margin-bottom: 70px; /* Space for footer on mobile */
       }
       .output-area{
         min-height:160px;
@@ -444,6 +449,7 @@
         font-size:0.75rem;
         padding: 8px 16px;
         width: 88%;
+        bottom: 8px;
       }
       
       .user-input {
@@ -489,10 +495,13 @@
       
       .terminal-card {
         padding: 10px;
+        margin-bottom: 65px; /* Space for footer on mobile */
       }
       
       footer {
         font-size: 0.7rem;
+        padding: 6px 12px;
+        bottom: 6px;
       }
       
       footer nav {
@@ -689,10 +698,21 @@
           const baseUrl = "https://yigitguven.net";
           let shareUrl = baseUrl;
 
-          // If arguments are provided, create a command-specific URL
+          // If arguments are provided, validate them first
           if (args.length > 0) {
-            const command = args.join('-'); // Join multi-word commands with hyphens
-            shareUrl = `${baseUrl}/#/${command}`;
+            const command = args.join(' ');
+            
+            // Validate that the command exists
+            const parts = command.trim().split(/\s+/);
+            const cmd = parts[0].toLowerCase();
+            
+            if (!CommandRegistry.hasOwnProperty(cmd)) {
+              return `<span style="color:#f08b3e">Error: Cannot share invalid command '${cmd}'. Please use a valid command.</span>`;
+            }
+            
+            // Create command-specific URL with hyphens
+            const urlFriendlyCommand = command.replace(/\s+/g, '-');
+            shareUrl = `${baseUrl}/#/${urlFriendlyCommand}`;
           }
 
           // Create share button HTML
@@ -1000,10 +1020,10 @@
     // Get available commands for auto-completion
     const availableCommands = Object.keys(CommandRegistry);
     
-    // Enhanced subCommands with more comprehensive suggestions
+    // Enhanced subCommands with more comprehensive suggestions including partial matches
     const subCommands = {
       theme: ['light', 'dark'],
-      share: ['help', 'about', 'projects', 'contact', 'theme', 'clear']
+      share: availableCommands.filter(cmd => cmd !== 'share') // All commands except share itself
     };
 
     // Create a comprehensive list of all commands including subcommands
@@ -1029,7 +1049,7 @@
       return div.innerHTML;
     }
 
-    // Enhanced command prediction and auto-completion
+    // Enhanced command prediction and auto-completion with better partial matching
     function getCommandSuggestions(inputText) {
       const text = inputText.trim();
       if (!text) return [];
@@ -1053,6 +1073,18 @@
         return availableCommands.filter(cmd => 
           cmd.toLowerCase().startsWith(currentWord) && cmd !== 'share'
         );
+      }
+      
+      // Handle theme command with partial matching (l -> light, d -> dark)
+      if (command === 'theme' && parts.length === 2) {
+        const themeSuggestions = [];
+        if ('light'.startsWith(currentWord)) {
+          themeSuggestions.push('light');
+        }
+        if ('dark'.startsWith(currentWord)) {
+          themeSuggestions.push('dark');
+        }
+        return themeSuggestions;
       }
       
       // Handle other commands with subcommands
