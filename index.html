@@ -189,166 +189,285 @@
             fill: white; 
         }
 
-        /* --- FEATURED PROJECTS --- */
-        .featured-section {
-            max-width: 1200px;
-            margin: 0 auto 80px;
-            padding: 0 20px;
+        /* --- MOBILE MENU --- */
+        .mobile-menu-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.9);
+            z-index: 9999;
+            display: none;
+            opacity: 0;
+            transition: opacity 0.3s ease;
         }
 
-        .featured-grid {
-            display: grid;
-            grid-template-columns: 1fr;
-            gap: 60px;
-            margin-top: 40px;
+        .mobile-menu-overlay.active {
+            display: block;
+            opacity: 1;
         }
 
-        .featured-project {
-            background: white;
-            border-radius: 20px;
-            overflow: hidden;
-            box-shadow: 0 15px 40px rgba(0,0,0,0.08);
+        .mobile-menu-content {
+            position: fixed;
+            top: 0;
+            right: 0;
+            width: 80%;
+            max-width: 400px;
+            height: 100%;
+            background: #000;
+            z-index: 10000;
+            transform: translateX(100%);
             transition: transform 0.3s ease;
+            padding: 80px 30px 30px;
+            overflow-y: auto;
+        }
+
+        .mobile-menu-content.active {
+            transform: translateX(0);
+        }
+
+        .mobile-menu-close {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background: none;
+            border: none;
+            color: white;
+            font-size: 24px;
+            cursor: pointer;
+        }
+
+        .mobile-menu-nav ul {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .mobile-menu-nav a {
+            color: white;
+            font-size: 18px;
+            font-weight: 600;
+            display: block;
+            padding: 10px 0;
+            border-bottom: 1px solid #333;
+        }
+
+        .mobile-menu-nav a:hover {
+            color: var(--accent);
+        }
+
+        /* --- FEATURED PROJECTS REDESIGN --- */
+        .featured-section {
+            width: 100%;
+            margin: 40px 0 80px 0;
+            padding: 0;
+        }
+
+        /* Main Featured Project (Mundus Online) */
+        .main-featured {
+            width: 100%;
+            background: var(--bg-color);
+            color: var(--text-color);
+            padding: 40px 20px;
+            position: relative;
+            overflow: hidden;
+            border-bottom: 1px solid #f0f0f0;
+        }
+
+        .main-featured-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+        }
+
+        .main-featured-logo-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 30px;
+        }
+
+        .main-featured-logo {
+            width: 400px;
+            max-width: 100%;
+            filter: drop-shadow(0 5px 15px rgba(0,0,0,0.1));
+        }
+
+        .main-featured-banner {
+            width: 100%;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
             border: 1px solid #f0f0f0;
         }
 
-        .featured-project:hover {
-            transform: translateY(-5px);
-        }
-
-        .featured-banner {
+        .main-featured-banner img {
             width: 100%;
-            height: 300px;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            padding: 40px;
+            height: auto;
+            display: block;
         }
 
-        .featured-banner.mundus {
-            background: linear-gradient(135deg, #1a2980 0%, #26d0ce 100%);
+        .main-featured-details {
+            padding: 20px 0;
         }
 
-        .featured-banner.petting {
-            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
-        }
-
-        .featured-banner.economy {
-            background: linear-gradient(135deg, #30cfd0 0%, #330867 100%);
-        }
-
-        .featured-logo {
-            max-width: 300px;
-            max-height: 200px;
-            object-fit: contain;
-        }
-
-        .featured-content {
-            padding: 40px;
-        }
-
-        .featured-content h3 {
-            font-size: 2rem;
+        .main-featured-details h2 {
+            font-size: 2.5rem;
             margin-bottom: 20px;
-            color: #1a1a1a;
             display: flex;
             align-items: center;
             gap: 15px;
         }
 
-        .featured-stats {
+        .main-featured-stats {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+            margin: 30px 0;
+            padding: 20px;
+            background: var(--light-gray);
+            border-radius: 12px;
+        }
+
+        .main-stat-item {
+            text-align: center;
+        }
+
+        .main-stat-value {
+            font-size: 2rem;
+            font-weight: 900;
+            display: block;
+            line-height: 1;
+            margin-bottom: 5px;
+            color: var(--accent);
+        }
+
+        .main-stat-label {
+            font-size: 0.9rem;
+            opacity: 0.9;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: #666;
+        }
+
+        /* Secondary Featured Projects */
+        .secondary-featured {
+            max-width: 1200px;
+            margin: 60px auto 0;
+            padding: 0 20px;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
+            gap: 40px;
+        }
+
+        .secondary-featured-project {
+            background: white;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+            border: 1px solid #f0f0f0;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .secondary-featured-project:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.12);
+        }
+
+        .secondary-banner {
+            width: 100%;
+            height: 200px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 30px;
+            background: var(--light-gray);
+            border-bottom: 1px solid #f0f0f0;
+        }
+
+        .secondary-logo {
+            max-width: 250px;
+            max-height: 120px;
+            filter: drop-shadow(0 5px 10px rgba(0,0,0,0.1));
+        }
+
+        .secondary-content {
+            padding: 30px;
+        }
+
+        .secondary-content h3 {
+            font-size: 1.8rem;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .secondary-stats {
             display: flex;
             gap: 30px;
-            margin-bottom: 25px;
-            flex-wrap: wrap;
+            margin-bottom: 20px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid #f0f0f0;
         }
 
-        .stat-item {
-            display: flex;
-            flex-direction: column;
-        }
-
-        .stat-value {
-            font-size: 1.8rem;
+        .secondary-stat-value {
+            font-size: 1.5rem;
             font-weight: 800;
             color: var(--accent);
         }
 
-        .stat-label {
-            font-size: 0.9rem;
+        .secondary-stat-label {
+            font-size: 0.8rem;
             color: #666;
             text-transform: uppercase;
-            letter-spacing: 0.5px;
         }
 
-        .featured-description {
-            font-size: 1.1rem;
-            line-height: 1.7;
-            color: #444;
-            margin-bottom: 30px;
+        /* --- ALL PROJECTS REDESIGN --- */
+        .all-projects-section {
+            width: 100%;
+            padding: 60px 0;
+            background: #f9f9f9;
         }
 
-        .key-features {
-            margin: 30px 0;
-        }
-
-        .key-features h4 {
-            font-size: 1.2rem;
-            margin-bottom: 15px;
-            color: #1a1a1a;
-        }
-
-        .features-list {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 15px;
-        }
-
-        .feature-item {
-            display: flex;
-            align-items: flex-start;
-            gap: 10px;
-        }
-
-        .feature-item i {
-            color: var(--accent);
-            margin-top: 3px;
-            flex-shrink: 0;
-        }
-
-        .faq-section {
-            margin-top: 40px;
-            border-top: 1px solid #eee;
-            padding-top: 30px;
-        }
-
-        .faq-section h4 {
-            font-size: 1.2rem;
-            margin-bottom: 20px;
-            color: #1a1a1a;
-        }
-
-        .faq-item {
-            margin-bottom: 20px;
-        }
-
-        .faq-question {
-            font-weight: 600;
-            margin-bottom: 5px;
-            color: #333;
-        }
-
-        .faq-answer {
-            color: #666;
-            line-height: 1.6;
-        }
-
-        /* --- SEARCH BAR --- */
-        .search-container {
+        .all-projects-header {
             max-width: 1200px;
-            margin: 60px auto 40px;
+            margin: 0 auto 40px;
             padding: 0 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            font-weight: 900;
+            position: relative;
+            letter-spacing: -0.5px;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 0;
+            width: 80px;
+            height: 5px;
+            background: linear-gradient(90deg, var(--accent), var(--accent-dark));
+            border-radius: 3px;
+        }
+
+        /* Search moved here */
+        .search-container {
+            flex: 1;
+            min-width: 300px;
+            max-width: 600px;
             position: relative;
         }
 
@@ -359,12 +478,12 @@
 
         .search-input {
             width: 100%;
-            padding: 18px 24px;
+            padding: 15px 20px;
             padding-right: 60px;
             font-size: 16px;
             border: 2px solid var(--search-border);
             border-radius: 50px;
-            background-color: var(--search-bg);
+            background-color: white;
             transition: all 0.3s ease;
             font-family: var(--font-main);
             outline: none;
@@ -372,7 +491,6 @@
 
         .search-input:focus {
             border-color: var(--search-focus);
-            background-color: white;
             box-shadow: 0 10px 30px rgba(0,0,0,0.1);
             transform: translateY(-2px);
         }
@@ -386,8 +504,8 @@
             color: white;
             border: none;
             border-radius: 50%;
-            width: 48px;
-            height: 48px;
+            width: 42px;
+            height: 42px;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -401,12 +519,12 @@
         }
 
         .search-button i {
-            font-size: 18px;
+            font-size: 16px;
         }
 
         .search-clear {
             position: absolute;
-            right: 70px;
+            right: 60px;
             top: 50%;
             transform: translateY(-50%);
             background: transparent;
@@ -427,7 +545,7 @@
 
         .search-results-info {
             text-align: center;
-            margin-top: 20px;
+            margin-top: 10px;
             color: #666;
             font-size: 14px;
             display: none;
@@ -437,19 +555,148 @@
             display: block;
         }
 
-        /* --- MAIN CONTENT --- */
-        main {
-            flex: 1;
-            width: 100%;
+        /* Projects Grid - Full Width */
+        .projects-list {
+            max-width: 1200px;
             margin: 0 auto;
+            padding: 0 20px;
+            display: flex;
+            flex-direction: column;
+            gap: 30px;
         }
 
-        /* Hero */
-        .hero { 
-            padding: 120px 20px 60px 20px; 
-            text-align: center; 
-            max-width: 800px; 
-            margin: 0 auto; 
+        .project-item {
+            background: white;
+            border-radius: 15px;
+            padding: 40px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+            border-left: 5px solid var(--accent);
+            transition: all 0.3s ease;
+            display: grid;
+            grid-template-columns: auto 1fr auto;
+            gap: 30px;
+            align-items: center;
+        }
+
+        .project-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+        }
+
+        .project-item.hidden {
+            display: none;
+        }
+
+        .project-icon-container {
+            width: 80px;
+            height: 80px;
+            background: var(--light-gray);
+            border-radius: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 15px;
+            border: 1px solid #f0f0f0;
+        }
+
+        .project-icon-container img {
+            max-width: 100%;
+            max-height: 100%;
+            object-fit: contain;
+            border-radius: 8px;
+        }
+
+        .project-content {
+            flex: 1;
+        }
+
+        .project-content h3 {
+            font-size: 1.8rem;
+            margin-bottom: 10px;
+            font-weight: 800;
+        }
+
+        .project-description {
+            color: #666;
+            margin-bottom: 15px;
+            line-height: 1.7;
+            max-width: 800px;
+        }
+
+        .project-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-bottom: 15px;
+        }
+
+        .project-tag {
+            font-size: 11px;
+            font-weight: 700;
+            background-color: var(--tag-bg);
+            padding: 6px 12px;
+            border-radius: 20px;
+            color: #555;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            border: 1px solid #e5e5e5;
+        }
+
+        .project-links {
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .project-link {
+            font-size: 13px;
+            font-weight: 600;
+            color: #000;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 5px 0;
+            position: relative;
+        }
+
+        .project-link::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: var(--accent);
+            transition: width 0.3s ease;
+        }
+
+        .project-link:hover::after {
+            width: 100%;
+        }
+
+        .project-link:hover {
+            color: var(--accent);
+        }
+
+        .beta-badge {
+            background: linear-gradient(135deg, #ff6b6b, #ff4757);
+            color: white;
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            box-shadow: 0 3px 10px rgba(255, 71, 87, 0.3);
+            white-space: nowrap;
+        }
+
+        /* --- IMPROVED HERO SECTION --- */
+        .hero {
+            padding: 100px 20px 80px 20px;
+            text-align: center;
+            max-width: 1200px;
+            margin: 0 auto;
             position: relative;
         }
         
@@ -462,15 +709,28 @@
             background: linear-gradient(90deg, #000, #444);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
+            position: relative;
+            padding-bottom: 20px;
+        }
+        
+        .hero h1::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 3px;
+            background: linear-gradient(90deg, var(--accent), var(--accent-dark));
+            border-radius: 3px;
         }
         
         .hero p { 
             font-size: 1.25rem; 
             color: #666; 
-            margin-bottom: 40px; 
-            max-width: 600px;
-            margin-left: auto;
-            margin-right: auto;
+            margin: 40px auto;
+            max-width: 700px;
+            line-height: 1.8;
         }
         
         .cta-button {
@@ -486,6 +746,7 @@
             position: relative;
             overflow: hidden;
             z-index: 1;
+            margin: 30px 0 50px;
         }
         
         .cta-button::before {
@@ -511,280 +772,112 @@
             box-shadow: 0 10px 20px rgba(0,0,0,0.15); 
         }
 
-        /* Animated Skills Bar */
-        .skills-wrapper {
-            width: 100%;
-            overflow: hidden;
-            margin-bottom: 80px;
-            position: relative;
-        }
-        
-        .skills-wrapper::before,
-        .skills-wrapper::after {
-            content: '';
-            position: absolute;
-            top: 0;
-            width: 100px;
-            height: 100%;
-            z-index: 2;
-        }
-        
-        .skills-wrapper::before {
-            left: 0;
-            background: linear-gradient(to right, rgba(255,255,255,1) 0%, rgba(255,255,255,0) 100%);
-        }
-        
-        .skills-wrapper::after {
-            right: 0;
-            background: linear-gradient(to left, rgba(255,255,255,1) 0%, rgba(255,255,255,0) 100%);
-        }
-        
-        .skills-track {
-            display: flex;
-            animation: slideSkills 30s linear infinite;
-            width: max-content;
-        }
-        
-        .skills-track:hover {
-            animation-play-state: paused;
-        }
-        
-        @keyframes slideSkills {
-            0% {
-                transform: translateX(0);
-            }
-            100% {
-                transform: translateX(-50%);
-            }
-        }
-        
-        .skill-pill {
-            background: linear-gradient(135deg, #f5f5f5 0%, #e8e8e8 100%);
-            padding: 10px 22px;
-            border-radius: 50px;
-            font-weight: 600;
-            font-size: 13px;
-            color: #333;
-            border: 1px solid #e0e0e0;
-            transition: all 0.2s;
-            margin: 0 10px;
-            flex-shrink: 0;
-            white-space: nowrap;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
-        }
-        
-        .skill-pill:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-            background: linear-gradient(135deg, #e8e8e8 0%, #f5f5f5 100%);
-            border-color: #ccc;
-        }
-
-        /* Projects */
-        .section-title { 
-            text-align: center; 
-            font-size: 2.5rem; 
-            font-weight: 900; 
-            margin: 80px 0 40px 0; 
-            position: relative;
-            display: inline-block;
-            letter-spacing: -0.5px;
-        }
-        
-        .section-header { 
-            text-align: center; 
-            width: 100%; 
-            margin-bottom: 40px;
-            position: relative;
-        }
-        
-        .section-title::after {
-            content: '';
-            position: absolute;
-            bottom: -10px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 80px;
-            height: 5px;
-            background: linear-gradient(90deg, var(--accent), var(--accent-dark));
-            border-radius: 3px;
-        }
-
-        .projects-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
-            gap: 40px;
-            margin-bottom: 60px;
+        /* IMPROVED Skills Section */
+        .skills-section {
             max-width: 1200px;
-            margin-left: auto;
-            margin-right: auto;
-            padding: 0 20px;
+            margin: 0 auto;
+            padding: 60px 20px;
+            text-align: center;
         }
 
-        .project-card {
-            background: #fff;
-            border-radius: 20px;
-            overflow: hidden;
-            box-shadow: var(--card-shadow);
-            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        .skills-title {
+            font-size: 2rem;
+            margin-bottom: 40px;
+            font-weight: 800;
+            color: #333;
+        }
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin-bottom: 40px;
+        }
+
+        .skill-category {
+            background: white;
+            border-radius: 12px;
+            padding: 30px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
             border: 1px solid #f0f0f0;
-            display: flex;
-            flex-direction: column;
-            height: 100%;
-            position: relative;
-            animation: fadeInUp 0.6s ease forwards;
-            opacity: 0;
+            transition: transform 0.3s ease;
         }
-        
-        .project-card.hidden {
-            display: none;
+
+        .skill-category:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.1);
         }
-        
-        .project-card:hover { 
-            transform: translateY(-12px) scale(1.02); 
-            box-shadow: var(--card-shadow-hover);
-        }
-        
-        .project-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 5px;
-            background: linear-gradient(90deg, var(--accent), var(--accent-dark));
-            opacity: 0;
-            transition: opacity 0.3s ease;
-        }
-        
-        .project-card:hover::before {
-            opacity: 1;
-        }
-        
-        .card-image-container {
-            position: relative;
-            width: 100%;
-            height: 230px;
-            overflow: hidden;
-            border-bottom: 1px solid #f5f5f5;
-        }
-        
-        .card-image { 
-            width: 100%; 
-            height: 100%; 
-            background-color: #eee; 
-            object-fit: cover;
-            transition: transform 0.5s ease;
-        }
-        
-        .project-card:hover .card-image {
-            transform: scale(1.05);
-        }
-        
-        /* Beta Badge */
-        .beta-badge {
-            position: absolute;
-            top: 15px;
-            right: 15px;
-            background: linear-gradient(135deg, #ff6b6b, #ff4757);
-            color: white;
-            padding: 5px 12px;
-            border-radius: 20px;
-            font-size: 11px;
+
+        .skill-category h3 {
+            font-size: 1.2rem;
+            margin-bottom: 20px;
+            color: var(--accent);
             font-weight: 700;
             text-transform: uppercase;
-            letter-spacing: 0.5px;
-            box-shadow: 0 3px 10px rgba(255, 71, 87, 0.3);
-            z-index: 2;
+            letter-spacing: 1px;
         }
-        
-        .card-content { 
-            padding: 30px; 
-            flex-grow: 1; 
-            display: flex; 
-            flex-direction: column; 
-            position: relative;
-        }
-        
-        .card-content h3 { 
-            font-size: 1.5rem; 
-            margin-bottom: 12px; 
-            font-weight: 800; 
+
+        .skill-items {
             display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            justify-content: center;
+        }
+
+        .skill-item {
+            background: var(--light-gray);
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 14px;
+            font-weight: 600;
+            color: #555;
+            border: 1px solid #e0e0e0;
+            transition: all 0.2s ease;
+        }
+
+        .skill-item:hover {
+            background: var(--accent);
+            color: white;
+            transform: translateY(-2px);
+        }
+
+        .tech-stack {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 15px;
+            margin-top: 40px;
+            padding-top: 40px;
+            border-top: 1px solid #f0f0f0;
+        }
+
+        .tech-item {
+            display: flex;
+            flex-direction: column;
             align-items: center;
             gap: 10px;
-        }
-        
-        .card-content p { 
-            color: #666; 
-            font-size: 0.95rem; 
-            margin-bottom: 25px; 
-            flex-grow: 1; 
-            line-height: 1.7;
+            padding: 20px;
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            min-width: 120px;
+            transition: transform 0.3s ease;
         }
 
-        .tags-container { 
-            display: flex; 
-            flex-wrap: wrap; 
-            gap: 8px; 
-            margin-bottom: 20px; 
-        }
-        
-        .tag { 
-            font-size: 11px; 
-            font-weight: 700; 
-            background-color: var(--tag-bg); 
-            padding: 6px 12px; 
-            border-radius: 20px; 
-            color: #555; 
-            text-transform: uppercase; 
-            letter-spacing: 0.5px;
-            border: 1px solid #e5e5e5;
+        .tech-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
         }
 
-        .links-container { 
-            display: flex; 
-            gap: 15px; 
-            flex-wrap: wrap; 
-            margin-top: auto; 
-            border-top: 1px solid #eee; 
-            padding-top: 20px; 
-        }
-        
-        .card-link { 
-            font-size: 13px; 
-            font-weight: 600; 
-            color: #000; 
-            border-bottom: 1px solid transparent; 
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            padding: 5px 0;
-            position: relative;
-            overflow: hidden;
-        }
-        
-        .card-link::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: -100%;
-            width: 100%;
-            height: 2px;
-            background-color: var(--accent);
-            transition: left 0.3s ease;
-        }
-        
-        .card-link:hover::after {
-            left: 0;
-        }
-        
-        .card-link:hover { 
+        .tech-icon {
+            font-size: 2.5rem;
             color: var(--accent);
         }
-        
-        .card-link i {
+
+        .tech-name {
             font-size: 14px;
+            font-weight: 700;
+            color: #333;
         }
 
         /* --- FOOTER STYLES --- */
@@ -1038,7 +1131,7 @@
             box-shadow: 0 6px 20px rgba(0,0,0,0.25);
         }
         
-        /* Animation for cards */
+        /* Animation for project items */
         @keyframes fadeInUp {
             from {
                 opacity: 0;
@@ -1050,31 +1143,22 @@
             }
         }
         
-        /* Project card delay animation */
-        .projects-grid .project-card:nth-child(1) { animation-delay: 0.1s; }
-        .projects-grid .project-card:nth-child(2) { animation-delay: 0.2s; }
-        .projects-grid .project-card:nth-child(3) { animation-delay: 0.3s; }
-        .projects-grid .project-card:nth-child(4) { animation-delay: 0.4s; }
-        .projects-grid .project-card:nth-child(5) { animation-delay: 0.5s; }
-        .projects-grid .project-card:nth-child(6) { animation-delay: 0.6s; }
-        .projects-grid .project-card:nth-child(7) { animation-delay: 0.7s; }
-        .projects-grid .project-card:nth-child(8) { animation-delay: 0.8s; }
-        .projects-grid .project-card:nth-child(9) { animation-delay: 0.9s; }
-        .projects-grid .project-card:nth-child(10) { animation-delay: 1.0s; }
-        .projects-grid .project-card:nth-child(11) { animation-delay: 1.1s; }
-        
-        /* Project category icons */
-        .project-icon {
-            width: 24px;
-            height: 24px;
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            background: linear-gradient(135deg, var(--accent), var(--accent-dark));
-            color: white;
-            border-radius: 6px;
-            font-size: 12px;
+        .project-item {
+            animation: fadeInUp 0.6s ease forwards;
+            opacity: 0;
         }
+        
+        .project-item:nth-child(1) { animation-delay: 0.1s; }
+        .project-item:nth-child(2) { animation-delay: 0.2s; }
+        .project-item:nth-child(3) { animation-delay: 0.3s; }
+        .project-item:nth-child(4) { animation-delay: 0.4s; }
+        .project-item:nth-child(5) { animation-delay: 0.5s; }
+        .project-item:nth-child(6) { animation-delay: 0.6s; }
+        .project-item:nth-child(7) { animation-delay: 0.7s; }
+        .project-item:nth-child(8) { animation-delay: 0.8s; }
+        .project-item:nth-child(9) { animation-delay: 0.9s; }
+        .project-item:nth-child(10) { animation-delay: 1.0s; }
+        .project-item:nth-child(11) { animation-delay: 1.1s; }
         
         /* Scroll padding for fixed header */
         html {
@@ -1082,6 +1166,32 @@
         }
         
         /* Responsive improvements */
+        @media (max-width: 1024px) {
+            .main-featured-content {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+            
+            .main-featured-logo-container {
+                order: 1;
+            }
+            
+            .secondary-featured {
+                grid-template-columns: 1fr;
+            }
+            
+            .project-item {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+            
+            .project-icon-container {
+                width: 60px;
+                height: 60px;
+                font-size: 24px;
+            }
+        }
+        
         @media (max-width: 768px) {
             .hero h1 {
                 font-size: 2.5rem;
@@ -1103,53 +1213,39 @@
                 gap: 40px;
             }
             
-            .projects-grid {
+            .main-featured-details h2 {
+                font-size: 2.2rem;
+            }
+            
+            .main-stat-value {
+                font-size: 2rem;
+            }
+            
+            .main-featured-stats {
                 grid-template-columns: 1fr;
-                gap: 30px;
-            }
-            
-            .featured-grid {
-                gap: 40px;
-            }
-            
-            .featured-content {
-                padding: 30px;
-            }
-            
-            .featured-content h3 {
-                font-size: 1.7rem;
-            }
-            
-            .featured-stats {
                 gap: 20px;
-            }
-            
-            .stat-value {
-                font-size: 1.5rem;
-            }
-            
-            .features-list {
-                grid-template-columns: 1fr;
             }
             
             .section-title {
                 font-size: 2rem;
             }
             
-            .skills-wrapper::before,
-            .skills-wrapper::after {
-                width: 50px;
+            .all-projects-header {
+                flex-direction: column;
+                align-items: flex-start;
             }
             
-            .search-input {
-                padding: 14px 20px;
-                padding-right: 60px;
-                font-size: 15px;
+            .search-container {
+                width: 100%;
+                max-width: 100%;
             }
             
-            .search-button {
-                width: 42px;
-                height: 42px;
+            .project-item {
+                padding: 25px;
+            }
+            
+            .project-content h3 {
+                font-size: 1.5rem;
             }
             
             .footer-logo-section {
@@ -1161,31 +1257,69 @@
             .footer-logo {
                 height: 60px;
             }
+            
+            .skills-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .tech-stack {
+                grid-template-columns: repeat(2, 1fr);
+            }
         }
         
         @media (max-width: 480px) {
-            .featured-banner {
-                height: 200px;
-                padding: 20px;
+            .main-featured {
+                padding: 40px 15px;
             }
             
-            .featured-logo {
-                max-width: 200px;
-                max-height: 120px;
+            .main-featured-logo {
+                width: 250px;
             }
             
-            .featured-stats {
-                justify-content: center;
+            .secondary-featured {
+                padding: 0 15px;
+            }
+            
+            .secondary-featured-project {
+                grid-template-columns: 1fr;
+            }
+            
+            .project-links {
+                flex-direction: column;
+                gap: 10px;
             }
             
             .Footer_footerEnd__YjXn_ {
                 flex-direction: column;
                 text-align: center;
             }
+            
+            .secondary-stats {
+                flex-direction: column;
+                gap: 15px;
+            }
         }
     </style>
 </head>
 <body>
+
+    <!-- Mobile Menu Overlay -->
+    <div class="mobile-menu-overlay" id="mobileMenuOverlay"></div>
+    
+    <!-- Mobile Menu Content -->
+    <div class="mobile-menu-content" id="mobileMenuContent">
+        <button class="mobile-menu-close" id="mobileMenuClose">×</button>
+        <nav class="mobile-menu-nav">
+            <ul>
+                <li><a href="#featured">Featured Projects</a></li>
+                <li><a href="#all-projects">All Projects</a></li>
+                <li><a href="#about">About Me</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="https://github.com/yigit-guven" target="_blank">GitHub</a></li>
+                <li><a href="mailto:contact@yigitguven.net">Contact</a></li>
+            </ul>
+        </nav>
+    </div>
 
     <header id="header" class="Header_header__CaCA9">
         <a href="/">
@@ -1230,283 +1364,217 @@
             <h1>Computer Science Student & Developer</h1>
             <p>Hi, I'm Yiğit Güven. I specialize in Java, C++, and Game Development. I build mods, web experiences, and tools used by thousands of users worldwide.</p>
             
-            <!-- Animated Skills Bar -->
-            <div class="skills-wrapper">
-                <div class="skills-track">
-                    <span class="skill-pill">Java</span>
-                    <span class="skill-pill">Python</span>
-                    <span class="skill-pill">Lua (Roblox)</span>
-                    <span class="skill-pill">Web (HTML/CSS/JS)</span>
-                    <span class="skill-pill">Android Dev</span>
-                    <span class="skill-pill">Game Design</span>
-                    <span class="skill-pill">Git</span>
-                    <span class="skill-pill">Game Modding</span>
-                    <span class="skill-pill">UI/UX Design</span>
-                    <span class="skill-pill">API Development</span>
-                    <span class="skill-pill">Database Design</span>
-                    <span class="skill-pill">Problem Solving</span>
-                    <!-- Duplicate for seamless animation -->
-                    <span class="skill-pill">Java</span>
-                    <span class="skill-pill">Python</span>
-                    <span class="skill-pill">Lua (Roblox)</span>
-                    <span class="skill-pill">Web (HTML/CSS/JS)</span>
-                    <span class="skill-pill">Android Dev</span>
-                    <span class="skill-pill">Game Design</span>
-                    <span class="skill-pill">Git</span>
-                    <span class="skill-pill">Game Modding</span>
-                    <span class="skill-pill">UI/UX Design</span>
-                    <span class="skill-pill">API Development</span>
-                    <span class="skill-pill">Database Design</span>
-                    <span class="skill-pill">Problem Solving</span>
-                </div>
-            </div>
-            
             <a href="#featured" class="cta-button">View Featured Works</a>
+
+            <!-- IMPROVED Skills Section -->
+            <div class="skills-section" id="skills">
+                <h2 class="skills-title">Technical Skills & Expertise</h2>
+                
+                <div class="skills-grid">
+                    <div class="skill-category">
+                        <h3>Languages</h3>
+                        <div class="skill-items">
+                            <span class="skill-item">Java</span>
+                            <span class="skill-item">Python</span>
+                            <span class="skill-item">C++</span>
+                            <span class="skill-item">JavaScript</span>
+                            <span class="skill-item">Lua</span>
+                            <span class="skill-item">HTML/CSS</span>
+                        </div>
+                    </div>
+                    
+                    <div class="skill-category">
+                        <h3>Development</h3>
+                        <div class="skill-items">
+                            <span class="skill-item">Game Development</span>
+                            <span class="skill-item">Web Development</span>
+                            <span class="skill-item">Android Dev</span>
+                            <span class="skill-item">Game Modding</span>
+                            <span class="skill-item">API Development</span>
+                            <span class="skill-item">Database Design</span>
+                        </div>
+                    </div>
+                    
+                    <div class="skill-category">
+                        <h3>Tools & More</h3>
+                        <div class="skill-items">
+                            <span class="skill-item">Git</span>
+                            <span class="skill-item">Roblox Studio</span>
+                            <span class="skill-item">Figma</span>
+                            <span class="skill-item">UI/UX Design</span>
+                            <span class="skill-item">Problem Solving</span>
+                            <span class="skill-item">Project Management</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="tech-stack">
+                    <div class="tech-item">
+                        <div class="tech-icon">
+                            <i class="fab fa-java"></i>
+                        </div>
+                        <div class="tech-name">Java</div>
+                    </div>
+                    
+                    <div class="tech-item">
+                        <div class="tech-icon">
+                            <i class="fab fa-python"></i>
+                        </div>
+                        <div class="tech-name">Python</div>
+                    </div>
+                    
+                    <div class="tech-item">
+                        <div class="tech-icon">
+                            <i class="fas fa-gamepad"></i>
+                        </div>
+                        <div class="tech-name">Game Dev</div>
+                    </div>
+                    
+                    <div class="tech-item">
+                        <div class="tech-icon">
+                            <i class="fas fa-globe"></i>
+                        </div>
+                        <div class="tech-name">Web Dev</div>
+                    </div>
+                    
+                    <div class="tech-item">
+                        <div class="tech-icon">
+                            <i class="fab fa-android"></i>
+                        </div>
+                        <div class="tech-name">Android</div>
+                    </div>
+                    
+                    <div class="tech-item">
+                        <div class="tech-icon">
+                            <i class="fab fa-git-alt"></i>
+                        </div>
+                        <div class="tech-name">Git</div>
+                    </div>
+                </div>
+            </div>
         </section>
 
-        <!-- Featured Projects -->
+        <!-- Featured Projects Redesigned -->
         <section class="featured-section" id="featured">
-            <div class="section-header">
-                <h2 class="section-title">Featured Projects</h2>
+            <!-- Main Featured Project: Mundus Online -->
+            <div class="main-featured" id="mundus">
+                <div class="main-featured-content">
+                    <div class="main-featured-logo-container">
+                        <img src="./images/mundusonline/logo.svg" alt="Mundus Online" class="main-featured-logo">
+                        <div class="main-featured-banner">
+                            <img src="./images/mundusonline/banner.svg" alt="Mundus Online Banner">
+                        </div>
+                    </div>
+                    <div class="main-featured-details">
+                        <h2>Mundus Online <i class="fas fa-globe"></i></h2>
+                        <div class="main-featured-stats">
+                            <div class="main-stat-item">
+                                <span class="main-stat-value">30K+</span>
+                                <span class="main-stat-label">Visits</span>
+                            </div>
+                            <div class="main-stat-item">
+                                <span class="main-stat-value">2K+</span>
+                                <span class="main-stat-label">Active Players</span>
+                            </div>
+                            <div class="main-stat-item">
+                                <span class="main-stat-value">1.5K+</span>
+                                <span class="main-stat-label">Discord Members</span>
+                            </div>
+                        </div>
+                        <p>Mundus Online is a massive 3D social sandbox game on Roblox where players can build, plant, and trade in a player-driven economy. Plant seeds, splice them to discover new blocks, and grow your empire! Claim unique world names before anyone else and protect your creations with various lock systems.</p>
+                        <div class="project-links" style="margin-top: 30px;">
+                            <a href="https://www.roblox.com/games/126354243623354/Mundus-Online-BETA" target="_blank" class="project-link"><i class="fas fa-gamepad"></i> Play on Roblox</a>
+                            <a href="https://discord.gg/p7Upc6tsBQ" target="_blank" class="project-link"><i class="fab fa-discord"></i> Discord Community</a>
+                        </div>
+                    </div>
+                </div>
             </div>
-            
-            <div class="featured-grid">
-                <!-- Mundus Online -->
-                <div class="featured-project" id="mundus">
-                    <div class="featured-banner mundus">
-                        <img src="./images/mundusonline/logo_transparent.svg" alt="Mundus Online" class="featured-logo">
-                    </div>
-                    <div class="featured-content">
-                        <h3>Mundus Online <i class="fas fa-globe"></i></h3>
-                        
-                        <div class="featured-stats">
-                            <div class="stat-item">
-                                <span class="stat-value">30K+</span>
-                                <span class="stat-label">Visits</span>
-                            </div>
-                            <div class="stat-item">
-                                <span class="stat-value">2K+</span>
-                                <span class="stat-label">Active Players</span>
-                            </div>
-                            <div class="stat-item">
-                                <span class="stat-value">1.5K+</span>
-                                <span class="stat-label">Discord Members</span>
-                            </div>
-                        </div>
-                        
-                        <div class="featured-description">
-                            Mundus Online is a massive 3D social sandbox game on Roblox where players can build, plant, and trade in a player-driven economy. Plant seeds, splice them to discover new blocks, and grow your empire! Claim unique world names before anyone else and protect your creations with various lock systems.
-                        </div>
-                        
-                        <div class="key-features">
-                            <h4>Key Features</h4>
-                            <div class="features-list">
-                                <div class="feature-item">
-                                    <i class="fas fa-seedling"></i>
-                                    <span>Advanced plant breeding and genetics system</span>
-                                </div>
-                                <div class="feature-item">
-                                    <i class="fas fa-store"></i>
-                                    <span>100% player-driven economy</span>
-                                </div>
-                                <div class="feature-item">
-                                    <i class="fas fa-shield-alt"></i>
-                                    <span>Advanced security and lock systems</span>
-                                </div>
-                                <div class="feature-item">
-                                    <i class="fas fa-users"></i>
-                                    <span>Massive multiplayer social experience</span>
-                                </div>
-                            </div>
-                        </div>
-                        
-                        <div class="faq-section">
-                            <h4>Frequently Asked Questions</h4>
-                            <div class="faq-item">
-                                <div class="faq-question">Is Mundus Online free to play?</div>
-                                <div class="faq-answer">Yes, Mundus Online is completely free to play on Roblox. Some optional premium features are available through Roblox's in-game purchase system.</div>
-                            </div>
-                            <div class="faq-item">
-                                <div class="faq-question">Can I play on mobile?</div>
-                                <div class="faq-answer">Yes! Mundus Online is fully compatible with PC, mobile, and tablet devices through the Roblox platform.</div>
-                            </div>
-                        </div>
-                        
-                        <div class="links-container">
-                            <a href="https://www.roblox.com/games/126354243623354/Mundus-Online-BETA" target="_blank" class="card-link"><i class="fas fa-gamepad"></i> Play on Roblox</a>
-                            <a href="https://discord.gg/p7Upc6tsBQ" target="_blank" class="card-link"><i class="fab fa-discord"></i> Discord Community</a>
-                        </div>
-                    </div>
-                </div>
-                
+
+            <!-- Secondary Featured Projects -->
+            <div class="secondary-featured">
                 <!-- Petting -->
-                <div class="featured-project" id="petting">
-                    <div class="featured-banner petting">
-                        <img src="./images/petting/logo.svg" alt="Petting Mod" class="featured-logo">
+                <div class="secondary-featured-project" id="petting">
+                    <div class="secondary-banner">
+                        <img src="./images/petting/logo.svg" alt="Petting Mod" class="secondary-logo">
                     </div>
-                    <div class="featured-content">
+                    <div class="secondary-content">
                         <h3>Petting Mod <i class="fas fa-paw"></i></h3>
-                        
-                        <div class="featured-stats">
-                            <div class="stat-item">
-                                <span class="stat-value">200K+</span>
-                                <span class="stat-label">Downloads</span>
+                        <div class="secondary-stats">
+                            <div class="secondary-stat-item">
+                                <span class="secondary-stat-value">200K+</span>
+                                <span class="secondary-stat-label">Downloads</span>
                             </div>
-                            <div class="stat-item">
-                                <span class="stat-value">4.7/5</span>
-                                <span class="stat-label">Rating</span>
-                            </div>
-                            <div class="stat-item">
-                                <span class="stat-value">1K+</span>
-                                <span class="stat-label">Servers</span>
+                            <div class="secondary-stat-item">
+                                <span class="secondary-stat-value">4.7/5</span>
+                                <span class="secondary-stat-label">Rating</span>
                             </div>
                         </div>
-                        
-                        <div class="featured-description">
-                            Petting is a popular Minecraft mod that adds a unique companion system. Pet mobs and have them become protective companions that follow you, offering support and assistance during your adventures. With advanced AI behavior and customization options, it's one of the most loved pet mods in the Minecraft community.
-                        </div>
-                        
-                        <div class="key-features">
-                            <h4>Key Features</h4>
-                            <div class="features-list">
-                                <div class="feature-item">
-                                    <i class="fas fa-brain"></i>
-                                    <span>Advanced AI behavior for companions</span>
-                                </div>
-                                <div class="feature-item">
-                                    <i class="fas fa-cog"></i>
-                                    <span>Highly customizable through config files</span>
-                                </div>
-                                <div class="feature-item">
-                                    <i class="fas fa-heart"></i>
-                                    <span>Emotional bonding system with pets</span>
-                                </div>
-                                <div class="feature-item">
-                                    <i class="fas fa-shield-alt"></i>
-                                    <span>Combat support and protection</span>
-                                </div>
-                            </div>
-                        </div>
-                        
-                        <div class="faq-section">
-                            <h4>Frequently Asked Questions</h4>
-                            <div class="faq-item">
-                                <div class="faq-question">Which Minecraft versions are supported?</div>
-                                <div class="faq-answer">Petting supports Minecraft 1.16.5 through 1.20.1, with regular updates for new versions.</div>
-                            </div>
-                            <div class="faq-item">
-                                <div class="faq-question">Is it compatible with other mods?</div>
-                                <div class="faq-answer">Yes, Petting is designed to be compatible with most popular Minecraft mods and modpacks.</div>
-                            </div>
-                        </div>
-                        
-                        <div class="links-container">
-                            <a href="https://modrinth.com/mod/petting" target="_blank" class="card-link"><i class="fas fa-cube"></i> Modrinth</a>
-                            <a href="https://www.curseforge.com/minecraft/mc-mods/petting" target="_blank" class="card-link"><i class="fas fa-cube"></i> CurseForge</a>
-                            <a href="https://github.com/yigit-guven/Petting" target="_blank" class="card-link"><i class="fab fa-github"></i> GitHub</a>
-                            <a href="https://discord.gg/aPk7Qs5d4H" target="_blank" class="card-link"><i class="fab fa-discord"></i> Discord</a>
+                        <p>Petting is a popular Minecraft mod that adds a unique companion system. Pet mobs and have them become protective companions that follow you, offering support and assistance during your adventures.</p>
+                        <div class="project-links" style="margin-top: 15px;">
+                            <a href="https://modrinth.com/mod/petting" target="_blank" class="project-link"><i class="fas fa-cube"></i> Modrinth</a>
+                            <a href="https://www.curseforge.com/minecraft/mc-mods/petting" target="_blank" class="project-link"><i class="fas fa-cube"></i> CurseForge</a>
+                            <a href="https://github.com/yigit-guven/Petting" target="_blank" class="project-link"><i class="fab fa-github"></i> GitHub</a>
                         </div>
                     </div>
                 </div>
-                
+
                 <!-- Hytale Economy -->
-                <div class="featured-project" id="economy">
-                    <div class="featured-banner economy">
-                        <img src="./images/economy/logo.svg" alt="Hytale Economy" class="featured-logo">
+                <div class="secondary-featured-project" id="economy">
+                    <div class="secondary-banner">
+                        <img src="./images/economy/logo.svg" alt="Hytale Economy" class="secondary-logo">
                     </div>
-                    <div class="featured-content">
+                    <div class="secondary-content">
                         <h3>Hytale Economy <i class="fas fa-coins"></i></h3>
-                        
-                        <div class="featured-stats">
-                            <div class="stat-item">
-                                <span class="stat-value">50+</span>
-                                <span class="stat-label">Servers Using</span>
+                        <div class="secondary-stats">
+                            <div class="secondary-stat-item">
+                                <span class="secondary-stat-value">50+</span>
+                                <span class="secondary-stat-label">Servers Using</span>
                             </div>
-                            <div class="stat-item">
-                                <span class="stat-value">100%</span>
-                                <span class="stat-label">Uptime</span>
-                            </div>
-                            <div class="stat-item">
-                                <span class="stat-value">24/7</span>
-                                <span class="stat-label">Support</span>
+                            <div class="secondary-stat-item">
+                                <span class="secondary-stat-value">100%</span>
+                                <span class="secondary-stat-label">Uptime</span>
                             </div>
                         </div>
-                        
-                        <div class="featured-description">
-                            A lightweight and persistent economy system for Hytale that adds player wallets, balance checking, and secure money transfers. Designed specifically for the Hytale modding ecosystem, this plugin provides server owners with a robust economic foundation for their custom game modes and servers.
-                        </div>
-                        
-                        <div class="key-features">
-                            <h4>Key Features</h4>
-                            <div class="features-list">
-                                <div class="feature-item">
-                                    <i class="fas fa-database"></i>
-                                    <span>Persistent data storage with SQLite/MySQL</span>
-                                </div>
-                                <div class="feature-item">
-                                    <i class="fas fa-shield-alt"></i>
-                                    <span>Secure transactions and anti-cheat measures</span>
-                                </div>
-                                <div class="feature-item">
-                                    <i class="fas fa-plug"></i>
-                                    <span>API for custom integration</span>
-                                </div>
-                                <div class="feature-item">
-                                    <i class="fas fa-tachometer-alt"></i>
-                                    <span>Lightweight and optimized performance</span>
-                                </div>
-                            </div>
-                        </div>
-                        
-                        <div class="faq-section">
-                            <h4>Frequently Asked Questions</h4>
-                            <div class="faq-item">
-                                <div class="faq-question">Is Hytale Economy open source?</div>
-                                <div class="faq-answer">Yes! The entire source code is available on GitHub under the MIT license.</div>
-                            </div>
-                            <div class="faq-item">
-                                <div class="faq-question">Does it support multiple currencies?</div>
-                                <div class="faq-answer">Yes, the system supports multiple currency types and custom naming through configuration files.</div>
-                            </div>
-                        </div>
-                        
-                        <div class="links-container">
-                            <a href="https://www.curseforge.com/hytale/mods/economy" target="_blank" class="card-link"><i class="fas fa-cube"></i> CurseForge</a>
-                            <a href="https://github.com/Ryukazan/Economy" target="_blank" class="card-link"><i class="fab fa-github"></i> GitHub</a>
-                            <a href="https://repsy.io/yigit-guven/economy" target="_blank" class="card-link"><i class="fas fa-database"></i> Repsy</a>
-                            <a href="https://github.com/Ryukazan/Economy/wiki" target="_blank" class="card-link"><i class="fas fa-book"></i> Documentation</a>
+                        <p>A lightweight and persistent economy system for Hytale that adds player wallets, balance checking, and secure money transfers. Designed specifically for the Hytale modding ecosystem.</p>
+                        <div class="project-links" style="margin-top: 15px;">
+                            <a href="https://www.curseforge.com/hytale/mods/economy" target="_blank" class="project-link"><i class="fas fa-cube"></i> CurseForge</a>
+                            <a href="https://github.com/Ryukazan/Economy" target="_blank" class="project-link"><i class="fab fa-github"></i> GitHub</a>
+                            <a href="https://repsy.io/yigit-guven/economy" target="_blank" class="project-link"><i class="fas fa-database"></i> Repsy</a>
                         </div>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- Search Bar -->
-        <div class="search-container" id="searchSection">
-            <div class="search-wrapper">
-                <input type="text" 
-                       class="search-input" 
-                       id="projectSearch" 
-                       placeholder="Search all projects by name, technology, or keyword (e.g., Minecraft, Python, Mundus Online)">
-                <button class="search-clear" id="clearSearch" title="Clear search">
-                    <i class="fas fa-times"></i>
-                </button>
-                <button class="search-button" id="searchButton" title="Search">
-                    <i class="fas fa-search"></i>
-                </button>
+        <!-- All Projects Section -->
+        <section class="all-projects-section" id="all-projects">
+            <div class="all-projects-header">
+                <h2 class="section-title">All Projects</h2>
+                
+                <!-- Search Bar moved here -->
+                <div class="search-container">
+                    <div class="search-wrapper">
+                        <input type="text" 
+                               class="search-input" 
+                               id="projectSearch" 
+                               placeholder="Search all projects by name, technology, or keyword (e.g., Minecraft, Python, Mundus Online)">
+                        <button class="search-clear" id="clearSearch" title="Clear search">
+                            <i class="fas fa-times"></i>
+                        </button>
+                        <button class="search-button" id="searchButton" title="Search">
+                            <i class="fas fa-search"></i>
+                        </button>
+                    </div>
+                    <div class="search-results-info" id="searchResultsInfo">
+                        Showing <span id="visibleCount">0</span> of <span id="totalCount">0</span> projects
+                    </div>
+                </div>
             </div>
-            <div class="search-results-info" id="searchResultsInfo">
-                Showing <span id="visibleCount">0</span> of <span id="totalCount">0</span> projects
-            </div>
-        </div>
 
-        <!-- All Projects (Alphabetical Order) -->
-        <div class="section-header" id="all-projects">
-            <h2 class="section-title">All Projects</h2>
-        </div>
-        <div class="projects-grid" id="projectsContainer">
-            <!-- Projects will be sorted alphabetically by JavaScript -->
-        </div>
+            <div class="projects-list" id="projectsContainer">
+                <!-- Projects will be generated here -->
+            </div>
+        </section>
     </main>
 
     <footer class="Footer_footer__KQx25" role="contentinfo">
@@ -1607,7 +1675,7 @@
                     are copyrighted works and are <strong>NOT</strong> covered by the above license. All rights reserved for these materials. 
                     They may not be copied, redistributed, or used in derivative works without prior permission.
                     <div class="copyright-notice">
-                        Copyright © 2026 Yiğit Güven. All rights reserved unless explicitly stated otherwise.
+                        Copyright © 2025 Yiğit Güven. All rights reserved unless explicitly stated otherwise.
                     </div>
                 </div>
             </div>
@@ -1670,65 +1738,40 @@
                 behavior: 'smooth'
             });
         });
+
+        // Mobile Menu Functionality
+        const mobileMenuIcon = document.getElementById('mobileMenuIcon');
+        const mobileMenuOverlay = document.getElementById('mobileMenuOverlay');
+        const mobileMenuContent = document.getElementById('mobileMenuContent');
+        const mobileMenuClose = document.getElementById('mobileMenuClose');
         
-        // Pause skills animation on hover
-        const skillsTrack = document.querySelector('.skills-track');
-        skillsTrack.addEventListener('mouseenter', () => {
-            skillsTrack.style.animationPlayState = 'paused';
-        });
+        function openMobileMenu() {
+            mobileMenuOverlay.classList.add('active');
+            mobileMenuContent.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
         
-        skillsTrack.addEventListener('mouseleave', () => {
-            skillsTrack.style.animationPlayState = 'running';
+        function closeMobileMenu() {
+            mobileMenuOverlay.classList.remove('active');
+            mobileMenuContent.classList.remove('active');
+            document.body.style.overflow = '';
+        }
+        
+        mobileMenuIcon.addEventListener('click', openMobileMenu);
+        mobileMenuOverlay.addEventListener('click', closeMobileMenu);
+        mobileMenuClose.addEventListener('click', closeMobileMenu);
+        
+        // Close mobile menu when clicking on a link
+        document.querySelectorAll('.mobile-menu-nav a').forEach(link => {
+            link.addEventListener('click', closeMobileMenu);
         });
 
-        // All projects data (alphabetical order)
+        // All projects data (alphabetical order, excluding featured ones)
         const allProjects = [
-            {
-                id: 'mundus',
-                title: 'Mundus Online',
-                icon: '<i class="fas fa-globe"></i>',
-                tags: ['Roblox', 'Lua', '3D Social Sandbox', 'Multiplayer'],
-                description: 'Build, Plant, and Trade in a massive 3D social sandbox! Plant seeds, splice them to discover new blocks, and grow your empire in Mundus Online! Claim unique world names before anyone else. Protect your creations with various lock systems. Master a 100% player-driven economy.',
-                links: [
-                    {icon: 'fa-gamepad', text: 'Play on Roblox', url: 'https://www.roblox.com/games/126354243623354/Mundus-Online-BETA'},
-                    {icon: 'fab fa-discord', text: 'Discord', url: 'https://discord.gg/p7Upc6tsBQ'}
-                ],
-                searchData: 'mundus online roblox lua 3d social sandbox multiplayer build plant trade economy game',
-                isBeta: true
-            },
-            {
-                id: 'petting',
-                title: 'Petting',
-                icon: '<i class="fas fa-paw"></i>',
-                tags: ['Minecraft', 'AI Behavior', 'Companions'],
-                description: 'Pet mobs and have them become protective companions that follow you, offering support and assistance during your adventures.',
-                links: [
-                    {icon: 'fas fa-cube', text: 'Modrinth', url: 'https://modrinth.com/mod/petting'},
-                    {icon: 'fas fa-cube', text: 'CurseForge', url: 'https://www.curseforge.com/minecraft/mc-mods/petting'},
-                    {icon: 'fab fa-discord', text: 'Discord', url: 'https://discord.gg/aPk7Qs5d4H'},
-                    {icon: 'fab fa-github', text: 'GitHub', url: 'https://github.com/yigit-guven/Petting'},
-                    {icon: 'fas fa-book', text: 'Wiki', url: 'https://github.com/yigit-guven/Petting/wiki'}
-                ],
-                searchData: 'petting minecraft ai behavior companions mod animals pets'
-            },
-            {
-                id: 'economy',
-                title: 'Hytale Economy',
-                icon: '<i class="fas fa-coins"></i>',
-                tags: ['Hytale', 'Java', 'Backend', 'Plugin'],
-                description: 'A lightweight and persistent economy system for Hytale that adds player wallets, balance checking, and secure money transfers.',
-                links: [
-                    {icon: 'fas fa-cube', text: 'CurseForge', url: 'https://www.curseforge.com/hytale/mods/economy'},
-                    {icon: 'fab fa-github', text: 'GitHub', url: 'https://github.com/Ryukazan/Economy'},
-                    {icon: 'fas fa-database', text: 'Repsy', url: 'https://repsy.io/yigit-guven/economy'},
-                    {icon: 'fas fa-book', text: 'Wiki', url: 'https://github.com/Ryukazan/Economy/wiki'}
-                ],
-                searchData: 'hytale economy java backend plugin money currency system'
-            },
             {
                 id: 'tropic',
                 title: 'TheTropic.com.tr',
-                icon: '<i class="fas fa-shopping-cart"></i>',
+                icon: '<img src="./images/projecticons/tropic.svg" alt="TheTropic.com.tr">',
                 tags: ['Web Dev', 'E-Commerce', 'Responsive', 'Frontend'],
                 description: 'A premium responsive e-commerce website designed for "The Tropic." Showcases tropical fruits with a clean, modern user interface.',
                 links: [
@@ -1740,7 +1783,7 @@
             {
                 id: 'sudoku',
                 title: 'Sudoku Rush',
-                icon: '<i class="fas fa-puzzle-piece"></i>',
+                icon: '<img src="./images/projecticons/sudoku.svg" alt="Sudoku Rush">',
                 tags: ['Python', 'Pygame', 'Algorithms', 'Game'],
                 description: 'A Python/Pygame puzzle game featuring procedurally generated boards, persistent themes and unique variants like Fog of War and Hexadecimal grids.',
                 links: [
@@ -1751,7 +1794,7 @@
             {
                 id: 'hush',
                 title: 'Hush Word',
-                icon: '<i class="fas fa-font"></i>',
+                icon: '<img src="./images/projecticons/hush.svg" alt="Hush Word">',
                 tags: ['Python', 'Tkinter', 'GUI', 'Puzzle'],
                 description: 'Hush Word is a level based word puzzle game with a minimalist interface and a progressive challenge. A minimalist, level based word puzzle game written in Python with a clean GUI using Tkinter.',
                 links: [
@@ -1762,7 +1805,7 @@
             {
                 id: 'grid',
                 title: 'Image Grid Generator',
-                icon: '<i class="fas fa-border-all"></i>',
+                icon: '<img src="./images/projecticons/grid.svg" alt="Image Grid Generator">',
                 tags: ['HTML5 Canvas', 'Client-Side', 'Tool'],
                 description: 'A lightweight, client-side tool to overlay customizable grids on images. Built with HTML5 and the Canvas API; runs entirely in the browser.',
                 links: [
@@ -1774,7 +1817,7 @@
             {
                 id: 'converter',
                 title: 'Simple File Converter',
-                icon: '<i class="fas fa-exchange-alt"></i>',
+                icon: '<img src="./images/projecticons/converter.svg" alt="Simple File Converter">',
                 tags: ['Android', 'Java/Kotlin', 'Utility', 'App'],
                 description: 'App for offline file conversion between PDF, DOCX, images, text formats and much more.',
                 links: [
@@ -1787,7 +1830,7 @@
             {
                 id: 'backpacks',
                 title: 'RPG Backpacks',
-                icon: '<i class="fas fa-backpack"></i>',
+                icon: '<img src="./images/projecticons/backpacks.svg" alt="RPG Backpacks">',
                 tags: ['Minecraft', 'Storage', 'Utility'],
                 description: 'RPG Backpacks adds a variety of backpacks with different storage capacities, helping players manage their inventory efficiently. From Leather to Netherite, each backpack type offers a different storage size.',
                 links: [
@@ -1801,7 +1844,7 @@
             {
                 id: 'playerstand',
                 title: 'Player Stand',
-                icon: '<i class="fas fa-user"></i>',
+                icon: '<img src="./images/projecticons/playerstand.svg" alt="Player Stand">',
                 tags: ['Minecraft', 'Cosmetic', 'Customization'],
                 description: 'Player Stand is a Minecraft mod that adds a customizable, player-shaped armor stands that support skins, armor and interactions.',
                 links: [
@@ -1815,7 +1858,7 @@
             {
                 id: 'daylength',
                 title: 'Day Length',
-                icon: '<i class="fas fa-clock"></i>',
+                icon: '<img src="./images/projecticons/daylength.svg" alt="Day Length">',
                 tags: ['Minecraft', 'Time Logic', 'Customization'],
                 description: 'Day Length mod lets players customize Minecraft\'s day-night cycle and sync it with real-world time.',
                 links: [
@@ -1829,7 +1872,7 @@
             {
                 id: 'manalib',
                 title: 'Mana Lib',
-                icon: '<i class="fas fa-gem"></i>',
+                icon: '<img src="./images/projecticons/manalib.svg" alt="Mana Lib">',
                 tags: ['Minecraft', 'Library', 'API', 'Framework'],
                 description: 'Adds a highly customizable mana bar to Minecraft, appearing above your hunger bar, which can be easily managed by NBT data.',
                 links: [
@@ -1843,7 +1886,7 @@
             {
                 id: 'leathercraft',
                 title: 'Leather Craft',
-                icon: '<i class="fas fa-hat-cowboy"></i>',
+                icon: '<img src="./images/projecticons/leathercraft.svg" alt="Leather Craft">',
                 tags: ['Minecraft', 'Crafting', 'Utility'],
                 description: 'Adds recipe to craft leather by smelting rotten flesh.',
                 links: [
@@ -1858,52 +1901,36 @@
         // Sort projects alphabetically
         allProjects.sort((a, b) => a.title.localeCompare(b.title));
 
-        // Generate all projects grid
+        // Generate all projects list (excluding featured ones which are already shown)
         const projectsContainer = document.getElementById('projectsContainer');
         
         allProjects.forEach((project, index) => {
-            const projectCard = document.createElement('article');
-            projectCard.className = 'project-card';
-            projectCard.id = project.id;
-            projectCard.setAttribute('data-search', project.searchData);
-            projectCard.style.animationDelay = `${0.1 + (index * 0.1)}s`;
+            const projectItem = document.createElement('div');
+            projectItem.className = 'project-item';
+            projectItem.id = project.id;
+            projectItem.setAttribute('data-search', project.searchData);
+            projectItem.style.animationDelay = `${0.1 + (index * 0.1)}s`;
             
-            // Determine image based on project
-            let imageSrc = 'https://placehold.co/800x450/222/FFF?text=' + encodeURIComponent(project.title);
-            if (project.id === 'mundus') imageSrc = './images/mundusonline/banner.svg';
-            if (project.id === 'petting') imageSrc = './images/petting/logo.svg';
-            if (project.id === 'economy') imageSrc = './images/economy/logo.svg';
-            if (project.id === 'tropic') imageSrc = 'https://placehold.co/800x450/4CAF50/FFF?text=The+Tropic';
-            if (project.id === 'sudoku') imageSrc = 'https://placehold.co/600x340/333/FFF?text=Sudoku+Rush';
-            if (project.id === 'hush') imageSrc = 'https://placehold.co/600x340/555/FFF?text=Hush+Word';
-            if (project.id === 'grid') imageSrc = 'https://placehold.co/600x340/777/FFF?text=Grid+Generator';
-            if (project.id === 'converter') imageSrc = 'https://placehold.co/600x340/2196F3/FFF?text=Simple+File+Converter';
-            if (project.id === 'backpacks') imageSrc = 'https://placehold.co/600x340/795548/FFF?text=RPG+Backpacks';
-            if (project.id === 'playerstand') imageSrc = 'https://placehold.co/600x340/607D8B/FFF?text=Player+Stand';
-            if (project.id === 'daylength') imageSrc = 'https://placehold.co/600x340/FF9800/FFF?text=Day+Length';
-            if (project.id === 'manalib') imageSrc = 'https://placehold.co/600x340/9C27B0/FFF?text=Mana+Lib';
-            if (project.id === 'leathercraft') imageSrc = 'https://placehold.co/600x340/795548/FFF?text=Leather+Craft';
-            
-            const tagsHtml = project.tags.map(tag => `<span class="tag">${tag}</span>`).join('');
+            const tagsHtml = project.tags.map(tag => `<span class="project-tag">${tag}</span>`).join('');
             
             const linksHtml = project.links.map(link => 
-                `<a href="${link.url}" target="_blank" class="card-link"><i class="${link.icon}"></i> ${link.text}</a>`
+                `<a href="${link.url}" target="_blank" class="project-link"><i class="${link.icon}"></i> ${link.text}</a>`
             ).join('');
             
-            projectCard.innerHTML = `
-                <div class="card-image-container">
-                    <img src="${imageSrc}" alt="${project.title}" class="card-image">
-                    ${project.isBeta ? '<div class="beta-badge">Closed Beta</div>' : ''}
+            projectItem.innerHTML = `
+                <div class="project-icon-container">
+                    ${project.icon}
                 </div>
-                <div class="card-content">
-                    <h3>${project.title} <span class="project-icon">${project.icon}</span></h3>
-                    <div class="tags-container">${tagsHtml}</div>
-                    <p>${project.description}</p>
-                    <div class="links-container">${linksHtml}</div>
+                <div class="project-content">
+                    <h3>${project.title}</h3>
+                    <div class="project-tags">${tagsHtml}</div>
+                    <p class="project-description">${project.description}</p>
+                    <div class="project-links">${linksHtml}</div>
                 </div>
+                ${project.isBeta ? '<div class="beta-badge">Closed Beta</div>' : ''}
             `;
             
-            projectsContainer.appendChild(projectCard);
+            projectsContainer.appendChild(projectItem);
         });
 
         // Search functionality
@@ -1913,11 +1940,11 @@
         const searchResultsInfo = document.getElementById('searchResultsInfo');
         const visibleCountElement = document.getElementById('visibleCount');
         const totalCountElement = document.getElementById('totalCount');
-        const projectCards = document.querySelectorAll('.project-card');
+        const projectItems = document.querySelectorAll('.project-item');
         
         // Set total count
-        totalCountElement.textContent = projectCards.length;
-        visibleCountElement.textContent = projectCards.length;
+        totalCountElement.textContent = projectItems.length;
+        visibleCountElement.textContent = projectItems.length;
         
         // Search function
         function performSearch() {
@@ -1925,30 +1952,30 @@
             let visibleCount = 0;
             
             if (searchTerm === '') {
-                // Show all cards
-                projectCards.forEach(card => {
-                    card.classList.remove('hidden');
+                // Show all items
+                projectItems.forEach(item => {
+                    item.classList.remove('hidden');
                     visibleCount++;
                 });
                 searchResultsInfo.classList.remove('visible');
                 clearButton.classList.remove('visible');
             } else {
-                // Filter cards
-                projectCards.forEach(card => {
-                    const searchData = card.getAttribute('data-search').toLowerCase();
-                    const cardTitle = card.querySelector('h3').textContent.toLowerCase();
-                    const cardDescription = card.querySelector('p').textContent.toLowerCase();
-                    const cardTags = Array.from(card.querySelectorAll('.tag')).map(tag => tag.textContent.toLowerCase()).join(' ');
+                // Filter items
+                projectItems.forEach(item => {
+                    const searchData = item.getAttribute('data-search').toLowerCase();
+                    const itemTitle = item.querySelector('h3').textContent.toLowerCase();
+                    const itemDescription = item.querySelector('.project-description').textContent.toLowerCase();
+                    const itemTags = Array.from(item.querySelectorAll('.project-tag')).map(tag => tag.textContent.toLowerCase()).join(' ');
                     
-                    // Check if search term matches any part of the card
+                    // Check if search term matches any part of the item
                     if (searchData.includes(searchTerm) || 
-                        cardTitle.includes(searchTerm) || 
-                        cardDescription.includes(searchTerm) ||
-                        cardTags.includes(searchTerm)) {
-                        card.classList.remove('hidden');
+                        itemTitle.includes(searchTerm) || 
+                        itemDescription.includes(searchTerm) ||
+                        itemTags.includes(searchTerm)) {
+                        item.classList.remove('hidden');
                         visibleCount++;
                     } else {
-                        card.classList.add('hidden');
+                        item.classList.add('hidden');
                     }
                 });
                 
@@ -1956,16 +1983,6 @@
                 visibleCountElement.textContent = visibleCount;
                 searchResultsInfo.classList.add('visible');
                 clearButton.classList.add('visible');
-                
-                // Scroll to search section if results are found
-                if (visibleCount > 0) {
-                    setTimeout(() => {
-                        document.getElementById('searchSection').scrollIntoView({ 
-                            behavior: 'smooth',
-                            block: 'start'
-                        });
-                    }, 100);
-                }
             }
             
             visibleCountElement.textContent = visibleCount;
