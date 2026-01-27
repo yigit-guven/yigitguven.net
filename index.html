@@ -6,1300 +6,7 @@
     <title>Yiğit Güven | Portfolio</title>
     <meta name="description" content="Computer Science Student & Developer specializing in Java, Python, and Game Development. Building mods, web experiences, and tools used by thousands worldwide.">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <style>
-        /* --- RESET & VARIABLES --- */
-        :root {
-            --bg-color: #ffffff;
-            --text-color: #1a1a1a;
-            --header-footer-bg: #000000;
-            --header-footer-text: #ffffff;
-            --tag-bg: #f0f0f0;
-            --font-main: 'Helvetica Neue', Helvetica, Arial, sans-serif;
-            --accent: #3b82f6;
-            --accent-dark: #2563eb;
-            --light-gray: #f9f9f9;
-            --card-shadow: 0 10px 30px rgba(0,0,0,0.06);
-            --card-shadow-hover: 0 20px 40px rgba(0,0,0,0.12);
-            --search-bg: #f8f9fa;
-            --search-border: #e0e0e0;
-            --search-focus: #000000;
-        }
-
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-        }
-
-        body {
-            font-family: var(--font-main);
-            background-color: var(--bg-color);
-            color: var(--text-color);
-            line-height: 1.6;
-            display: flex;
-            flex-direction: column;
-            min-height: 100vh;
-            overflow-x: hidden;
-        }
-
-        a { text-decoration: none; color: inherit; transition: all 0.2s ease; }
-        a:hover { opacity: 0.8; }
-        ul { list-style: none; }
-
-        /* --- HEADER STYLES --- */
-        #header {
-            background-color: var(--header-footer-bg);
-            color: var(--header-footer-text);
-            padding: 0 40px;
-            height: 80px;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
-        }
-
-        .Header_logoLink__img { 
-            height: 40px; 
-            width: auto; 
-            display: block; 
-            filter: brightness(0) invert(1);
-        }
-
-        /* Desktop Nav */
-        .Header_desktopNav__ngVUD { 
-            flex-grow: 1; 
-            margin-left: 40px; 
-            display: none; 
-        }
-        
-        @media(min-width: 900px) {
-            .Header_desktopNav__ngVUD { display: block; }
-            #mobileMenuIcon { display: none; }
-        }
-
-        .DesktopMenuItems_menuItems__wkePH { 
-            display: flex; 
-            gap: 30px; 
-            align-items: center; 
-            height: 100%; 
-        }
-
-        .DesktopMenuItem_menuLink__bvKqq {
-            position: relative;
-            font-weight: 700;
-            font-size: 14px;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-            cursor: pointer;
-            padding: 30px 0;
-        }
-        
-        .DesktopMenuItem_menuLink__bvKqq > a { 
-            color: white; 
-            position: relative;
-        }
-        
-        .DesktopMenuItem_menuLink__bvKqq > a::after {
-            content: '';
-            position: absolute;
-            bottom: -5px;
-            left: 0;
-            width: 0;
-            height: 2px;
-            background-color: var(--accent);
-            transition: width 0.3s ease;
-        }
-        
-        .DesktopMenuItem_menuLink__bvKqq > a:hover::after {
-            width: 100%;
-        }
-
-        /* Dropdown */
-        .DesktopMenuItem_subLinks__AS2Nv {
-            display: none;
-            position: absolute;
-            top: 100%;
-            left: -20px;
-            background-color: #111;
-            padding: 20px;
-            min-width: 220px;
-            border-radius: 0 0 12px 12px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.4);
-            z-index: 100;
-        }
-        
-        .DesktopMenuItem_menuLink__bvKqq:hover .DesktopMenuItem_subLinks__AS2Nv { 
-            display: block; 
-        }
-        
-        .DesktopMenuItem_subLink__tLS3Z { 
-            margin-bottom: 12px; 
-        }
-        
-        .DesktopMenuItem_subLink__tLS3Z a { 
-            color: #ccc; 
-            font-size: 14px; 
-            text-transform: none; 
-            display: block;
-            padding: 5px 0;
-        }
-        
-        .DesktopMenuItem_subLink__tLS3Z a:hover { 
-            color: white; 
-            transform: translateX(5px);
-        }
-
-        /* Icons */
-        .DesktopMenuItems_iconContainer__C82NG { 
-            margin-left: auto; 
-        }
-        
-        .DesktopMenuItems_icons__Otki9 { 
-            display: flex; 
-            gap: 15px; 
-            align-items: center; 
-        }
-        
-        .DesktopMenuItems_icons__Otki9 svg { 
-            height: 24px; 
-            width: 24px; 
-            fill: #fff; 
-            opacity: 0.8; 
-        }
-        
-        .DesktopMenuItems_icons__Otki9 a:hover svg {
-            opacity: 1;
-            transform: translateY(-2px);
-        }
-
-        /* Mobile Menu Button */
-        button { 
-            background: none; 
-            border: none; 
-            color: inherit; 
-            cursor: pointer; 
-        }
-        
-        .Header_mobileMenuButton__I1oUf svg { 
-            width: 30px; 
-            height: 30px; 
-            fill: white; 
-        }
-
-        /* --- MOBILE MENU --- */
-        .mobile-menu-overlay {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0,0,0,0.9);
-            z-index: 9999;
-            display: none;
-            opacity: 0;
-            transition: opacity 0.3s ease;
-        }
-
-        .mobile-menu-overlay.active {
-            display: block;
-            opacity: 1;
-        }
-
-        .mobile-menu-content {
-            position: fixed;
-            top: 0;
-            right: 0;
-            width: 80%;
-            max-width: 400px;
-            height: 100%;
-            background: #000;
-            z-index: 10000;
-            transform: translateX(100%);
-            transition: transform 0.3s ease;
-            padding: 80px 30px 30px;
-            overflow-y: auto;
-        }
-
-        .mobile-menu-content.active {
-            transform: translateX(0);
-        }
-
-        .mobile-menu-close {
-            position: absolute;
-            top: 20px;
-            right: 20px;
-            background: none;
-            border: none;
-            color: white;
-            font-size: 24px;
-            cursor: pointer;
-        }
-
-        .mobile-menu-nav ul {
-            display: flex;
-            flex-direction: column;
-            gap: 20px;
-        }
-
-        .mobile-menu-nav a {
-            color: white;
-            font-size: 18px;
-            font-weight: 600;
-            display: block;
-            padding: 10px 0;
-            border-bottom: 1px solid #333;
-        }
-
-        .mobile-menu-nav a:hover {
-            color: var(--accent);
-        }
-
-        /* --- FEATURED PROJECTS REDESIGN --- */
-        .featured-section {
-            width: 100%;
-            margin: 40px 0 80px 0;
-            padding: 0;
-        }
-
-        /* Main Featured Project (Mundus Online) */
-        .main-featured {
-            width: 100%;
-            background: var(--bg-color);
-            color: var(--text-color);
-            padding: 40px 20px;
-            position: relative;
-            overflow: hidden;
-            border-bottom: 1px solid #f0f0f0;
-        }
-
-        .main-featured-content {
-            max-width: 1200px;
-            margin: 0 auto;
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 60px;
-            align-items: center;
-        }
-
-        .main-featured-logo-container {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 30px;
-        }
-
-        .main-featured-logo {
-            width: 400px;
-            max-width: 100%;
-            filter: drop-shadow(0 5px 15px rgba(0,0,0,0.1));
-        }
-
-        .main-featured-banner {
-            width: 100%;
-            border-radius: 12px;
-            overflow: hidden;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-            border: 1px solid #f0f0f0;
-        }
-
-        .main-featured-banner img {
-            width: 100%;
-            height: auto;
-            display: block;
-        }
-
-        .main-featured-details {
-            padding: 20px 0;
-        }
-
-        .main-featured-details h2 {
-            font-size: 2.5rem;
-            margin-bottom: 20px;
-            display: flex;
-            align-items: center;
-            gap: 15px;
-        }
-
-        .main-featured-stats {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 30px;
-            margin: 30px 0;
-            padding: 20px;
-            background: var(--light-gray);
-            border-radius: 12px;
-        }
-
-        .main-stat-item {
-            text-align: center;
-        }
-
-        .main-stat-value {
-            font-size: 2rem;
-            font-weight: 900;
-            display: block;
-            line-height: 1;
-            margin-bottom: 5px;
-            color: var(--accent);
-        }
-
-        .main-stat-label {
-            font-size: 0.9rem;
-            opacity: 0.9;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            color: #666;
-        }
-
-        /* Secondary Featured Projects */
-        .secondary-featured {
-            max-width: 1200px;
-            margin: 60px auto 0;
-            padding: 0 20px;
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
-            gap: 40px;
-        }
-
-        .secondary-featured-project {
-            background: white;
-            border-radius: 12px;
-            overflow: hidden;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.08);
-            border: 1px solid #f0f0f0;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-        }
-
-        .secondary-featured-project:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 15px 40px rgba(0,0,0,0.12);
-        }
-
-        .secondary-banner {
-            width: 100%;
-            height: 200px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            padding: 30px;
-            background: var(--light-gray);
-            border-bottom: 1px solid #f0f0f0;
-        }
-
-        .secondary-logo {
-            max-width: 250px;
-            max-height: 120px;
-            filter: drop-shadow(0 5px 10px rgba(0,0,0,0.1));
-        }
-
-        .secondary-content {
-            padding: 30px;
-        }
-
-        .secondary-content h3 {
-            font-size: 1.8rem;
-            margin-bottom: 15px;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-
-        .secondary-stats {
-            display: flex;
-            gap: 30px;
-            margin-bottom: 20px;
-            padding-bottom: 20px;
-            border-bottom: 1px solid #f0f0f0;
-        }
-
-        .secondary-stat-value {
-            font-size: 1.5rem;
-            font-weight: 800;
-            color: var(--accent);
-        }
-
-        .secondary-stat-label {
-            font-size: 0.8rem;
-            color: #666;
-            text-transform: uppercase;
-        }
-
-        /* --- ALL PROJECTS REDESIGN --- */
-        .all-projects-section {
-            width: 100%;
-            padding: 60px 0;
-            background: #f9f9f9;
-        }
-
-        .all-projects-header {
-            max-width: 1200px;
-            margin: 0 auto 40px;
-            padding: 0 20px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            flex-wrap: wrap;
-            gap: 20px;
-        }
-
-        .section-title {
-            font-size: 2.5rem;
-            font-weight: 900;
-            position: relative;
-            letter-spacing: -0.5px;
-        }
-
-        .section-title::after {
-            content: '';
-            position: absolute;
-            bottom: -10px;
-            left: 0;
-            width: 80px;
-            height: 5px;
-            background: linear-gradient(90deg, var(--accent), var(--accent-dark));
-            border-radius: 3px;
-        }
-
-        /* Search moved here */
-        .search-container {
-            flex: 1;
-            min-width: 300px;
-            max-width: 600px;
-            position: relative;
-        }
-
-        .search-wrapper {
-            position: relative;
-            width: 100%;
-        }
-
-        .search-input {
-            width: 100%;
-            padding: 15px 20px;
-            padding-right: 60px;
-            font-size: 16px;
-            border: 2px solid var(--search-border);
-            border-radius: 50px;
-            background-color: white;
-            transition: all 0.3s ease;
-            font-family: var(--font-main);
-            outline: none;
-        }
-
-        .search-input:focus {
-            border-color: var(--search-focus);
-            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-            transform: translateY(-2px);
-        }
-
-        .search-button {
-            position: absolute;
-            right: 8px;
-            top: 50%;
-            transform: translateY(-50%);
-            background: var(--search-focus);
-            color: white;
-            border: none;
-            border-radius: 50%;
-            width: 42px;
-            height: 42px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            cursor: pointer;
-            transition: all 0.3s ease;
-        }
-
-        .search-button:hover {
-            background: #333;
-            transform: translateY(-50%) scale(1.05);
-        }
-
-        .search-button i {
-            font-size: 16px;
-        }
-
-        .search-clear {
-            position: absolute;
-            right: 60px;
-            top: 50%;
-            transform: translateY(-50%);
-            background: transparent;
-            border: none;
-            color: #999;
-            cursor: pointer;
-            display: none;
-            padding: 8px;
-        }
-
-        .search-clear:hover {
-            color: var(--search-focus);
-        }
-
-        .search-clear.visible {
-            display: block;
-        }
-
-        .search-results-info {
-            text-align: center;
-            margin-top: 10px;
-            color: #666;
-            font-size: 14px;
-            display: none;
-        }
-
-        .search-results-info.visible {
-            display: block;
-        }
-
-        /* Projects Grid - Full Width */
-        .projects-list {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px;
-            display: flex;
-            flex-direction: column;
-            gap: 30px;
-        }
-
-        .project-item {
-            background: white;
-            border-radius: 15px;
-            padding: 40px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
-            border-left: 5px solid var(--accent);
-            transition: all 0.3s ease;
-            display: grid;
-            grid-template-columns: auto 1fr auto;
-            gap: 30px;
-            align-items: center;
-        }
-
-        .project-item:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
-        }
-
-        .project-item.hidden {
-            display: none;
-        }
-
-        .project-icon-container {
-            width: 80px;
-            height: 80px;
-            background: var(--light-gray);
-            border-radius: 15px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            padding: 15px;
-            border: 1px solid #f0f0f0;
-        }
-
-        .project-icon-container img {
-            max-width: 100%;
-            max-height: 100%;
-            object-fit: contain;
-            border-radius: 8px;
-        }
-
-        .project-content {
-            flex: 1;
-        }
-
-        .project-content h3 {
-            font-size: 1.8rem;
-            margin-bottom: 10px;
-            font-weight: 800;
-        }
-
-        .project-description {
-            color: #666;
-            margin-bottom: 15px;
-            line-height: 1.7;
-            max-width: 800px;
-        }
-
-        .project-tags {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 8px;
-            margin-bottom: 15px;
-        }
-
-        .project-tag {
-            font-size: 11px;
-            font-weight: 700;
-            background-color: var(--tag-bg);
-            padding: 6px 12px;
-            border-radius: 20px;
-            color: #555;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-            border: 1px solid #e5e5e5;
-        }
-
-        .project-links {
-            display: flex;
-            gap: 20px;
-            flex-wrap: wrap;
-        }
-
-        .project-link {
-            font-size: 13px;
-            font-weight: 600;
-            color: #000;
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            padding: 5px 0;
-            position: relative;
-        }
-
-        .project-link::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 0;
-            height: 2px;
-            background-color: var(--accent);
-            transition: width 0.3s ease;
-        }
-
-        .project-link:hover::after {
-            width: 100%;
-        }
-
-        .project-link:hover {
-            color: var(--accent);
-        }
-
-        .beta-badge {
-            background: linear-gradient(135deg, #ff6b6b, #ff4757);
-            color: white;
-            padding: 8px 16px;
-            border-radius: 20px;
-            font-size: 12px;
-            font-weight: 700;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-            box-shadow: 0 3px 10px rgba(255, 71, 87, 0.3);
-            white-space: nowrap;
-        }
-
-        /* --- IMPROVED HERO SECTION --- */
-        .hero {
-            padding: 100px 20px 80px 20px;
-            text-align: center;
-            max-width: 1200px;
-            margin: 0 auto;
-            position: relative;
-        }
-        
-        .hero h1 { 
-            font-size: 3.5rem; 
-            font-weight: 900; 
-            margin-bottom: 20px; 
-            letter-spacing: -1px; 
-            line-height: 1.1; 
-            background: linear-gradient(90deg, #000, #444);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            position: relative;
-            padding-bottom: 20px;
-        }
-        
-        .hero h1::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 100px;
-            height: 3px;
-            background: linear-gradient(90deg, var(--accent), var(--accent-dark));
-            border-radius: 3px;
-        }
-        
-        .hero p { 
-            font-size: 1.25rem; 
-            color: #666; 
-            margin: 40px auto;
-            max-width: 700px;
-            line-height: 1.8;
-        }
-        
-        .cta-button {
-            display: inline-block;
-            background-color: #000;
-            color: #fff;
-            padding: 16px 45px;
-            border-radius: 50px;
-            font-weight: bold;
-            font-size: 1.1rem;
-            transition: transform 0.2s ease, background-color 0.2s ease, box-shadow 0.2s;
-            border: 2px solid #000;
-            position: relative;
-            overflow: hidden;
-            z-index: 1;
-            margin: 30px 0 50px;
-        }
-        
-        .cta-button::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
-            transition: left 0.7s ease;
-            z-index: -1;
-        }
-        
-        .cta-button:hover::before {
-            left: 100%;
-        }
-        
-        .cta-button:hover { 
-            transform: translateY(-2px); 
-            background-color: #fff; 
-            color: #000;
-            box-shadow: 0 10px 20px rgba(0,0,0,0.15); 
-        }
-
-        /* IMPROVED Skills Section */
-        .skills-section {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 60px 20px;
-            text-align: center;
-        }
-
-        .skills-title {
-            font-size: 2rem;
-            margin-bottom: 40px;
-            font-weight: 800;
-            color: #333;
-        }
-
-        .skills-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 20px;
-            margin-bottom: 40px;
-        }
-
-        .skill-category {
-            background: white;
-            border-radius: 12px;
-            padding: 30px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
-            border: 1px solid #f0f0f0;
-            transition: transform 0.3s ease;
-        }
-
-        .skill-category:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 15px 40px rgba(0,0,0,0.1);
-        }
-
-        .skill-category h3 {
-            font-size: 1.2rem;
-            margin-bottom: 20px;
-            color: var(--accent);
-            font-weight: 700;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-        }
-
-        .skill-items {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 10px;
-            justify-content: center;
-        }
-
-        .skill-item {
-            background: var(--light-gray);
-            padding: 8px 16px;
-            border-radius: 20px;
-            font-size: 14px;
-            font-weight: 600;
-            color: #555;
-            border: 1px solid #e0e0e0;
-            transition: all 0.2s ease;
-        }
-
-        .skill-item:hover {
-            background: var(--accent);
-            color: white;
-            transform: translateY(-2px);
-        }
-
-        .tech-stack {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: 15px;
-            margin-top: 40px;
-            padding-top: 40px;
-            border-top: 1px solid #f0f0f0;
-        }
-
-        .tech-item {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 10px;
-            padding: 20px;
-            background: white;
-            border-radius: 12px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
-            min-width: 120px;
-            transition: transform 0.3s ease;
-        }
-
-        .tech-item:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
-        }
-
-        .tech-icon {
-            font-size: 2.5rem;
-            color: var(--accent);
-        }
-
-        .tech-name {
-            font-size: 14px;
-            font-weight: 700;
-            color: #333;
-        }
-
-        /* --- FOOTER STYLES --- */
-        .Footer_footer__KQx25 {
-            background-color: var(--header-footer-bg);
-            color: var(--header-footer-text);
-            padding: 80px 40px 30px 40px;
-            font-size: 14px;
-            margin-top: 60px;
-        }
-
-        .Footer_footerContent__7y8X1 { 
-            max-width: 1200px; 
-            margin: 0 auto; 
-            display: grid; 
-            gap: 50px; 
-        }
-        
-        .Footer_socialMediaMenu__0IVSk { 
-            display: flex; 
-            flex-wrap: wrap; 
-            gap: 60px; 
-            align-items: flex-start; 
-        }
-        
-        .Footer_linkGroup { 
-            flex: 1; 
-            min-width: 200px; 
-        }
-        
-        .Footer_linkGroup h3 { 
-            font-size: 13px; 
-            margin-bottom: 24px; 
-            opacity: 0.5; 
-            text-transform: uppercase; 
-            letter-spacing: 1.5px; 
-        }
-
-        .Footer_iconGrid { 
-            display: flex; 
-            gap: 16px; 
-            flex-wrap: wrap; 
-            max-width: 550px; 
-        }
-        
-        .Footer_iconLink {
-            display: flex; 
-            align-items: center; 
-            justify-content: center;
-            background: rgba(255,255,255,0.12); 
-            width: 52px; 
-            height: 52px; 
-            border-radius: 16px;
-            transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
-        }
-        
-        .Footer_iconLink:hover { 
-            background: rgba(255,255,255,0.25); 
-            transform: translateY(-3px) scale(1.1); 
-        }
-        
-        .Footer_iconLink svg { 
-            width: 24px; 
-            height: 24px; 
-            fill: white; 
-        }
-
-        .Footer_storeLink { 
-            width: auto; 
-            padding: 0 24px; 
-            gap: 12px; 
-            font-weight: 600; 
-            font-size: 13px; 
-        }
-        
-        .Footer_promoLink { 
-            display: block; 
-            max-width: 320px; 
-            border-radius: 16px; 
-            overflow: hidden; 
-            transition: transform 0.3s ease, box-shadow 0.3s ease; 
-        }
-        
-        .Footer_promoLink:hover { 
-            transform: translateY(-3px); 
-            box-shadow: 0 10px 25px rgba(0,0,0,0.5); 
-        }
-        
-        .Footer_promoImage { 
-            width: 100%; 
-            height: auto; 
-            display: block; 
-        }
-
-        /* Footer Logo Section */
-        .footer-logo-section {
-            display: flex;
-            align-items: center;
-            gap: 30px;
-            margin-bottom: 40px;
-            flex-wrap: wrap;
-        }
-        
-        .footer-logo {
-            height: 80px;
-            width: auto;
-            filter: brightness(0) invert(1);
-            transition: all 0.3s ease;
-        }
-        
-        .footer-logo:hover {
-            transform: scale(1.05);
-            opacity: 1;
-        }
-        
-        .footer-branding {
-            flex: 1;
-        }
-        
-        .footer-branding h3 {
-            font-size: 18px;
-            margin-bottom: 10px;
-            color: white;
-        }
-        
-        .footer-branding p {
-            color: #888;
-            font-size: 13px;
-            line-height: 1.5;
-        }
-
-        /* Website Source Section */
-        .Footer_sourceSection {
-            border-top: 1px solid #333;
-            margin-top: 40px;
-            padding-top: 30px;
-            color: #999;
-            font-size: 12px;
-        }
-        
-        .Footer_sourceHeader { 
-            font-size: 13px; 
-            text-transform: uppercase; 
-            letter-spacing: 1.5px; 
-            opacity: 0.5; 
-            margin-bottom: 15px; 
-            font-weight: bold; 
-        }
-        
-        .Footer_sourceLinks { 
-            display: flex; 
-            gap: 20px; 
-            margin-bottom: 20px; 
-            flex-wrap: wrap;
-        }
-        
-        .Footer_sourceLinks a { 
-            color: #ccc; 
-            font-weight: 600; 
-            font-size: 13px;
-        }
-        
-        .Footer_sourceLinks a:hover { 
-            color: #fff; 
-            text-decoration: underline; 
-        }
-        
-        .Footer_licenseText { 
-            font-size: 12px; 
-            line-height: 1.6; 
-            opacity: 0.7; 
-            max-width: 800px; 
-        }
-        
-        .Footer_licenseText strong {
-            color: #ddd;
-        }
-        
-        .copyright-notice {
-            margin-top: 10px;
-            padding-top: 10px;
-            border-top: 1px solid #333;
-            font-size: 11px;
-        }
-
-        .Footer_userMenuList__S6n8M {
-            display: flex; 
-            flex-wrap: wrap; 
-            gap: 25px; 
-            margin: 20px 0; 
-            padding-top: 30px; 
-            border-top: 1px solid #333;
-        }
-        
-        .Footer_userMenuList__S6n8M a { 
-            color: #888; 
-            font-size: 13px; 
-            transition: color 0.2s;
-        }
-        
-        .Footer_userMenuList__S6n8M a:hover { 
-            color: #fff; 
-        }
-
-        .Footer_footerEnd__YjXn_ { 
-            display: flex; 
-            justify-content: space-between; 
-            align-items: center; 
-            margin-top: 40px; 
-            color: #666; 
-            flex-wrap: wrap;
-            gap: 20px;
-        }
-        
-        .footer-copyright {
-            color: #888;
-            font-size: 13px;
-        }
-        
-        /* Back to top button - PURE BLACK AND WHITE */
-        .back-to-top {
-            position: fixed;
-            bottom: 30px;
-            right: 30px;
-            background: #000000;
-            color: #ffffff;
-            width: 50px;
-            height: 50px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-decoration: none;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
-            opacity: 0;
-            visibility: hidden;
-            transition: all 0.3s ease;
-            z-index: 100;
-            border: 2px solid #000000;
-        }
-        
-        .back-to-top.visible {
-            opacity: 1;
-            visibility: visible;
-        }
-        
-        .back-to-top:hover {
-            background: #ffffff;
-            color: #000000;
-            transform: translateY(-3px) scale(1.1);
-            box-shadow: 0 6px 20px rgba(0,0,0,0.25);
-        }
-        
-        /* Animation for project items */
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-        
-        .project-item {
-            animation: fadeInUp 0.6s ease forwards;
-            opacity: 0;
-        }
-        
-        .project-item:nth-child(1) { animation-delay: 0.1s; }
-        .project-item:nth-child(2) { animation-delay: 0.2s; }
-        .project-item:nth-child(3) { animation-delay: 0.3s; }
-        .project-item:nth-child(4) { animation-delay: 0.4s; }
-        .project-item:nth-child(5) { animation-delay: 0.5s; }
-        .project-item:nth-child(6) { animation-delay: 0.6s; }
-        .project-item:nth-child(7) { animation-delay: 0.7s; }
-        .project-item:nth-child(8) { animation-delay: 0.8s; }
-        .project-item:nth-child(9) { animation-delay: 0.9s; }
-        .project-item:nth-child(10) { animation-delay: 1.0s; }
-        .project-item:nth-child(11) { animation-delay: 1.1s; }
-        
-        /* Scroll padding for fixed header */
-        html {
-            scroll-padding-top: 100px;
-        }
-        
-        /* Responsive improvements */
-        @media (max-width: 1024px) {
-            .main-featured-content {
-                grid-template-columns: 1fr;
-                gap: 40px;
-            }
-            
-            .main-featured-logo-container {
-                order: 1;
-            }
-            
-            .secondary-featured {
-                grid-template-columns: 1fr;
-            }
-            
-            .project-item {
-                grid-template-columns: 1fr;
-                gap: 20px;
-            }
-            
-            .project-icon-container {
-                width: 60px;
-                height: 60px;
-                font-size: 24px;
-            }
-        }
-        
-        @media (max-width: 768px) {
-            .hero h1 {
-                font-size: 2.5rem;
-            }
-            
-            .hero p {
-                font-size: 1.1rem;
-            }
-            
-            #header {
-                padding: 0 20px;
-            }
-            
-            .Footer_footer__KQx25 {
-                padding: 60px 20px 30px 20px;
-            }
-            
-            .Footer_socialMediaMenu__0IVSk {
-                gap: 40px;
-            }
-            
-            .main-featured-details h2 {
-                font-size: 2.2rem;
-            }
-            
-            .main-stat-value {
-                font-size: 2rem;
-            }
-            
-            .main-featured-stats {
-                grid-template-columns: 1fr;
-                gap: 20px;
-            }
-            
-            .section-title {
-                font-size: 2rem;
-            }
-            
-            .all-projects-header {
-                flex-direction: column;
-                align-items: flex-start;
-            }
-            
-            .search-container {
-                width: 100%;
-                max-width: 100%;
-            }
-            
-            .project-item {
-                padding: 25px;
-            }
-            
-            .project-content h3 {
-                font-size: 1.5rem;
-            }
-            
-            .footer-logo-section {
-                flex-direction: column;
-                text-align: center;
-                gap: 20px;
-            }
-            
-            .footer-logo {
-                height: 60px;
-            }
-            
-            .skills-grid {
-                grid-template-columns: 1fr;
-            }
-            
-            .tech-stack {
-                grid-template-columns: repeat(2, 1fr);
-            }
-        }
-        
-        @media (max-width: 480px) {
-            .main-featured {
-                padding: 40px 15px;
-            }
-            
-            .main-featured-logo {
-                width: 250px;
-            }
-            
-            .secondary-featured {
-                padding: 0 15px;
-            }
-            
-            .secondary-featured-project {
-                grid-template-columns: 1fr;
-            }
-            
-            .project-links {
-                flex-direction: column;
-                gap: 10px;
-            }
-            
-            .Footer_footerEnd__YjXn_ {
-                flex-direction: column;
-                text-align: center;
-            }
-            
-            .secondary-stats {
-                flex-direction: column;
-                gap: 15px;
-            }
-        }
-    </style>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
@@ -1311,10 +18,9 @@
         <button class="mobile-menu-close" id="mobileMenuClose">×</button>
         <nav class="mobile-menu-nav">
             <ul>
-                <li><a href="#featured">Featured Projects</a></li>
                 <li><a href="#all-projects">All Projects</a></li>
-                <li><a href="#about">About Me</a></li>
                 <li><a href="#skills">Skills</a></li>
+                <li><a href="#about">About Me</a></li>
                 <li><a href="https://github.com/yigit-guven" target="_blank">GitHub</a></li>
                 <li><a href="mailto:contact@yigitguven.net">Contact</a></li>
             </ul>
@@ -1335,15 +41,10 @@
         <nav class="Header_desktopNav__ngVUD">
             <ul class="DesktopMenuItems_menuItems__wkePH">
                 <li class="DesktopMenuItem_menuLink__bvKqq">
-                    <a href="#featured">Featured</a>
-                    <ul class="DesktopMenuItem_subLinks__AS2Nv">
-                        <li class="DesktopMenuItem_subLink__tLS3Z"><a href="#mundus">Mundus Online</a></li>
-                        <li class="DesktopMenuItem_subLink__tLS3Z"><a href="#petting">Petting</a></li>
-                        <li class="DesktopMenuItem_subLink__tLS3Z"><a href="#economy">Hytale Economy</a></li>
-                    </ul>
+                    <a href="#all-projects">All Projects</a>
                 </li>
                 <li class="DesktopMenuItem_menuLink__bvKqq">
-                    <a href="#all-projects">All Projects</a>
+                    <a href="#skills">Skills</a>
                 </li>
                 <li class="DesktopMenuItem_menuLink__bvKqq">
                     <a href="#about">About</a>
@@ -1364,185 +65,19 @@
             <h1>Computer Science Student & Developer</h1>
             <p>Hi, I'm Yiğit Güven. I specialize in Java, C++, and Game Development. I build mods, web experiences, and tools used by thousands of users worldwide.</p>
             
-            <a href="#featured" class="cta-button">View Featured Works</a>
-
-            <!-- IMPROVED Skills Section -->
-            <div class="skills-section" id="skills">
-                <h2 class="skills-title">Technical Skills & Expertise</h2>
-                
-                <div class="skills-grid">
-                    <div class="skill-category">
-                        <h3>Languages</h3>
-                        <div class="skill-items">
-                            <span class="skill-item">Java</span>
-                            <span class="skill-item">Python</span>
-                            <span class="skill-item">C++</span>
-                            <span class="skill-item">JavaScript</span>
-                            <span class="skill-item">Lua</span>
-                            <span class="skill-item">HTML/CSS</span>
-                        </div>
-                    </div>
-                    
-                    <div class="skill-category">
-                        <h3>Development</h3>
-                        <div class="skill-items">
-                            <span class="skill-item">Game Development</span>
-                            <span class="skill-item">Web Development</span>
-                            <span class="skill-item">Android Dev</span>
-                            <span class="skill-item">Game Modding</span>
-                            <span class="skill-item">API Development</span>
-                            <span class="skill-item">Database Design</span>
-                        </div>
-                    </div>
-                    
-                    <div class="skill-category">
-                        <h3>Tools & More</h3>
-                        <div class="skill-items">
-                            <span class="skill-item">Git</span>
-                            <span class="skill-item">Roblox Studio</span>
-                            <span class="skill-item">Figma</span>
-                            <span class="skill-item">UI/UX Design</span>
-                            <span class="skill-item">Problem Solving</span>
-                            <span class="skill-item">Project Management</span>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="tech-stack">
-                    <div class="tech-item">
-                        <div class="tech-icon">
-                            <i class="fab fa-java"></i>
-                        </div>
-                        <div class="tech-name">Java</div>
-                    </div>
-                    
-                    <div class="tech-item">
-                        <div class="tech-icon">
-                            <i class="fab fa-python"></i>
-                        </div>
-                        <div class="tech-name">Python</div>
-                    </div>
-                    
-                    <div class="tech-item">
-                        <div class="tech-icon">
-                            <i class="fas fa-gamepad"></i>
-                        </div>
-                        <div class="tech-name">Game Dev</div>
-                    </div>
-                    
-                    <div class="tech-item">
-                        <div class="tech-icon">
-                            <i class="fas fa-globe"></i>
-                        </div>
-                        <div class="tech-name">Web Dev</div>
-                    </div>
-                    
-                    <div class="tech-item">
-                        <div class="tech-icon">
-                            <i class="fab fa-android"></i>
-                        </div>
-                        <div class="tech-name">Android</div>
-                    </div>
-                    
-                    <div class="tech-item">
-                        <div class="tech-icon">
-                            <i class="fab fa-git-alt"></i>
-                        </div>
-                        <div class="tech-name">Git</div>
-                    </div>
-                </div>
-            </div>
+            <a href="#all-projects" class="cta-button">View All Projects</a>
         </section>
 
-        <!-- Featured Projects Redesigned -->
-        <section class="featured-section" id="featured">
-            <!-- Main Featured Project: Mundus Online -->
-            <div class="main-featured" id="mundus">
-                <div class="main-featured-content">
-                    <div class="main-featured-logo-container">
-                        <img src="./images/mundusonline/logo.svg" alt="Mundus Online" class="main-featured-logo">
-                        <div class="main-featured-banner">
-                            <img src="./images/mundusonline/banner.svg" alt="Mundus Online Banner">
-                        </div>
-                    </div>
-                    <div class="main-featured-details">
-                        <h2>Mundus Online <i class="fas fa-globe"></i></h2>
-                        <div class="main-featured-stats">
-                            <div class="main-stat-item">
-                                <span class="main-stat-value">30K+</span>
-                                <span class="main-stat-label">Visits</span>
-                            </div>
-                            <div class="main-stat-item">
-                                <span class="main-stat-value">2K+</span>
-                                <span class="main-stat-label">Active Players</span>
-                            </div>
-                            <div class="main-stat-item">
-                                <span class="main-stat-value">1.5K+</span>
-                                <span class="main-stat-label">Discord Members</span>
-                            </div>
-                        </div>
-                        <p>Mundus Online is a massive 3D social sandbox game on Roblox where players can build, plant, and trade in a player-driven economy. Plant seeds, splice them to discover new blocks, and grow your empire! Claim unique world names before anyone else and protect your creations with various lock systems.</p>
-                        <div class="project-links" style="margin-top: 30px;">
-                            <a href="https://www.roblox.com/games/126354243623354/Mundus-Online-BETA" target="_blank" class="project-link"><i class="fas fa-gamepad"></i> Play on Roblox</a>
-                            <a href="https://discord.gg/p7Upc6tsBQ" target="_blank" class="project-link"><i class="fab fa-discord"></i> Discord Community</a>
-                        </div>
-                    </div>
-                </div>
+        <!-- Technical Skills & Expertise Section -->
+        <section class="skills-section" id="skills">
+            <h2 class="skills-title">Technical Skills & Expertise</h2>
+            
+            <div class="skills-grid" id="skills-container">
+                <!-- Will be populated by JavaScript -->
             </div>
-
-            <!-- Secondary Featured Projects -->
-            <div class="secondary-featured">
-                <!-- Petting -->
-                <div class="secondary-featured-project" id="petting">
-                    <div class="secondary-banner">
-                        <img src="./images/petting/logo.svg" alt="Petting Mod" class="secondary-logo">
-                    </div>
-                    <div class="secondary-content">
-                        <h3>Petting Mod <i class="fas fa-paw"></i></h3>
-                        <div class="secondary-stats">
-                            <div class="secondary-stat-item">
-                                <span class="secondary-stat-value">200K+</span>
-                                <span class="secondary-stat-label">Downloads</span>
-                            </div>
-                            <div class="secondary-stat-item">
-                                <span class="secondary-stat-value">4.7/5</span>
-                                <span class="secondary-stat-label">Rating</span>
-                            </div>
-                        </div>
-                        <p>Petting is a popular Minecraft mod that adds a unique companion system. Pet mobs and have them become protective companions that follow you, offering support and assistance during your adventures.</p>
-                        <div class="project-links" style="margin-top: 15px;">
-                            <a href="https://modrinth.com/mod/petting" target="_blank" class="project-link"><i class="fas fa-cube"></i> Modrinth</a>
-                            <a href="https://www.curseforge.com/minecraft/mc-mods/petting" target="_blank" class="project-link"><i class="fas fa-cube"></i> CurseForge</a>
-                            <a href="https://github.com/yigit-guven/Petting" target="_blank" class="project-link"><i class="fab fa-github"></i> GitHub</a>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Hytale Economy -->
-                <div class="secondary-featured-project" id="economy">
-                    <div class="secondary-banner">
-                        <img src="./images/economy/logo.svg" alt="Hytale Economy" class="secondary-logo">
-                    </div>
-                    <div class="secondary-content">
-                        <h3>Hytale Economy <i class="fas fa-coins"></i></h3>
-                        <div class="secondary-stats">
-                            <div class="secondary-stat-item">
-                                <span class="secondary-stat-value">50+</span>
-                                <span class="secondary-stat-label">Servers Using</span>
-                            </div>
-                            <div class="secondary-stat-item">
-                                <span class="secondary-stat-value">100%</span>
-                                <span class="secondary-stat-label">Uptime</span>
-                            </div>
-                        </div>
-                        <p>A lightweight and persistent economy system for Hytale that adds player wallets, balance checking, and secure money transfers. Designed specifically for the Hytale modding ecosystem.</p>
-                        <div class="project-links" style="margin-top: 15px;">
-                            <a href="https://www.curseforge.com/hytale/mods/economy" target="_blank" class="project-link"><i class="fas fa-cube"></i> CurseForge</a>
-                            <a href="https://github.com/Ryukazan/Economy" target="_blank" class="project-link"><i class="fab fa-github"></i> GitHub</a>
-                            <a href="https://repsy.io/yigit-guven/economy" target="_blank" class="project-link"><i class="fas fa-database"></i> Repsy</a>
-                        </div>
-                    </div>
-                </div>
+            
+            <div class="tech-stack" id="tech-stack">
+                <!-- Will be populated by JavaScript -->
             </div>
         </section>
 
@@ -1551,7 +86,7 @@
             <div class="all-projects-header">
                 <h2 class="section-title">All Projects</h2>
                 
-                <!-- Search Bar moved here -->
+                <!-- Search Bar -->
                 <div class="search-container">
                     <div class="search-wrapper">
                         <input type="text" 
@@ -1572,7 +107,7 @@
             </div>
 
             <div class="projects-list" id="projectsContainer">
-                <!-- Projects will be generated here -->
+                <!-- Projects will be generated here by JavaScript -->
             </div>
         </section>
     </main>
@@ -1702,253 +237,216 @@
     </a>
 
     <script>
-        // Fix for navigation scrolling
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                if (this.getAttribute('href') === '#') return;
+        // ============================================
+        // COMPREHENSIVE PROJECT DATA SYSTEM
+        // ============================================
+
+        // Icon mappings for different technologies and platforms
+        const iconMappings = {
+            // Programming Languages
+            'Java': 'fab fa-java',
+            'Python': 'fab fa-python',
+            'C++': 'fas fa-code',
+            'JavaScript': 'fab fa-js-square',
+            'Lua': 'fas fa-code',
+            'HTML': 'fab fa-html5',
+            'CSS': 'fab fa-css3-alt',
+            'HTML/CSS': 'fab fa-html5',
+            'Kotlin': 'fas fa-code',
+            
+            // Development Types
+            'Game Development': 'fas fa-gamepad',
+            'Web Development': 'fas fa-globe',
+            'Android Dev': 'fab fa-android',
+            'Mobile': 'fas fa-mobile-alt',
+            'Game Modding': 'fas fa-cube',
+            'API': 'fas fa-plug',
+            'API Development': 'fas fa-plug',
+            'Database Design': 'fas fa-database',
+            'Algorithms': 'fas fa-brain',
+            'Client-Side': 'fas fa-laptop-code',
+            'Cosmetic': 'fas fa-palette',
+            'Crafting': 'fas fa-hammer',
+            'Customization': 'fas fa-sliders-h',
+            'Framework': 'fas fa-cogs',
+            'Frontend': 'fas fa-desktop',
+            'GUI': 'fas fa-window-maximize',
+            'Library': 'fas fa-book',
+            'Pygame': 'fas fa-gamepad',
+            'Storage': 'fas fa-box',
+            'Time Logic': 'fas fa-clock',
+            'Tkinter': 'fas fa-window-maximize',
+            'Utility': 'fas fa-tools',
+            
+            // Tools & Platforms
+            'Git': 'fab fa-git-alt',
+            'Minecraft': 'fas fa-cube',
+            'Hytale': 'fas fa-gamepad',
+            'Roblox': 'fas fa-gamepad',
+            'Figma': 'fab fa-figma',
+            'UI/UX Design': 'fas fa-paint-brush',
+            'Problem Solving': 'fas fa-lightbulb',
+            'Project Management': 'fas fa-tasks',
+            'Responsive': 'fas fa-mobile-alt',
+            'E-Commerce': 'fas fa-shopping-cart',
+            
+            // Link Types
+            'GitHub': 'fab fa-github',
+            'Google Play': 'fab fa-google-play',
+            'Modrinth': 'fas fa-cube',
+            'CurseForge': 'fas fa-cube',
+            'Website': 'fas fa-external-link-alt',
+            'Source': 'fas fa-code',
+            'Wiki': 'fas fa-book',
+            'Discord': 'fab fa-discord',
+            'Repsy': 'fas fa-database',
+            'Play': 'fas fa-gamepad'
+        };
+
+        // Function to scroll to search bar when skill is clicked
+        function scrollToSearchBar() {
+            const searchContainer = document.querySelector('.search-container');
+            if (searchContainer) {
+                searchContainer.scrollIntoView({ 
+                    behavior: 'smooth', 
+                    block: 'center'
+                });
+            }
+        }
+
+        // Load skills from JSON
+        async function loadSkills() {
+            try {
+                const response = await fetch('./data/skills.json');
+                const skillsData = await response.json();
                 
-                e.preventDefault();
-                const targetId = this.getAttribute('href');
-                const targetElement = document.querySelector(targetId);
+                // Get containers
+                const skillsContainer = document.getElementById('skills-container');
+                const techStack = document.getElementById('tech-stack');
                 
-                if (targetElement) {
-                    window.scrollTo({
-                        top: targetElement.offsetTop - 100,
-                        behavior: 'smooth'
-                    });
+                // Clear containers
+                skillsContainer.innerHTML = '';
+                techStack.innerHTML = '';
+                
+                // Populate skill categories
+                Object.entries(skillsData).forEach(([category, skillList]) => {
+                    const skillCategoryHTML = `
+                        <div class="skill-category">
+                            <h3>${category}</h3>
+                            <div class="skill-items">
+                                ${skillList.map(skill => 
+                                    `<span class="skill-item" data-skill="${skill}" onclick="handleSkillClick('${skill}')">${skill}</span>`
+                                ).join('')}
+                            </div>
+                        </div>
+                    `;
+                    skillsContainer.insertAdjacentHTML('beforeend', skillCategoryHTML);
+                });
+                
+                // Populate tech stack (General Main Skills)
+                if (skillsData['General Main Skills']) {
+                    const techStackHtml = skillsData['General Main Skills'].map(tech => `
+                        <div class="tech-item" data-tech="${tech}" onclick="handleSkillClick('${tech}')">
+                            <div class="tech-icon">
+                                <i class="${iconMappings[tech] || 'fas fa-code'}"></i>
+                            </div>
+                            <div class="tech-name">${tech}</div>
+                        </div>
+                    `).join('');
+                    
+                    techStack.innerHTML = techStackHtml;
                 }
-            });
-        });
-
-        // Back to top functionality
-        const backToTopButton = document.getElementById('backToTop');
-        
-        window.addEventListener('scroll', () => {
-            if (window.pageYOffset > 300) {
-                backToTopButton.classList.add('visible');
-            } else {
-                backToTopButton.classList.remove('visible');
+            } catch (error) {
+                console.error('Error loading skills:', error);
             }
-        });
-        
-        backToTopButton.addEventListener('click', (e) => {
-            e.preventDefault();
-            window.scrollTo({
-                top: 0,
-                behavior: 'smooth'
-            });
-        });
-
-        // Mobile Menu Functionality
-        const mobileMenuIcon = document.getElementById('mobileMenuIcon');
-        const mobileMenuOverlay = document.getElementById('mobileMenuOverlay');
-        const mobileMenuContent = document.getElementById('mobileMenuContent');
-        const mobileMenuClose = document.getElementById('mobileMenuClose');
-        
-        function openMobileMenu() {
-            mobileMenuOverlay.classList.add('active');
-            mobileMenuContent.classList.add('active');
-            document.body.style.overflow = 'hidden';
         }
-        
-        function closeMobileMenu() {
-            mobileMenuOverlay.classList.remove('active');
-            mobileMenuContent.classList.remove('active');
-            document.body.style.overflow = '';
-        }
-        
-        mobileMenuIcon.addEventListener('click', openMobileMenu);
-        mobileMenuOverlay.addEventListener('click', closeMobileMenu);
-        mobileMenuClose.addEventListener('click', closeMobileMenu);
-        
-        // Close mobile menu when clicking on a link
-        document.querySelectorAll('.mobile-menu-nav a').forEach(link => {
-            link.addEventListener('click', closeMobileMenu);
-        });
 
-        // All projects data (alphabetical order, excluding featured ones)
-        const allProjects = [
-            {
-                id: 'tropic',
-                title: 'TheTropic.com.tr',
-                icon: '<img src="./images/projecticons/tropic.svg" alt="TheTropic.com.tr">',
-                tags: ['Web Dev', 'E-Commerce', 'Responsive', 'Frontend'],
-                description: 'A premium responsive e-commerce website designed for "The Tropic." Showcases tropical fruits with a clean, modern user interface.',
-                links: [
-                    {icon: 'fas fa-external-link-alt', text: 'Visit Site', url: 'http://thetropic.com.tr/'},
-                    {icon: 'fab fa-github', text: 'Source Code', url: 'https://github.com/yigit-guven/thetropic.com.tr'}
-                ],
-                searchData: 'thetropic.com.tr web dev e-commerce responsive frontend website design'
-            },
-            {
-                id: 'sudoku',
-                title: 'Sudoku Rush',
-                icon: '<img src="./images/projecticons/sudoku.svg" alt="Sudoku Rush">',
-                tags: ['Python', 'Pygame', 'Algorithms', 'Game'],
-                description: 'A Python/Pygame puzzle game featuring procedurally generated boards, persistent themes and unique variants like Fog of War and Hexadecimal grids.',
-                links: [
-                    {icon: 'fab fa-github', text: 'View on GitHub', url: 'https://github.com/yigit-guven/Sudoku-Rush'}
-                ],
-                searchData: 'sudoku rush python pygame algorithms game puzzle'
-            },
-            {
-                id: 'hush',
-                title: 'Hush Word',
-                icon: '<img src="./images/projecticons/hush.svg" alt="Hush Word">',
-                tags: ['Python', 'Tkinter', 'GUI', 'Puzzle'],
-                description: 'Hush Word is a level based word puzzle game with a minimalist interface and a progressive challenge. A minimalist, level based word puzzle game written in Python with a clean GUI using Tkinter.',
-                links: [
-                    {icon: 'fab fa-github', text: 'View on GitHub', url: 'https://github.com/yigit-guven/Hush-Word'}
-                ],
-                searchData: 'hush word python tkinter gui puzzle game word'
-            },
-            {
-                id: 'grid',
-                title: 'Image Grid Generator',
-                icon: '<img src="./images/projecticons/grid.svg" alt="Image Grid Generator">',
-                tags: ['HTML5 Canvas', 'Client-Side', 'Tool'],
-                description: 'A lightweight, client-side tool to overlay customizable grids on images. Built with HTML5 and the Canvas API; runs entirely in the browser.',
-                links: [
-                    {icon: 'fas fa-external-link-alt', text: 'Try Tool', url: 'https://yigit-guven.github.io/That-Time-I-Generated-a-Grid-on-My-Image/'},
-                    {icon: 'fab fa-github', text: 'Source', url: 'https://github.com/yigit-guven/That-Time-I-Generated-a-Grid-on-My-Image'}
-                ],
-                searchData: 'image grid generator html5 canvas client-side tool grid'
-            },
-            {
-                id: 'converter',
-                title: 'Simple File Converter',
-                icon: '<img src="./images/projecticons/converter.svg" alt="Simple File Converter">',
-                tags: ['Android', 'Java/Kotlin', 'Utility', 'App'],
-                description: 'App for offline file conversion between PDF, DOCX, images, text formats and much more.',
-                links: [
-                    {icon: 'fab fa-google-play', text: 'Google Play', url: 'https://play.google.com/store/apps/details?id=com.YigitGuven.SimpleFileConverter&pcampaignid=web_share'},
-                    {icon: 'fab fa-github', text: 'Source', url: 'https://github.com/yigit-guven/Simple-File-Converter'}
-                ],
-                searchData: 'simple file converter android java kotlin utility app mobile',
-                isBeta: true
-            },
-            {
-                id: 'backpacks',
-                title: 'RPG Backpacks',
-                icon: '<img src="./images/projecticons/backpacks.svg" alt="RPG Backpacks">',
-                tags: ['Minecraft', 'Storage', 'Utility'],
-                description: 'RPG Backpacks adds a variety of backpacks with different storage capacities, helping players manage their inventory efficiently. From Leather to Netherite, each backpack type offers a different storage size.',
-                links: [
-                    {icon: 'fab fa-github', text: 'GitHub', url: 'https://github.com/Anchor-Studios/RPG-Backpacks'},
-                    {icon: 'fas fa-cube', text: 'CurseForge', url: 'https://www.curseforge.com/minecraft/mc-mods/rpg-backpacks'},
-                    {icon: 'fas fa-cube', text: 'Modrinth', url: 'https://modrinth.com/mod/rpg-backpacks'},
-                    {icon: 'fas fa-book', text: 'Wiki', url: 'https://github.com/Anchor-Studios/RPG-Backpacks/wiki'}
-                ],
-                searchData: 'rpg backpacks minecraft storage utility inventory'
-            },
-            {
-                id: 'playerstand',
-                title: 'Player Stand',
-                icon: '<img src="./images/projecticons/playerstand.svg" alt="Player Stand">',
-                tags: ['Minecraft', 'Cosmetic', 'Customization'],
-                description: 'Player Stand is a Minecraft mod that adds a customizable, player-shaped armor stands that support skins, armor and interactions.',
-                links: [
-                    {icon: 'fab fa-github', text: 'GitHub', url: 'https://github.com/Anchor-Studios/Player-Stand'},
-                    {icon: 'fas fa-book', text: 'Wiki', url: 'https://github.com/Anchor-Studios/Player-Stand/wiki'},
-                    {icon: 'fas fa-cube', text: 'CurseForge', url: 'https://www.curseforge.com/minecraft/mc-mods/playerstand'},
-                    {icon: 'fas fa-cube', text: 'Modrinth', url: 'https://modrinth.com/mod/playerstand'}
-                ],
-                searchData: 'player stand minecraft cosmetic customization armor stand'
-            },
-            {
-                id: 'daylength',
-                title: 'Day Length',
-                icon: '<img src="./images/projecticons/daylength.svg" alt="Day Length">',
-                tags: ['Minecraft', 'Time Logic', 'Customization'],
-                description: 'Day Length mod lets players customize Minecraft\'s day-night cycle and sync it with real-world time.',
-                links: [
-                    {icon: 'fab fa-github', text: 'GitHub', url: 'https://github.com/Anchor-Studios/Day-Length'},
-                    {icon: 'fas fa-book', text: 'Wiki', url: 'https://github.com/Anchor-Studios/Day-Length/wiki'},
-                    {icon: 'fas fa-cube', text: 'CurseForge', url: 'https://www.curseforge.com/minecraft/mc-mods/day-length/'},
-                    {icon: 'fas fa-cube', text: 'Modrinth', url: 'https://modrinth.com/mod/day-length/'}
-                ],
-                searchData: 'day length minecraft time logic customization day night cycle'
-            },
-            {
-                id: 'manalib',
-                title: 'Mana Lib',
-                icon: '<img src="./images/projecticons/manalib.svg" alt="Mana Lib">',
-                tags: ['Minecraft', 'Library', 'API', 'Framework'],
-                description: 'Adds a highly customizable mana bar to Minecraft, appearing above your hunger bar, which can be easily managed by NBT data.',
-                links: [
-                    {icon: 'fab fa-github', text: 'GitHub', url: 'https://github.com/Ryukazan/Mana-Lib'},
-                    {icon: 'fas fa-cube', text: 'CurseForge', url: 'https://www.curseforge.com/minecraft/mc-mods/mana-lib'},
-                    {icon: 'fas fa-cube', text: 'Modrinth', url: 'https://modrinth.com/mod/mana-lib'},
-                    {icon: 'fab fa-discord', text: 'Discord', url: 'https://discord.gg/aPk7Qs5d4H'}
-                ],
-                searchData: 'mana lib minecraft library api framework mana system'
-            },
-            {
-                id: 'leathercraft',
-                title: 'Leather Craft',
-                icon: '<img src="./images/projecticons/leathercraft.svg" alt="Leather Craft">',
-                tags: ['Minecraft', 'Crafting', 'Utility'],
-                description: 'Adds recipe to craft leather by smelting rotten flesh.',
-                links: [
-                    {icon: 'fab fa-github', text: 'GitHub', url: 'https://github.com/Anchor-Studios/Leather-Craft'},
-                    {icon: 'fas fa-cube', text: 'CurseForge', url: 'https://www.curseforge.com/minecraft/mc-mods/leather-craft'},
-                    {icon: 'fas fa-cube', text: 'Modrinth', url: 'https://modrinth.com/mod/leather-craft'}
-                ],
-                searchData: 'leather craft minecraft crafting utility recipe'
+        // Handle skill click
+        function handleSkillClick(skill) {
+            const searchInput = document.getElementById('projectSearch');
+            if (searchInput) {
+                searchInput.value = skill;
+                performSearch();
+                scrollToSearchBar();
             }
-        ];
+        }
 
-        // Sort projects alphabetically
-        allProjects.sort((a, b) => a.title.localeCompare(b.title));
+        // Load projects from JSON
+        async function loadProjects() {
+            try {
+                const response = await fetch('./data/projects.json');
+                const projectsData = await response.json();
+                
+                // Sort projects alphabetically
+                projectsData.sort((a, b) => a.name.localeCompare(b.name));
+                
+                renderProjects(projectsData);
+            } catch (error) {
+                console.error('Error loading projects:', error);
+            }
+        }
 
-        // Generate all projects list (excluding featured ones which are already shown)
-        const projectsContainer = document.getElementById('projectsContainer');
-        
-        allProjects.forEach((project, index) => {
-            const projectItem = document.createElement('div');
-            projectItem.className = 'project-item';
-            projectItem.id = project.id;
-            projectItem.setAttribute('data-search', project.searchData);
-            projectItem.style.animationDelay = `${0.1 + (index * 0.1)}s`;
-            
-            const tagsHtml = project.tags.map(tag => `<span class="project-tag">${tag}</span>`).join('');
-            
-            const linksHtml = project.links.map(link => 
-                `<a href="${link.url}" target="_blank" class="project-link"><i class="${link.icon}"></i> ${link.text}</a>`
+        // Generate HTML for a project item
+        function generateProjectHTML(project) {
+            const tagsHtml = project.tags.map(tag => 
+                `<span class="project-tag" data-tag="${tag}" onclick="handleSkillClick('${tag}')">${tag}</span>`
             ).join('');
             
-            projectItem.innerHTML = `
-                <div class="project-icon-container">
-                    ${project.icon}
-                </div>
-                <div class="project-content">
-                    <h3>${project.title}</h3>
-                    <div class="project-tags">${tagsHtml}</div>
-                    <p class="project-description">${project.description}</p>
-                    <div class="project-links">${linksHtml}</div>
-                </div>
-                ${project.isBeta ? '<div class="beta-badge">Closed Beta</div>' : ''}
-            `;
+            const linksHtml = project.links.map(link => 
+                `<a href="${link.url}" target="_blank" class="project-link"><i class="${link.icon || getIconForTag(link.type)}"></i> ${link.text}</a>`
+            ).join('');
             
-            projectsContainer.appendChild(projectItem);
-        });
+            return `
+                <div class="project-item" id="${project.id}" data-search="${project.searchData}">
+                    <div class="project-icon-container" onclick="window.open('${project.home_page}', '_blank')" title="Open ${project.name} homepage">
+                        <img src="${project.logo}" alt="${project.name}">
+                    </div>
+                    <div class="project-content">
+                        <h3>${project.name}</h3>
+                        <div class="project-tags">${tagsHtml}</div>
+                        <p class="project-description">${project.description}</p>
+                        <div class="project-links">${linksHtml}</div>
+                    </div>
+                    ${project.isBeta ? '<div class="beta-badge">Closed Beta</div>' : ''}
+                </div>
+            `;
+        }
 
-        // Search functionality
-        const searchInput = document.getElementById('projectSearch');
-        const clearButton = document.getElementById('clearSearch');
-        const searchButton = document.getElementById('searchButton');
-        const searchResultsInfo = document.getElementById('searchResultsInfo');
-        const visibleCountElement = document.getElementById('visibleCount');
-        const totalCountElement = document.getElementById('totalCount');
-        const projectItems = document.querySelectorAll('.project-item');
-        
-        // Set total count
-        totalCountElement.textContent = projectItems.length;
-        visibleCountElement.textContent = projectItems.length;
-        
-        // Search function
+        // Get icon for a tag/technology
+        function getIconForTag(tagName) {
+            return iconMappings[tagName] || 'fas fa-code';
+        }
+
+        // Render projects
+        function renderProjects(projectsData) {
+            const projectsContainer = document.getElementById('projectsContainer');
+            
+            // Clear container
+            projectsContainer.innerHTML = '';
+            
+            // Render all projects
+            projectsData.forEach((project, index) => {
+                const projectHTML = generateProjectHTML(project);
+                projectsContainer.insertAdjacentHTML('beforeend', projectHTML);
+                
+                // Add animation delay
+                const projectElement = projectsContainer.lastElementChild;
+                if (projectElement) {
+                    projectElement.style.animationDelay = `${0.1 + (index * 0.1)}s`;
+                }
+            });
+            
+            // Update project count
+            updateProjectCount();
+        }
+
+        // ============================================
+        // SEARCH FUNCTIONALITY
+        // ============================================
+
         function performSearch() {
-            const searchTerm = searchInput.value.toLowerCase().trim();
+            const searchTerm = document.getElementById('projectSearch').value.toLowerCase().trim();
+            const projectItems = document.querySelectorAll('.project-item');
             let visibleCount = 0;
             
             if (searchTerm === '') {
@@ -1957,17 +455,18 @@
                     item.classList.remove('hidden');
                     visibleCount++;
                 });
-                searchResultsInfo.classList.remove('visible');
-                clearButton.classList.remove('visible');
+                document.getElementById('searchResultsInfo').classList.remove('visible');
+                document.getElementById('clearSearch').classList.remove('visible');
             } else {
                 // Filter items
                 projectItems.forEach(item => {
                     const searchData = item.getAttribute('data-search').toLowerCase();
                     const itemTitle = item.querySelector('h3').textContent.toLowerCase();
                     const itemDescription = item.querySelector('.project-description').textContent.toLowerCase();
-                    const itemTags = Array.from(item.querySelectorAll('.project-tag')).map(tag => tag.textContent.toLowerCase()).join(' ');
+                    const itemTags = Array.from(item.querySelectorAll('.project-tag'))
+                        .map(tag => tag.textContent.toLowerCase())
+                        .join(' ');
                     
-                    // Check if search term matches any part of the item
                     if (searchData.includes(searchTerm) || 
                         itemTitle.includes(searchTerm) || 
                         itemDescription.includes(searchTerm) ||
@@ -1980,32 +479,127 @@
                 });
                 
                 // Update results info
-                visibleCountElement.textContent = visibleCount;
-                searchResultsInfo.classList.add('visible');
-                clearButton.classList.add('visible');
+                document.getElementById('searchResultsInfo').classList.add('visible');
+                document.getElementById('clearSearch').classList.add('visible');
             }
             
-            visibleCountElement.textContent = visibleCount;
+            document.getElementById('visibleCount').textContent = visibleCount;
         }
-        
-        // Event listeners for search
-        searchInput.addEventListener('input', performSearch);
-        searchInput.addEventListener('keypress', (e) => {
-            if (e.key === 'Enter') {
-                performSearch();
+
+        function updateProjectCount() {
+            const projectItems = document.querySelectorAll('.project-item');
+            const totalCount = projectItems.length;
+            document.getElementById('totalCount').textContent = totalCount;
+            document.getElementById('visibleCount').textContent = totalCount;
+        }
+
+        // ============================================
+        // INITIALIZATION
+        // ============================================
+
+        document.addEventListener('DOMContentLoaded', function() {
+            // Fix for navigation scrolling
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    if (this.getAttribute('href') === '#') return;
+                    
+                    e.preventDefault();
+                    const targetId = this.getAttribute('href');
+                    const targetElement = document.querySelector(targetId);
+                    
+                    if (targetElement) {
+                        window.scrollTo({
+                            top: targetElement.offsetTop - 100,
+                            behavior: 'smooth'
+                        });
+                    }
+                });
+            });
+
+            // Back to top functionality
+            const backToTopButton = document.getElementById('backToTop');
+            
+            window.addEventListener('scroll', () => {
+                if (window.pageYOffset > 300) {
+                    backToTopButton.classList.add('visible');
+                } else {
+                    backToTopButton.classList.remove('visible');
+                }
+            });
+            
+            backToTopButton.addEventListener('click', (e) => {
+                e.preventDefault();
+                window.scrollTo({
+                    top: 0,
+                    behavior: 'smooth'
+                });
+            });
+
+            // Mobile Menu Functionality
+            const mobileMenuIcon = document.getElementById('mobileMenuIcon');
+            const mobileMenuOverlay = document.getElementById('mobileMenuOverlay');
+            const mobileMenuContent = document.getElementById('mobileMenuContent');
+            const mobileMenuClose = document.getElementById('mobileMenuClose');
+            
+            function openMobileMenu() {
+                mobileMenuOverlay.classList.add('active');
+                mobileMenuContent.classList.add('active');
+                document.body.style.overflow = 'hidden';
             }
+            
+            function closeMobileMenu() {
+                mobileMenuOverlay.classList.remove('active');
+                mobileMenuContent.classList.remove('active');
+                document.body.style.overflow = '';
+            }
+            
+            if (mobileMenuIcon) mobileMenuIcon.addEventListener('click', openMobileMenu);
+            if (mobileMenuOverlay) mobileMenuOverlay.addEventListener('click', closeMobileMenu);
+            if (mobileMenuClose) mobileMenuClose.addEventListener('click', closeMobileMenu);
+            
+            // Close mobile menu when clicking on a link
+            document.querySelectorAll('.mobile-menu-nav a').forEach(link => {
+                link.addEventListener('click', closeMobileMenu);
+            });
+
+            // Initialize the system
+            loadSkills();
+            loadProjects();
+            
+            // Search functionality
+            const searchInput = document.getElementById('projectSearch');
+            const clearButton = document.getElementById('clearSearch');
+            const searchButton = document.getElementById('searchButton');
+            
+            if (searchInput) {
+                searchInput.addEventListener('input', performSearch);
+                searchInput.addEventListener('keypress', (e) => {
+                    if (e.key === 'Enter') {
+                        performSearch();
+                    }
+                });
+            }
+            
+            if (searchButton) {
+                searchButton.addEventListener('click', performSearch);
+            }
+            
+            if (clearButton) {
+                clearButton.addEventListener('click', () => {
+                    searchInput.value = '';
+                    performSearch();
+                    searchInput.focus();
+                });
+            }
+            
+            // Initialize search results
+            setTimeout(() => {
+                performSearch();
+            }, 100);
         });
-        
-        searchButton.addEventListener('click', performSearch);
-        
-        clearButton.addEventListener('click', () => {
-            searchInput.value = '';
-            performSearch();
-            searchInput.focus();
-        });
-        
-        // Initialize search results
-        performSearch();
+
+        // Make functions globally available
+        window.handleSkillClick = handleSkillClick;
     </script>
 </body>
 </html>

@@ -1,0 +1,55 @@
+{
+    "Languages": [
+        "C++",
+        "CSS",
+        "HTML",
+        "HTML/CSS",
+        "Java",
+        "JavaScript",
+        "Kotlin",
+        "Lua",
+        "Python"
+    ],
+    "Development": [
+        "API",
+        "API Development",
+        "Algorithms",
+        "Android Dev",
+        "Client-Side",
+        "Cosmetic",
+        "Crafting",
+        "Customization",
+        "Database Design",
+        "Framework",
+        "Frontend",
+        "GUI",
+        "Game Development",
+        "Game Modding",
+        "Library",
+        "Mobile",
+        "Pygame",
+        "Storage",
+        "Time Logic",
+        "Tkinter",
+        "Utility",
+        "Web Development"
+    ],
+    "Tools & More": [
+        "Git",
+        "Minecraft",
+        "Hytale",
+        "Roblox",
+        "Figma",
+        "UI/UX Design",
+        "Problem Solving",
+        "Project Management"
+    ],
+    "General Main Skills": [
+        "Java",
+        "Python",
+        "Game Development",
+        "Web Development",
+        "Android Dev",
+        "Git"
+    ]
+}
