@@ -1,4 +1,4 @@
-Copyright (c) 2025 Yiğit Güven
+Copyright (c) 2026 Yiğit Güven
 
 Website source code (HTML, CSS, JS) is licensed under the
 Creative Commons Attribution-NonCommercial 4.0 International License (CC BY-NC 4.0).
