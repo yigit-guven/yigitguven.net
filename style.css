@@ -617,18 +617,20 @@ button {
     display: none;
 }
 
+/* --- UPDATED ICON SIZE --- */
 .project-icon-container {
-    width: 80px;
-    height: 80px;
+    width: 120px;  /* Increased from 80px */
+    height: 120px; /* Increased from 80px */
     background: var(--light-gray);
     border-radius: 15px;
     display: flex;
     align-items: center;
     justify-content: center;
-    padding: 15px;
+    padding: 20px; /* Slight padding increase */
     border: 1px solid #f0f0f0;
     cursor: pointer;
     transition: all 0.3s ease;
+    flex-shrink: 0; /* Prevents icon from squishing */
 }
 
 .project-icon-container:hover {
@@ -1026,12 +1028,29 @@ html {
     .project-item {
         grid-template-columns: 1fr;
         gap: 20px;
+        text-align: center; /* Added for better mobile alignment */
     }
     
+    .project-content {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .project-tags {
+        justify-content: center;
+    }
+
+    .project-links {
+        justify-content: center;
+    }
+
+    /* --- UPDATED MOBILE ICON SIZE --- */
     .project-icon-container {
-        width: 60px;
-        height: 60px;
+        width: 100px; /* Increased from 60px */
+        height: 100px; /* Increased from 60px */
         font-size: 24px;
+        margin: 0 auto; /* Centers the icon in the stack */
     }
 }
 
