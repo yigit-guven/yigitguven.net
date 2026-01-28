@@ -3,185 +3,56 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Terms of Service</title>
-  <style>
-    :root{
-      --bg: #0b0f0b;
-      --accent: #00ca6d;
-      --muted: #8b949e;
-      --glass: rgba(255,255,255,0.03);
-      font-family: "Fira Code", ui-monospace, SFMono-Regular, Menlo, Monaco, monospace;
-    }
-    [data-theme="light"]{
-      --bg: #ffffff;
-      --accent: #006644;
-      --muted: #555;
-      --glass: rgba(0,0,0,0.05);
-      color-scheme: light;
-    }
-    html,body{
-      margin:0;
-      height:100%;
-      background:var(--bg);
-      color:var(--accent);
-      overflow-x: hidden;
-    }
-    #matrix{
-      position:fixed;
-      inset:0;
-      width:100%;
-      height:100%;
-      z-index:0;
-      background:transparent;
-    }
-    .center-wrap{
-      position:relative;
-      z-index:2;
-      min-height:100vh;
-      display:flex;
-      flex-direction:column;
-      align-items:center;
-      padding:2vh 5% 80px;
-      gap:20px;
-    }
-    .brand{
-      display: flex;
-      align-items: center;
-      gap: 12px;
-      font-size:2rem;
-      font-weight:700;
-      color:var(--accent);
-      text-shadow:0 6px 18px rgba(0,150,80,0.05);
-      letter-spacing:1px;
-      margin-bottom: 20px;
-    }
-    .logo {
-      width: 40px;
-      height: 40px;
-    }
-    .content-card{
-      width:min(980px,100%);
-      background:linear-gradient(180deg, rgba(10,12,10,0.65), rgba(6,8,6,0.6));
-      border:1px solid rgba(0,200,110,0.06);
-      box-shadow:0 10px 40px rgba(0,0,0,0.6);
-      border-radius:12px;
-      padding:30px;
-      margin-top:6px;
-      flex-shrink:0;
-      position:relative;
-    }
-    [data-theme="light"] .content-card{
-      background:#fff;
-      border:1px solid #ddd;
-      color:#222;
-    }
-    .back-button{
-      display:inline-flex;
-      align-items:center;
-      gap:8px;
-      padding:10px 20px;
-      background:rgba(0,202,109,0.1);
-      border:1px solid rgba(0,202,109,0.3);
-      border-radius:8px;
-      color:var(--accent);
-      text-decoration:none;
-      font-family:inherit;
-      font-size:0.9rem;
-      cursor:pointer;
-      transition:all 0.2s ease;
-      margin-bottom:20px;
-    }
-    .back-button:hover{
-      background:rgba(0,202,109,0.2);
-      transform:translateY(-1px);
-    }
-    h1{
-      color:var(--accent);
-      font-size:2rem;
-      margin-bottom:10px;
-    }
-    h2{
-      color:var(--accent);
-      font-size:1.5rem;
-      margin-top:30px;
-      margin-bottom:15px;
-    }
-    p, li{
-      color:var(--muted);
-      line-height:1.6;
-      margin-bottom:15px;
-    }
-    ul{
-      padding-left:20px;
-    }
-    li{
-      margin-bottom:8px;
-    }
-    strong{
-      color:var(--accent);
-    }
-    footer{
-      position:fixed;
-      bottom:20px;
-      left:50%;
-      transform:translateX(-50%);
-      z-index:2;
-      background:rgba(0,0,0,0.5);
-      color:var(--muted);
-      font-size:0.85rem;
-      display:flex;
-      flex-direction:column;
-      align-items:center;
-      padding:10px 20px;
-      border-radius:8px;
-      width:auto;
-    }
-    [data-theme="light"] footer{
-      background:#f1f1f1;
-      color:#666;
-    }
-    footer nav{
-      margin-top:6px;
-    }
-    footer a{
-      color:var(--accent);
-      margin:0 10px;
-      text-decoration:none;
-      font-weight:500;
-    }
-    footer a:hover{
-      text-decoration:underline;
-    }
-    
-    @media (max-width:600px){
-      .brand{font-size:1.4rem;}
-      .logo {
-        width: 32px;
-        height: 32px;
-      }
-      .content-card{padding:20px;}
-      h1{font-size:1.6rem;}
-      h2{font-size:1.3rem;}
-      footer{font-size:0.75rem;}
-    }
-  </style>
+  <title>Terms of Service | Yiğit Güven</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="style.css">
+  <link rel="icon" type="image/svg+xml" href="/images/logo.svg">
 </head>
 <body>
-  <canvas id="matrix"></canvas>
-  <div class="center-wrap">
-    <div class="brand">
-      <img id="logo" class="logo" alt="Yiğit Güven Logo" />
-      yigitguven.net
-    </div>
-    
-    <a href="/" class="back-button">
-      <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
-        <path d="M20 11H7.83l5.59-5.59L12 4l-8 8 8 8 1.41-1.41L7.83 13H20v-2z"/>
-      </svg>
-      Back to Terminal
-    </a>
-    
-    <div class="content-card">
+
+  <div class="mobile-menu-overlay" id="mobileMenuOverlay"></div>
+  <div class="mobile-menu-content" id="mobileMenuContent">
+      <button class="mobile-menu-close" id="mobileMenuClose">×</button>
+      <nav class="mobile-menu-nav">
+          <ul>
+              <li><a href="/#all-projects">All Projects</a></li>
+              <li><a href="/#skills">Skills</a></li>
+              <li><a href="/#about">About Me</a></li>
+              <li><a href="https://github.com/yigit-guven" target="_blank">GitHub</a></li>
+              <li><a href="contact.html">Contact</a></li>
+          </ul>
+      </nav>
+  </div>
+
+  <header id="header" class="Header_header__CaCA9">
+      <a href="/">
+          <img src="./images/logo.svg" alt="Yiğit Güven" class="Header_logoLink__img">
+      </a>
+      <div class="Header_menuButtonContainer__DYEYK">
+          <button id="mobileMenuIcon" class="Header_mobileMenuButton__I1oUf">
+              <svg viewBox="0 0 24 24"><path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"/></svg>
+          </button>
+      </div>
+      <nav class="Header_desktopNav__ngVUD">
+          <ul class="DesktopMenuItems_menuItems__wkePH">
+              <li class="DesktopMenuItem_menuLink__bvKqq"><a href="/#all-projects">Projects</a></li>
+              <li class="DesktopMenuItem_menuLink__bvKqq"><a href="/#skills">Skills</a></li>
+              <li class="DesktopMenuItem_menuLink__bvKqq"><a href="/#about">About</a></li>
+              <li class="DesktopMenuItems_iconContainer__C82NG">
+                  <ul class="IconList_iconList__MFCdC DesktopMenuItems_icons__Otki9">
+                      <li><a href="https://github.com/yigit-guven" target="_blank"><i class="fab fa-github" style="font-size:24px;"></i></a></li>
+                  </ul>
+              </li>
+          </ul>
+      </nav>
+  </header>
+
+  <main>
+    <div class="text-page-wrapper">
+      <a href="/" style="display:inline-flex; align-items:center; gap:5px; margin-bottom:20px; font-weight:600; color:var(--accent);">
+        <i class="fas fa-arrow-left"></i> Back to Home
+      </a>
+
       <h1>Terms of Service</h1>
       <p><strong>Last Updated: December 2024</strong></p>
       
@@ -194,123 +65,60 @@
       <h2>3. Disclaimer</h2>
       <p>The materials on yigitguven.net are provided on an 'as is' basis. Yiğit Güven makes no warranties, expressed or implied, and hereby disclaims and negates all other warranties including, without limitation, implied warranties or conditions of merchantability, fitness for a particular purpose, or non-infringement of intellectual property or other violation of rights.</p>
       
-      <h2>4. Limitations</h2>
-      <p>In no event shall Yiğit Güven or its suppliers be liable for any damages (including, without limitation, damages for loss of data or profit, or due to business interruption) arising out of the use or inability to use the materials on yigitguven.net.</p>
-      
-      <h2>5. Accuracy of Materials</h2>
-      <p>The materials appearing on yigitguven.net could include technical, typographical, or photographic errors. Yiğit Güven does not warrant that any of the materials on its website are accurate, complete or current.</p>
-      
-      <h2>6. Links</h2>
-      <p>Yiğit Güven has not reviewed all of the sites linked to its website and is not responsible for the contents of any such linked site. The inclusion of any link does not imply endorsement by Yiğit Güven of the site.</p>
-      
-      <h2>7. Modifications</h2>
+      <h2>4. Modifications</h2>
       <p>Yiğit Güven may revise these terms of service for its website at any time without notice. By using this website you are agreeing to be bound by the then current version of these terms of service.</p>
       
-      <h2>8. Governing Law</h2>
-      <p>These terms and conditions are governed by and construed in accordance with the laws of Turkey and you irrevocably submit to the exclusive jurisdiction of the courts in that location.</p>
-      
-      <h2>9. Contact Information</h2>
+      <h2>5. Contact Information</h2>
       <p>If you have any questions about these Terms, please contact us at:</p>
       <p><strong>Email:</strong> contact@yigitguven.net</p>
     </div>
-  </div>
-  
-  <footer>
-    <div>© Yiğit Güven — All rights reserved</div>
-    <nav>
-      <a href="/terms">Terms of Use</a>
-      <a href="/privacy">Privacy Policy</a>
-      <a href="/#/contact">Contact</a>
-    </nav>
+  </main>
+
+  <footer class="Footer_footer__KQx25" role="contentinfo">
+      <div class="Footer_footerContent__7y8X1">
+          <div class="footer-logo-section">
+              <img src="./images/logo_wname.svg" alt="Yiğit Güven" class="footer-logo">
+              <div class="footer-branding">
+                  <h3>Yiğit Güven</h3>
+                  <p>Computer Science Student & Developer.</p>
+              </div>
+          </div>
+          <nav class="Footer_userMenu__tCWLB">
+              <ul class="Footer_userMenuList__S6n8M">
+                  <li><a href="terms.html">Terms of Service</a></li>
+                  <li><a href="privacy.html">Privacy Policy</a></li>
+                  <li><a href="contact.html">Contact</a></li>
+              </ul>
+          </nav>
+          <div class="Footer_footerEnd__YjXn_">
+              <div class="footer-copyright">
+                  Made with <i class="fas fa-heart" style="color:#ff4757;"></i> by <a href="https://github.com/yigit-guven" target="_blank" style="text-decoration: underline;">Yiğit Güven</a>
+              </div>
+          </div>
+      </div>
   </footer>
-  
+
   <script>
-    // ===============================
-    // THEME MANAGEMENT
-    // ===============================
-    
+    // Set Theme
     const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-    const savedTheme = localStorage.getItem('theme');
-    const initialTheme = savedTheme || (prefersDark ? 'dark' : 'light');
-    document.documentElement.setAttribute('data-theme', initialTheme);
+    const theme = localStorage.getItem('theme') || (prefersDark ? 'dark' : 'light');
+    document.documentElement.setAttribute('data-theme', theme);
 
-    // LOGO HANDLING
-    const logo = document.getElementById('logo');
-    function updateLogo() {
-      const theme = document.documentElement.getAttribute('data-theme');
-      if (theme === 'light') {
-        logo.src = './images/logo.svg';
-        logo.style.filter = 'invert(19%) sepia(58%) saturate(1118%) hue-rotate(130deg) brightness(93%) contrast(104%)';
-      } else {
-        logo.src = './images/logo.svg';
-        logo.style.filter = 'invert(48%) sepia(93%) saturate(1325%) hue-rotate(110deg) brightness(95%) contrast(101%)';
-      }
-    }
-    
-    // Set initial logo
-    updateLogo();
+    // Mobile Menu
+    const mobileMenuIcon = document.getElementById('mobileMenuIcon');
+    const mobileMenuOverlay = document.getElementById('mobileMenuOverlay');
+    const mobileMenuContent = document.getElementById('mobileMenuContent');
+    const mobileMenuClose = document.getElementById('mobileMenuClose');
 
-    // ===============================
-    // MATRIX BACKGROUND
-    // ===============================
-    
-    const canvas = document.getElementById('matrix');
-    const ctx = canvas.getContext('2d');
-    
-    const FONT_SIZE = 14;
-    const COLUMN_SPACING = 14;
-    let cols;
-    let drops = [];
-    const chars = 'abcdefghijklmnopqrstuvwxyz0123456789@#$%&*()<>/[]{}—=+;:';
-    
-    function resizeMatrix() {
-      canvas.width = window.innerWidth;
-      canvas.height = window.innerHeight;
-      
-      cols = Math.floor(canvas.width / COLUMN_SPACING);
-      
-      drops = [];
-      for (let i = 0; i < cols; i++) {
-        drops[i] = Math.floor(Math.random() * -canvas.height);
-      }
+    function toggleMenu() {
+        mobileMenuOverlay.classList.toggle('active');
+        mobileMenuContent.classList.toggle('active');
+        document.body.style.overflow = mobileMenuContent.classList.contains('active') ? 'hidden' : '';
     }
-    
-    resizeMatrix();
-    window.addEventListener('resize', resizeMatrix);
-    
-    function getMatrixColor() {
-      const theme = document.documentElement.getAttribute('data-theme');
-      return theme === 'light' ? 'rgba(0, 102, 68, 0.7)' : 'rgba(0, 202, 109, 0.7)';
-    }
-    
-    function getMatrixBackground() {
-      const theme = document.documentElement.getAttribute('data-theme');
-      return theme === 'light' ? 'rgba(255,255,255,0.03)' : 'rgba(0,0,0,0.03)';
-    }
-    
-    function drawMatrix() {
-      ctx.fillStyle = getMatrixBackground();
-      ctx.fillRect(0, 0, canvas.width, canvas.height);
-      
-      ctx.fillStyle = getMatrixColor();
-      ctx.font = FONT_SIZE + 'px monospace';
-      
-      for (let i = 0; i < drops.length; i++) {
-        const text = chars[Math.floor(Math.random() * chars.length)];
-        const x = i * COLUMN_SPACING;
-        const y = drops[i] * FONT_SIZE;
-        
-        ctx.fillText(text, x, y);
-        drops[i]++;
-        
-        if (drops[i] * FONT_SIZE > canvas.height && Math.random() > 0.975) {
-          drops[i] = 0;
-        }
-      }
-    }
-    
-    // Start matrix animation
-    setInterval(drawMatrix, 50);
+
+    if(mobileMenuIcon) mobileMenuIcon.addEventListener('click', toggleMenu);
+    if(mobileMenuClose) mobileMenuClose.addEventListener('click', toggleMenu);
+    if(mobileMenuOverlay) mobileMenuOverlay.addEventListener('click', toggleMenu);
   </script>
 </body>
 </html>
