@@ -4,15 +4,25 @@
         "name": "Mundus Online",
         "logo": "./images/projecticons/mundusonline.svg",
         "tags": [
-            "Roblox",
+            "Roblox Development",
             "Game Development",
             "Lua",
             "UI/UX Design"
         ],
         "description": "Mundus Online is a massive 3D social sandbox game on Roblox where players can build, plant, and trade in a player-driven economy. Plant seeds, splice them to discover new blocks, and grow your empire! Claim unique world names before anyone else and protect your creations with various lock systems.",
         "links": [
-            { "type": "Play", "text": "Play on Roblox", "url": "https://www.roblox.com/games/126354243623354/Mundus-Online-BETA", "icon": "fas fa-gamepad" },
-            { "type": "Discord", "text": "Discord Community", "url": "https://discord.gg/p7Upc6tsBQ", "icon": "fab fa-discord" }
+            {
+                "type": "Play",
+                "text": "Play on Roblox",
+                "url": "https://www.roblox.com/games/126354243623354/Mundus-Online-BETA",
+                "icon": "fas fa-gamepad"
+            },
+            {
+                "type": "Discord",
+                "text": "Discord Community",
+                "url": "https://discord.gg/p7Upc6tsBQ",
+                "icon": "fab fa-discord"
+            }
         ],
         "home_page": "https://www.roblox.com/games/126354243623354/Mundus-Online-BETA",
         "searchData": "mundus online roblox game development lua sandbox building planting trading economy",
@@ -23,16 +33,31 @@
         "name": "Petting",
         "logo": "./images/projecticons/petting.svg",
         "tags": [
-            "Minecraft",
+            "Minecraft Modding",
             "Java",
-            "Game Modding",
+            "Game Development",
             "Utility"
         ],
         "description": "Petting is a popular Minecraft mod that adds a unique companion system. Pet mobs and have them become protective companions that follow you, offering support and assistance during your adventures.",
         "links": [
-            { "type": "Modrinth", "text": "Modrinth", "url": "https://modrinth.com/mod/petting", "icon": "fas fa-cube" },
-            { "type": "CurseForge", "text": "CurseForge", "url": "https://www.curseforge.com/minecraft/mc-mods/petting", "icon": "fas fa-cube" },
-            { "type": "GitHub", "text": "GitHub", "url": "https://github.com/yigit-guven/Petting", "icon": "fab fa-github" }
+            {
+                "type": "Modrinth",
+                "text": "Modrinth",
+                "url": "https://modrinth.com/mod/petting",
+                "icon": "fas fa-cube"
+            },
+            {
+                "type": "CurseForge",
+                "text": "CurseForge",
+                "url": "https://www.curseforge.com/minecraft/mc-mods/petting",
+                "icon": "fas fa-cube"
+            },
+            {
+                "type": "GitHub",
+                "text": "GitHub",
+                "url": "https://github.com/yigit-guven/Petting",
+                "icon": "fab fa-github"
+            }
         ],
         "home_page": "https://www.curseforge.com/minecraft/mc-mods/petting",
         "searchData": "petting minecraft mod java game modding utility companion system mobs"
@@ -44,14 +69,29 @@
         "tags": [
             "Hytale",
             "Java",
-            "Game Modding",
+            "Game Development",
             "API Development"
         ],
         "description": "A lightweight and persistent economy system for Hytale that adds player wallets, balance checking, and secure money transfers. Designed specifically for the Hytale modding ecosystem.",
         "links": [
-            { "type": "CurseForge", "text": "CurseForge", "url": "https://www.curseforge.com/hytale/mods/economy", "icon": "fas fa-cube" },
-            { "type": "GitHub", "text": "GitHub", "url": "https://github.com/Ryukazan/Economy", "icon": "fab fa-github" },
-            { "type": "Repsy", "text": "Repsy", "url": "https://repsy.io/yigit-guven/economy", "icon": "fas fa-database" }
+            {
+                "type": "CurseForge",
+                "text": "CurseForge",
+                "url": "https://www.curseforge.com/hytale/mods/economy",
+                "icon": "fas fa-cube"
+            },
+            {
+                "type": "GitHub",
+                "text": "GitHub",
+                "url": "https://github.com/Ryukazan/Economy",
+                "icon": "fab fa-github"
+            },
+            {
+                "type": "Repsy",
+                "text": "Repsy",
+                "url": "https://repsy.io/yigit-guven/economy",
+                "icon": "fas fa-database"
+            }
         ],
         "home_page": "https://www.curseforge.com/hytale/mods/economy",
         "searchData": "economy hytale java game modding api development money system wallet"
@@ -69,7 +109,12 @@
         ],
         "description": "A lightweight Python utility that uses a GUI folder picker to recursively scan directories, filter files based on a customizable JSON configuration, and compile all text-based content into a single structured output file.",
         "links": [
-            { "type": "GitHub", "text": "View on GitHub", "url": "https://github.com/yigit-guven/Folder-Content-Reader", "icon": "fab fa-github" }
+            {
+                "type": "GitHub",
+                "text": "View on GitHub",
+                "url": "https://github.com/yigit-guven/Folder-Content-Reader",
+                "icon": "fab fa-github"
+            }
         ],
         "home_page": "https://github.com/yigit-guven/Folder-Content-Reader",
         "searchData": "folder content reader python tkinter gui utility file management text processing json"
@@ -83,18 +128,28 @@
             "CSS",
             "JavaScript",
             "Web Development",
-            "Frontend",
+            "Frontend Development",
             "Backend"
         ],
         "description": "A premium responsive e-commerce website designed for \"The Tropic.\" Showcases tropical fruits with a clean, modern user interface.",
         "links": [
-            { "type": "Website", "text": "Visit Site", "url": "http://thetropic.com.tr/", "icon": "fas fa-external-link-alt" },
-            { "type": "GitHub", "text": "Source Code", "url": "https://github.com/yigit-guven/thetropic.com.tr", "icon": "fab fa-github" }
+            {
+                "type": "Website",
+                "text": "Visit Site",
+                "url": "http://thetropic.com.tr/",
+                "icon": "fas fa-external-link-alt"
+            },
+            {
+                "type": "GitHub",
+                "text": "Source Code",
+                "url": "https://github.com/yigit-guven/thetropic.com.tr",
+                "icon": "fab fa-github"
+            }
         ],
         "home_page": "http://thetropic.com.tr/",
         "searchData": "thetropic.com.tr web development frontend backend website design html css javascript"
     },
-        {
+    {
         "id": "yigitguven",
         "name": "YigitGuven.net",
         "logo": "./images/projecticons/yigitguven.svg",
@@ -103,13 +158,23 @@
             "CSS",
             "JavaScript",
             "Web Development",
-            "Frontend",
+            "Frontend Development",
             "Backend"
         ],
         "description": "Personal website and projects of Yiğit Güven. Hosted on GitHub Pages at yigitguven.net.",
         "links": [
-            { "type": "Website", "text": "Visit Site", "url": "http://yigitguven.net/", "icon": "fas fa-external-link-alt" },
-            { "type": "GitHub", "text": "Source Code", "url": "https://github.com/yigit-guven/yigitguven.net", "icon": "fab fa-github" }
+            {
+                "type": "Website",
+                "text": "Visit Site",
+                "url": "http://yigitguven.net/",
+                "icon": "fas fa-external-link-alt"
+            },
+            {
+                "type": "GitHub",
+                "text": "Source Code",
+                "url": "https://github.com/yigit-guven/yigitguven.net",
+                "icon": "fab fa-github"
+            }
         ],
         "home_page": "http://yigitguven.net/",
         "searchData": "yigitguven.net web development frontend backend fullstack website design html css javascript"
@@ -127,7 +192,12 @@
         ],
         "description": "A Python/Pygame puzzle game featuring procedurally generated boards, persistent themes and unique variants like Fog of War and Hexadecimal grids.",
         "links": [
-            { "type": "GitHub", "text": "View on GitHub", "url": "https://github.com/yigit-guven/Sudoku-Rush", "icon": "fab fa-github" }
+            {
+                "type": "GitHub",
+                "text": "View on GitHub",
+                "url": "https://github.com/yigit-guven/Sudoku-Rush",
+                "icon": "fab fa-github"
+            }
         ],
         "home_page": "https://github.com/yigit-guven/Sudoku-Rush",
         "searchData": "sudoku rush python pygame algorithms game puzzle gui"
@@ -145,7 +215,12 @@
         ],
         "description": "Hush Word is a level based word puzzle game with a minimalist interface and a progressive challenge. A minimalist, level based word puzzle game written in Python with a clean GUI using Tkinter.",
         "links": [
-            { "type": "GitHub", "text": "View on GitHub", "url": "https://github.com/yigit-guven/Hush-Word", "icon": "fab fa-github" }
+            {
+                "type": "GitHub",
+                "text": "View on GitHub",
+                "url": "https://github.com/yigit-guven/Hush-Word",
+                "icon": "fab fa-github"
+            }
         ],
         "home_page": "https://github.com/yigit-guven/Hush-Word",
         "searchData": "hush word python tkinter gui puzzle game word algorithms"
@@ -164,8 +239,18 @@
         ],
         "description": "A lightweight, client-side tool to overlay customizable grids on images. Built with HTML5 and the Canvas API; runs entirely in the browser.",
         "links": [
-            { "type": "Website", "text": "Try Tool", "url": "https://yigit-guven.github.io/That-Time-I-Generated-a-Grid-on-My-Image/", "icon": "fas fa-external-link-alt" },
-            { "type": "GitHub", "text": "Source", "url": "https://github.com/yigit-guven/That-Time-I-Generated-a-Grid-on-My-Image", "icon": "fab fa-github" }
+            {
+                "type": "Website",
+                "text": "Try Tool",
+                "url": "https://yigit-guven.github.io/That-Time-I-Generated-a-Grid-on-My-Image/",
+                "icon": "fas fa-external-link-alt"
+            },
+            {
+                "type": "GitHub",
+                "text": "Source",
+                "url": "https://github.com/yigit-guven/That-Time-I-Generated-a-Grid-on-My-Image",
+                "icon": "fab fa-github"
+            }
         ],
         "home_page": "https://yigit-guven.github.io/That-Time-I-Generated-a-Grid-on-My-Image/",
         "searchData": "image grid generator html5 canvas client-side tool grid javascript web development"
@@ -175,15 +260,24 @@
         "name": "Simple File Converter",
         "logo": "./images/projecticons/converter.svg",
         "tags": [
-            "Android Dev",
+            "Android Development",
             "Java",
-            "Mobile",
             "Utility"
         ],
         "description": "App for offline file conversion between PDF, DOCX, images, text formats and much more.",
         "links": [
-            { "type": "Google Play", "text": "Google Play", "url": "https://play.google.com/store/apps/details?id=com.YigitGuven.SimpleFileConverter&pcampaignid=web_share", "icon": "fab fa-google-play" },
-            { "type": "GitHub", "text": "Source", "url": "https://github.com/yigit-guven/Simple-File-Converter", "icon": "fab fa-github" }
+            {
+                "type": "Google Play",
+                "text": "Google Play",
+                "url": "https://play.google.com/store/apps/details?id=com.YigitGuven.SimpleFileConverter&pcampaignid=web_share",
+                "icon": "fab fa-google-play"
+            },
+            {
+                "type": "GitHub",
+                "text": "Source",
+                "url": "https://github.com/yigit-guven/Simple-File-Converter",
+                "icon": "fab fa-github"
+            }
         ],
         "home_page": "https://github.com/yigit-guven/Simple-File-Converter",
         "searchData": "simple file converter android java utility app mobile",
@@ -194,18 +288,38 @@
         "name": "RPG Backpacks",
         "logo": "./images/projecticons/backpacks.svg",
         "tags": [
-            "Minecraft",
+            "Minecraft Modding",
             "Java",
-            "Game Modding",
+            "Game Development",
             "Storage",
             "Utility"
         ],
         "description": "RPG Backpacks adds a variety of backpacks with different storage capacities, helping players manage their inventory efficiently. From Leather to Netherite, each backpack type offers a different storage size.",
         "links": [
-            { "type": "GitHub", "text": "GitHub", "url": "https://github.com/Anchor-Studios/RPG-Backpacks", "icon": "fab fa-github" },
-            { "type": "CurseForge", "text": "CurseForge", "url": "https://www.curseforge.com/minecraft/mc-mods/rpg-backpacks", "icon": "fas fa-cube" },
-            { "type": "Modrinth", "text": "Modrinth", "url": "https://modrinth.com/mod/rpg-backpacks", "icon": "fas fa-cube" },
-            { "type": "Wiki", "text": "Wiki", "url": "https://github.com/Anchor-Studios/RPG-Backpacks/wiki", "icon": "fas fa-book" }
+            {
+                "type": "GitHub",
+                "text": "GitHub",
+                "url": "https://github.com/Anchor-Studios/RPG-Backpacks",
+                "icon": "fab fa-github"
+            },
+            {
+                "type": "CurseForge",
+                "text": "CurseForge",
+                "url": "https://www.curseforge.com/minecraft/mc-mods/rpg-backpacks",
+                "icon": "fas fa-cube"
+            },
+            {
+                "type": "Modrinth",
+                "text": "Modrinth",
+                "url": "https://modrinth.com/mod/rpg-backpacks",
+                "icon": "fas fa-cube"
+            },
+            {
+                "type": "Wiki",
+                "text": "Wiki",
+                "url": "https://github.com/Anchor-Studios/RPG-Backpacks/wiki",
+                "icon": "fas fa-book"
+            }
         ],
         "home_page": "https://www.curseforge.com/minecraft/mc-mods/rpg-backpacks",
         "searchData": "rpg backpacks minecraft storage utility inventory java game modding"
@@ -215,18 +329,38 @@
         "name": "Player Stand",
         "logo": "./images/projecticons/playerstand.svg",
         "tags": [
-            "Minecraft",
+            "Minecraft Modding",
             "Java",
-            "Game Modding",
+            "Game Development",
             "Cosmetic",
             "Customization"
         ],
         "description": "Player Stand is a Minecraft mod that adds a customizable, player-shaped armor stands that support skins, armor and interactions.",
         "links": [
-            { "type": "GitHub", "text": "GitHub", "url": "https://github.com/Anchor-Studios/Player-Stand", "icon": "fab fa-github" },
-            { "type": "Wiki", "text": "Wiki", "url": "https://github.com/Anchor-Studios/Player-Stand/wiki", "icon": "fas fa-book" },
-            { "type": "CurseForge", "text": "CurseForge", "url": "https://www.curseforge.com/minecraft/mc-mods/playerstand", "icon": "fas fa-cube" },
-            { "type": "Modrinth", "text": "Modrinth", "url": "https://modrinth.com/mod/playerstand", "icon": "fas fa-cube" }
+            {
+                "type": "GitHub",
+                "text": "GitHub",
+                "url": "https://github.com/Anchor-Studios/Player-Stand",
+                "icon": "fab fa-github"
+            },
+            {
+                "type": "Wiki",
+                "text": "Wiki",
+                "url": "https://github.com/Anchor-Studios/Player-Stand/wiki",
+                "icon": "fas fa-book"
+            },
+            {
+                "type": "CurseForge",
+                "text": "CurseForge",
+                "url": "https://www.curseforge.com/minecraft/mc-mods/playerstand",
+                "icon": "fas fa-cube"
+            },
+            {
+                "type": "Modrinth",
+                "text": "Modrinth",
+                "url": "https://modrinth.com/mod/playerstand",
+                "icon": "fas fa-cube"
+            }
         ],
         "home_page": "https://www.curseforge.com/minecraft/mc-mods/playerstand",
         "searchData": "player stand minecraft cosmetic customization armor stand java game modding"
@@ -236,18 +370,38 @@
         "name": "Day Length",
         "logo": "./images/projecticons/daylength.svg",
         "tags": [
-            "Minecraft",
+            "Minecraft Modding",
             "Java",
-            "Game Modding",
+            "Game Development",
             "Time Logic",
             "Customization"
         ],
         "description": "Day Length mod lets players customize Minecraft's day-night cycle and sync it with real-world time.",
         "links": [
-            { "type": "GitHub", "text": "GitHub", "url": "https://github.com/Anchor-Studios/Day-Length", "icon": "fab fa-github" },
-            { "type": "Wiki", "text": "Wiki", "url": "https://github.com/Anchor-Studios/Day-Length/wiki", "icon": "fas fa-book" },
-            { "type": "CurseForge", "text": "CurseForge", "url": "https://www.curseforge.com/minecraft/mc-mods/day-length/", "icon": "fas fa-cube" },
-            { "type": "Modrinth", "text": "Modrinth", "url": "https://modrinth.com/mod/day-length/", "icon": "fas fa-cube" }
+            {
+                "type": "GitHub",
+                "text": "GitHub",
+                "url": "https://github.com/Anchor-Studios/Day-Length",
+                "icon": "fab fa-github"
+            },
+            {
+                "type": "Wiki",
+                "text": "Wiki",
+                "url": "https://github.com/Anchor-Studios/Day-Length/wiki",
+                "icon": "fas fa-book"
+            },
+            {
+                "type": "CurseForge",
+                "text": "CurseForge",
+                "url": "https://www.curseforge.com/minecraft/mc-mods/day-length/",
+                "icon": "fas fa-cube"
+            },
+            {
+                "type": "Modrinth",
+                "text": "Modrinth",
+                "url": "https://modrinth.com/mod/day-length/",
+                "icon": "fas fa-cube"
+            }
         ],
         "home_page": "https://www.curseforge.com/minecraft/mc-mods/day-length/",
         "searchData": "day length minecraft time logic customization day night cycle java game modding"
@@ -257,19 +411,39 @@
         "name": "Mana Lib",
         "logo": "./images/projecticons/manalib.svg",
         "tags": [
-            "Minecraft",
+            "Minecraft Modding",
             "Java",
-            "Game Modding",
+            "Game Development",
             "Library",
             "API",
             "Framework"
         ],
         "description": "Adds a highly customizable mana bar to Minecraft, appearing above your hunger bar, which can be easily managed by NBT data.",
         "links": [
-            { "type": "GitHub", "text": "GitHub", "url": "https://github.com/Ryukazan/Mana-Lib", "icon": "fab fa-github" },
-            { "type": "CurseForge", "text": "CurseForge", "url": "https://www.curseforge.com/minecraft/mc-mods/mana-lib", "icon": "fas fa-cube" },
-            { "type": "Modrinth", "text": "Modrinth", "url": "https://modrinth.com/mod/mana-lib", "icon": "fas fa-cube" },
-            { "type": "Discord", "text": "Discord", "url": "https://discord.gg/aPk7Qs5d4H", "icon": "fab fa-discord" }
+            {
+                "type": "GitHub",
+                "text": "GitHub",
+                "url": "https://github.com/Ryukazan/Mana-Lib",
+                "icon": "fab fa-github"
+            },
+            {
+                "type": "CurseForge",
+                "text": "CurseForge",
+                "url": "https://www.curseforge.com/minecraft/mc-mods/mana-lib",
+                "icon": "fas fa-cube"
+            },
+            {
+                "type": "Modrinth",
+                "text": "Modrinth",
+                "url": "https://modrinth.com/mod/mana-lib",
+                "icon": "fas fa-cube"
+            },
+            {
+                "type": "Discord",
+                "text": "Discord",
+                "url": "https://discord.gg/aPk7Qs5d4H",
+                "icon": "fab fa-discord"
+            }
         ],
         "home_page": "https://github.com/Ryukazan/Mana-Lib",
         "searchData": "mana lib minecraft library api framework mana system java game modding"
@@ -279,17 +453,32 @@
         "name": "Leather Craft",
         "logo": "./images/projecticons/leathercraft.svg",
         "tags": [
-            "Minecraft",
+            "Minecraft Modding",
             "Java",
-            "Game Modding",
+            "Game Development",
             "Crafting",
             "Utility"
         ],
         "description": "Adds recipe to craft leather by smelting rotten flesh.",
         "links": [
-            { "type": "GitHub", "text": "GitHub", "url": "https://github.com/Anchor-Studios/Leather-Craft", "icon": "fab fa-github" },
-            { "type": "CurseForge", "text": "CurseForge", "url": "https://www.curseforge.com/minecraft/mc-mods/leather-craft", "icon": "fas fa-cube" },
-            { "type": "Modrinth", "text": "Modrinth", "url": "https://modrinth.com/mod/leather-craft", "icon": "fas fa-cube" }
+            {
+                "type": "GitHub",
+                "text": "GitHub",
+                "url": "https://github.com/Anchor-Studios/Leather-Craft",
+                "icon": "fab fa-github"
+            },
+            {
+                "type": "CurseForge",
+                "text": "CurseForge",
+                "url": "https://www.curseforge.com/minecraft/mc-mods/leather-craft",
+                "icon": "fas fa-cube"
+            },
+            {
+                "type": "Modrinth",
+                "text": "Modrinth",
+                "url": "https://modrinth.com/mod/leather-craft",
+                "icon": "fas fa-cube"
+            }
         ],
         "home_page": "https://www.curseforge.com/minecraft/mc-mods/leather-craft",
         "searchData": "leather craft minecraft crafting utility recipe java game modding"
