@@ -43,14 +43,12 @@
             {
                 "type": "Modrinth",
                 "text": "Modrinth",
-                "url": "https://modrinth.com/mod/petting",
-                "icon": "fas fa-cube"
+                "url": "https://modrinth.com/mod/petting"
             },
             {
                 "type": "CurseForge",
                 "text": "CurseForge",
-                "url": "https://www.curseforge.com/minecraft/mc-mods/petting",
-                "icon": "fas fa-cube"
+                "url": "https://www.curseforge.com/minecraft/mc-mods/petting"
             },
             {
                 "type": "GitHub",
@@ -77,8 +75,7 @@
             {
                 "type": "CurseForge",
                 "text": "CurseForge",
-                "url": "https://www.curseforge.com/hytale/mods/economy",
-                "icon": "fas fa-cube"
+                "url": "https://www.curseforge.com/hytale/mods/economy"
             },
             {
                 "type": "GitHub",
@@ -284,6 +281,32 @@
         "isBeta": true
     },
     {
+        "id": "easyhammers",
+        "name": "Easy Hammers",
+        "logo": "./images/projecticons/easyhammers.svg",
+        "tags": [
+            "Minecraft Modding",
+            "Java",
+            "Game Development",
+            "Utility"
+        ],
+        "description": "Adds pickaxe-style tools that effortlessly break a 3x3 area.",
+        "links": [
+            {
+                "type": "CurseForge",
+                "text": "CurseForge",
+                "url": "https://www.curseforge.com/minecraft/mc-mods/easy-hammers"
+            },
+            {
+                "type": "Modrinth",
+                "text": "Modrinth",
+                "url": "https://modrinth.com/mod/easy-hammers"
+            }
+        ],
+        "home_page": "https://www.curseforge.com/minecraft/mc-mods/easy-hammers",
+        "searchData": "easy hammers minecraft java game modding utility pickaxe"
+    },
+    {
         "id": "backpacks",
         "name": "RPG Backpacks",
         "logo": "./images/projecticons/backpacks.svg",
@@ -305,14 +328,12 @@
             {
                 "type": "CurseForge",
                 "text": "CurseForge",
-                "url": "https://www.curseforge.com/minecraft/mc-mods/rpg-backpacks",
-                "icon": "fas fa-cube"
+                "url": "https://www.curseforge.com/minecraft/mc-mods/rpg-backpacks"
             },
             {
                 "type": "Modrinth",
                 "text": "Modrinth",
-                "url": "https://modrinth.com/mod/rpg-backpacks",
-                "icon": "fas fa-cube"
+                "url": "https://modrinth.com/mod/rpg-backpacks"
             },
             {
                 "type": "Wiki",
@@ -352,14 +373,12 @@
             {
                 "type": "CurseForge",
                 "text": "CurseForge",
-                "url": "https://www.curseforge.com/minecraft/mc-mods/playerstand",
-                "icon": "fas fa-cube"
+                "url": "https://www.curseforge.com/minecraft/mc-mods/playerstand"
             },
             {
                 "type": "Modrinth",
                 "text": "Modrinth",
-                "url": "https://modrinth.com/mod/playerstand",
-                "icon": "fas fa-cube"
+                "url": "https://modrinth.com/mod/playerstand"
             }
         ],
         "home_page": "https://www.curseforge.com/minecraft/mc-mods/playerstand",
@@ -393,14 +412,12 @@
             {
                 "type": "CurseForge",
                 "text": "CurseForge",
-                "url": "https://www.curseforge.com/minecraft/mc-mods/day-length/",
-                "icon": "fas fa-cube"
+                "url": "https://www.curseforge.com/minecraft/mc-mods/day-length/"
             },
             {
                 "type": "Modrinth",
                 "text": "Modrinth",
-                "url": "https://modrinth.com/mod/day-length/",
-                "icon": "fas fa-cube"
+                "url": "https://modrinth.com/mod/day-length/"
             }
         ],
         "home_page": "https://www.curseforge.com/minecraft/mc-mods/day-length/",
@@ -429,14 +446,12 @@
             {
                 "type": "CurseForge",
                 "text": "CurseForge",
-                "url": "https://www.curseforge.com/minecraft/mc-mods/mana-lib",
-                "icon": "fas fa-cube"
+                "url": "https://www.curseforge.com/minecraft/mc-mods/mana-lib"
             },
             {
                 "type": "Modrinth",
                 "text": "Modrinth",
-                "url": "https://modrinth.com/mod/mana-lib",
-                "icon": "fas fa-cube"
+                "url": "https://modrinth.com/mod/mana-lib"
             },
             {
                 "type": "Discord",
@@ -470,14 +485,12 @@
             {
                 "type": "CurseForge",
                 "text": "CurseForge",
-                "url": "https://www.curseforge.com/minecraft/mc-mods/leather-craft",
-                "icon": "fas fa-cube"
+                "url": "https://www.curseforge.com/minecraft/mc-mods/leather-craft"
             },
             {
                 "type": "Modrinth",
                 "text": "Modrinth",
-                "url": "https://modrinth.com/mod/leather-craft",
-                "icon": "fas fa-cube"
+                "url": "https://modrinth.com/mod/leather-craft"
             }
         ],
         "home_page": "https://www.curseforge.com/minecraft/mc-mods/leather-craft",
