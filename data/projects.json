@@ -242,7 +242,7 @@
             {
                 "type": "Website",
                 "text": "Try Tool",
-                "url": "https://yigit-guven.github.io/That-Time-I-Generated-a-Grid-on-My-Image/",
+                "url": "./that-time-i-generated-a-grid-on-my-image/",
                 "icon": "fas fa-external-link-alt"
             },
             {
@@ -252,7 +252,7 @@
                 "icon": "fab fa-github"
             }
         ],
-        "home_page": "https://yigit-guven.github.io/That-Time-I-Generated-a-Grid-on-My-Image/",
+        "home_page": "./that-time-i-generated-a-grid-on-my-image/",
         "searchData": "image grid generator html5 canvas client-side tool grid javascript web development"
     },
     {
