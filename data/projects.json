@@ -1,5 +1,34 @@
 [
     {
+        "id": "synapseai",
+        "name": "Synapse AI",
+        "logo": "./images/projecticons/synapseai.svg",
+        "tags": [
+            "Python",
+            "RAG",
+            "LLM",
+            "Vector Database",
+            "Ai"
+        ],
+        "description": "High-Performance, Self-Hosted Document Intelligence Engine. Synapse AI transforms private document repositories into interactive, queryable knowledge bases using local LLMs and vector-based semantic search.",
+        "links": [
+            {
+                "type": "Website",
+                "text": "Visit Site",
+                "url": "https://yigit-guven.github.io/Synapse-AI/",
+                "icon": "fas fa-external-link-alt"
+            },
+            {
+                "type": "GitHub",
+                "text": "Source Code",
+                "url": "https://github.com/yigit-guven/Synapse-AI",
+                "icon": "fab fa-github"
+            }
+        ],
+        "home_page": "https://yigit-guven.github.io/Synapse-AI/",
+        "searchData": "synapse ai rag llm vector database chromadb ollama streamlit docker ai document intelligence machine learning python"
+    },
+    {
         "id": "mundus",
         "name": "Mundus Online",
         "logo": "./images/projecticons/mundusonline.svg",
