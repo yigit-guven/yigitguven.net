@@ -15,7 +15,7 @@
             {
                 "type": "Website",
                 "text": "Visit Site",
-                "url": "https://yigit-guven.github.io/Synapse-AI/",
+                "url": "http://144.34.87.24:8501",
                 "icon": "fas fa-external-link-alt"
             },
             {
@@ -25,7 +25,7 @@
                 "icon": "fab fa-github"
             }
         ],
-        "home_page": "https://yigit-guven.github.io/Synapse-AI/",
+        "home_page": "http://144.34.87.24:8501",
         "searchData": "synapse ai rag llm vector database chromadb ollama streamlit docker ai document intelligence machine learning python"
     },
     {
