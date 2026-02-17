@@ -22,7 +22,7 @@ Below is a complete list of my professional profiles and contact channels:
 
 ### Professional Networks
 *   **GitHub**: [yigit-guven](https://github.com/yigit-guven)
-*   **LinkedIn**: [Harun Yiğit Güven](https://www.linkedin.com/in/harun-guven-887899360)
+*   **LinkedIn**: [Harun Yiğit Güven](https://www.linkedin.com/in/harunyigitguven/)
 *   **Google Developers**: [Yiğit Güven](https://g.dev/yigitguven)
 
 ### Development Platforms
