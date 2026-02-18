@@ -8,7 +8,9 @@
             "RAG",
             "LLM",
             "Vector Database",
-            "Ai"
+            "AI",
+            "Docker",
+            "Streamlit"
         ],
         "description": "High-Performance, Self-Hosted Document Intelligence Engine. Synapse AI transforms private document repositories into interactive, queryable knowledge bases using local LLMs and vector-based semantic search.",
         "links": [
@@ -36,7 +38,9 @@
             "Roblox Development",
             "Game Development",
             "Lua",
-            "UI/UX Design"
+            "UI/UX Design",
+            "Sandbox",
+            "Economy"
         ],
         "description": "Mundus Online is a massive 3D social sandbox game on Roblox where players can build, plant, and trade in a player-driven economy. Plant seeds, splice them to discover new blocks, and grow your empire! Claim unique world names before anyone else and protect your creations with various lock systems.",
         "links": [
@@ -155,7 +159,8 @@
             "JavaScript",
             "Web Development",
             "Frontend Development",
-            "Backend"
+            "Backend",
+            "E-Commerce"
         ],
         "description": "A premium responsive e-commerce website designed for \"The Tropic.\" Showcases tropical fruits with a clean, modern user interface.",
         "links": [
@@ -535,7 +540,8 @@
             "CLI",
             "E-Commerce",
             "OOP",
-            "Backend"
+            "Backend",
+            "JSON"
         ],
         "description": "A Python-powered terminal-based e-commerce system featuring user authentication, product management, cart functionality, and order processing. Supports both JSON and SQLite for data storage.",
         "links": [

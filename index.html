@@ -79,10 +79,16 @@
         <section class="skills-section" id="skills">
             <h2 class="skills-title">Technical Skills & Expertise</h2>
 
-            <div class="tech-stack" id="tech-stack">
+            <div class="skills-tabs" id="skillsHooks">
+                <!-- Tabs will be injected here -->
             </div>
 
-            <div class="skills-grid" id="skills-container">
+            <div class="skills-display-grid" id="skillsGrid">
+                <!-- Skills will be injected here -->
+            </div>
+
+            <div class="skills-display-grid" id="skillsGrid">
+                <!-- Skills will be injected here -->
             </div>
         </section>
 
@@ -134,8 +140,8 @@
                                     d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z" />
                             </svg>
                         </a>
-                        <a href="https://www.linkedin.com/in/harunyigitguven/" target="_blank"
-                            class="Footer_iconLink" title="LinkedIn">
+                        <a href="https://www.linkedin.com/in/harunyigitguven/" target="_blank" class="Footer_iconLink"
+                            title="LinkedIn">
                             <svg viewBox="0 0 24 24">
                                 <path
                                     d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z" />
@@ -389,7 +395,23 @@
             'Android Studio': 'fab fa-android',
             'OOP': 'fas fa-project-diagram',
             'Data Structures': 'fas fa-layer-group',
-            'Problem Solving': 'fas fa-lightbulb'
+            'Problem Solving': 'fas fa-lightbulb',
+
+            // New Skills Mappings
+            'SQL': 'fas fa-database',
+            'RAG': 'fas fa-brain',
+            'LLM': 'fas fa-robot',
+            'Vector Database': 'fas fa-project-diagram',
+            'Computer Vision': 'fas fa-eye',
+            'AI': 'fas fa-brain',
+            'Hytale Modding': 'fas fa-gamepad',
+            'Streamlit': 'fas fa-chart-bar',
+            'Docker': 'fab fa-docker',
+            'CLI': 'fas fa-terminal',
+            'System Design': 'fas fa-sitemap',
+            'Sandbox': 'fas fa-cubes',
+            'Economy': 'fas fa-coins',
+            'JSON': 'fas fa-code'
         };
 
         // Function to scroll to search bar when skill is clicked
@@ -404,55 +426,84 @@
         }
 
         // Load skills from JSON
+        let allSkillsData = {};
+        let activeCategory = 'All';
+
         async function loadSkills() {
             try {
                 const response = await fetch('./data/skills.json');
-                const skillsData = await response.json();
+                allSkillsData = await response.json();
 
-                // Get containers
-                const skillsContainer = document.getElementById('skills-container');
-                const techStack = document.getElementById('tech-stack');
-
-                // Clear containers
-                skillsContainer.innerHTML = '';
-                techStack.innerHTML = '';
-
-                // Populate skill categories
-                Object.entries(skillsData).forEach(([category, skillList]) => {
-                    // Skip 'General Main Skills' in the detailed list to avoid duplication
-                    if (category === 'General Main Skills') return;
-
-                    const skillCategoryHTML = `
-                        <div class="skill-category">
-                            <h3>${category}</h3>
-                            <div class="skill-items">
-                                ${skillList.map(skill =>
-                        `<button class="skill-item" data-skill="${skill}" onclick="handleSkillClick('${skill}')" aria-label="Filter by ${skill}">
-                                        ${skill}
-                                    </button>`
-                    ).join('')}
-                            </div>
-                        </div>
-                    `;
-                    skillsContainer.insertAdjacentHTML('beforeend', skillCategoryHTML);
-                });
-
-                // Populate tech stack (General Main Skills) at the top
-                if (skillsData['General Main Skills']) {
-                    const techStackHtml = skillsData['General Main Skills'].map(tech => `
-                        <div class="tech-item" data-tech="${tech}" onclick="handleSkillClick('${tech}')" title="Filter by ${tech}">
-                            <div class="tech-icon">
-                                <i class="${iconMappings[tech] || 'fas fa-code'}"></i>
-                            </div>
-                            <div class="tech-name">${tech}</div>
-                        </div>
-                    `).join('');
-
-                    techStack.innerHTML = techStackHtml;
-                }
+                renderSkillTabs();
+                renderSkills('All');
             } catch (error) {
                 console.error('Error loading skills:', error);
             }
+        }
+
+        function renderSkillTabs() {
+            const tabsContainer = document.getElementById('skillsHooks');
+            const categories = ['All', ...Object.keys(allSkillsData).filter(cat => cat !== 'General Main Skills')];
+
+            tabsContainer.innerHTML = categories.map(category => `
+                <button class="skill-tab ${category === 'All' ? 'active' : ''}" 
+                        onclick="switchTab('${category}')">
+                    ${category}
+                </button>
+            `).join('');
+        }
+
+        function switchTab(category) {
+            activeCategory = category;
+
+            // Update tab styles
+            document.querySelectorAll('.skill-tab').forEach(tab => {
+                if (tab.textContent.trim() === category) {
+                    tab.classList.add('active');
+                } else {
+                    tab.classList.remove('active');
+                }
+            });
+
+            renderSkills(category);
+        }
+
+        function renderSkills(category) {
+            const gridContainer = document.getElementById('skillsGrid');
+            gridContainer.innerHTML = '';
+
+            let skillsToRender = [];
+
+            if (category === 'All') {
+                // Flatten all skills, avoiding duplicates
+                const uniqueSkills = new Set();
+                Object.entries(allSkillsData).forEach(([cat, skills]) => {
+                    // Still exclude 'General Main Skills' from duplication check if it's just a subset
+                    if (cat === 'General Main Skills') return;
+                    skills.forEach(skill => uniqueSkills.add(skill));
+                });
+                skillsToRender = Array.from(uniqueSkills).sort();
+            } else {
+                skillsToRender = allSkillsData[category] || [];
+            }
+
+            const html = skillsToRender.map((skill, index) => {
+                const iconClass = getIconForTag(skill);
+                // Animation delay calculation
+                const delay = index * 0.05;
+
+                return `
+                    <div class="tech-item" data-tech="${skill}" onclick="handleSkillClick('${skill}')" 
+                         style="animation: fadeIn 0.5s ease forwards ${delay}s; opacity: 0;">
+                        <div class="tech-icon">
+                            <i class="${iconClass}"></i>
+                        </div>
+                        <div class="tech-name">${skill}</div>
+                    </div>
+                `;
+            }).join('');
+
+            gridContainer.innerHTML = html;
         }
 
         // Handle skill click
@@ -709,6 +760,7 @@
 
         // Make functions globally available
         window.handleSkillClick = handleSkillClick;
+        window.switchTab = switchTab;
     </script>
 </body>
 

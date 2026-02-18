@@ -3,47 +3,53 @@
         "Java",
         "Python",
         "JavaScript",
-        "C++",
         "Lua",
-        "Kotlin",
         "HTML",
-        "CSS"
+        "CSS",
+        "SQL"
+    ],
+    "AI & Data Science": [
+        "RAG",
+        "LLM",
+        "Vector Database",
+        "Computer Vision",
+        "AI"
     ],
     "Game Development": [
         "Minecraft Modding",
         "Roblox Development",
         "Pygame",
-        "Game Design",
-        "Game Mechanics"
+        "Hytale Modding",
+        "Game Design"
     ],
-    "Web & Mobile": [
+    "Web & Backend": [
         "Web Development",
-        "Android Development",
         "Frontend Development",
-        "Responsive Design",
-        "UI/UX Design"
+        "Backend",
+        "API Development",
+        "E-Commerce",
+        "Streamlit"
     ],
-    "Tools & Frameworks": [
+    "Tools & DevOps": [
         "Git",
         "GitHub",
-        "Figma",
-        "Tkinter",
+        "Docker",
         "VS Code",
         "Android Studio"
     ],
     "Core Concepts": [
         "Algorithms",
         "OOP",
-        "API Development",
         "Data Structures",
-        "Problem Solving"
+        "CLI",
+        "System Design"
     ],
     "General Main Skills": [
         "Java",
         "Python",
         "Game Development",
         "Web Development",
-        "Android Development",
+        "AI",
         "Git"
     ]
 }
