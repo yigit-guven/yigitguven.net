@@ -834,6 +834,32 @@
         window.switchTab = switchTab;
         window.toggleSkills = toggleSkills;
     </script>
+    <script>
+        // Active Navigation Highlighting (Scrollspy)
+        document.addEventListener('DOMContentLoaded', function () {
+            const sections = document.querySelectorAll('section');
+            const navLinks = document.querySelectorAll('.Header_desktopNav__ngVUD a');
+
+            window.addEventListener('scroll', () => {
+                let current = '';
+                sections.forEach(section => {
+                    const sectionTop = section.offsetTop;
+                    const sectionHeight = section.clientHeight;
+                    // Offset for fixed header
+                    if (pageYOffset >= (sectionTop - 150)) {
+                        current = section.getAttribute('id');
+                    }
+                });
+
+                navLinks.forEach(link => {
+                    link.classList.remove('active-link');
+                    if (link.getAttribute('href').includes(current)) {
+                        link.classList.add('active-link');
+                    }
+                });
+            });
+        });
+    </script>
 </body>
 
 </html>
