@@ -83,12 +83,18 @@
                 <!-- Tabs will be injected here -->
             </div>
 
-            <div class="skills-display-grid" id="skillsGrid">
-                <!-- Skills will be injected here -->
+            <div class="skills-container-wrapper">
+                <div class="skills-display-grid" id="skillsGrid">
+                    <!-- Skills will be injected here -->
+                </div>
+                <!-- Gradient Overlay (Only visible when collapsed) -->
+                <div class="skills-gradient-overlay" id="skillsGradient"></div>
             </div>
 
-            <div class="skills-display-grid" id="skillsGrid">
-                <!-- Skills will be injected here -->
+            <div class="skills-expand-container" id="expandContainer">
+                <button class="expand-skills-btn" onclick="toggleSkills()" id="expandBtn" aria-label="Show more skills">
+                    <i class="fas fa-chevron-down"></i>
+                </button>
             </div>
         </section>
 
@@ -504,6 +510,48 @@
             }).join('');
 
             gridContainer.innerHTML = html;
+
+            // Re-evalute expansion state after rendering
+            checkSkillsOverflow();
+        }
+
+        function checkSkillsOverflow() {
+            const grid = document.getElementById('skillsGrid');
+            const expandContainer = document.getElementById('expandContainer');
+            const gradient = document.getElementById('skillsGradient');
+
+            // Reset to collapsed state to check height
+            grid.classList.remove('expanded');
+
+            // If content is taller than max-height (e.g. 480px defined in CSS)
+            if (grid.scrollHeight > 480) {
+                expandContainer.style.display = 'flex';
+                gradient.style.display = 'block';
+            } else {
+                expandContainer.style.display = 'none';
+                gradient.style.display = 'none';
+            }
+        }
+
+        function toggleSkills() {
+            const grid = document.getElementById('skillsGrid');
+            const btn = document.getElementById('expandBtn');
+            const icon = btn.querySelector('i');
+            const gradient = document.getElementById('skillsGradient');
+
+            const isExpanded = grid.classList.toggle('expanded');
+
+            if (isExpanded) {
+                icon.classList.remove('fa-chevron-down');
+                icon.classList.add('fa-chevron-up');
+                gradient.style.opacity = '0'; // Fade out gradient
+                setTimeout(() => gradient.style.display = 'none', 300);
+            } else {
+                icon.classList.remove('fa-chevron-up');
+                icon.classList.add('fa-chevron-down');
+                gradient.style.display = 'block';
+                setTimeout(() => gradient.style.opacity = '1', 10);
+            }
         }
 
         // Handle skill click
@@ -761,6 +809,7 @@
         // Make functions globally available
         window.handleSkillClick = handleSkillClick;
         window.switchTab = switchTab;
+        window.toggleSkills = toggleSkills;
     </script>
 </body>
 
