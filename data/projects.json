@@ -324,7 +324,7 @@
             "Game Development",
             "Utility"
         ],
-        "description": "Adds pickaxe-style tools that effortlessly break a 3x3 area.",
+        "description": "A Minecraft mod that adds 3x3 area-of-effect hammers with vanilla-friendly progression, unique enchantments, and configurable mining modes.",
         "links": [
             {
                 "type": "GitHub",
