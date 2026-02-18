@@ -840,13 +840,13 @@
             const sections = document.querySelectorAll('section');
             const navLinks = document.querySelectorAll('.Header_desktopNav__ngVUD a');
 
-            window.addEventListener('scroll', () => {
+            function highlightNavigation() {
                 let current = '';
                 sections.forEach(section => {
                     const sectionTop = section.offsetTop;
                     const sectionHeight = section.clientHeight;
                     // Offset for fixed header
-                    if (pageYOffset >= (sectionTop - 150)) {
+                    if (window.pageYOffset >= (sectionTop - 150)) {
                         current = section.getAttribute('id');
                     }
                 });
@@ -857,7 +857,13 @@
                         link.classList.add('active-link');
                     }
                 });
-            });
+            }
+
+            // Run on scroll
+            window.addEventListener('scroll', highlightNavigation);
+
+            // Run initially
+            highlightNavigation();
         });
     </script>
 </body>
