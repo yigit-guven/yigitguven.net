@@ -28,12 +28,12 @@ Below is a complete list of my professional profiles and contact channels:
 ### Development Platforms
 *   **Google Play**: [Yiğit Güven](https://play.google.com/store/apps/dev?id=7128980680944660685)
 *   **Roblox**: [Profile](https://www.roblox.com/users/10107546649/profile)
-*   **Modrinth**: [Vuserr0](https://modrinth.com/user/Vuserr0)
-*   **CurseForge (Minecraft)**: [vuserr0](https://www.curseforge.com/members/vuserr0/)
-*   **CurseForge (Hytale)**: [itsyigit](https://www.curseforge.com/members/itsyigit/)
+*   **Modrinth**: [yigitguven](https://modrinth.com/user/yigitguven)
+*   **CurseForge**: [yigitguven](https://www.curseforge.com/members/yigitguven/)
 *   **Repsy (Maven)**: [yigit-guven](https://repsy.io/yigit-guven)
 
 ### Social Media
+*   **Discord Server**: [Join Community](https://discord.gg/gNajXYku5z)
 *   **YouTube**: [ImperfecTWR](https://www.youtube.com/@ImperfecTWR)
 
 ## License

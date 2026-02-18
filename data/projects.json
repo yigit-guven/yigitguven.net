@@ -327,6 +327,12 @@
         "description": "Adds pickaxe-style tools that effortlessly break a 3x3 area.",
         "links": [
             {
+                "type": "GitHub",
+                "text": "GitHub",
+                "url": "https://github.com/yigit-guven/Easy-Hammers",
+                "icon": "fab fa-github"
+            },
+            {
                 "type": "CurseForge",
                 "text": "CurseForge",
                 "url": "https://www.curseforge.com/minecraft/mc-mods/easy-hammers"
@@ -335,6 +341,12 @@
                 "type": "Modrinth",
                 "text": "Modrinth",
                 "url": "https://modrinth.com/mod/easy-hammers"
+            },
+            {
+                "type": "Wiki",
+                "text": "Wiki",
+                "url": "https://github.com/yigit-guven/Easy-Hammers/wiki",
+                "icon": "fas fa-book"
             }
         ],
         "home_page": "https://www.curseforge.com/minecraft/mc-mods/easy-hammers",
