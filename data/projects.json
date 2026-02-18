@@ -524,5 +524,29 @@
         ],
         "home_page": "https://www.curseforge.com/minecraft/mc-mods/leather-craft",
         "searchData": "leather craft minecraft crafting utility recipe java game modding"
+    },
+    {
+        "id": "pycart",
+        "name": "PyCart Engine",
+        "logo": "./images/projecticons/pycartengine.svg",
+        "tags": [
+            "Python",
+            "SQLite",
+            "CLI",
+            "E-Commerce",
+            "OOP",
+            "Backend"
+        ],
+        "description": "A Python-powered terminal-based e-commerce system featuring user authentication, product management, cart functionality, and order processing. Supports both JSON and SQLite for data storage.",
+        "links": [
+            {
+                "type": "GitHub",
+                "text": "Source Code",
+                "url": "https://github.com/yigit-guven/PyCart-Engine",
+                "icon": "fab fa-github"
+            }
+        ],
+        "home_page": "https://github.com/yigit-guven/PyCart-Engine",
+        "searchData": "pycart engine python sqlite cli e-commerce backend terminal json oop"
     }
 ]
