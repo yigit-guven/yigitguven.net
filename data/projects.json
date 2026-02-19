@@ -113,7 +113,7 @@
             {
                 "type": "GitHub",
                 "text": "GitHub",
-                "url": "https://github.com/Ryukazan/Economy",
+                "url": "https://github.com/yigit-guven/Economy",
                 "icon": "fab fa-github"
             },
             {
@@ -121,6 +121,12 @@
                 "text": "Repsy",
                 "url": "https://repsy.io/yigit-guven/economy",
                 "icon": "fas fa-database"
+            },
+            {
+                "type": "Wiki",
+                "text": "Wiki",
+                "url": "https://github.com/yigit-guven/Economy/wiki",
+                "icon": "fas fa-book"
             }
         ],
         "home_page": "https://www.curseforge.com/hytale/mods/economy",
