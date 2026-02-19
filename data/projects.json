@@ -374,7 +374,7 @@
             {
                 "type": "GitHub",
                 "text": "GitHub",
-                "url": "https://github.com/Anchor-Studios/RPG-Backpacks",
+                "url": "https://github.com/yigit-guven/RPG-Backpacks",
                 "icon": "fab fa-github"
             },
             {
@@ -390,7 +390,7 @@
             {
                 "type": "Wiki",
                 "text": "Wiki",
-                "url": "https://github.com/Anchor-Studios/RPG-Backpacks/wiki",
+                "url": "https://github.com/yigit-guven/RPG-Backpacks/wiki",
                 "icon": "fas fa-book"
             }
         ],
