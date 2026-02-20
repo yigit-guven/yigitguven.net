@@ -526,12 +526,12 @@
             "Crafting",
             "Utility"
         ],
-        "description": "Adds recipe to craft leather by smelting rotten flesh.",
+        "description": "A lightweight Minecraft utility mod that allows players to smelt Rotten Flesh into Leather using Furnaces, Smokers, and Campfires.",
         "links": [
             {
                 "type": "GitHub",
                 "text": "GitHub",
-                "url": "https://github.com/Anchor-Studios/Leather-Craft",
+                "url": "https://github.com/yigit-guven/Leather-Craft",
                 "icon": "fab fa-github"
             },
             {
@@ -543,6 +543,12 @@
                 "type": "Modrinth",
                 "text": "Modrinth",
                 "url": "https://modrinth.com/mod/leather-craft"
+            },
+            {
+                "type": "Wiki",
+                "text": "Wiki",
+                "url": "https://github.com/yigit-guven/Leather-Craft/wiki",
+                "icon": "fas fa-book"
             }
         ],
         "home_page": "https://www.curseforge.com/minecraft/mc-mods/leather-craft",
