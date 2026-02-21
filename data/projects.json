@@ -1,5 +1,34 @@
 [
     {
+        "id": "pixelnokiseki",
+        "name": "Pixel no Kiseki",
+        "logo": "./images/projecticons/pixelnokiseki.svg",
+        "tags": [
+            "HTML5",
+            "JavaScript",
+            "Pixel Art",
+            "Web Development",
+            "Canvas API"
+        ],
+        "description": "A high-precision browser-based pixel art editor optimized for 8-bit icons, chibi sprites, and texture assets. Engineered with a focus on stability and portability.",
+        "links": [
+            {
+                "type": "Website",
+                "text": "Visit Site",
+                "url": "https://yigit-guven.github.io/Pixel-no-Kiseki/",
+                "icon": "fas fa-external-link-alt"
+            },
+            {
+                "type": "GitHub",
+                "text": "Source Code",
+                "url": "https://github.com/yigit-guven/Pixel-no-Kiseki",
+                "icon": "fab fa-github"
+            }
+        ],
+        "home_page": "https://yigit-guven.github.io/Pixel-no-Kiseki/",
+        "searchData": "pixel no kiseki art editor html5 javascript canvas browser-based sprites icons"
+    },
+    {
         "id": "synapseai",
         "name": "Synapse AI",
         "logo": "./images/projecticons/synapseai.svg",
