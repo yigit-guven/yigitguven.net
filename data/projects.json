@@ -607,5 +607,44 @@
         ],
         "home_page": "https://github.com/yigit-guven/PyCart-Engine",
         "searchData": "pycart engine python sqlite cli e-commerce backend terminal json oop"
+    },
+    {
+        "id": "advancedhud",
+        "name": "Advanced HUD",
+        "logo": "./images/projecticons/advancedhud.svg",
+        "tags": [
+            "Minecraft Modding",
+            "Java",
+            "Game Development",
+            "Utility",
+            "UI/UX Design"
+        ],
+        "description": "Advanced HUD is a client-side Minecraft utility designed to provide real-time, dynamic information about targeted blocks and entities. It features a lightweight and customizable interface with efficient raycasting for instant detection.",
+        "links": [
+            {
+                "type": "Modrinth",
+                "text": "Modrinth",
+                "url": "https://modrinth.com/mod/advancedhud"
+            },
+            {
+                "type": "CurseForge",
+                "text": "CurseForge",
+                "url": "https://www.curseforge.com/minecraft/mc-mods/advanced-hud"
+            },
+            {
+                "type": "GitHub",
+                "text": "Source Code",
+                "url": "https://github.com/yigit-guven/Advanced-Hud",
+                "icon": "fab fa-github"
+            },
+            {
+                "type": "Wiki",
+                "text": "Wiki",
+                "url": "https://github.com/yigit-guven/Advanced-Hud/wiki",
+                "icon": "fas fa-book"
+            }
+        ],
+        "home_page": "https://modrinth.com/mod/advancedhud",
+        "searchData": "advanced hud minecraft mod java game modding utility raycasting block entity detection real-time identification"
     }
 ]
