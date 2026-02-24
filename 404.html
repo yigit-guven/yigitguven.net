@@ -22,36 +22,207 @@
     <link rel="icon" type="image/svg+xml" href="/images/favicon.svg">
 
     <style>
-        /* Added styles to ensure the 404 page looks good without the matrix background */
         .page-404 {
             display: flex;
             flex-direction: column;
             align-items: center;
             justify-content: center;
             min-height: 60vh;
-            /* Ensures footer stays at bottom even on short error pages */
             text-align: center;
-            padding: 2rem;
+            padding: 2rem 1rem;
             position: relative;
             z-index: 1;
+            gap: 0;
         }
 
-        .giant-404 {
-            font-size: 12rem;
-            font-weight: bold;
-            opacity: 0.75;
+        /* ===== TRAIN WRECK SCENE ===== */
+        .wreck-scene {
+            position: relative;
+            width: min(740px, 96vw);
+            height: 170px;
+            margin: 0 auto 28px;
+        }
+
+        /* Railway tracks */
+        .scene-tracks {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 46px;
+            pointer-events: none;
+        }
+
+        .rail {
+            position: absolute;
+            left: 0;
+            right: 0;
+            height: 7px;
+            background: currentColor;
+            opacity: 0.3;
+            border-radius: 4px;
+        }
+
+        .rail-top {
+            top: 4px;
+        }
+
+        .rail-bottom {
+            bottom: 4px;
+        }
+
+        .sleepers {
+            position: absolute;
+            inset: 0;
+            background-image: repeating-linear-gradient(to right,
+                    transparent 0,
+                    transparent 17px,
+                    currentColor 17px,
+                    currentColor 29px);
+            opacity: 0.12;
+        }
+
+        /* Locomotive */
+        .loco-svg {
+            position: absolute;
+            bottom: 6px;
+            right: calc(50% + 8px);
+            width: 215px;
+            height: auto;
+            transform-origin: right bottom;
+            transform: rotate(-5deg);
+            fill: currentColor;
+        }
+
+        .loco-svg .win {
+            fill: rgba(100, 200, 255, 0.55);
+        }
+
+        .loco-svg .wrim {
+            fill: none;
+            stroke: currentColor;
+            stroke-width: 3.5;
+            opacity: 0.85;
+        }
+
+        .loco-svg .spk {
+            stroke: currentColor;
+            stroke-width: 2;
+            opacity: 0.45;
+            fill: none;
+        }
+
+        .loco-svg .lite {
+            fill: rgba(255, 215, 50, 0.9);
+        }
+
+        /* Smoke puffs */
+        .smoke-wrap {
+            position: absolute;
+            bottom: 118px;
+            right: calc(50% + 30px);
+            z-index: 8;
+            pointer-events: none;
+        }
+
+        .puff {
+            position: absolute;
+            border-radius: 50%;
+            background: currentColor;
+            opacity: 0;
+            animation: puffUp 2.4s ease-out infinite;
+        }
+
+        .puff:nth-child(1) {
+            width: 12px;
+            height: 12px;
+            left: 0;
+            top: 0;
+            animation-delay: 0s;
+        }
+
+        .puff:nth-child(2) {
+            width: 18px;
+            height: 18px;
+            left: -9px;
+            top: 4px;
+            animation-delay: .75s;
+        }
+
+        .puff:nth-child(3) {
+            width: 10px;
+            height: 10px;
+            left: 9px;
+            top: 2px;
+            animation-delay: 1.5s;
+        }
+
+        @keyframes puffUp {
+            0% {
+                transform: translateY(0) scale(.5);
+                opacity: .55;
+            }
+
+            70% {
+                opacity: .2;
+            }
+
+            100% {
+                transform: translateY(-60px) scale(3);
+                opacity: 0;
+            }
+        }
+
+        /* 404 obstacle */
+        .four-oh-four {
+            position: absolute;
+            bottom: -4px;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: clamp(5.5rem, 17vw, 9.5rem);
+            font-weight: 900;
             line-height: 1;
-            margin-bottom: -40px;
+            opacity: 0.82;
+            z-index: 4;
+            letter-spacing: -3px;
+            white-space: nowrap;
         }
 
-        /* Basic background handling based on the data-theme attribute */
-        .page-404 {
-            background-color: #f7f7f7;
-            color: #000000;
+        /* Impact burst */
+        .impact-burst {
+            position: absolute;
+            bottom: 62px;
+            left: calc(50% - 88px);
+            font-size: 2.2rem;
+            z-index: 8;
+            animation: bShake .45s ease-in-out infinite alternate;
+        }
+
+        @keyframes bShake {
+            from {
+                transform: rotate(-14deg) scale(.87);
+            }
+
+            to {
+                transform: rotate(14deg) scale(1.13);
+            }
+        }
+
+        /* Error text below scene */
+        .error-text-content {
+            max-width: 580px;
+            padding: 0 20px;
+        }
+
+        .error-text-content h2 {
+            font-size: 2rem;
+            margin-bottom: 1rem;
         }
 
         .cta-button {
-            display: inline-block;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
             padding: 10px 20px;
             border: 1px solid currentColor;
             text-decoration: none;
@@ -114,9 +285,77 @@
     </header>
 
     <main class="page-404">
-        <div class="error-content" style="max-width: 600px; padding: 0 20px;">
-            <div class="giant-404" style="margin-bottom: -0px;">404</div>
-            <h2 style="font-size: 2rem; margin-bottom: 1rem;">Page Not Found</h2>
+
+        <!-- ===== TRAIN WRECK SCENE ===== -->
+        <div class="wreck-scene" role="img"
+            aria-label="A steam locomotive crashed into the 404 text sitting on railway tracks">
+
+            <!-- Smoke from stuck locomotive -->
+            <div class="smoke-wrap" aria-hidden="true">
+                <div class="puff"></div>
+                <div class="puff"></div>
+                <div class="puff"></div>
+            </div>
+
+            <!-- Steam locomotive SVG (faces right → nose pressed into 404) -->
+            <svg class="loco-svg" viewBox="0 0 200 100" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                <!-- Cab (rear/left) -->
+                <rect x="2" y="15" width="52" height="55" rx="5" />
+                <rect x="8" y="21" width="18" height="13" rx="2" class="win" />
+                <rect x="30" y="21" width="16" height="13" rx="2" class="win" />
+                <!-- Boiler -->
+                <rect x="46" y="27" width="114" height="36" rx="7" />
+                <!-- Steam dome -->
+                <ellipse cx="96" cy="26" rx="13" ry="7" />
+                <!-- Smokestack (near front, right side) -->
+                <rect x="148" y="2" width="11" height="28" rx="3" />
+                <rect x="143" y="2" width="21" height="7" rx="3" />
+                <!-- Smokebox -->
+                <rect x="155" y="23" width="32" height="40" rx="4" />
+                <!-- Headlight -->
+                <circle cx="189" cy="36" r="6" class="lite" />
+                <!-- Cow-catcher -->
+                <polygon points="185,62 200,70 200,62" />
+                <!-- Running board -->
+                <rect x="2" y="62" width="183" height="5" rx="2" opacity="0.5" />
+                <!-- Rear small wheel -->
+                <circle cx="24" cy="80" r="11" class="wrim" />
+                <circle cx="24" cy="80" r="3" />
+                <!-- Drive wheel 1 -->
+                <circle cx="80" cy="80" r="16" class="wrim" />
+                <line x1="80" y1="64" x2="80" y2="96" class="spk" />
+                <line x1="64" y1="80" x2="96" y2="80" class="spk" />
+                <line x1="69" y1="69" x2="91" y2="91" class="spk" />
+                <line x1="91" y1="69" x2="69" y2="91" class="spk" />
+                <circle cx="80" cy="80" r="4" />
+                <!-- Drive wheel 2 -->
+                <circle cx="130" cy="80" r="16" class="wrim" />
+                <line x1="130" y1="64" x2="130" y2="96" class="spk" />
+                <line x1="114" y1="80" x2="146" y2="80" class="spk" />
+                <line x1="119" y1="69" x2="141" y2="91" class="spk" />
+                <line x1="141" y1="69" x2="119" y2="91" class="spk" />
+                <circle cx="130" cy="80" r="4" />
+                <!-- Connecting rod -->
+                <rect x="73" y="77" width="61" height="5" rx="2" opacity="0.6" />
+            </svg>
+
+            <!-- Impact burst at crash point -->
+            <div class="impact-burst" aria-hidden="true">💥</div>
+
+            <!-- The 404 text acts as the obstacle on the tracks -->
+            <div class="four-oh-four" aria-hidden="true">404</div>
+
+            <!-- Railway tracks (full width behind everything) -->
+            <div class="scene-tracks" aria-hidden="true">
+                <div class="sleepers"></div>
+                <div class="rail rail-top"></div>
+                <div class="rail rail-bottom"></div>
+            </div>
+        </div>
+
+        <!-- Error message content -->
+        <div class="error-text-content">
+            <h2>Page Not Found</h2>
 
             <p style="font-size: 1.1rem; opacity: 0.8; margin-bottom: 2rem;">
                 The path you followed is broken or the page has been moved.
@@ -124,21 +363,19 @@
             </p>
 
             <div style="display: flex; gap: 15px; justify-content: center; flex-wrap: wrap; margin-bottom: 2.5rem;">
-                <a href="/" class="cta-button" style="display: flex; align-items: center; gap: 8px;">
+                <a href="/" class="cta-button">
                     <i class="fas fa-home"></i> Home
                 </a>
-                <a href="/#all-projects" class="cta-button"
-                    style="background: transparent; border-color: currentColor; color: inherit; display: flex; align-items: center; gap: 8px;">
+                <a href="/#all-projects" class="cta-button">
                     <i class="fas fa-code"></i> Projects
                 </a>
-                <a href="mailto:contact@yigitguven.net" class="cta-button"
-                    style="background: transparent; border-color: currentColor; color: inherit; display: flex; align-items: center; gap: 8px;">
+                <a href="mailto:contact@yigitguven.net" class="cta-button">
                     <i class="fas fa-envelope"></i> Contact
                 </a>
             </div>
 
             <div
-                style="border-top: 1px solid rgba(128,128,128, 0.3); padding-top: 1.5rem; font-size: 0.9rem; opacity: 0.7;">
+                style="border-top: 1px solid rgba(128,128,128,0.3); padding-top: 1.5rem; font-size: 0.9rem; opacity: 0.7;">
                 <p>Do you think it's the code, not you? Create a <a
                         href="https://github.com/yigit-guven/yigitguven.net/issues/new" target="_blank"
                         style="color: inherit; text-decoration: underline;">GitHub Issue</a>.</p>
