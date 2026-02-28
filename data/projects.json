@@ -648,9 +648,9 @@
         "searchData": "advanced hud minecraft mod java game modding utility raycasting block entity detection real-time identification"
     },
     {
-        "id": "ultimateperformancemod",
-        "name": "Ultimate Performance Mod",
-        "logo": "./images/projecticons/ultimateperformancemod.svg",
+        "id": "superionic",
+        "name": "Superionic",
+        "logo": "./images/projecticons/superionic.svg",
         "tags": [
             "Minecraft Modding",
             "Java",
@@ -658,28 +658,28 @@
             "Utility",
             "Optimization"
         ],
-        "description": "Ultimate Performance Mod (UPM) is a comprehensive, all-in-one client performance suite for Minecraft. It optimizes the rendering pipeline, entity processing, and memory allocation to squeeze every frame out of the game without compromising the visual experience.",
+        "description": "Superionic is a comprehensive, all-in-one client performance suite for Minecraft. It optimizes the rendering pipeline, entity processing, and memory allocation to squeeze every frame out of the game without compromising the visual experience.",
         "links": [
             {
                 "type": "Modrinth",
                 "text": "Modrinth",
-                "url": "https://modrinth.com/mod/ultimate-performance-mod"
+                "url": "https://modrinth.com/mod/superionic"
             },
             {
                 "type": "CurseForge",
                 "text": "CurseForge",
-                "url": "https://www.curseforge.com/minecraft/mc-mods/ultimate-performance-mod"
+                "url": "https://www.curseforge.com/minecraft/mc-mods/superionic"
             },
             {
                 "type": "GitHub",
                 "text": "GitHub",
-                "url": "https://github.com/yigit-guven/Ultimate-Performance-Mod",
+                "url": "https://github.com/yigit-guven/Superionic",
                 "icon": "fab fa-github"
             },
             {
                 "type": "Wiki",
                 "text": "Wiki",
-                "url": "https://github.com/yigit-guven/Ultimate-Performance-Mod/wiki",
+                "url": "https://github.com/yigit-guven/Superionic/wiki",
                 "icon": "fas fa-book"
             },
             {
@@ -689,7 +689,52 @@
                 "icon": "fab fa-discord"
             }
         ],
-        "home_page": "https://modrinth.com/mod/ultimate-performance-mod",
-        "searchData": "ultimate performance mod upm minecraft optimization java rendering frames utility client-side performance"
+        "home_page": "https://github.com/yigit-guven/Superionic",
+        "searchData": "superionic minecraft optimization java rendering frames utility client-side performance"
+    },
+    {
+        "id": "claim",
+        "name": "Claim",
+        "logo": "./images/projecticons/claim.svg",
+        "tags": [
+            "Minecraft Modding",
+            "Java",
+            "Game Development",
+            "Utility",
+            "Land Management"
+        ],
+        "description": "Claim is a powerful land management mod for Minecraft. It empowers players to secure their hard-earned progress by claiming chunks of the world, preventing griefing, and creating shared territories with friends.",
+        "links": [
+            {
+                "type": "Modrinth",
+                "text": "Modrinth",
+                "url": "https://modrinth.com/mod/claim"
+            },
+            {
+                "type": "CurseForge",
+                "text": "CurseForge",
+                "url": "https://www.curseforge.com/minecraft/mc-mods/claim"
+            },
+            {
+                "type": "GitHub",
+                "text": "GitHub",
+                "url": "https://github.com/yigit-guven/Claim",
+                "icon": "fab fa-github"
+            },
+            {
+                "type": "Wiki",
+                "text": "Wiki",
+                "url": "https://github.com/yigit-guven/Claim/wiki",
+                "icon": "fas fa-book"
+            },
+            {
+                "type": "Discord",
+                "text": "Discord",
+                "url": "https://discord.gg/aPk7Qs5d4H",
+                "icon": "fab fa-discord"
+            }
+        ],
+        "home_page": "https://github.com/yigit-guven/Claim",
+        "searchData": "claim minecraft mod java game modding land management territory protection forge"
     }
 ]
