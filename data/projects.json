@@ -584,6 +584,51 @@
         "searchData": "leather craft minecraft crafting utility recipe java game modding"
     },
     {
+        "id": "loots",
+        "name": "Loots",
+        "logo": "./images/projecticons/loots.gif",
+        "tags": [
+            "Minecraft Modding",
+            "Java",
+            "Game Development",
+            "Loot System",
+            "Utility"
+        ],
+        "description": "Loots is a Minecraft mod that adds loot bundles (pouches) which drop from hostile mobs. These bundles come in several rarities and feature randomized item placement for a more authentic looting experience.",
+        "links": [
+            {
+                "type": "GitHub",
+                "text": "GitHub",
+                "url": "https://github.com/yigit-guven/Loots",
+                "icon": "fab fa-github"
+            },
+            {
+                "type": "CurseForge",
+                "text": "CurseForge",
+                "url": "https://www.curseforge.com/minecraft/mc-mods/loots"
+            },
+            {
+                "type": "Modrinth",
+                "text": "Modrinth",
+                "url": "https://modrinth.com/mod/loots"
+            },
+            {
+                "type": "Wiki",
+                "text": "Wiki",
+                "url": "https://github.com/yigit-guven/Loots/wiki",
+                "icon": "fas fa-book"
+            },
+            {
+                "type": "Discord",
+                "text": "Discord",
+                "url": "https://discord.gg/gNajXYku5z",
+                "icon": "fab fa-discord"
+            }
+        ],
+        "home_page": "https://github.com/yigit-guven/Loots",
+        "searchData": "loots minecraft mod java game modding loot pouches mystery pouches hostile mobs drops rarities randomized slots utility"
+    },
+    {
         "id": "pycart",
         "name": "PyCart Engine",
         "logo": "./images/projecticons/pycartengine.svg",
