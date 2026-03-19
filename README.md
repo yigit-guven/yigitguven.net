@@ -35,6 +35,8 @@ Below is a complete list of my professional profiles and contact channels:
 ### Social Media
 *   **Discord Server**: [Join Community](https://discord.gg/gNajXYku5z)
 *   **YouTube**: [ImperfecTWR](https://www.youtube.com/@ImperfecTWR)
+*   **X (Twitter)**: [@YigitGuven0](https://x.com/YigitGuven0)
+*   **Bluesky**: [@yigitguven.net](https://bsky.app/profile/yigitguven.net)
 
 ## License
 
