@@ -1409,6 +1409,13 @@ button {
     transform: rotate(5deg) scale(1.1);
 }
 
+.contact-icon svg {
+    width: 32px;
+    height: 32px;
+    fill: currentColor;
+    display: block;
+}
+
 /* Specific Card Hover Colors (Optional, keeps it cleaner if just accent) */
 /* But let's add some subtle variety if needed, sticking to accent main for now for consistency */
 
@@ -1482,6 +1489,7 @@ button {
 }
 /* New Contact Card Hovers */
 .gdev-card:hover .contact-icon { background: #4285F4; color: white; }
+.x-card:hover .contact-icon { background: #000000; color: white; }
 .bisect-card:hover .contact-icon { background: #0065fa; color: white; }
 /* Interactive Card Styles */
 .interactive-card {
