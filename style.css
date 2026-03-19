@@ -1490,6 +1490,7 @@ button {
 /* New Contact Card Hovers */
 .gdev-card:hover .contact-icon { background: #4285F4; color: white; }
 .x-card:hover .contact-icon { background: #000000; color: white; }
+.bluesky-card:hover .contact-icon { background: #0085ff; color: white; }
 .bisect-card:hover .contact-icon { background: #0065fa; color: white; }
 /* Interactive Card Styles */
 .interactive-card {
