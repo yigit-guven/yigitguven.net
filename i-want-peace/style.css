@@ -22,7 +22,8 @@
     box-sizing: border-box;
 }
 
-img, svg {
+img,
+svg {
     user-select: none;
     -webkit-user-select: none;
     -webkit-user-drag: none;
@@ -30,7 +31,8 @@ img, svg {
     draggable: false;
 }
 
-html, body {
+html,
+body {
     width: 100%;
     height: 100%;
     overflow: hidden;
@@ -57,13 +59,40 @@ html, body {
     animation: drift 20s infinite alternate ease-in-out;
 }
 
-.blob-1 { width: 50vw; height: 50vw; top: -10%; left: -10%; background: #8b0000; }
-.blob-2 { width: 35vw; height: 35vw; bottom: -10%; right: -10%; background: #5b0000; animation-delay: -7s; }
-.blob-3 { width: 25vw; height: 25vw; top: 40%; left: 60%; background: #2e1065; animation-delay: -14s; }
+.blob-1 {
+    width: 50vw;
+    height: 50vw;
+    top: -10%;
+    left: -10%;
+    background: #8b0000;
+}
+
+.blob-2 {
+    width: 35vw;
+    height: 35vw;
+    bottom: -10%;
+    right: -10%;
+    background: #5b0000;
+    animation-delay: -7s;
+}
+
+.blob-3 {
+    width: 25vw;
+    height: 25vw;
+    top: 40%;
+    left: 60%;
+    background: #2e1065;
+    animation-delay: -14s;
+}
 
 @keyframes drift {
-    from { transform: translate(0, 0) scale(1); }
-    to   { transform: translate(5%, 8%) scale(1.15); }
+    from {
+        transform: translate(0, 0) scale(1);
+    }
+
+    to {
+        transform: translate(5%, 8%) scale(1.15);
+    }
 }
 
 /* Stone texture overlay */
@@ -98,6 +127,19 @@ body::after {
     filter: drop-shadow(0 0 8px rgba(212, 175, 55, 0.4));
 }
 
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+}
+
+.nav-title {
+    height: 22px;
+    width: auto;
+    opacity: 0.85;
+    filter: drop-shadow(0 0 6px rgba(212, 175, 55, 0.3));
+}
+
 .nav-links {
     list-style: none;
     display: flex;
@@ -113,7 +155,9 @@ body::after {
     transition: color 0.3s;
 }
 
-.nav-links a:hover { color: var(--gold-bright); }
+.nav-links a:hover {
+    color: var(--gold-bright);
+}
 
 /* ─── Hero (Full-Screen) */
 .hero {
@@ -144,10 +188,21 @@ body::after {
 }
 
 @keyframes torchFlicker {
-    0%   { opacity: 0.85; }
-    40%  { opacity: 1; }
-    70%  { opacity: 0.9; }
-    100% { opacity: 1; }
+    0% {
+        opacity: 0.85;
+    }
+
+    40% {
+        opacity: 1;
+    }
+
+    70% {
+        opacity: 0.9;
+    }
+
+    100% {
+        opacity: 1;
+    }
 }
 
 /* Bottom fade-out */
@@ -158,7 +213,7 @@ body::after {
     left: 0;
     width: 100%;
     height: 20%;
-    background: linear-gradient(to top, rgba(5,5,5,0.9), transparent);
+    background: linear-gradient(to top, rgba(5, 5, 5, 0.9), transparent);
     pointer-events: none;
     z-index: 3;
 }
@@ -172,7 +227,8 @@ body::after {
     text-align: center;
     gap: 1.5rem;
     z-index: 10;
-    padding: 0 80px; /* Clear of pillars */
+    padding: 0 80px;
+    /* Clear of pillars */
 }
 
 .banner-img {
@@ -184,8 +240,17 @@ body::after {
 }
 
 @keyframes bannerIn {
-    from { opacity: 0; transform: translateY(30px); filter: blur(15px); }
-    to   { opacity: 1; transform: translateY(0); filter: blur(0); }
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+        filter: blur(15px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+        filter: blur(0);
+    }
 }
 
 .hero-subtitle {
@@ -198,8 +263,15 @@ body::after {
 }
 
 @keyframes fadeUp {
-    from { opacity: 0; transform: translateY(15px); }
-    to   { opacity: 0.6; transform: translateY(0); }
+    from {
+        opacity: 0;
+        transform: translateY(15px);
+    }
+
+    to {
+        opacity: 0.6;
+        transform: translateY(0);
+    }
 }
 
 .cta-btn {
@@ -213,14 +285,14 @@ body::after {
     color: #000;
     background: linear-gradient(to bottom, var(--gold-bright), #aa8a24);
     border-radius: 3px;
-    box-shadow: 0 0 30px rgba(212, 175, 55, 0.3), 0 8px 24px rgba(0,0,0,0.6);
+    box-shadow: 0 0 30px rgba(212, 175, 55, 0.3), 0 8px 24px rgba(0, 0, 0, 0.6);
     transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
     animation: fadeUp 2s 0.9s both;
 }
 
 .cta-btn:hover {
     transform: translateY(-4px) scale(1.04);
-    box-shadow: 0 0 60px rgba(212, 175, 55, 0.55), 0 12px 32px rgba(0,0,0,0.7);
+    box-shadow: 0 0 60px rgba(212, 175, 55, 0.55), 0 12px 32px rgba(0, 0, 0, 0.7);
 }
 
 /* ─── Release Block */
@@ -253,8 +325,13 @@ body::after {
 }
 
 @keyframes tbaPulse {
-    from { text-shadow: 0 0 20px rgba(212,175,55,0.4), 0 0 60px rgba(212,175,55,0.1); }
-    to   { text-shadow: 0 0 40px rgba(212,175,55,0.7), 0 0 100px rgba(212,175,55,0.3); }
+    from {
+        text-shadow: 0 0 20px rgba(212, 175, 55, 0.4), 0 0 60px rgba(212, 175, 55, 0.1);
+    }
+
+    to {
+        text-shadow: 0 0 40px rgba(212, 175, 55, 0.7), 0 0 100px rgba(212, 175, 55, 0.3);
+    }
 }
 
 /* ─── Locked Button */
@@ -265,21 +342,19 @@ body::after {
     font-weight: 700;
     font-size: 0.9rem;
     letter-spacing: 0.25em;
-    color: rgba(255,255,255,0.3);
+    color: rgba(255, 255, 255, 0.3);
     background:
-        repeating-linear-gradient(
-            45deg,
-            rgba(30,30,30,0.9) 0px,
-            rgba(30,30,30,0.9) 6px,
-            rgba(20,20,20,0.9) 6px,
-            rgba(20,20,20,0.9) 12px
-        );
-    border: 1px solid rgba(255,255,255,0.08);
+        repeating-linear-gradient(45deg,
+            rgba(30, 30, 30, 0.9) 0px,
+            rgba(30, 30, 30, 0.9) 6px,
+            rgba(20, 20, 20, 0.9) 6px,
+            rgba(20, 20, 20, 0.9) 12px);
+    border: 1px solid rgba(255, 255, 255, 0.08);
     border-radius: 3px;
     cursor: not-allowed;
     position: relative;
     overflow: hidden;
-    box-shadow: 0 4px 20px rgba(0,0,0,0.6);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.6);
 }
 
 /* ─── Discord hint */
@@ -300,6 +375,7 @@ body::after {
     color: #7289da;
     opacity: 1;
 }
+
 .hero-socials {
     position: absolute;
     bottom: 2.5rem;
@@ -332,4 +408,22 @@ body::after {
     color: rgba(255, 255, 255, 0.2);
     white-space: nowrap;
     z-index: 10;
+}
+
+.page-copyright {
+    position: absolute;
+    bottom: 1rem;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 0.6rem;
+    letter-spacing: 0.12em;
+    color: rgba(255, 255, 255, 0.2);
+    white-space: nowrap;
+    z-index: 10;
+}
+
+.page-copyright a {
+    color: inherit;
+    opacity: 0.5;
+    text-decoration: none;
 }
