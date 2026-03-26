@@ -91,6 +91,54 @@
         "isBeta": true
     },
     {
+        "id": "iwantpeace",
+        "name": "I Want Peace",
+        "logo": "./images/projecticons/iwantpeace.svg",
+        "tags": [
+            "Roblox Development",
+            "Game Development",
+            "Lua",
+            "MMORPG",
+            "Open World",
+            "Action Adventure"
+        ],
+        "description": "I Want Peace is an immersive open-world action-adventure MMORPG built on the Roblox platform. In this vast world, players are free to define their own path. Whether you choose to master the art of combat as a warrior, live a peaceful life as a master blacksmith or fisherman, or explore the world as a rogue player killer, the choice is yours. With diverse races and deep role-playing mechanics, the game offers a beautiful and living world where you can seek glory or simply chill in a stunning landscape.",
+        "links": [
+            {
+                "type": "YouTube",
+                "text": "YouTube Channel",
+                "url": "https://www.youtube.com/channel/UCSsZ8z55SPwcWSmFQlCQCBg",
+                "icon": "fab fa-youtube"
+            },
+            {
+                "type": "Website",
+                "text": "Official Site",
+                "url": "https://yigitguven.net/i-want-peace/",
+                "icon": "fas fa-external-link-alt"
+            },
+            {
+                "type": "Play",
+                "text": "Play on Roblox",
+                "url": "https://www.roblox.com/join/ihw3w",
+                "icon": "fas fa-gamepad"
+            },
+            {
+                "type": "Wiki",
+                "text": "Project Wiki",
+                "url": "https://yigitguven.net/i-want-peace/wiki/",
+                "icon": "fas fa-book"
+            },
+            {
+                "type": "Discord",
+                "text": "Discord Server",
+                "url": "https://discord.gg/gNajXYku5z",
+                "icon": "fab fa-discord"
+            }
+        ],
+        "home_page": "https://yigitguven.net/i-want-peace/",
+        "searchData": "i want peace roblox mmorpg open world action adventure lua game development races classes exploration roleplay"
+    },
+    {
         "id": "petting",
         "name": "Petting",
         "logo": "./images/projecticons/petting.svg",
