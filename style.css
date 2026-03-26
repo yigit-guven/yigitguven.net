@@ -1492,6 +1492,8 @@ button {
 .x-card:hover .contact-icon { background: #000000; color: white; }
 .bluesky-card:hover .contact-icon { background: #0085ff; color: white; }
 .bisect-card:hover .contact-icon { background: #0065fa; color: white; }
+.facebook-card:hover .contact-icon { background: #1877F2; color: white; }
+.instagram-card:hover .contact-icon { background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%); color: white; }
 /* Interactive Card Styles */
 .interactive-card {
     cursor: pointer;
