@@ -161,9 +161,11 @@ body::after {
 
 /* ─── Hero (Full-Screen) */
 .hero {
-    position: relative;
+    position: absolute;
+    top: 0;
+    left: 0;
     width: 100%;
-    height: 100vh;
+    height: 100%;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -171,6 +173,7 @@ body::after {
     z-index: 2;
     overflow: hidden;
 }
+
 
 /* ─── Atmospheric Edge Lighting
    Warm amber torchlight glow emanating from both sides.
