@@ -1,0 +1,335 @@
+/* =========================================
+   I WANT PEACE — Crimson Keep CSS
+   Clean slate build — single-frame hero
+   ========================================= */
+
+/* — Fonts & Variables */
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700;900&family=Inter:wght@300;400;600&display=swap');
+
+:root {
+    --bg-dark: #050505;
+    --red-crimson: #6b0000;
+    --red-dark: #1a0000;
+    --gold-bright: #d4af37;
+    --gold-dark: #8b6914;
+    --text-light: #e8e3d5;
+    --glass-border: rgba(212, 175, 55, 0.15);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+img, svg {
+    user-select: none;
+    -webkit-user-select: none;
+    -webkit-user-drag: none;
+    pointer-events: none;
+    draggable: false;
+}
+
+html, body {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    background: var(--bg-dark);
+    font-family: 'Inter', sans-serif;
+    color: var(--text-light);
+}
+
+/* ─── Background Blobs */
+.ambient-bg {
+    position: fixed;
+    inset: 0;
+    z-index: 0;
+    pointer-events: none;
+    overflow: hidden;
+    background: radial-gradient(ellipse at center, #3b0000 0%, #050505 65%);
+}
+
+.glow-blob {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(80px);
+    opacity: 0.25;
+    animation: drift 20s infinite alternate ease-in-out;
+}
+
+.blob-1 { width: 50vw; height: 50vw; top: -10%; left: -10%; background: #8b0000; }
+.blob-2 { width: 35vw; height: 35vw; bottom: -10%; right: -10%; background: #5b0000; animation-delay: -7s; }
+.blob-3 { width: 25vw; height: 25vw; top: 40%; left: 60%; background: #2e1065; animation-delay: -14s; }
+
+@keyframes drift {
+    from { transform: translate(0, 0) scale(1); }
+    to   { transform: translate(5%, 8%) scale(1.15); }
+}
+
+/* Stone texture overlay */
+body::after {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background-image: url('https://www.transparenttextures.com/patterns/black-linen.png');
+    opacity: 0.08;
+    pointer-events: none;
+    z-index: 1;
+}
+
+/* ─── Navigation */
+.glass-nav {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    padding: 1.2rem 3rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    z-index: 100;
+    backdrop-filter: blur(12px);
+    background: rgba(5, 5, 5, 0.6);
+    border-bottom: 1px solid var(--glass-border);
+}
+
+.nav-logo {
+    height: 36px;
+    width: auto;
+    filter: drop-shadow(0 0 8px rgba(212, 175, 55, 0.4));
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 2.5rem;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: var(--gold-dark);
+    font-family: 'Cinzel', serif;
+    font-size: 0.75rem;
+    letter-spacing: 0.15em;
+    transition: color 0.3s;
+}
+
+.nav-links a:hover { color: var(--gold-bright); }
+
+/* ─── Hero (Full-Screen) */
+.hero {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    z-index: 2;
+    overflow: hidden;
+}
+
+/* ─── Atmospheric Edge Lighting
+   Warm amber torchlight glow emanating from both sides.
+   No CSS geometry — pure light. */
+.hero::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background:
+        radial-gradient(ellipse 30% 80% at 0% 50%, rgba(180, 80, 0, 0.35) 0%, transparent 70%),
+        radial-gradient(ellipse 30% 80% at 100% 50%, rgba(180, 80, 0, 0.35) 0%, transparent 70%);
+    pointer-events: none;
+    z-index: 3;
+    animation: torchFlicker 4s infinite ease-in-out alternate;
+}
+
+@keyframes torchFlicker {
+    0%   { opacity: 0.85; }
+    40%  { opacity: 1; }
+    70%  { opacity: 0.9; }
+    100% { opacity: 1; }
+}
+
+/* Bottom fade-out */
+.hero::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 20%;
+    background: linear-gradient(to top, rgba(5,5,5,0.9), transparent);
+    pointer-events: none;
+    z-index: 3;
+}
+
+
+/* ─── Hero Content */
+.hero-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 1.5rem;
+    z-index: 10;
+    padding: 0 80px; /* Clear of pillars */
+}
+
+.banner-img {
+    max-width: 620px;
+    width: 100%;
+    height: auto;
+    filter: drop-shadow(0 12px 30px rgba(0, 0, 0, 0.9));
+    animation: bannerIn 1.8s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+@keyframes bannerIn {
+    from { opacity: 0; transform: translateY(30px); filter: blur(15px); }
+    to   { opacity: 1; transform: translateY(0); filter: blur(0); }
+}
+
+.hero-subtitle {
+    font-size: 0.72rem;
+    letter-spacing: 0.55em;
+    text-transform: uppercase;
+    color: var(--gold-dark);
+    opacity: 0.6;
+    animation: fadeUp 2s 0.5s both;
+}
+
+@keyframes fadeUp {
+    from { opacity: 0; transform: translateY(15px); }
+    to   { opacity: 0.6; transform: translateY(0); }
+}
+
+.cta-btn {
+    display: inline-block;
+    padding: 1rem 3.5rem;
+    font-family: 'Cinzel', serif;
+    font-weight: 700;
+    font-size: 0.9rem;
+    letter-spacing: 0.25em;
+    text-decoration: none;
+    color: #000;
+    background: linear-gradient(to bottom, var(--gold-bright), #aa8a24);
+    border-radius: 3px;
+    box-shadow: 0 0 30px rgba(212, 175, 55, 0.3), 0 8px 24px rgba(0,0,0,0.6);
+    transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    animation: fadeUp 2s 0.9s both;
+}
+
+.cta-btn:hover {
+    transform: translateY(-4px) scale(1.04);
+    box-shadow: 0 0 60px rgba(212, 175, 55, 0.55), 0 12px 32px rgba(0,0,0,0.7);
+}
+
+/* ─── Release Block */
+.release-block {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.4rem;
+    margin-bottom: 0.5rem;
+}
+
+.tba-label {
+    font-size: 0.6rem;
+    letter-spacing: 0.45em;
+    color: var(--gold-dark);
+    opacity: 0.7;
+    text-transform: uppercase;
+}
+
+.tba-text {
+    font-family: 'Cinzel', serif;
+    font-size: clamp(1.6rem, 3vw, 2.6rem);
+    font-weight: 900;
+    letter-spacing: 0.35em;
+    color: var(--gold-bright);
+    text-shadow:
+        0 0 30px rgba(212, 175, 55, 0.5),
+        0 0 80px rgba(212, 175, 55, 0.2);
+    animation: tbaPulse 3s ease-in-out infinite alternate;
+}
+
+@keyframes tbaPulse {
+    from { text-shadow: 0 0 20px rgba(212,175,55,0.4), 0 0 60px rgba(212,175,55,0.1); }
+    to   { text-shadow: 0 0 40px rgba(212,175,55,0.7), 0 0 100px rgba(212,175,55,0.3); }
+}
+
+/* ─── Locked Button */
+.cta-btn.locked {
+    display: inline-block;
+    padding: 1rem 3.5rem;
+    font-family: 'Cinzel', serif;
+    font-weight: 700;
+    font-size: 0.9rem;
+    letter-spacing: 0.25em;
+    color: rgba(255,255,255,0.3);
+    background:
+        repeating-linear-gradient(
+            45deg,
+            rgba(30,30,30,0.9) 0px,
+            rgba(30,30,30,0.9) 6px,
+            rgba(20,20,20,0.9) 6px,
+            rgba(20,20,20,0.9) 12px
+        );
+    border: 1px solid rgba(255,255,255,0.08);
+    border-radius: 3px;
+    cursor: not-allowed;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.6);
+}
+
+/* ─── Discord hint */
+.discord-hint {
+    font-size: 0.72rem;
+    margin-top: 0.2rem;
+}
+
+.discord-hint a {
+    color: var(--gold-dark);
+    text-decoration: none;
+    opacity: 0.55;
+    letter-spacing: 0.08em;
+    transition: opacity 0.3s, color 0.3s;
+}
+
+.discord-hint a:hover {
+    color: #7289da;
+    opacity: 1;
+}
+.hero-socials {
+    position: absolute;
+    bottom: 2.5rem;
+    display: flex;
+    gap: 2rem;
+    z-index: 10;
+}
+
+.hero-socials a {
+    color: var(--gold-dark);
+    font-size: 1.3rem;
+    opacity: 0.5;
+    text-decoration: none;
+    transition: all 0.3s;
+}
+
+.hero-socials a:hover {
+    color: var(--gold-bright);
+    opacity: 1;
+    transform: translateY(-4px);
+}
+
+.hero-copyright {
+    position: absolute;
+    bottom: 1rem;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 0.6rem;
+    letter-spacing: 0.12em;
+    color: rgba(255, 255, 255, 0.2);
+    white-space: nowrap;
+    z-index: 10;
+}
