@@ -575,8 +575,8 @@ body::after {
     /* Hero Section */
     .hero-content {
         padding: 0 1.5rem;
-        gap: 2rem;
-        margin-top: 4rem; /* Offset for nav */
+        gap: 1.5rem;
+        margin-top: 1.5rem; /* Reduced offset for nav */
     }
 
     .banner-img {
@@ -630,7 +630,7 @@ body::after {
     /* Wiki / Inner Pages */
     .wip-content {
         padding: 0 1.5rem;
-        margin-top: 4rem;
+        margin-top: 1.5rem;
     }
 
     .wip-icon {
