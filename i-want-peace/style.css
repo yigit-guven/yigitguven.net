@@ -377,6 +377,7 @@ body::after {
 .discord-hint a:hover {
     color: #7289da;
     opacity: 1;
+    text-shadow: 0 0 10px rgba(114, 137, 218, 0.6), 0 0 20px rgba(114, 137, 218, 0.3);
 }
 
 .hero-socials {
