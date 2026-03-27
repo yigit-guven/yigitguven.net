@@ -541,3 +541,124 @@ body::after {
     opacity: 0.5;
     text-decoration: none;
 }
+
+/* —————————————————————————————————————————
+   MOBILE RESPONSIVENESS (Max 768px)
+   ————————————————————————————————————————— */
+@media screen and (max-width: 768px) {
+    html, body {
+        overflow-y: auto; /* Allow scrolling on small screens */
+    }
+
+    /* Navigation */
+    .glass-nav {
+        padding: 1rem 1.5rem;
+    }
+
+    .nav-title {
+        display: none; /* Hide text title for more space */
+    }
+
+    .nav-links {
+        gap: 1.2rem;
+    }
+
+    .nav-links a {
+        font-size: 0.65rem;
+        letter-spacing: 0.1em;
+    }
+
+    .nav-links i {
+        font-size: 0.8rem;
+    }
+
+    /* Hero Section */
+    .hero-content {
+        padding: 0 1.5rem;
+        gap: 2rem;
+        margin-top: 4rem; /* Offset for nav */
+    }
+
+    .banner-img {
+        max-width: 420px;
+    }
+
+    .hero-subtitle {
+        font-size: 0.65rem;
+        letter-spacing: 0.35em;
+        line-height: 1.6;
+    }
+
+    .release-block {
+        gap: 0.3rem;
+    }
+
+    .tba-text {
+        font-size: clamp(1.4rem, 8vw, 2.2rem);
+        letter-spacing: 0.25em;
+    }
+
+    .cta-btn, 
+    .cta-btn.locked {
+        padding: 1rem 2.5rem;
+        font-size: 0.8rem;
+    }
+
+    .discord-hint {
+        font-size: 0.65rem;
+    }
+
+    /* Socials repositioning */
+    .hero-socials {
+        bottom: 5rem;
+        gap: 1.5rem;
+    }
+
+    .hero-socials a {
+        font-size: 1.2rem;
+    }
+
+    .page-copyright {
+        bottom: 1.5rem;
+        font-size: 0.55rem;
+        white-space: normal;
+        text-align: center;
+        width: 90%;
+        line-height: 1.4;
+    }
+
+    /* Wiki / Inner Pages */
+    .wip-content {
+        padding: 0 1.5rem;
+        margin-top: 4rem;
+    }
+
+    .wip-icon {
+        font-size: 3.5rem;
+    }
+
+    .wip-label {
+        font-size: 0.8rem;
+        letter-spacing: 0.3em;
+    }
+
+    .wip-title {
+        font-size: clamp(1.6rem, 8vw, 2.5rem);
+        letter-spacing: 0.2em;
+    }
+
+    .wip-sub {
+        font-size: 0.75rem;
+        max-width: 320px;
+    }
+
+    /* Background Adjustments */
+    .glow-blob {
+        filter: blur(60px);
+        opacity: 0.2;
+    }
+
+    .blob-1 { width: 70vw; height: 70vw; }
+    .blob-2 { width: 60vw; height: 60vw; }
+    .blob-3 { width: 50vw; height: 50vw; }
+}
