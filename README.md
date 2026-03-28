@@ -27,7 +27,7 @@ Below is a complete list of my professional profiles and contact channels:
 
 ### Development Platforms
 *   **Google Play**: [Yiğit Güven](https://play.google.com/store/apps/dev?id=7128980680944660685)
-*   **Roblox**: [Profile](https://www.roblox.com/users/10107546649/profile)
+*   **Roblox**: [Group](https://www.roblox.com/share/g/331200435)
 *   **Modrinth**: [yigitguven](https://modrinth.com/user/yigitguven)
 *   **CurseForge**: [yigitguven](https://www.curseforge.com/members/yigitguven/)
 *   **Repsy (Maven)**: [yigit-guven](https://repsy.io/yigit-guven)
