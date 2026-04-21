@@ -87,8 +87,7 @@
             }
         ],
         "home_page": "https://www.roblox.com/games/126354243623354/Mundus-Online-BETA",
-        "searchData": "mundus online roblox game development lua sandbox building planting trading economy",
-        "isBeta": true
+        "searchData": "mundus online roblox game development lua sandbox building planting trading economy"
     },
     {
         "id": "iwantpeace",
@@ -136,7 +135,8 @@
             }
         ],
         "home_page": "https://yigitguven.net/i-want-peace/",
-        "searchData": "i want peace roblox mmorpg open world action adventure lua game development races classes exploration roleplay"
+        "searchData": "i want peace roblox mmorpg open world action adventure lua game development races classes exploration roleplay",
+        "isBeta": true
     },
     {
         "id": "petting",
