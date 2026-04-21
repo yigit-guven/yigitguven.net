@@ -36,7 +36,9 @@
         "GitHub",
         "Docker",
         "VS Code",
-        "Android Studio"
+        "Android Studio",
+        "CustomTkinter",
+        "Automation"
     ],
     "Core Concepts": [
         "Algorithms",

@@ -829,5 +829,34 @@
         ],
         "home_page": "https://github.com/yigit-guven/Claim",
         "searchData": "claim minecraft mod java game modding land management territory protection forge"
+    },
+    {
+        "id": "simpleautoclicker",
+        "name": "Simple Auto Clicker",
+        "logo": "./images/projecticons/simpleautoclicker.svg",
+        "tags": [
+            "Python",
+            "GUI",
+            "Utility",
+            "Automation",
+            "CustomTkinter"
+        ],
+        "description": "Desktop utility for Windows designed to automate mouse clicks with precision and ease.",
+        "links": [
+            {
+                "type": "GitHub",
+                "text": "Source Code",
+                "url": "https://github.com/yigit-guven/Simple-Auto-Clicker",
+                "icon": "fab fa-github"
+            },
+            {
+                "type": "Download",
+                "text": "Get Executable",
+                "url": "https://github.com/yigit-guven/Simple-Auto-Clicker/releases",
+                "icon": "fas fa-download"
+            }
+        ],
+        "home_page": "https://github.com/yigit-guven/Simple-Auto-Clicker",
+        "searchData": "simple auto clicker python desktop utility automation mouse clicker gui customtkinter windows"
     }
 ]
