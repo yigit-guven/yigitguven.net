@@ -1,5 +1,38 @@
 [
     {
+        "id": "vault-ui",
+        "name": "Create: Vault UI",
+        "logo": "./images/projecticons/vaultui.svg",
+        "tags": [
+            "Minecraft Modding",
+            "Java",
+            "Create Addon",
+            "UI/UX Design",
+            "Utility"
+        ],
+        "description": "A clean and simple interface for the Create mod's Item Vaults. It aggregates all your items into one easy-to-read screen, making it much easier to manage large storage systems.",
+        "links": [
+            {
+                "type": "Modrinth",
+                "text": "Modrinth",
+                "url": "https://modrinth.com/mod/vault-ui"
+            },
+            {
+                "type": "CurseForge",
+                "text": "CurseForge",
+                "url": "https://www.curseforge.com/minecraft/mc-mods/vault-ui"
+            },
+            {
+                "type": "GitHub",
+                "text": "Source Code",
+                "url": "https://github.com/yigit-guven/Vault-UI",
+                "icon": "fab fa-github"
+            }
+        ],
+        "home_page": "https://modrinth.com/mod/vault-ui",
+        "searchData": "vault ui create addon minecraft mod java storage management items interface"
+    },
+    {
         "id": "pixelnokiseki",
         "name": "Pixel no Kiseki",
         "logo": "./images/projecticons/pixelnokiseki.svg",
@@ -796,7 +829,7 @@
             "Utility",
             "Land Management"
         ],
-        "description": "Claim is a powerful land management mod for Minecraft. It empowers players to secure their hard-earned progress by claiming chunks of the world, preventing griefing, and creating shared territories with friends.",
+        "description": "A selection-based land management mod for Minecraft featuring territory security, a 3D management interface with real-time previews, and seamless world map integration.",
         "links": [
             {
                 "type": "Modrinth",
@@ -828,7 +861,7 @@
             }
         ],
         "home_page": "https://github.com/yigit-guven/Claim",
-        "searchData": "claim minecraft mod java game modding land management territory protection forge"
+        "searchData": "claim minecraft mod java game modding land management territory protection selection-based 3d interface world map minimap"
     },
     {
         "id": "simpleautoclicker",
