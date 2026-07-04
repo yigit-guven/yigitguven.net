@@ -35,8 +35,7 @@
         "logo": "./images/projecticons/pixelnokiseki.svg",
         "tags": [
             "HTML",
-            "JavaScript",
-            "Web Development"
+            "JavaScript"
         ],
         "description": "A high-precision browser-based pixel art editor optimized for 8-bit icons, chibi sprites, and texture assets. Engineered with a focus on stability and portability.",
         "links": [
@@ -248,8 +247,7 @@
             "HTML",
             "CSS",
             "JavaScript",
-            "Web Development",
-            "Frontend Development",
+            "Frontend",
             "Backend"
         ],
         "description": "A premium responsive e-commerce website designed for \"The Tropic.\" Showcases tropical fruits with a clean, modern user interface.",
@@ -278,8 +276,7 @@
             "HTML",
             "CSS",
             "JavaScript",
-            "Web Development",
-            "Frontend Development",
+            "Frontend",
             "Backend"
         ],
         "description": "Personal website and projects of Yi\u011fit G\u00fcven. Hosted on GitHub Pages at yigitguven.net.",
@@ -347,8 +344,7 @@
         "tags": [
             "JavaScript",
             "HTML",
-            "CSS",
-            "Web Development"
+            "CSS"
         ],
         "description": "A lightweight, client-side tool to overlay customizable grids on images. Built with HTML5 and the Canvas API; runs entirely in the browser.",
         "links": [

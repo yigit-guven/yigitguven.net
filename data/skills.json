@@ -14,11 +14,10 @@
         "Pygame",
         "Hytale Modding",
         "Unity",
-        "Unreal Engine 3"
+        "Unreal Engine"
     ],
     "Web & Backend": [
-        "Web Development",
-        "Frontend Development",
+        "Frontend",
         "Backend",
         "API Development"
     ],
@@ -38,7 +37,6 @@
     "General Main Skills": [
         "Java",
         "Python",
-        "Web Development",
         "Git"
     ]
 }

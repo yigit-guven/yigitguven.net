@@ -56,6 +56,7 @@
     <meta name="twitter:image" content="https://yigitguven.net/images/logo.png">
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css" />
     <link rel="stylesheet" href="style.css">
     <link rel="icon" type="image/svg+xml" href="/images/favicon.svg">
 </head>
@@ -401,6 +402,14 @@
 
         // SVG Mappings (Icons from Footer)
         const svgMappings = {
+            'Hytale Modding': `<svg viewBox="0 0 24 24" fill="currentColor" width="1em" height="1em" role="img" xmlns="http://www.w3.org/2000/svg"><title>Hytale</title><path d="M5 2l4 2v18l-4-2z"/><path d="M15 4l4-2v18l-4 2z"/><path d="M9 10h6v4H9z"/></svg>`,
+            'Game Development': `<svg fill="currentColor" width="1em" height="1em" role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><title>Unity</title><path d="m12.9288 4.2939 3.7997 2.1929c.1366.077.1415.2905 0 .3675l-4.515 2.6076a.4192.4192 0 0 1-.4246 0L7.274 6.8543c-.139-.0745-.1415-.293 0-.3675l3.7972-2.193V0L1.3758 5.5977V16.793l3.7177-2.1456v-4.3858c-.0025-.1565.1813-.2682.318-.1838l4.5148 2.6076a.4252.4252 0 0 1 .2136.3676v5.2127c.0025.1565-.1813.2682-.3179.1838l-3.7996-2.1929-3.7178 2.1457L12 24l9.6954-5.5977-3.7178-2.1457-3.7996 2.1929c-.1341.082-.3229-.0248-.3179-.1838V13.053c0-.1565.087-.2956.2136-.3676l4.5149-2.6076c.134-.082.3228.0224.3179.1838v4.3858l3.7177 2.1456V5.5977L12.9288 0Z"/></svg>`,
+            'Frontend': `<svg fill="currentColor" width="1em" height="1em" role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><title>JavaScript</title><path d="M0 0h24v24H0V0zm22.034 18.276c-.175-1.095-.888-2.015-3.003-2.873-.736-.345-1.554-.585-1.797-1.14-.091-.33-.105-.51-.046-.705.15-.646.915-.84 1.515-.66.39.12.75.42.976.9 1.034-.676 1.034-.676 1.755-1.125-.27-.42-.404-.601-.586-.78-.63-.705-1.469-1.065-2.834-1.034l-.705.089c-.676.165-1.32.525-1.71 1.005-1.14 1.291-.811 3.541.569 4.471 1.365 1.02 3.361 1.244 3.616 2.205.24 1.17-.87 1.545-1.966 1.41-.811-.18-1.26-.586-1.755-1.336l-1.83 1.051c.21.48.45.689.81 1.109 1.74 1.756 6.09 1.666 6.871-1.004.029-.09.24-.705.074-1.65l.046.067zm-8.983-7.245h-2.248c0 1.938-.009 3.864-.009 5.805 0 1.232.063 2.363-.138 2.711-.33.689-1.18.601-1.566.48-.396-.196-.597-.466-.83-.855-.063-.105-.11-.196-.127-.196l-1.825 1.125c.305.63.75 1.172 1.324 1.517.855.51 2.004.675 3.207.405.783-.226 1.458-.691 1.811-1.411.51-.93.402-2.07.397-3.346.012-2.054 0-4.109 0-6.179l.004-.056z"/></svg>`,
+            'Web Development': `<svg fill="currentColor" width="1em" height="1em" role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><title>HTML5</title><path d="M1.5 0h21l-1.91 21.563L11.977 24l-8.564-2.438L1.5 0zm7.031 9.75l-.232-2.718 10.059.003.23-2.622L5.412 4.41l.698 8.01h9.126l-.326 3.426-2.91.804-2.955-.81-.188-2.11H6.248l.33 4.171L12 19.351l5.379-1.443.744-8.157H8.531z"/></svg>`,
+            'Roblox Development': `<svg fill="currentColor" width="1em" height="1em" role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><title>Roblox</title><path d="M18.926 23.998 0 18.892 5.075.002 24 5.108ZM15.348 10.09l-5.282-1.453-1.414 5.273 5.282 1.453z"/></svg>`,
+            'Minecraft Modding': `<svg viewBox=\"0 0 8 8\" fill=\"currentColor\" width=\"1em\" height=\"1em\" role=\"img\" xmlns=\"http://www.w3.org/2000/svg\"><title>Minecraft</title><rect x=\"1\" y=\"2\" width=\"2\" height=\"2\"/><rect x=\"5\" y=\"2\" width=\"2\" height=\"2\"/><rect x=\"3\" y=\"4\" width=\"2\" height=\"3\"/><rect x=\"2\" y=\"5\" width=\"1\" height=\"3\"/><rect x=\"5\" y=\"5\" width=\"1\" height=\"3\"/></svg>`,
+            'Unreal Engine': `<svg fill="currentColor" width="1em" height="1em" role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><title>Unreal Engine</title><path d="M12 0a12 12 0 1012 12A12 12 0 0012 0zm0 23.52A11.52 11.52 0 1123.52 12 11.52 11.52 0 0112 23.52zm7.13-9.791c-.206.997-1.126 3.557-4.06 4.942l-1.179-1.325-1.988 2a7.338 7.338 0 01-5.804-2.978 2.859 2.859 0 00.65.123c.326.006.678-.114.678-.66v-5.394a.89.89 0 00-1.116-.89c-.92.212-1.656 2.509-1.656 2.509a7.304 7.304 0 012.528-5.597 7.408 7.408 0 013.73-1.721c-1.006.573-1.57 1.507-1.57 2.29 0 1.262.76 1.109.984.923v7.28a1.157 1.157 0 00.148.256 1.075 1.075 0 00.88.445c.76 0 1.747-.868 1.747-.868V9.172c0-.6-.452-1.324-.905-1.572 0 0 .838-.149 1.484.346a5.537 5.537 0 01.387-.425c1.508-1.48 2.929-1.902 4.112-2.112 0 0-2.151 1.69-2.151 3.96 0 1.687.043 5.801.043 5.801.799.771 1.986-.342 3.059-1.441Z"/></svg>`,
+            'Unity': `<svg fill="currentColor" width="1em" height="1em" role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><title>Unity</title><path d="m12.9288 4.2939 3.7997 2.1929c.1366.077.1415.2905 0 .3675l-4.515 2.6076a.4192.4192 0 0 1-.4246 0L7.274 6.8543c-.139-.0745-.1415-.293 0-.3675l3.7972-2.193V0L1.3758 5.5977V16.793l3.7177-2.1456v-4.3858c-.0025-.1565.1813-.2682.318-.1838l4.5148 2.6076a.4252.4252 0 0 1 .2136.3676v5.2127c.0025.1565-.1813.2682-.3179.1838l-3.7996-2.1929-3.7178 2.1457L12 24l9.6954-5.5977-3.7178-2.1457-3.7996 2.1929c-.1341.082-.3229-.0248-.3179-.1838V13.053c0-.1565.087-.2956.2136-.3676l4.5149-2.6076c.134-.082.3228.0224.3179.1838v4.3858l3.7177 2.1456V5.5977L12.9288 0Z"/></svg>`,
             'CurseForge': `<svg viewBox="0 0 24 24" style="width: 1em; height: 1em; vertical-align: -0.125em;"><path d="m6.307 5.581.391 1.675H0s.112.502.167.558c.168.279.335.614.559.837 1.06 1.228 2.902 1.73 4.409 2.009 1.06.224 2.121.28 3.181.335l1.228 3.293h.67l.391 1.061h-.558l-.949 3.07h9.321l-.949-3.07h-.558l.39-1.061h.67s.558-3.404 2.288-4.967C21.935 7.758 24 7.535 24 7.535V5.581H6.307zm9.377 8.428c-.447.279-.949.279-1.284.503-.223.111-.335.446-.335.446-.223-.502-.502-.67-.837-.781-.335-.112-.949-.056-1.786-.782-.558-.502-.614-1.172-.558-1.507v-.167c0-.056 0-.112.056-.168.111-.334.39-.669.948-.893 0 0-.39.559 0 1.117.224.335.67.502 1.061.279.167-.112.279-.335.335-.503.111-.39.111-.781-.224-1.06-.502-.446-.613-1.06-.279-1.451 0 0 .112.502.614.446.335 0 .335-.111.224-.223-.056-.167-.782-1.228.279-2.009 0 0 .669-.447 1.451-.391-.447.056-.949.335-1.116.782v.055c-.168.447-.056.949.279 1.396.223.335.502.614.614 1.06-.168-.056-.279 0-.391.112a.533.533 0 0 0-.112.502c.056.112.168.223.279.223h.168c.167-.055.279-.279.223-.446.112.111.167.391.112.558 0 .167-.112.335-.168.446-.056.112-.167.224-.223.335-.056.112-.112.224-.112.335 0 .112 0 .279.056.391.223.335.67 0 .782-.279.167-.335.111-.726-.112-1.061 0 0 .391.224.67 1.005.223.67-.168 1.451-.614 1.73z" fill="currentColor"/></svg>`,
             'Modrinth': `<svg viewBox="0 0 24 24" style="width: 1em; height: 1em; vertical-align: -0.125em;"><path d="M12.252 0.004a11.78 11.768 0 0 0 -8.92 3.73 11 10.999 0 0 0 -2.17 3.11 11.37 11.359 0 0 0 -1.16 5.169c0 1.42 0.17 2.5 0.6 3.77 0.24 0.759 0.77 1.899 1.17 2.529a12.3 12.298 0 0 0 8.85 5.639c0.44 0.05 2.54 0.07 2.76 0.02 0.2 -0.04 0.22 0.1 -0.26 -1.7l-0.36 -1.37 -1.01 -0.06a8.5 8.489 0 0 1 -5.18 -1.8 5.34 5.34 0 0 1 -1.3 -1.26c0 -0.05 0.34 -0.28 0.74 -0.5a37.572 37.545 0 0 1 2.88 -1.629c0.03 0 0.5 0.45 1.06 0.98l1 0.97 2.07 -0.43 2.06 -0.43 1.47 -1.47c0.8 -0.8 1.48 -1.5 1.48 -1.52 0 -0.09 -0.42 -1.63 -0.46 -1.7 -0.04 -0.06 -0.2 -0.03 -1.02 0.18 -0.53 0.13 -1.2 0.3 -1.45 0.4l-0.48 0.15 -0.53 0.53 -0.53 0.53 -0.93 0.1 -0.93 0.07 -0.52 -0.5a2.7 2.7 0 0 1 -0.96 -1.7l-0.13 -0.6 0.43 -0.57c0.68 -0.9 0.68 -0.9 1.46 -1.1 0.4 -0.1 0.65 -0.2 0.83 -0.33 0.13 -0.099 0.65 -0.579 1.14 -1.069l0.9 -0.9 -0.7 -0.7 -0.7 -0.7 -1.95 0.54c-1.07 0.3 -1.96 0.53 -1.97 0.53 -0.03 0 -2.23 2.48 -2.63 2.97l-0.29 0.35 0.28 1.03c0.16 0.56 0.3 1.16 0.31 1.34l0.03 0.3 -0.34 0.23c-0.37 0.23 -2.22 1.3 -2.84 1.63 -0.36 0.2 -0.37 0.2 -0.44 0.1 -0.08 -0.1 -0.23 -0.6 -0.32 -1.03 -0.18 -0.86 -0.17 -2.75 0.02 -3.73a8.84 8.839 0 0 1 7.9 -6.93c0.43 -0.03 0.77 -0.08 0.78 -0.1 0.06 -0.17 0.5 -2.999 0.47 -3.039 -0.01 -0.02 -0.1 -0.02 -0.2 -0.03Zm3.68 0.67c-0.2 0 -0.3 0.1 -0.37 0.38 -0.06 0.23 -0.46 2.42 -0.46 2.52 0 0.04 0.1 0.11 0.22 0.16a8.51 8.499 0 0 1 2.99 2 8.38 8.379 0 0 1 2.16 3.449 6.9 6.9 0 0 1 0.4 2.8c0 1.07 0 1.27 -0.1 1.73a9.37 9.369 0 0 1 -1.76 3.769c-0.32 0.4 -0.98 1.06 -1.37 1.38 -0.38 0.32 -1.54 1.1 -1.7 1.14 -0.1 0.03 -0.1 0.06 -0.07 0.26 0.03 0.18 0.64 2.56 0.7 2.78l0.06 0.06a12.07 12.058 0 0 0 7.27 -9.4c0.13 -0.77 0.13 -2.58 0 -3.4a11.96 11.948 0 0 0 -5.73 -8.578c-0.7 -0.42 -2.05 -1.06 -2.25 -1.06Z" fill="currentColor"/></svg>`,
             'Bluesky': `<svg viewBox="0 0 24 24" style="width: 1em; height: 1em; vertical-align: -0.125em;"><path fill="currentColor" d="M12 10.8c-1.1-1.6-3.1-3.6-5-4.4C5.1 5.6 1.8 4.7 1.8 7c0 .6.3 4.2 2.1 6.3 1.1 1.2 2.6 1.6 4.1 1.7-2.9.2-4.9.9-4.9 3.1 0 3.3 4.8 4.1 6.9 2.5.9-.6 1.8-1.5 2-1.8.2.3 1.1 1.2 2 1.8 2.1 1.6 6.9.8 6.9-2.5 0-2.2-2-2.9-4.9-3.1 1.5-.1 3-.5 4.1-1.7 1.8-2.1 2.1-5.7 2.1-6.3 0-2.3-3.3-1.4-5.2-.6-1.9.8-3.9 2.8-5 4.4z" /></svg>`,
@@ -409,22 +418,23 @@
         // Icon mappings for different technologies and platforms
         const iconMappings = {
             // Programming Languages
-            'Java': 'fab fa-java',
-            'Python': 'fab fa-python',
-            'C++': 'fas fa-code',
-            'JavaScript': 'fab fa-js-square',
-            'Lua': 'fas fa-code',
-            'HTML': 'fab fa-html5',
-            'CSS': 'fab fa-css3-alt',
-            'HTML/CSS': 'fab fa-html5',
-            'Kotlin': 'fas fa-code',
+            'Java': 'devicon-java-plain colored',
+            'Python': 'devicon-python-plain colored',
+            'C++': 'devicon-cplusplus-plain colored',
+            'JavaScript': 'devicon-javascript-plain colored',
+            'Lua': 'devicon-lua-plain colored',
+            'HTML': 'devicon-html5-plain colored',
+            'CSS': 'devicon-css3-plain colored',
+            'HTML/CSS': 'devicon-html5-plain colored',
+            'Kotlin': 'devicon-kotlin-plain colored',
 
             // Development Types
             'Game Development': 'fas fa-gamepad',
             'Web Development': 'fas fa-globe',
-            'Android Dev': 'fab fa-android',
+            'Android Dev': 'devicon-android-plain colored',
             'Mobile': 'fas fa-mobile-alt',
             'Game Modding': 'fas fa-cube',
+            'VPS Hosting': 'fas fa-server',
             'API': 'fas fa-plug',
             'API Development': 'fas fa-plug',
             'Database Design': 'fas fa-database',
@@ -437,7 +447,7 @@
             'Frontend': 'fas fa-desktop',
             'GUI': 'fas fa-window-maximize',
             'Library': 'fas fa-book',
-            'Pygame': 'fas fa-gamepad',
+            'Pygame': 'devicon-python-plain colored',
             'Storage': 'fas fa-box',
             'Time Logic': 'fas fa-clock',
             'Tkinter': 'fas fa-window-maximize',
@@ -445,11 +455,14 @@
             'Performance': 'fas fa-tachometer-alt',
 
             // Tools & Platforms
-            'Git': 'fab fa-git-alt',
+            'Git': 'devicon-git-plain colored',
+            'Unity': 'devicon-unity-original colored',
+            'Unreal Engine': 'devicon-unrealengine-original colored',
+            'Backend': 'fas fa-server',
             'Minecraft': 'fas fa-cube',
             'Hytale': 'fas fa-gamepad',
             'Roblox': 'fas fa-gamepad',
-            'Figma': 'fab fa-figma',
+            'Figma': 'devicon-figma-plain colored',
             'UI/UX Design': 'fas fa-paint-brush',
             'Problem Solving': 'fas fa-lightbulb',
             'Project Management': 'fas fa-tasks',
@@ -460,7 +473,7 @@
             'Action Adventure': 'fas fa-map-marked-alt',
 
             // Link Types
-            'GitHub': 'fab fa-github',
+            'GitHub': 'devicon-github-original colored',
             'Google Play': 'fab fa-google-play',
             'Modrinth': 'fas fa-cube',
             'CurseForge': 'fas fa-cube',
@@ -482,17 +495,17 @@
             'Roblox Development': 'fas fa-gamepad',
             'Game Design': 'fas fa-pencil-ruler',
             'Game Mechanics': 'fas fa-cogs',
-            'Android Development': 'fab fa-android',
+            'Android Development': 'devicon-android-plain colored',
             'Frontend Development': 'fas fa-desktop',
             'Responsive Design': 'fas fa-mobile-alt',
-            'VS Code': 'fas fa-code',
-            'Android Studio': 'fab fa-android',
+            'VS Code': 'devicon-vscode-plain colored',
+            'Android Studio': 'devicon-androidstudio-plain colored',
             'OOP': 'fas fa-project-diagram',
             'Data Structures': 'fas fa-layer-group',
             'Problem Solving': 'fas fa-lightbulb',
 
             // New Skills Mappings
-            'SQL': 'fas fa-database',
+            'SQL': 'devicon-mysql-plain colored',
             'RAG': 'fas fa-brain',
             'LLM': 'fas fa-robot',
             'Vector Database': 'fas fa-project-diagram',
@@ -500,7 +513,7 @@
             'AI': 'fas fa-brain',
             'Hytale Modding': 'fas fa-gamepad',
             'Streamlit': 'fas fa-chart-bar',
-            'Docker': 'fab fa-docker',
+            'Docker': 'devicon-docker-plain colored',
             'CLI': 'fas fa-terminal',
             'System Design': 'fas fa-sitemap',
             'Sandbox': 'fas fa-cubes',
@@ -585,7 +598,8 @@
             }
 
             const html = skillsToRender.map((skill, index) => {
-                const iconClass = getIconForTag(skill);
+                const iconData = getIconForTag(skill);
+                const iconHtml = iconData.startsWith('<') ? iconData : `<i class="${iconData}"></i>`;
                 // Animation delay calculation
                 const delay = index * 0.05;
 
@@ -593,7 +607,7 @@
                     <div class="tech-item" data-tech="${skill}" onclick="handleSkillClick('${skill}')" 
                          style="animation: fadeIn 0.5s ease forwards ${delay}s; opacity: 0;">
                         <div class="tech-icon">
-                            <i class="${iconClass}"></i>
+                            ${iconHtml}
                         </div>
                         <div class="tech-name">${skill}</div>
                     </div>
@@ -713,6 +727,7 @@
 
         // Get icon for a tag/technology
         function getIconForTag(tagName) {
+            if (svgMappings[tagName]) return svgMappings[tagName];
             return iconMappings[tagName] || 'fas fa-code';
         }
 
