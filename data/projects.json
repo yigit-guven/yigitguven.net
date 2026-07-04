@@ -27,7 +27,7 @@
             }
         ],
         "home_page": "https://modrinth.com/mod/vault-ui",
-        "searchData": "vault ui create addon minecraft mod java storage management items interface"
+        "searchData": "vault ui create addon minecraft mod java storage management items interface game development software development software engineering"
     },
     {
         "id": "pixelnokiseki",
@@ -53,7 +53,7 @@
             }
         ],
         "home_page": "https://yigit-guven.github.io/Pixel-no-Kiseki/",
-        "searchData": "pixel no kiseki art editor html5 javascript canvas browser-based sprites icons"
+        "searchData": "pixel no kiseki art editor html5 javascript canvas browser-based sprites icons web development"
     },
     {
         "id": "synapseai",
@@ -79,7 +79,7 @@
             }
         ],
         "home_page": "http://144.34.87.24:8501",
-        "searchData": "synapse ai rag llm vector database chromadb ollama streamlit docker ai document intelligence machine learning python"
+        "searchData": "synapse ai rag llm vector database chromadb ollama streamlit docker ai document intelligence machine learning python software development software engineering"
     },
     {
         "id": "mundus",
@@ -180,7 +180,7 @@
             }
         ],
         "home_page": "https://www.curseforge.com/minecraft/mc-mods/petting",
-        "searchData": "petting minecraft mod java game modding utility companion system mobs"
+        "searchData": "petting minecraft mod java game modding utility companion system mobs game development software development software engineering"
     },
     {
         "id": "economy",
@@ -218,7 +218,7 @@
             }
         ],
         "home_page": "https://www.curseforge.com/hytale/mods/economy",
-        "searchData": "economy hytale java game modding api development money system wallet"
+        "searchData": "economy hytale java game modding api development money system wallet game development software development software engineering"
     },
     {
         "id": "foldercontentreader",
@@ -237,7 +237,7 @@
             }
         ],
         "home_page": "https://github.com/yigit-guven/Folder-Content-Reader",
-        "searchData": "folder content reader python tkinter gui utility file management text processing json"
+        "searchData": "folder content reader python tkinter gui utility file management text processing json software development software engineering"
     },
     {
         "id": "tropic",
@@ -266,7 +266,7 @@
             }
         ],
         "home_page": "http://thetropic.com.tr/",
-        "searchData": "thetropic.com.tr web development frontend backend website design html css javascript"
+        "searchData": "thetropic.com.tr frontend backend website design html css javascript web development"
     },
     {
         "id": "yigitguven",
@@ -295,7 +295,7 @@
             }
         ],
         "home_page": "http://yigitguven.net/",
-        "searchData": "yigitguven.net web development frontend backend fullstack website design html css javascript"
+        "searchData": "yigitguven.net frontend backend fullstack website design html css javascript web development"
     },
     {
         "id": "sudoku",
@@ -315,15 +315,14 @@
             }
         ],
         "home_page": "https://github.com/yigit-guven/Sudoku-Rush",
-        "searchData": "sudoku rush python pygame algorithms game puzzle gui"
+        "searchData": "sudoku rush python pygame algorithms game puzzle gui software development software engineering"
     },
     {
         "id": "hush",
         "name": "Hush Word",
         "logo": "./images/projecticons/hush.svg",
         "tags": [
-            "Python",
-            "Algorithms"
+            "Python"
         ],
         "description": "Hush Word is a level based word puzzle game with a minimalist interface and a progressive challenge. A minimalist, level based word puzzle game written in Python with a clean GUI using Tkinter.",
         "links": [
@@ -335,7 +334,7 @@
             }
         ],
         "home_page": "https://github.com/yigit-guven/Hush-Word",
-        "searchData": "hush word python tkinter gui puzzle game word algorithms"
+        "searchData": "hush word python tkinter gui puzzle game word algorithms software development software engineering"
     },
     {
         "id": "grid",
@@ -388,7 +387,7 @@
             }
         ],
         "home_page": "https://github.com/yigit-guven/Simple-File-Converter",
-        "searchData": "simple file converter android java utility app mobile",
+        "searchData": "simple file converter android java utility app mobile software development software engineering",
         "isBeta": true
     },
     {
@@ -425,7 +424,7 @@
             }
         ],
         "home_page": "https://www.curseforge.com/minecraft/mc-mods/easy-hammers",
-        "searchData": "easy hammers minecraft java game modding utility pickaxe"
+        "searchData": "easy hammers minecraft java game modding utility pickaxe game development software development software engineering"
     },
     {
         "id": "backpacks",
@@ -461,7 +460,7 @@
             }
         ],
         "home_page": "https://www.curseforge.com/minecraft/mc-mods/rpg-backpacks",
-        "searchData": "rpg backpacks minecraft storage utility inventory java game modding"
+        "searchData": "rpg backpacks minecraft storage utility inventory java game modding game development software development software engineering"
     },
     {
         "id": "playerstand",
@@ -497,7 +496,7 @@
             }
         ],
         "home_page": "https://www.curseforge.com/minecraft/mc-mods/playerstand",
-        "searchData": "player stand minecraft cosmetic customization armor stand java game modding"
+        "searchData": "player stand minecraft cosmetic customization armor stand java game modding game development software development software engineering"
     },
     {
         "id": "daylength",
@@ -533,7 +532,7 @@
             }
         ],
         "home_page": "https://www.curseforge.com/minecraft/mc-mods/day-length/",
-        "searchData": "day length minecraft time logic customization day night cycle java game modding"
+        "searchData": "day length minecraft time logic customization day night cycle java game modding game development software development software engineering"
     },
     {
         "id": "manalib",
@@ -569,7 +568,7 @@
             }
         ],
         "home_page": "https://github.com/Ryukazan/Mana-Lib",
-        "searchData": "mana lib minecraft library api framework mana system java game modding"
+        "searchData": "mana lib minecraft library api framework mana system java game modding game development software development software engineering"
     },
     {
         "id": "leathercraft",
@@ -605,7 +604,7 @@
             }
         ],
         "home_page": "https://www.curseforge.com/minecraft/mc-mods/leather-craft",
-        "searchData": "leather craft minecraft crafting utility recipe java game modding"
+        "searchData": "leather craft minecraft crafting utility recipe java game modding game development software development software engineering"
     },
     {
         "id": "loots",
@@ -647,7 +646,7 @@
             }
         ],
         "home_page": "https://github.com/yigit-guven/Loots",
-        "searchData": "loots minecraft mod java game modding loot pouches mystery pouches hostile mobs drops rarities randomized slots utility"
+        "searchData": "loots minecraft mod java game modding loot pouches mystery pouches hostile mobs drops rarities randomized slots utility game development software development software engineering"
     },
     {
         "id": "pycart",
@@ -655,7 +654,7 @@
         "logo": "./images/projecticons/pycartengine.svg",
         "tags": [
             "Python",
-            "OOP",
+            "SQL",
             "Backend"
         ],
         "description": "A Python-powered terminal-based e-commerce system featuring user authentication, product management, cart functionality, and order processing. Supports both JSON and SQLite for data storage.",
@@ -668,7 +667,7 @@
             }
         ],
         "home_page": "https://github.com/yigit-guven/PyCart-Engine",
-        "searchData": "pycart engine python sqlite cli e-commerce backend terminal json oop"
+        "searchData": "pycart engine python sqlite cli e-commerce backend terminal json web development software development software engineering"
     },
     {
         "id": "advancedhud",
@@ -704,7 +703,7 @@
             }
         ],
         "home_page": "https://modrinth.com/mod/advancedhud",
-        "searchData": "advanced hud minecraft mod java game modding utility raycasting block entity detection real-time identification"
+        "searchData": "advanced hud minecraft mod java game modding utility raycasting block entity detection real-time identification game development software development software engineering"
     },
     {
         "id": "superionic",
@@ -746,7 +745,7 @@
             }
         ],
         "home_page": "https://github.com/yigit-guven/Superionic",
-        "searchData": "superionic minecraft optimization java rendering frames utility client-side performance"
+        "searchData": "superionic minecraft optimization java rendering frames utility client-side performance game development software development software engineering"
     },
     {
         "id": "claim",
@@ -788,7 +787,7 @@
             }
         ],
         "home_page": "https://github.com/yigit-guven/Claim",
-        "searchData": "claim minecraft mod java game modding land management territory protection selection-based 3d interface world map minimap"
+        "searchData": "claim minecraft mod java game modding land management territory protection selection-based 3d interface world map minimap game development software development software engineering"
     },
     {
         "id": "simpleautoclicker",
@@ -813,6 +812,6 @@
             }
         ],
         "home_page": "https://github.com/yigit-guven/Simple-Auto-Clicker",
-        "searchData": "simple auto clicker python desktop utility automation mouse clicker gui customtkinter windows"
+        "searchData": "simple auto clicker python desktop utility automation mouse clicker gui customtkinter windows software development software engineering"
     }
 ]
