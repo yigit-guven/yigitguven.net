@@ -624,9 +624,18 @@
             const grid = document.getElementById('skillsGrid');
             const expandContainer = document.getElementById('expandContainer');
             const gradient = document.getElementById('skillsGradient');
+            const btn = document.getElementById('expandBtn');
+            if (btn) {
+                const icon = btn.querySelector('i');
+                if (icon) {
+                    icon.classList.remove('fa-chevron-up');
+                    icon.classList.add('fa-chevron-down');
+                }
+            }
 
             // Reset to collapsed state to check height
             grid.classList.remove('expanded');
+            gradient.style.opacity = '1';
 
             // If content is taller than max-height (e.g. 480px defined in CSS)
             if (grid.scrollHeight > 480) {

@@ -420,6 +420,8 @@ button {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(130px, 1fr));
     gap: 25px;
+    padding: 20px 20px 40px 20px;
+    margin: -20px -20px -40px -20px;
 
     /* Collapsible Logic */
     max-height: 480px;
