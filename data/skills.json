@@ -8,52 +8,37 @@
         "CSS",
         "SQL"
     ],
-    "AI & Data Science": [
-        "RAG",
-        "LLM",
-        "Vector Database",
-        "Computer Vision",
-        "AI"
-    ],
     "Game Development": [
         "Minecraft Modding",
-        "Create Addon",
         "Roblox Development",
         "Pygame",
         "Hytale Modding",
-        "Game Design",
-        "Performance"
+        "Unity",
+        "Unreal Engine 3"
     ],
     "Web & Backend": [
         "Web Development",
         "Frontend Development",
         "Backend",
-        "API Development",
-        "E-Commerce",
-        "Streamlit"
+        "API Development"
     ],
-    "Tools & DevOps": [
+    "Tools & Environment": [
         "Git",
         "GitHub",
         "Docker",
         "VS Code",
         "Android Studio",
-        "CustomTkinter",
-        "Automation"
+        "VPS Hosting"
     ],
     "Core Concepts": [
         "Algorithms",
         "OOP",
-        "Data Structures",
-        "CLI",
-        "System Design"
+        "Data Structures"
     ],
     "General Main Skills": [
         "Java",
         "Python",
-        "Game Development",
         "Web Development",
-        "AI",
         "Git"
     ]
 }
