@@ -1,5 +1,25 @@
 [
     {
+        "id": "lucidide",
+        "name": "Lucid IDE",
+        "logo": "./images/projecticons/lucidide.svg",
+        "tags": [
+            "TypeScript",
+            "AI Coding Tools"
+        ],
+        "description": "A VSCodium fork and build system, written in TypeScript and Shell, that produces freely-licensed VS Code binaries without telemetry. It features integrated local AI model management for offline chat and coding assistance powered by local LLMs.",
+        "links": [
+            {
+                "type": "GitHub",
+                "text": "View on GitHub",
+                "url": "https://github.com/yigit-guven/Lucid-IDE",
+                "icon": "fab fa-github"
+            }
+        ],
+        "home_page": "https://github.com/yigit-guven/Lucid-IDE",
+        "searchData": "lucid ide vscode vscodium fork ai coding tools local llm ollama telemetry free open source software development software engineering"
+    },
+    {
         "id": "advancedautoclicker",
         "name": "Advanced Auto Clicker",
         "logo": "./images/projecticons/advancedautoclicker.svg",
