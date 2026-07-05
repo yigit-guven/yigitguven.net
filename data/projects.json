@@ -1,5 +1,25 @@
 [
     {
+        "id": "advancedautoclicker",
+        "name": "Advanced Auto Clicker",
+        "logo": "./images/projecticons/advancedautoclicker.svg",
+        "tags": [
+            "Python",
+            "PyQt6"
+        ],
+        "description": "An advanced, visually-driven macro and auto-clicker utility built with Python and PyQt6. Features on-screen visual overlays, custom sequence node management, and multi-action keybinding support.",
+        "links": [
+            {
+                "type": "GitHub",
+                "text": "View on GitHub",
+                "url": "https://github.com/yigit-guven/Advanced-Auto-Clicker",
+                "icon": "fab fa-github"
+            }
+        ],
+        "home_page": "https://github.com/yigit-guven/Advanced-Auto-Clicker",
+        "searchData": "advanced auto clicker python pyqt6 gui utility macro automation tool software development software engineering"
+    },
+    {
         "id": "vault-ui",
         "name": "Create: Vault UI",
         "logo": "./images/projecticons/vaultui.svg",
@@ -303,7 +323,8 @@
         "logo": "./images/projecticons/sudoku.svg",
         "tags": [
             "Python",
-            "Algorithms"
+            "Algorithms",
+            "Pygame"
         ],
         "description": "A Python/Pygame puzzle game featuring procedurally generated boards, persistent themes and unique variants like Fog of War and Hexadecimal grids.",
         "links": [
