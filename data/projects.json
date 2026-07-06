@@ -319,7 +319,7 @@
             "Frontend",
             "Backend"
         ],
-        "description": "Personal website and projects of Yi\u011fit G\u00fcven. Hosted on GitHub Pages at yigitguven.net.",
+        "description": "Personal website and projects of Yiğit Güven. Hosted on GitHub Pages at yigitguven.net.",
         "links": [
             {
                 "type": "Website",
@@ -409,8 +409,7 @@
         "name": "Simple File Converter",
         "logo": "./images/projecticons/converter.svg",
         "tags": [
-            "Android Studio",
-            "Java"
+            "Android Studio"
         ],
         "description": "App for offline file conversion between PDF, DOCX, images, text formats and much more.",
         "links": [
@@ -428,7 +427,7 @@
             }
         ],
         "home_page": "https://github.com/yigit-guven/Simple-File-Converter",
-        "searchData": "simple file converter android java utility app mobile software development software engineering",
+        "searchData": "simple file converter android utility app mobile software development software engineering",
         "isBeta": true
     },
     {
