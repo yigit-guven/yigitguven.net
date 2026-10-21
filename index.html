@@ -119,10 +119,55 @@
         </nav>
     </header>
 
+    <section class="portal-hero" aria-label="Quick Hub Navigation">
+        <div class="portal-panels">
+            <a href="#all-projects" class="portal-panel panel-minecraft"
+                onclick="handleSkillClick('Minecraft Modding'); return false;"
+                title="Minecraft Mods" aria-label="Minecraft Mods">
+                <div class="portal-panel-bg" style="background-image: url('./images/quicknav/minecraft-mods.svg');">
+                </div>
+                <div class="portal-panel-overlay"></div>
+            </a>
+
+            <a href="#all-projects" class="portal-panel panel-roblox"
+                onclick="handleSkillClick('Roblox'); return false;"
+                title="Roblox Games" aria-label="Roblox Games">
+                <div class="portal-panel-bg" style="background-image: url('./images/quicknav/roblox-games.svg');"></div>
+                <div class="portal-panel-overlay"></div>
+            </a>
+
+            <a href="https://play.google.com/store/apps/dev?id=7128980680944660685" target="_blank"
+                class="portal-panel panel-play"
+                title="Google Play Apps" aria-label="Google Play Apps">
+                <div class="portal-panel-bg" style="background-image: url('./images/quicknav/google-play.svg');"></div>
+                <div class="portal-panel-overlay"></div>
+            </a>
+
+            <a href="https://discord.gg/gNajXYku5z" target="_blank" class="portal-panel panel-discord"
+                title="Discord Community" aria-label="Discord Community">
+                <div class="portal-panel-bg" style="background-image: url('./images/quicknav/discord.svg');"></div>
+                <div class="portal-panel-overlay"></div>
+            </a>
+
+            <a href="https://github.com/yigit-guven" target="_blank" class="portal-panel panel-github"
+                title="GitHub Profile" aria-label="GitHub Profile">
+                <div class="portal-panel-bg" style="background-image: url('./images/quicknav/github.svg');"></div>
+                <div class="portal-panel-overlay"></div>
+            </a>
+        </div>
+
+        <a href="#about" class="portal-idle-prompt" id="portalIdlePrompt" aria-hidden="true"
+            title="Scroll down to explore">
+            <span class="portal-idle-text">Scroll down to explore</span>
+            <i class="fas fa-chevron-down"></i>
+        </a>
+    </section>
+
     <main>
         <section class="hero" id="about">
             <h1>Computer Science Student & Developer</h1>
-            <p>Hi, I'm Yiğit Güven. I specialize in Java, Python, and Web Development. I build mods, web experiences, and
+            <p>Hi, I'm Yiğit Güven. I specialize in Java, Python, and Web Development. I build mods, web experiences,
+                and
                 tools used by thousands of users worldwide.</p>
 
             <a href="#all-projects" class="cta-button">View All Projects</a>
@@ -156,7 +201,8 @@
 
                 <div class="search-container">
                     <div class="search-controls-row">
-                        <label class="archive-toggle-label" for="hideArchivedCheckbox" title="Toggle visibility of archived projects">
+                        <label class="archive-toggle-label" for="hideArchivedCheckbox"
+                            title="Toggle visibility of archived projects">
                             <input type="checkbox" id="hideArchivedCheckbox" checked>
                             <span class="custom-checkbox">
                                 <i class="fas fa-check"></i>
@@ -221,7 +267,8 @@
                                     d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z" />
                             </svg>
                         </a>
-                        <a href="https://www.tiktok.com/@harunyigitguven?_r=1&_t=ZS-957HCR3Xjvt" target="_blank" class="Footer_iconLink" title="TikTok">
+                        <a href="https://www.tiktok.com/@harunyigitguven?_r=1&_t=ZS-957HCR3Xjvt" target="_blank"
+                            class="Footer_iconLink" title="TikTok">
                             <i class="fab fa-tiktok"></i>
                         </a>
                         <a href="https://www.instagram.com/harunyigitguven/" target="_blank" class="Footer_iconLink"
@@ -231,8 +278,8 @@
                                     d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.791-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.209-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z" />
                             </svg>
                         </a>
-                        <a href="https://www.facebook.com/profile.php?id=61577487575360" target="_blank" class="Footer_iconLink"
-                            title="Facebook">
+                        <a href="https://www.facebook.com/profile.php?id=61577487575360" target="_blank"
+                            class="Footer_iconLink" title="Facebook">
                             <svg viewBox="0 0 24 24">
                                 <path
                                     d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z" />
@@ -250,9 +297,11 @@
                                     d="M18.901 1.153h3.68l-8.04 9.19L24 22.846h-7.406l-5.8-7.584-6.638 7.584H.474l8.6-9.83L0 1.154h7.594l5.243 6.932ZM17.61 20.644h2.039L6.486 3.24H4.298Z" />
                             </svg>
                         </a>
-                        <a href="https://bsky.app/profile/yigitguven.net" target="_blank" class="Footer_iconLink" title="Bluesky">
+                        <a href="https://bsky.app/profile/yigitguven.net" target="_blank" class="Footer_iconLink"
+                            title="Bluesky">
                             <svg viewBox="0 0 24 24">
-                                <path fill="currentColor" d="M12 10.8c-1.1-1.6-3.1-3.6-5-4.4C5.1 5.6 1.8 4.7 1.8 7c0 .6.3 4.2 2.1 6.3 1.1 1.2 2.6 1.6 4.1 1.7-2.9.2-4.9.9-4.9 3.1 0 3.3 4.8 4.1 6.9 2.5.9-.6 1.8-1.5 2-1.8.2.3 1.1 1.2 2 1.8 2.1 1.6 6.9.8 6.9-2.5 0-2.2-2-2.9-4.9-3.1 1.5-.1 3-.5 4.1-1.7 1.8-2.1 2.1-5.7 2.1-6.3 0-2.3-3.3-1.4-5.2-.6-1.9.8-3.9 2.8-5 4.4z" />
+                                <path fill="currentColor"
+                                    d="M12 10.8c-1.1-1.6-3.1-3.6-5-4.4C5.1 5.6 1.8 4.7 1.8 7c0 .6.3 4.2 2.1 6.3 1.1 1.2 2.6 1.6 4.1 1.7-2.9.2-4.9.9-4.9 3.1 0 3.3 4.8 4.1 6.9 2.5.9-.6 1.8-1.5 2-1.8.2.3 1.1 1.2 2 1.8 2.1 1.6 6.9.8 6.9-2.5 0-2.2-2-2.9-4.9-3.1 1.5-.1 3-.5 4.1-1.7 1.8-2.1 2.1-5.7 2.1-6.3 0-2.3-3.3-1.4-5.2-.6-1.9.8-3.9 2.8-5 4.4z" />
                             </svg>
                         </a>
                         <a href="https://github.com/yigit-guven" target="_blank" class="Footer_iconLink" title="GitHub">
@@ -377,7 +426,11 @@
                         Copyright © 2026 Yiğit Güven. All rights reserved unless explicitly stated otherwise.
                     </div>
                     <div class="trademark-disclaimer">
-                        <strong>Disclaimer:</strong> This website and its projects are independent community creations and are not affiliated with, endorsed by, sponsored by, or associated with Mojang AB, Microsoft Corporation, Roblox Corporation, or any of their respective affiliates. "Minecraft" is a registered trademark of Mojang Synergies AB. "Roblox" is a registered trademark of Roblox Corporation.
+                        <strong>Disclaimer:</strong> This website and its projects are independent community creations
+                        and are not affiliated with, endorsed by, sponsored by, or associated with Mojang AB, Microsoft
+                        Corporation, Roblox Corporation, or any of their respective affiliates. "Minecraft" is a
+                        registered trademark of Mojang Synergies AB. "Roblox" is a registered trademark of Roblox
+                        Corporation.
                     </div>
                 </div>
             </div>
@@ -1069,6 +1122,69 @@
             // Run initially
             highlightNavigation();
         });
+    </script>
+    <script>
+        (function () {
+            const prompt = document.getElementById('portalIdlePrompt');
+            const portalHero = document.querySelector('.portal-hero');
+            if (!prompt) return;
+
+            let showTimer = null;
+            let autoHideTimer = null;
+
+            const IDLE_TRIGGER_DELAY_MS = 18000;
+            const DISPLAY_DURATION_MS = 8500;
+            const REAPPEAR_INTERVAL_MS = 35000;
+
+            function hidePrompt() {
+                prompt.classList.remove('visible');
+                if (portalHero) {
+                    portalHero.classList.remove('portal-peek-active');
+                }
+                clearTimeout(autoHideTimer);
+                autoHideTimer = null;
+            }
+
+            function scheduleNextAppearance(delayMs) {
+                clearTimeout(showTimer);
+                if (window.scrollY <= 60) {
+                    showTimer = setTimeout(showPrompt, delayMs);
+                }
+            }
+
+            function showPrompt() {
+                if (window.scrollY > 60) {
+                    hidePrompt();
+                    return;
+                }
+
+                prompt.classList.add('visible');
+                if (portalHero) {
+                    portalHero.classList.add('portal-peek-active');
+                }
+
+                clearTimeout(autoHideTimer);
+                autoHideTimer = setTimeout(function () {
+                    hidePrompt();
+                    scheduleNextAppearance(REAPPEAR_INTERVAL_MS);
+                }, DISPLAY_DURATION_MS);
+            }
+
+            function onActivity() {
+                hidePrompt();
+                scheduleNextAppearance(IDLE_TRIGGER_DELAY_MS);
+            }
+
+            const events = ['mousemove', 'keydown', 'touchstart', 'pointerdown'];
+            events.forEach(evt => window.addEventListener(evt, onActivity, { passive: true }));
+
+            window.addEventListener('scroll', function () {
+                hidePrompt();
+                scheduleNextAppearance(IDLE_TRIGGER_DELAY_MS);
+            }, { passive: true });
+
+            scheduleNextAppearance(IDLE_TRIGGER_DELAY_MS);
+        })();
     </script>
 </body>
 

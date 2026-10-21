@@ -263,9 +263,275 @@ button {
     color: var(--accent);
 }
 
+/* --- FULLSCREEN DIAGONAL SLASH PORTAL HERO --- */
+:root {
+    --slash-angle: 7deg;
+}
+
+.portal-hero {
+    position: relative;
+    width: 100%;
+    min-height: calc(100vh - 80px);
+    height: calc(100vh - 80px);
+    max-height: 960px;
+    background: #000;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    transform: translateY(0);
+    transition: transform 0.6s cubic-bezier(0.25, 1, 0.5, 1);
+    will-change: transform;
+}
+
+/* When idle, a tiny subtle peek (~16px) lifts up in sync with the prompt */
+.portal-hero.portal-peek-active {
+    transform: translateY(-16px);
+}
+
+.portal-idle-prompt {
+    position: absolute;
+    bottom: 22px;
+    left: 50%;
+    transform: translateX(-50%) translateY(6px);
+    z-index: 10;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    color: #ffffff;
+    text-decoration: none;
+    background: transparent;
+    border: none;
+    padding: 0;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.5s ease, transform 0.5s ease;
+    user-select: none;
+    filter: drop-shadow(0 2px 8px rgba(0, 0, 0, 0.85));
+}
+
+.portal-idle-prompt.visible {
+    opacity: 0.9;
+    transform: translateX(-50%) translateY(0);
+    pointer-events: auto;
+}
+
+.portal-idle-prompt:hover {
+    opacity: 1;
+    color: #ffffff;
+}
+
+.portal-idle-prompt .portal-idle-text {
+    font-size: 0.85rem;
+    font-weight: 500;
+    letter-spacing: 0.6px;
+    color: #ffffff;
+    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.9);
+}
+
+.portal-idle-prompt i {
+    font-size: 0.9rem;
+    color: #ffffff;
+    animation: idleArrowBounce 1.8s ease-in-out infinite;
+}
+
+@keyframes idleArrowBounce {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(5px);
+    }
+}
+
+.portal-panels {
+    display: flex;
+    width: 100%;
+    height: 100%;
+    flex: 1;
+    overflow: hidden;
+    position: relative;
+}
+
+.portal-panel {
+    position: relative;
+    flex: 1;
+    height: 100%;
+    text-decoration: none;
+    overflow: hidden;
+    cursor: pointer;
+    display: flex;
+    align-items: flex-end;
+    padding: 60px 30px;
+    box-sizing: border-box;
+}
+
+/* Diagonal slash division on desktop */
+@media (min-width: 901px) {
+    :root {
+        --slash-offset: 55px;
+    }
+
+    .portal-panels {
+        margin: 0;
+        width: 100%;
+        display: flex;
+        overflow: hidden;
+    }
+
+    .portal-panel {
+        flex: 1;
+        width: 20%;
+        transform: none;
+        border: none;
+        box-shadow: none;
+        padding: 50px clamp(20px, 2.5vw, 40px);
+        filter: drop-shadow(-6px 0 14px rgba(0, 0, 0, 0.6));
+    }
+
+    .portal-panel:not(:first-child) {
+        margin-left: calc(-1 * var(--slash-offset));
+    }
+
+    .portal-panel:first-child {
+        clip-path: polygon(0 0, 100% 0, calc(100% - var(--slash-offset)) 100%, 0 100%);
+        padding-left: clamp(25px, 3.5vw, 55px);
+        padding-right: calc(var(--slash-offset) + 20px);
+    }
+
+    .portal-panel:not(:first-child):not(:last-child) {
+        clip-path: polygon(var(--slash-offset) 0, 100% 0, calc(100% - var(--slash-offset)) 100%, 0 100%);
+        padding-left: calc(var(--slash-offset) + 20px);
+        padding-right: calc(var(--slash-offset) + 20px);
+    }
+
+    .portal-panel:last-child {
+        clip-path: polygon(var(--slash-offset) 0, 100% 0, 100% 100%, 0 100%);
+        padding-left: calc(var(--slash-offset) + 20px);
+        padding-right: clamp(25px, 3.5vw, 55px);
+    }
+
+    .portal-panel:not(:last-child)::after {
+        content: '';
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        right: 0;
+        width: var(--slash-offset);
+        background: linear-gradient(
+            to bottom right,
+            transparent calc(50% - 2.5px),
+            rgba(255, 255, 255, 0.6) calc(50% - 1px),
+            rgba(255, 255, 255, 0.95) 50%,
+            rgba(255, 255, 255, 0.6) calc(50% + 1px),
+            transparent calc(50% + 2.5px)
+        );
+        z-index: 5;
+        pointer-events: none;
+    }
+
+    .portal-panel-bg,
+    .portal-panel-overlay,
+    .portal-panel-content {
+        transform: none;
+    }
+
+    .portal-panel-bg {
+        width: 100%;
+        left: 0;
+    }
+}
+
+.portal-panel-bg {
+    position: absolute;
+    top: -10%;
+    height: 120%;
+    width: 130%;
+    left: -15%;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    filter: brightness(0.85) saturate(1.1);
+    z-index: 1;
+    transition: filter 0.3s ease;
+}
+
+.portal-panel:hover .portal-panel-bg {
+    filter: brightness(1) saturate(1.2);
+}
+
+.portal-panel-overlay {
+    position: absolute;
+    inset: 0;
+    width: 140%;
+    left: -20%;
+    background: linear-gradient(
+        180deg,
+        rgba(0, 0, 0, 0.1) 0%,
+        rgba(0, 0, 0, 0.2) 60%,
+        rgba(0, 0, 0, 0.45) 100%
+    );
+    z-index: 2;
+    transition: background 0.3s ease;
+}
+
+.portal-panel:hover .portal-panel-overlay {
+    background: rgba(0, 0, 0, 0.05);
+}
+
+/* Mobile & Tablet layout: fit full screen vertically divided into 5 compact panels */
+@media (max-width: 900px) {
+    .portal-hero {
+        min-height: calc(100vh - 80px);
+        min-height: calc(100dvh - 80px);
+        height: calc(100vh - 80px);
+        height: calc(100dvh - 80px);
+        max-height: none;
+        padding-bottom: 0;
+        overflow: hidden;
+    }
+
+    .portal-panels {
+        flex-direction: column;
+        width: 100%;
+        height: 100%;
+        flex: 1;
+        display: flex;
+    }
+
+    .portal-panel {
+        flex: 1 1 0;
+        min-height: 0;
+        height: 20%;
+        padding: 0;
+        border-bottom: 1.5px solid rgba(255, 255, 255, 0.25);
+        display: flex;
+        box-sizing: border-box;
+    }
+
+    .portal-panel:last-child {
+        border-bottom: none;
+    }
+
+    .portal-idle-prompt {
+        bottom: 12px;
+        gap: 4px;
+    }
+
+    .portal-idle-prompt .portal-idle-text {
+        font-size: 0.75rem;
+        letter-spacing: 0.4px;
+    }
+
+    .portal-idle-prompt i {
+        font-size: 0.8rem;
+    }
+}
+
 /* --- IMPROVED HERO SECTION --- */
 .hero {
-    padding: 100px 20px 40px 20px;
+    padding: 70px 20px 40px 20px;
     text-align: center;
     max-width: 1200px;
     margin: 0 auto;
