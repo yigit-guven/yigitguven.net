@@ -661,8 +661,98 @@ button {
 .search-container {
     flex: 1;
     min-width: 300px;
-    max-width: 600px;
+    max-width: 680px;
     position: relative;
+}
+
+.search-controls-row {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    width: 100%;
+}
+
+.archive-toggle-label {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: transparent;
+    border: none;
+    padding: 6px 4px;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: 600;
+    color: #64748b;
+    white-space: nowrap;
+    user-select: none;
+    transition: color 0.2s ease;
+    box-shadow: none;
+}
+
+.archive-toggle-label input[type="checkbox"] {
+    position: absolute;
+    opacity: 0;
+    width: 0;
+    height: 0;
+    pointer-events: none;
+}
+
+.archive-toggle-label .custom-checkbox {
+    width: 17px;
+    height: 17px;
+    border-radius: 4px;
+    border: 1.5px solid #cbd5e1;
+    background: #ffffff;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s ease;
+    flex-shrink: 0;
+}
+
+.archive-toggle-label .custom-checkbox i {
+    font-size: 10px;
+    color: #ffffff;
+    opacity: 0;
+    transform: scale(0.6);
+    transition: all 0.2s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.archive-toggle-label .toggle-text {
+    line-height: 1;
+}
+
+.archive-toggle-label:hover {
+    color: #0f172a;
+    border: none;
+    transform: none;
+    box-shadow: none;
+}
+
+.archive-toggle-label:hover .custom-checkbox {
+    border-color: #64748b;
+}
+
+.archive-toggle-label:has(input:checked) {
+    background: transparent;
+    border: none;
+    color: #0f172a;
+    box-shadow: none;
+}
+
+.archive-toggle-label:has(input:checked) .custom-checkbox {
+    background: #0f172a;
+    border-color: #0f172a;
+}
+
+.archive-toggle-label:has(input:checked) .custom-checkbox i {
+    opacity: 1;
+    transform: scale(1);
+}
+
+.archive-toggle-label:has(input:checked) .toggle-text {
+    font-weight: 700;
+    color: #0f172a;
 }
 
 .search-wrapper {
@@ -895,6 +985,13 @@ button {
     color: var(--accent);
 }
 
+.project-badges {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    align-items: flex-end;
+}
+
 .beta-badge {
     background: linear-gradient(135deg, #ff6b6b, #ff4757);
     color: white;
@@ -906,6 +1003,48 @@ button {
     letter-spacing: 0.5px;
     box-shadow: 0 3px 10px rgba(255, 71, 87, 0.3);
     white-space: nowrap;
+}
+
+.archive-badge {
+    background: #f1f5f9;
+    color: #475569;
+    border: 1px solid #cbd5e1;
+    padding: 7px 14px;
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.4px;
+    white-space: nowrap;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.04);
+    transition: all 0.2s ease;
+}
+
+.archive-badge i {
+    font-size: 11px;
+    color: #64748b;
+}
+
+/* Archived project card treatment */
+.project-item.is-archived {
+    border-left-color: #94a3b8;
+    background: #fdfdfd;
+}
+
+.project-item.is-archived:hover {
+    border-left-color: #64748b;
+}
+
+.project-item.is-archived .archive-badge {
+    background: #f8fafc;
+}
+
+.project-item.is-archived:hover .archive-badge {
+    background: #e2e8f0;
+    color: #1e293b;
+    border-color: #94a3b8;
 }
 
 /* --- FOOTER STYLES (UPDATED FOR CONSISTENCY) --- */
@@ -1217,6 +1356,17 @@ button {
         justify-content: center;
     }
 
+    /* Mobile Search Layout */
+    .search-controls-row {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 12px;
+    }
+
+    .archive-toggle-label {
+        align-self: flex-start;
+    }
+
     /* Mobile Project Layout */
     .project-item {
         display: flex;
@@ -1250,12 +1400,18 @@ button {
         justify-content: center;
     }
 
-    .beta-badge {
+    .project-badges {
         position: absolute;
         top: 20px;
         right: 20px;
+        align-items: flex-end;
+        gap: 6px;
+    }
+
+    .beta-badge,
+    .archive-badge {
         font-size: 11px;
-        padding: 6px 12px;
+        padding: 5px 10px;
     }
 }
 

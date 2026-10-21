@@ -155,15 +155,24 @@
                 <h2 class="section-title">All Projects</h2>
 
                 <div class="search-container">
-                    <div class="search-wrapper">
-                        <input type="text" class="search-input" id="projectSearch"
-                            placeholder="Search all projects by name, technology, or keyword (e.g., Minecraft, Python, Mundus Online)">
-                        <button class="search-clear" id="clearSearch" title="Clear search">
-                            <i class="fas fa-times"></i>
-                        </button>
-                        <button class="search-button" id="searchButton" title="Search">
-                            <i class="fas fa-search"></i>
-                        </button>
+                    <div class="search-controls-row">
+                        <label class="archive-toggle-label" for="hideArchivedCheckbox" title="Toggle visibility of archived projects">
+                            <input type="checkbox" id="hideArchivedCheckbox">
+                            <span class="custom-checkbox">
+                                <i class="fas fa-check"></i>
+                            </span>
+                            <span class="toggle-text">Hide archived</span>
+                        </label>
+                        <div class="search-wrapper">
+                            <input type="text" class="search-input" id="projectSearch"
+                                placeholder="Search all projects by name, technology, or keyword (e.g., Minecraft, Python, Mundus Online)">
+                            <button class="search-clear" id="clearSearch" title="Clear search">
+                                <i class="fas fa-times"></i>
+                            </button>
+                            <button class="search-button" id="searchButton" title="Search">
+                                <i class="fas fa-search"></i>
+                            </button>
+                        </div>
                     </div>
                     <div class="search-results-info" id="searchResultsInfo">
                         Showing <span id="visibleCount">0</span> of <span id="totalCount">0</span> projects
@@ -691,8 +700,17 @@
                 const response = await fetch('./data/projects.json');
                 const projectsData = await response.json();
 
-                // Sort projects alphabetically
-                projectsData.sort((a, b) => a.name.localeCompare(b.name));
+                // Sort projects: Active first (A-Z), then Archived at the bottom (A-Z)
+                projectsData.sort((a, b) => {
+                    const aArchived = Boolean(a.isArchived);
+                    const bArchived = Boolean(b.isArchived);
+
+                    if (aArchived !== bArchived) {
+                        return aArchived ? 1 : -1; // Non-archived comes first
+                    }
+
+                    return a.name.localeCompare(b.name, undefined, { sensitivity: 'base' });
+                });
 
                 renderProjects(projectsData);
             } catch (error) {
@@ -725,8 +743,21 @@
                 return `<a href="${link.url}" target="_blank" class="project-link">${iconHtml} ${link.text}</a>`;
             }).join('');
 
+            const isArchived = Boolean(project.isArchived);
+            const isBeta = Boolean(project.isBeta) && !isArchived;
+
+            let badgesHtml = '';
+            if (isArchived || isBeta) {
+                badgesHtml = `
+                    <div class="project-badges">
+                        ${isArchived ? '<span class="archive-badge" title="This project is archived"><i class="fas fa-box-archive"></i> Archived</span>' : ''}
+                        ${isBeta ? '<span class="beta-badge">Closed Beta</span>' : ''}
+                    </div>
+                `;
+            }
+
             return `
-                <div class="project-item" id="${project.id}" data-search="${project.searchData}">
+                <div class="project-item ${isArchived ? 'is-archived' : ''}" id="${project.id}" data-search="${project.searchData}" data-archived="${isArchived}">
                     <div class="project-icon-container" onclick="window.open('${project.home_page}', '_blank')" title="Open ${project.name} homepage">
                         <img src="${project.logo}" alt="${project.name}">
                     </div>
@@ -736,7 +767,7 @@
                         <p class="project-description">${project.description}</p>
                         <div class="project-links">${linksHtml}</div>
                     </div>
-                    ${project.isBeta ? '<div class="beta-badge">Closed Beta</div>' : ''}
+                    ${badgesHtml}
                 </div>
             `;
         }
@@ -762,37 +793,43 @@
                 // Add animation delay
                 const projectElement = projectsContainer.lastElementChild;
                 if (projectElement) {
-                    projectElement.style.animationDelay = `${0.1 + (index * 0.1)}s`;
+                    projectElement.style.animationDelay = `${0.05 + (index * 0.05)}s`;
                 }
             });
 
-            // Update project count
-            updateProjectCount();
+            // Re-apply current search/filter state and update project count
+            performSearch();
         }
 
         // ============================================
-        // SEARCH FUNCTIONALITY
+        // SEARCH & ARCHIVE FILTER FUNCTIONALITY
         // ============================================
 
         function performSearch() {
-            const searchTerm = document.getElementById('projectSearch').value.toLowerCase().trim();
+            const searchInput = document.getElementById('projectSearch');
+            const searchTerm = searchInput ? searchInput.value.toLowerCase().trim() : '';
+            const hideArchivedCheckbox = document.getElementById('hideArchivedCheckbox');
+            const hideArchived = hideArchivedCheckbox ? hideArchivedCheckbox.checked : false;
+
             const projectItems = document.querySelectorAll('.project-item');
             let visibleCount = 0;
 
-            if (searchTerm === '') {
-                // Show all items
-                projectItems.forEach(item => {
+            projectItems.forEach(item => {
+                const isItemArchived = item.getAttribute('data-archived') === 'true';
+
+                // Check archive filter first
+                if (hideArchived && isItemArchived) {
+                    item.classList.add('hidden');
+                    return;
+                }
+
+                if (searchTerm === '') {
                     item.classList.remove('hidden');
                     visibleCount++;
-                });
-                document.getElementById('searchResultsInfo').classList.remove('visible');
-                document.getElementById('clearSearch').classList.remove('visible');
-            } else {
-                // Filter items
-                projectItems.forEach(item => {
-                    const searchData = item.getAttribute('data-search').toLowerCase();
-                    const itemTitle = item.querySelector('h3').textContent.toLowerCase();
-                    const itemDescription = item.querySelector('.project-description').textContent.toLowerCase();
+                } else {
+                    const searchData = (item.getAttribute('data-search') || '').toLowerCase();
+                    const itemTitle = (item.querySelector('h3')?.textContent || '').toLowerCase();
+                    const itemDescription = (item.querySelector('.project-description')?.textContent || '').toLowerCase();
                     const itemTags = Array.from(item.querySelectorAll('.project-tag'))
                         .map(tag => tag.textContent.toLowerCase())
                         .join(' ');
@@ -806,21 +843,37 @@
                     } else {
                         item.classList.add('hidden');
                     }
-                });
+                }
+            });
 
-                // Update results info
-                document.getElementById('searchResultsInfo').classList.add('visible');
-                document.getElementById('clearSearch').classList.add('visible');
+            // Update search info display
+            const searchResultsInfo = document.getElementById('searchResultsInfo');
+            const clearSearchBtn = document.getElementById('clearSearch');
+
+            if (clearSearchBtn) {
+                if (searchTerm !== '') {
+                    clearSearchBtn.classList.add('visible');
+                } else {
+                    clearSearchBtn.classList.remove('visible');
+                }
             }
 
-            document.getElementById('visibleCount').textContent = visibleCount;
+            if (searchResultsInfo) {
+                if (searchTerm !== '' || hideArchived) {
+                    searchResultsInfo.classList.add('visible');
+                } else {
+                    searchResultsInfo.classList.remove('visible');
+                }
+            }
+
+            const visibleCountEl = document.getElementById('visibleCount');
+            const totalCountEl = document.getElementById('totalCount');
+            if (visibleCountEl) visibleCountEl.textContent = visibleCount;
+            if (totalCountEl) totalCountEl.textContent = projectItems.length;
         }
 
         function updateProjectCount() {
-            const projectItems = document.querySelectorAll('.project-item');
-            const totalCount = projectItems.length;
-            document.getElementById('totalCount').textContent = totalCount;
-            document.getElementById('visibleCount').textContent = totalCount;
+            performSearch();
         }
 
         // ============================================
@@ -920,6 +973,12 @@
                     performSearch();
                     searchInput.focus();
                 });
+            }
+
+            // Archive toggle functionality
+            const hideArchivedCheckbox = document.getElementById('hideArchivedCheckbox');
+            if (hideArchivedCheckbox) {
+                hideArchivedCheckbox.addEventListener('change', performSearch);
             }
 
             // Initialize search results

@@ -33,7 +33,8 @@
             }
         ],
         "home_page": "https://github.com/yigit-guven/Chymistry",
-        "searchData": "chymistry chemistry alchemy interactive chemical workflows reagents distillation minecraft mod java game modding software development software engineering"
+        "searchData": "chymistry chemistry alchemy interactive chemical workflows reagents distillation minecraft mod java game modding software development software engineering",
+        "isArchived": true
     },
     {
         "id": "lucidide",
@@ -53,7 +54,8 @@
             }
         ],
         "home_page": "https://github.com/yigit-guven/Lucid-IDE",
-        "searchData": "lucid ide vscode vscodium fork ai coding tools local llm ollama telemetry free open source software development software engineering"
+        "searchData": "lucid ide vscode vscodium fork ai coding tools local llm ollama telemetry free open source software development software engineering",
+        "isArchived": true
     },
     {
         "id": "advancedautoclicker",
@@ -73,7 +75,8 @@
             }
         ],
         "home_page": "https://github.com/yigit-guven/Advanced-Auto-Clicker",
-        "searchData": "advanced auto clicker python pyqt6 gui utility macro automation tool software development software engineering"
+        "searchData": "advanced auto clicker python pyqt6 gui utility macro automation tool software development software engineering",
+        "isArchived": true
     },
     {
         "id": "vault-ui",
@@ -129,7 +132,8 @@
             }
         ],
         "home_page": "https://yigit-guven.github.io/Pixel-no-Kiseki/",
-        "searchData": "pixel no kiseki art editor html5 javascript canvas browser-based sprites icons web development"
+        "searchData": "pixel no kiseki art editor html5 javascript canvas browser-based sprites icons web development",
+        "isArchived": true
     },
     {
         "id": "synapseai",
@@ -155,7 +159,8 @@
             }
         ],
         "home_page": "http://144.34.87.24:8501",
-        "searchData": "synapse ai rag llm vector database chromadb ollama streamlit docker ai document intelligence machine learning python software development software engineering"
+        "searchData": "synapse ai rag llm vector database chromadb ollama streamlit docker ai document intelligence machine learning python software development software engineering",
+        "isArchived": true
     },
     {
         "id": "mundus",
@@ -181,7 +186,8 @@
             }
         ],
         "home_page": "https://www.roblox.com/games/126354243623354/Mundus-Online-BETA",
-        "searchData": "mundus online roblox game development lua sandbox building planting trading economy"
+        "searchData": "mundus online roblox game development lua sandbox building planting trading economy",
+        "isArchived": true
     },
     {
         "id": "iwantpeace",
@@ -226,7 +232,8 @@
         ],
         "home_page": "https://yigitguven.net/i-want-peace/",
         "searchData": "i want peace roblox mmorpg open world action adventure lua game development races classes exploration roleplay",
-        "isBeta": true
+        "isBeta": true,
+        "isArchived": true
     },
     {
         "id": "petting",
@@ -294,7 +301,8 @@
             }
         ],
         "home_page": "https://www.curseforge.com/hytale/mods/economy",
-        "searchData": "economy hytale java game modding api development money system wallet game development software development software engineering"
+        "searchData": "economy hytale java game modding api development money system wallet game development software development software engineering",
+        "isArchived": true
     },
     {
         "id": "foldercontentreader",
@@ -313,7 +321,8 @@
             }
         ],
         "home_page": "https://github.com/yigit-guven/Folder-Content-Reader",
-        "searchData": "folder content reader python tkinter gui utility file management text processing json software development software engineering"
+        "searchData": "folder content reader python tkinter gui utility file management text processing json software development software engineering",
+        "isArchived": true
     },
     {
         "id": "tropic",
@@ -342,7 +351,8 @@
             }
         ],
         "home_page": "http://thetropic.com.tr/",
-        "searchData": "thetropic.com.tr frontend backend website design html css javascript web development"
+        "searchData": "thetropic.com.tr frontend backend website design html css javascript web development",
+        "isArchived": true
     },
     {
         "id": "yigitguven",
@@ -392,7 +402,8 @@
             }
         ],
         "home_page": "https://github.com/yigit-guven/Sudoku-Rush",
-        "searchData": "sudoku rush python pygame algorithms game puzzle gui software development software engineering"
+        "searchData": "sudoku rush python pygame algorithms game puzzle gui software development software engineering",
+        "isArchived": true
     },
     {
         "id": "hush",
@@ -411,7 +422,8 @@
             }
         ],
         "home_page": "https://github.com/yigit-guven/Hush-Word",
-        "searchData": "hush word python tkinter gui puzzle game word algorithms software development software engineering"
+        "searchData": "hush word python tkinter gui puzzle game word algorithms software development software engineering",
+        "isArchived": true
     },
     {
         "id": "grid",
@@ -438,7 +450,8 @@
             }
         ],
         "home_page": "./that-time-i-generated-a-grid-on-my-image/",
-        "searchData": "image grid generator html5 canvas client-side tool grid javascript web development"
+        "searchData": "image grid generator html5 canvas client-side tool grid javascript web development",
+        "isArchived": true
     },
     {
         "id": "converter",
@@ -464,7 +477,8 @@
         ],
         "home_page": "https://github.com/yigit-guven/Simple-File-Converter",
         "searchData": "simple file converter android utility app mobile software development software engineering",
-        "isBeta": true
+        "isBeta": true,
+        "isArchived": true
     },
     {
         "id": "easyhammers",
@@ -572,7 +586,8 @@
             }
         ],
         "home_page": "https://www.curseforge.com/minecraft/mc-mods/playerstand",
-        "searchData": "player stand minecraft cosmetic customization armor stand java game modding game development software development software engineering"
+        "searchData": "player stand minecraft cosmetic customization armor stand java game modding game development software development software engineering",
+        "isArchived": true
     },
     {
         "id": "daylength",
@@ -644,7 +659,8 @@
             }
         ],
         "home_page": "https://github.com/Ryukazan/Mana-Lib",
-        "searchData": "mana lib minecraft library api framework mana system java game modding game development software development software engineering"
+        "searchData": "mana lib minecraft library api framework mana system java game modding game development software development software engineering",
+        "isArchived": true
     },
     {
         "id": "leathercraft",
@@ -722,7 +738,8 @@
             }
         ],
         "home_page": "https://github.com/yigit-guven/Loots",
-        "searchData": "loots minecraft mod java game modding loot pouches mystery pouches hostile mobs drops rarities randomized slots utility game development software development software engineering"
+        "searchData": "loots minecraft mod java game modding loot pouches mystery pouches hostile mobs drops rarities randomized slots utility game development software development software engineering",
+        "isArchived": true
     },
     {
         "id": "pycart",
@@ -743,7 +760,8 @@
             }
         ],
         "home_page": "https://github.com/yigit-guven/PyCart-Engine",
-        "searchData": "pycart engine python sqlite cli e-commerce backend terminal json web development software development software engineering"
+        "searchData": "pycart engine python sqlite cli e-commerce backend terminal json web development software development software engineering",
+        "isArchived": true
     },
     {
         "id": "advancedhud",
@@ -779,7 +797,8 @@
             }
         ],
         "home_page": "https://modrinth.com/mod/advancedhud",
-        "searchData": "advanced hud minecraft mod java game modding utility raycasting block entity detection real-time identification game development software development software engineering"
+        "searchData": "advanced hud minecraft mod java game modding utility raycasting block entity detection real-time identification game development software development software engineering",
+        "isArchived": true
     },
     {
         "id": "superionic",
@@ -821,7 +840,8 @@
             }
         ],
         "home_page": "https://github.com/yigit-guven/Superionic",
-        "searchData": "superionic minecraft optimization java rendering frames utility client-side performance game development software development software engineering"
+        "searchData": "superionic minecraft optimization java rendering frames utility client-side performance game development software development software engineering",
+        "isArchived": true
     },
     {
         "id": "claim",
@@ -888,6 +908,7 @@
             }
         ],
         "home_page": "https://github.com/yigit-guven/Simple-Auto-Clicker",
-        "searchData": "simple auto clicker python desktop utility automation mouse clicker gui customtkinter windows software development software engineering"
+        "searchData": "simple auto clicker python desktop utility automation mouse clicker gui customtkinter windows software development software engineering",
+        "isArchived": true
     }
 ]
