@@ -1531,14 +1531,15 @@ button {
 .trademark-disclaimer {
     margin-top: 10px;
     padding-top: 10px;
-    border-top: 1px dashed #2a2a2a;
-    font-size: 11px;
+    border-top: 1px dashed #444;
+    font-size: 11.5px;
     line-height: 1.6;
-    opacity: 0.65;
+    color: #ccc;
+    opacity: 1;
 }
 
 .trademark-disclaimer strong {
-    color: #ddd;
+    color: #ffffff;
 }
 
 .Footer_userMenu__tCWLB {
