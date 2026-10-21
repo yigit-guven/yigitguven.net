@@ -1692,17 +1692,20 @@ button {
 }
 
 .trademark-disclaimer {
-    margin-top: 10px;
+    margin-top: 12px;
     padding-top: 10px;
-    border-top: 1px dashed #444;
-    font-size: 11.5px;
+    border-top: 1px dashed #333;
+    font-size: 11px;
     line-height: 1.6;
-    color: #ccc;
-    opacity: 1;
+    color: #999999;
 }
 
 .trademark-disclaimer strong {
-    color: #ffffff;
+    color: #bbbbbb;
+}
+
+.trademark-disclaimer p {
+    margin: 4px 0;
 }
 
 .Footer_userMenu__tCWLB {
