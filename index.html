@@ -122,37 +122,50 @@
     <section class="portal-hero" aria-label="Quick Hub Navigation">
         <div class="portal-panels">
             <a href="#all-projects" class="portal-panel panel-minecraft"
-                onclick="handleSkillClick('Minecraft Modding'); return false;"
-                title="Minecraft Mods" aria-label="Minecraft Mods">
+                onclick="handleSkillClick('Minecraft Modding'); return false;" title="Minecraft Mods"
+                aria-label="Minecraft Mods">
                 <div class="portal-panel-bg" style="background-image: url('./images/quicknav/minecraft-mods.svg');">
                 </div>
                 <div class="portal-panel-overlay"></div>
+                <div class="portal-panel-header">
+                    <h2 class="portal-panel-heading">Minecraft</h2>
+                </div>
             </a>
 
-            <a href="#all-projects" class="portal-panel panel-roblox"
-                onclick="handleSkillClick('Roblox'); return false;"
-                title="Roblox Games" aria-label="Roblox Games">
+            <div class="portal-panel panel-roblox portal-panel-locked" title="Work in progress"
+                aria-label="Work in progress">
                 <div class="portal-panel-bg" style="background-image: url('./images/quicknav/roblox-games.svg');"></div>
                 <div class="portal-panel-overlay"></div>
-            </a>
+                <div class="portal-hazard-tape">
+                    <span>Work in progress</span>
+                </div>
+            </div>
 
-            <a href="https://play.google.com/store/apps/dev?id=7128980680944660685" target="_blank"
-                class="portal-panel panel-play"
-                title="Google Play Apps" aria-label="Google Play Apps">
+            <div class="portal-panel panel-play portal-panel-locked" title="Work in progress"
+                aria-label="Work in progress">
                 <div class="portal-panel-bg" style="background-image: url('./images/quicknav/google-play.svg');"></div>
                 <div class="portal-panel-overlay"></div>
-            </a>
+                <div class="portal-hazard-tape">
+                    <span>Work in progress</span>
+                </div>
+            </div>
 
             <a href="https://discord.gg/gNajXYku5z" target="_blank" class="portal-panel panel-discord"
                 title="Discord Community" aria-label="Discord Community">
                 <div class="portal-panel-bg" style="background-image: url('./images/quicknav/discord.svg');"></div>
                 <div class="portal-panel-overlay"></div>
+                <div class="portal-panel-header">
+                    <h2 class="portal-panel-heading">Discord</h2>
+                </div>
             </a>
 
             <a href="https://github.com/yigit-guven" target="_blank" class="portal-panel panel-github"
                 title="GitHub Profile" aria-label="GitHub Profile">
                 <div class="portal-panel-bg" style="background-image: url('./images/quicknav/github.svg');"></div>
                 <div class="portal-panel-overlay"></div>
+                <div class="portal-panel-header">
+                    <h2 class="portal-panel-heading">GitHub</h2>
+                </div>
             </a>
         </div>
 
@@ -426,8 +439,12 @@
                         Copyright © 2026 Yiğit Güven. All rights reserved unless explicitly stated otherwise.
                     </div>
                     <div class="trademark-disclaimer">
-                        <strong>Disclaimer:</strong> NOT AN OFFICIAL MINECRAFT PRODUCT. NOT APPROVED BY OR ASSOCIATED WITH MOJANG OR MICROSOFT.
-                        This website and its projects are independent community creations and are not affiliated with, endorsed by, sponsored by, or associated with Mojang AB, Microsoft Corporation, Roblox Corporation, or any of their respective affiliates. "Minecraft" is a registered trademark of Mojang Synergies AB. "Roblox" is a registered trademark of Roblox Corporation.
+                        <strong>Disclaimer:</strong> NOT AN OFFICIAL MINECRAFT PRODUCT. NOT APPROVED BY OR ASSOCIATED
+                        WITH MOJANG OR MICROSOFT.
+                        This website and its projects are independent community creations and are not affiliated with,
+                        endorsed by, sponsored by, or associated with Mojang AB, Microsoft Corporation, Roblox
+                        Corporation, or any of their respective affiliates. "Minecraft" is a registered trademark of
+                        Mojang Synergies AB. "Roblox" is a registered trademark of Roblox Corporation.
                     </div>
                 </div>
             </div>
