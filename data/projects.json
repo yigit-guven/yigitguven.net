@@ -1,5 +1,41 @@
 [
     {
+        "id": "chymistry",
+        "name": "Chymistry",
+        "logo": "./images/projecticons/chymistry.svg",
+        "tags": [
+            "Minecraft Modding",
+            "Java"
+        ],
+        "description": "Chymistry introduces interactive chemical workflows and physical alchemical processes to Minecraft. Moving away from instant crafting recipes and single-block machines, it emphasizes hands-on manipulation: preparing reagents, managing temperatures, distillation, and performing in-world reactions.",
+        "links": [
+            {
+                "type": "Modrinth",
+                "text": "Modrinth",
+                "url": "https://modrinth.com/mod/chymistry"
+            },
+            {
+                "type": "CurseForge",
+                "text": "CurseForge",
+                "url": "https://www.curseforge.com/minecraft/mc-mods/chymistry"
+            },
+            {
+                "type": "GitHub",
+                "text": "GitHub",
+                "url": "https://github.com/yigit-guven/Chymistry",
+                "icon": "fab fa-github"
+            },
+            {
+                "type": "Wiki",
+                "text": "Wiki",
+                "url": "https://github.com/yigit-guven/Chymistry/wiki",
+                "icon": "fas fa-book"
+            }
+        ],
+        "home_page": "https://github.com/yigit-guven/Chymistry",
+        "searchData": "chymistry chemistry alchemy interactive chemical workflows reagents distillation minecraft mod java game modding software development software engineering"
+    },
+    {
         "id": "lucidide",
         "name": "Lucid IDE",
         "logo": "./images/projecticons/lucidide.svg",
