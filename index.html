@@ -157,7 +157,7 @@
                 <div class="search-container">
                     <div class="search-controls-row">
                         <label class="archive-toggle-label" for="hideArchivedCheckbox" title="Toggle visibility of archived projects">
-                            <input type="checkbox" id="hideArchivedCheckbox">
+                            <input type="checkbox" id="hideArchivedCheckbox" checked>
                             <span class="custom-checkbox">
                                 <i class="fas fa-check"></i>
                             </span>
@@ -222,10 +222,7 @@
                             </svg>
                         </a>
                         <a href="https://www.tiktok.com/@harunyigitguven?_r=1&_t=ZS-957HCR3Xjvt" target="_blank" class="Footer_iconLink" title="TikTok">
-                            <svg viewBox="0 0 24 24">
-                                <path
-                                    d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.71-.28-2.26.74-4.63 2.58-5.91 1.08-.78 2.39-1.22 3.74-1.28 0 1.33.01 2.65.01 3.98-1.22.09-2.42.61-3.21 1.55-.83.95-1.13 2.27-.82 3.5.25 1.12 1.05 2.1 2.1 2.61 1.01.53 2.2.6 3.29.3 1.25-.33 2.28-1.28 2.67-2.48.21-.61.27-1.26.24-1.9-.01-5.19-.001-10.37-.02-15.56z" />
-                            </svg>
+                            <i class="fab fa-tiktok"></i>
                         </a>
                         <a href="https://www.instagram.com/harunyigitguven/" target="_blank" class="Footer_iconLink"
                             title="Instagram">
@@ -540,6 +537,48 @@
             'Automation': 'fas fa-robot'
         };
 
+        function getShieldBadgeUrl(project, link) {
+            if (project.isArchived) {
+                return null;
+            }
+
+            const type = link.type;
+            const url = link.url || '';
+
+            if (type === 'CurseForge') {
+                if (link.projectId) {
+                    return `https://img.shields.io/curseforge/dt/${link.projectId}?style=for-the-badge&logo=curseforge&label=CurseForge&color=F16436`;
+                }
+                return null;
+            }
+
+            if (type === 'Modrinth') {
+                const match = url.match(/modrinth\.com\/mod\/([^\/\?#]+)/i);
+                const slug = link.slug || (match ? match[1] : null);
+                if (slug) {
+                    return `https://img.shields.io/modrinth/dt/${slug}?style=for-the-badge&logo=modrinth&label=Modrinth&color=00AF5C`;
+                }
+                return null;
+            }
+
+            if (type === 'Discord') {
+                if (link.guildId) {
+                    return `https://img.shields.io/discord/${link.guildId}?style=for-the-badge&logo=discord&label=Discord&color=5865F2`;
+                }
+                return null;
+            }
+
+            if (type === 'GitHub' || type === 'Source') {
+                return 'https://img.shields.io/badge/GitHub-Repository-black?style=for-the-badge&logo=github';
+            }
+
+            if (type === 'Wiki') {
+                return 'https://img.shields.io/badge/Documentation-Wiki-blue?style=for-the-badge&logo=gitbook';
+            }
+
+            return null;
+        }
+
         // Function to scroll to search bar when skill is clicked
         function scrollToSearchBar() {
             const searchContainer = document.querySelector('.search-container');
@@ -694,19 +733,17 @@
             }
         }
 
-        // Load projects from JSON
         async function loadProjects() {
             try {
                 const response = await fetch('./data/projects.json');
                 const projectsData = await response.json();
 
-                // Sort projects: Active first (A-Z), then Archived at the bottom (A-Z)
                 projectsData.sort((a, b) => {
                     const aArchived = Boolean(a.isArchived);
                     const bArchived = Boolean(b.isArchived);
 
                     if (aArchived !== bArchived) {
-                        return aArchived ? 1 : -1; // Non-archived comes first
+                        return aArchived ? 1 : -1;
                     }
 
                     return a.name.localeCompare(b.name, undefined, { sensitivity: 'base' });
@@ -718,25 +755,50 @@
             }
         }
 
-        // Generate HTML for a project item
+        const linkTypeOrder = {
+            'CurseForge': 1,
+            'Modrinth': 2,
+            'Discord': 3,
+            'GitHub': 4,
+            'Source': 5,
+            'Wiki': 6,
+            'Google Play': 7,
+            'Play': 8,
+            'Download': 9,
+            'Website': 10,
+            'YouTube': 11,
+            'Repsy': 12
+        };
+
         function generateProjectHTML(project) {
             const tagsHtml = project.tags.map(tag =>
                 `<span class="project-tag" data-tag="${tag}" onclick="handleSkillClick('${tag}')">${tag}</span>`
             ).join('');
 
-            const linksHtml = project.links.map(link => {
+            const sortedLinks = [...(project.links || [])].sort((a, b) => {
+                const orderA = linkTypeOrder[a.type] ?? 99;
+                const orderB = linkTypeOrder[b.type] ?? 99;
+                return orderA - orderB;
+            });
+
+            const linksHtml = sortedLinks.map(link => {
+                const badgeImgUrl = getShieldBadgeUrl(project, link);
+
+                if (badgeImgUrl) {
+                    return `
+                        <a href="${link.url}" target="_blank" class="project-badge-link" title="${link.text || link.type}">
+                            <img src="${badgeImgUrl}" alt="${link.text || link.type}" loading="lazy" class="shield-badge-img">
+                        </a>
+                    `;
+                }
+
                 let iconHtml = '';
 
-                // Prioritize explicit explicit SVGs if mapped (key is type)
                 if (svgMappings[link.type]) {
                     iconHtml = svgMappings[link.type];
-                }
-                // Then explicit icon mapped in projects.json (font awesome)
-                else if (link.icon) {
+                } else if (link.icon) {
                     iconHtml = `<i class="${link.icon}"></i>`;
-                }
-                // Then fallback to type mapping
-                else {
+                } else {
                     iconHtml = `<i class="${getIconForTag(link.type)}"></i>`;
                 }
 
@@ -772,38 +834,27 @@
             `;
         }
 
-        // Get icon for a tag/technology
         function getIconForTag(tagName) {
             if (svgMappings[tagName]) return svgMappings[tagName];
             return iconMappings[tagName] || 'fas fa-code';
         }
 
-        // Render projects
         function renderProjects(projectsData) {
             const projectsContainer = document.getElementById('projectsContainer');
-
-            // Clear container
             projectsContainer.innerHTML = '';
 
-            // Render all projects
             projectsData.forEach((project, index) => {
                 const projectHTML = generateProjectHTML(project);
                 projectsContainer.insertAdjacentHTML('beforeend', projectHTML);
 
-                // Add animation delay
                 const projectElement = projectsContainer.lastElementChild;
                 if (projectElement) {
                     projectElement.style.animationDelay = `${0.05 + (index * 0.05)}s`;
                 }
             });
 
-            // Re-apply current search/filter state and update project count
             performSearch();
         }
-
-        // ============================================
-        // SEARCH & ARCHIVE FILTER FUNCTIONALITY
-        // ============================================
 
         function performSearch() {
             const searchInput = document.getElementById('projectSearch');
@@ -817,7 +868,6 @@
             projectItems.forEach(item => {
                 const isItemArchived = item.getAttribute('data-archived') === 'true';
 
-                // Check archive filter first
                 if (hideArchived && isItemArchived) {
                     item.classList.add('hidden');
                     return;
@@ -846,7 +896,6 @@
                 }
             });
 
-            // Update search info display
             const searchResultsInfo = document.getElementById('searchResultsInfo');
             const clearSearchBtn = document.getElementById('clearSearch');
 
@@ -859,7 +908,7 @@
             }
 
             if (searchResultsInfo) {
-                if (searchTerm !== '' || hideArchived) {
+                if (searchTerm !== '') {
                     searchResultsInfo.classList.add('visible');
                 } else {
                     searchResultsInfo.classList.remove('visible');
@@ -975,19 +1024,16 @@
                 });
             }
 
-            // Archive toggle functionality
             const hideArchivedCheckbox = document.getElementById('hideArchivedCheckbox');
             if (hideArchivedCheckbox) {
                 hideArchivedCheckbox.addEventListener('change', performSearch);
             }
 
-            // Initialize search results
             setTimeout(() => {
                 performSearch();
             }, 100);
         });
 
-        // Make functions globally available
         window.handleSkillClick = handleSkillClick;
         window.switchTab = switchTab;
         window.toggleSkills = toggleSkills;

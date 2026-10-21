@@ -17,7 +17,8 @@
             {
                 "type": "CurseForge",
                 "text": "CurseForge",
-                "url": "https://www.curseforge.com/minecraft/mc-mods/chymistry"
+                "url": "https://www.curseforge.com/minecraft/mc-mods/chymistry",
+                "projectId": "1619199"
             },
             {
                 "type": "GitHub",
@@ -96,13 +97,20 @@
             {
                 "type": "CurseForge",
                 "text": "CurseForge",
-                "url": "https://www.curseforge.com/minecraft/mc-mods/vault-ui"
+                "url": "https://www.curseforge.com/minecraft/mc-mods/vault-ui",
+                "projectId": "1525237"
             },
             {
                 "type": "GitHub",
                 "text": "Source Code",
                 "url": "https://github.com/yigit-guven/Vault-UI",
                 "icon": "fab fa-github"
+            },
+            {
+                "type": "Wiki",
+                "text": "Wiki",
+                "url": "https://github.com/yigit-guven/Vault-UI/wiki",
+                "icon": "fas fa-book"
             }
         ],
         "home_page": "https://modrinth.com/mod/vault-ui",
@@ -182,7 +190,8 @@
                 "type": "Discord",
                 "text": "Discord Community",
                 "url": "https://discord.gg/p7Upc6tsBQ",
-                "icon": "fab fa-discord"
+                "icon": "fab fa-discord",
+                "guildId": "1456332875426435207"
             }
         ],
         "home_page": "https://www.roblox.com/games/126354243623354/Mundus-Online-BETA",
@@ -227,7 +236,8 @@
                 "type": "Discord",
                 "text": "Discord Server",
                 "url": "https://discord.gg/u5NKWuM4qN",
-                "icon": "fab fa-discord"
+                "icon": "fab fa-discord",
+                "guildId": "1486655638267236382"
             }
         ],
         "home_page": "https://yigitguven.net/i-want-peace/",
@@ -253,13 +263,20 @@
             {
                 "type": "CurseForge",
                 "text": "CurseForge",
-                "url": "https://www.curseforge.com/minecraft/mc-mods/petting"
+                "url": "https://www.curseforge.com/minecraft/mc-mods/petting",
+                "projectId": "1083170"
             },
             {
                 "type": "GitHub",
                 "text": "GitHub",
                 "url": "https://github.com/yigit-guven/Petting",
                 "icon": "fab fa-github"
+            },
+            {
+                "type": "Wiki",
+                "text": "Wiki",
+                "url": "https://github.com/yigit-guven/Petting/wiki",
+                "icon": "fas fa-book"
             }
         ],
         "home_page": "https://www.curseforge.com/minecraft/mc-mods/petting",
@@ -499,7 +516,8 @@
             {
                 "type": "CurseForge",
                 "text": "CurseForge",
-                "url": "https://www.curseforge.com/minecraft/mc-mods/easy-hammers"
+                "url": "https://www.curseforge.com/minecraft/mc-mods/easy-hammers",
+                "projectId": "484665"
             },
             {
                 "type": "Modrinth",
@@ -535,7 +553,8 @@
             {
                 "type": "CurseForge",
                 "text": "CurseForge",
-                "url": "https://www.curseforge.com/minecraft/mc-mods/rpg-backpacks"
+                "url": "https://www.curseforge.com/minecraft/mc-mods/rpg-backpacks",
+                "projectId": "478335"
             },
             {
                 "type": "Modrinth",
@@ -577,7 +596,8 @@
             {
                 "type": "CurseForge",
                 "text": "CurseForge",
-                "url": "https://www.curseforge.com/minecraft/mc-mods/playerstand"
+                "url": "https://www.curseforge.com/minecraft/mc-mods/playerstand",
+                "projectId": "1073829"
             },
             {
                 "type": "Modrinth",
@@ -614,7 +634,8 @@
             {
                 "type": "CurseForge",
                 "text": "CurseForge",
-                "url": "https://www.curseforge.com/minecraft/mc-mods/day-length/"
+                "url": "https://www.curseforge.com/minecraft/mc-mods/day-length/",
+                "projectId": "837167"
             },
             {
                 "type": "Modrinth",
@@ -644,7 +665,8 @@
             {
                 "type": "CurseForge",
                 "text": "CurseForge",
-                "url": "https://www.curseforge.com/minecraft/mc-mods/mana-lib"
+                "url": "https://www.curseforge.com/minecraft/mc-mods/mana-lib",
+                "projectId": "1048063"
             },
             {
                 "type": "Modrinth",
@@ -655,7 +677,8 @@
                 "type": "Discord",
                 "text": "Discord",
                 "url": "https://discord.gg/aPk7Qs5d4H",
-                "icon": "fab fa-discord"
+                "icon": "fab fa-discord",
+                "guildId": "1440563800930652235"
             }
         ],
         "home_page": "https://github.com/Ryukazan/Mana-Lib",
@@ -681,7 +704,8 @@
             {
                 "type": "CurseForge",
                 "text": "CurseForge",
-                "url": "https://www.curseforge.com/minecraft/mc-mods/leather-craft"
+                "url": "https://www.curseforge.com/minecraft/mc-mods/leather-craft",
+                "projectId": "624669"
             },
             {
                 "type": "Modrinth",
@@ -734,7 +758,8 @@
                 "type": "Discord",
                 "text": "Discord",
                 "url": "https://discord.gg/gNajXYku5z",
-                "icon": "fab fa-discord"
+                "icon": "fab fa-discord",
+                "guildId": "1440563800930652235"
             }
         ],
         "home_page": "https://github.com/yigit-guven/Loots",
@@ -781,7 +806,8 @@
             {
                 "type": "CurseForge",
                 "text": "CurseForge",
-                "url": "https://www.curseforge.com/minecraft/mc-mods/advanced-hud"
+                "url": "https://www.curseforge.com/minecraft/mc-mods/advanced-hud",
+                "projectId": "1452364"
             },
             {
                 "type": "GitHub",
@@ -836,7 +862,8 @@
                 "type": "Discord",
                 "text": "Discord",
                 "url": "https://discord.gg/gNajXYku5z",
-                "icon": "fab fa-discord"
+                "icon": "fab fa-discord",
+                "guildId": "1440563800930652235"
             }
         ],
         "home_page": "https://github.com/yigit-guven/Superionic",
@@ -861,7 +888,8 @@
             {
                 "type": "CurseForge",
                 "text": "CurseForge",
-                "url": "https://www.curseforge.com/minecraft/mc-mods/claim"
+                "url": "https://www.curseforge.com/minecraft/mc-mods/claim",
+                "projectId": "1091183"
             },
             {
                 "type": "GitHub",
@@ -874,12 +902,6 @@
                 "text": "Wiki",
                 "url": "https://github.com/yigit-guven/Claim/wiki",
                 "icon": "fas fa-book"
-            },
-            {
-                "type": "Discord",
-                "text": "Discord",
-                "url": "https://discord.gg/aPk7Qs5d4H",
-                "icon": "fab fa-discord"
             }
         ],
         "home_page": "https://github.com/yigit-guven/Claim",
