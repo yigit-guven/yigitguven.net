@@ -1,0 +1,42 @@
+name: Sync Minecraft Mod Wikis
+
+on:
+  schedule:
+    - cron: '0 0 * * *'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  sync-wikis:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 1
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Install dependencies
+        run: pip install markdown
+
+      - name: Run wiki sync script
+        run: python scripts/sync_wikis.py
+
+      - name: Commit and push if changed
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add minecraft-mods/ sitemap.xml
+          if git diff --staged --quiet; then
+            echo "No wiki changes detected. Everything is up to date."
+          else
+            git commit -m "chore(wikis): sync latest minecraft mod wikis [skip ci]"
+            git push
+          fi
